@@ -105,6 +105,12 @@ const nextConfig: NextConfig = {
         destination: 'https://app.busikm.pl/polityka-prywatnosci',
         permanent: true,
       },
+      // Google Play wymaga publicznego adresu usuwania konta; strona żyje w aplikacji webowej.
+      {
+        source: '/usuwanie-konta',
+        destination: 'https://app.busikm.pl/usuwanie-konta',
+        permanent: true,
+      },
       { source: '/en/terms', destination: 'https://app.busikm.pl/regulamin', permanent: true },
       {
         source: '/en/data-processing-agreement',

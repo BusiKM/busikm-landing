@@ -1,0 +1,81 @@
+import { Container } from '@/components/ui/Container';
+import { Eyebrow } from '@/components/ui/Section';
+import { MockupSlot } from '@/components/ui/MockupSlot';
+import { PierscienieCzasu } from '@/components/mockups/PierscienieCzasu';
+import type { Tlumaczenia } from '@/i18n/jezyki';
+import { biezacyJezyk } from '@/i18n/serwer';
+
+const TEKSTY: Tlumaczenia<{
+  eyebrow: string;
+  naglowek1: string;
+  naglowek2: string;
+  lead: string;
+  label: string;
+  note: string;
+}> = {
+  pl: {
+    eyebrow: 'Czas pracy i przerwy',
+    naglowek1: 'Wiesz, kiedy kierowca musi stanąć.',
+    naglowek2: 'Zanim stanie za późno.',
+    lead: 'Jazda i praca liczą się same, przerwę kierowca włącza jednym przyciskiem. Kierowca widzi to na telefonie, Ty na jednym ekranie.',
+    label: 'Kierowcy, zakładka „Czas pracy” · desktop',
+    note: 'Lista kierowców z kolumnami: teraz, jazda dziś, do przerwy, tydzień, dwa tygodnie, powrót do domu i stan „W normie”. Ten sam ekran co na stronie głównej.',
+  },
+  en: {
+    eyebrow: 'Working time and breaks',
+    naglowek1: 'You know when a driver has to stop.',
+    naglowek2: 'Before it’s too late.',
+    lead: 'Driving and work time count themselves; the driver starts a break with one tap. The driver sees it on the phone, you see it on one screen.',
+    label: 'Drivers, “Working time” tab · desktop',
+    note: 'A list of drivers with columns for now, driving today, time to break, week, two weeks, home time and a “Within limits” status. The same screen as on the home page.',
+  },
+};
+
+/**
+ * Nagłówek strony – ciemny. Nagłówek jest o kilka pikseli mniejszy niż na
+ * pozostałych podstronach, bo przy 88 px pierwsza linia by się łamała.
+ */
+export function Hero() {
+  const t = TEKSTY[biezacyJezyk()];
+  return (
+    <section className="relative overflow-hidden bg-ink px-6 pt-24 text-paper lg:px-12 lg:pt-40">
+      <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
+        <Eyebrow dark>{t.eyebrow}</Eyebrow>
+        <h1
+          data-reveal
+          className="text-display-m font-bold text-balance lg:text-[76px] lg:leading-[1.05] lg:tracking-[-0.03em]"
+        >
+          {t.naglowek1} <br className="hidden lg:inline" />
+          {t.naglowek2}
+        </h1>
+        <p
+          data-reveal
+          className="max-w-[640px] text-lead-m text-pretty text-ink-muted lg:text-lead"
+        >
+          {t.lead}
+        </p>
+      </Container>
+
+      <Container className="relative mt-16 flex flex-col items-center gap-6 pb-24 lg:mt-24 lg:pb-40">
+        <div data-reveal className="relative w-full lg:max-w-[760px]">
+          <div
+            aria-hidden
+            className="absolute right-[10%] bottom-10 left-[10%] h-30 bg-blue opacity-30 blur-[70px] lg:h-45 lg:blur-[110px]"
+          />
+          <div className="relative">
+            <MockupSlot
+              file="mockup-czas-pracy-pierscienie-desktop.png"
+              label={t.label}
+              note={t.note}
+              ratio="4:3"
+              dark
+              noteClassName="mx-auto max-w-[600px]"
+            >
+              <PierscienieCzasu />
+            </MockupSlot>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}

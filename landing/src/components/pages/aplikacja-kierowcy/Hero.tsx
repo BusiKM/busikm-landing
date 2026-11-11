@@ -1,0 +1,306 @@
+import { Container } from '@/components/ui/Container';
+import { Eyebrow } from '@/components/ui/Section';
+import { MockupSlot } from '@/components/ui/MockupSlot';
+import type { Tlumaczenia } from '@/i18n/jezyki';
+import { biezacyJezyk } from '@/i18n/serwer';
+
+const TEKSTY: Tlumaczenia<{
+  licznikPrzedStartem: string;
+  licznik: string;
+  zdjecieLicznika: string;
+  trasa: string;
+  gotowe: string;
+  rozpocznij: string;
+  zlecenia: string;
+  dzis: string;
+  zaladunek: string;
+  dodajKoszt: string;
+  kwota: string;
+  kwotaWartosc: string;
+  eyebrow: string;
+  naglowek1: string;
+  naglowek2: string;
+  lead: string;
+  trzy: { label: string; note: string };
+  jeden: { label: string; note: string };
+}> = {
+  pl: {
+    licznikPrzedStartem: 'Licznik na start',
+    licznik: '184 210 km',
+    zdjecieLicznika: 'zdjęcie licznika',
+    trasa: 'Wrocław → Milano',
+    gotowe: 'gotowe',
+    rozpocznij: 'Zacznij dzień',
+    zlecenia: 'Zlecenia',
+    dzis: 'Dziś',
+    zaladunek: 'Załadunek 06:00',
+    dodajKoszt: 'Dodaj paragon',
+    kwota: 'Kwota',
+    kwotaWartosc: '612,40 zł',
+    eyebrow: 'BusiKM Kierowca · iPhone i Android',
+    naglowek1: 'Cały dzień pracy w jednej aplikacji.',
+    naglowek2: 'Prawie bez wpisywania w trasie.',
+    lead: 'Kierowca dostaje kod mailem, ustawia hasło i jest w środku. Dalej prowadzi go jeden przycisk na każdy etap dnia.',
+    trzy: {
+      label: 'Trzy ekrany aplikacji kierowcy · telefon, tryb nocny',
+      note: 'Od lewej: „Czas pracy” z trzema wskaźnikami (przewóz międzynarodowy), „Dziś” z kursem Wrocław → Milano i przyciskiem „Jestem na rozładunku”, „Moje koszty” z przyciskiem „Dodaj paragon”.',
+    },
+    jeden: {
+      label: 'Ekran „Dziś” · telefon, tryb nocny',
+      note: 'Kurs Wrocław → Milano „W trasie”: załadunek i rozładunek, przyciski „Nawiguj”, „Zadzwoń” i „Czat”, „Nie mogę kontynuować”, niżej „Trasa bez zlecenia”.',
+    },
+  },
+  en: {
+    licznikPrzedStartem: 'Odometer at start',
+    licznik: '184,210 km',
+    zdjecieLicznika: 'odometer photo',
+    trasa: 'Wrocław → Milan',
+    gotowe: 'ready',
+    rozpocznij: 'Start the day',
+    zlecenia: 'Orders',
+    dzis: 'Today',
+    zaladunek: 'Loading 06:00',
+    dodajKoszt: 'Add receipt',
+    kwota: 'Amount',
+    kwotaWartosc: 'PLN 612.40',
+    eyebrow: 'BusiKM Driver · iPhone and Android',
+    naglowek1: 'A whole working day in one app.',
+    naglowek2: 'Hardly any typing on the road.',
+    lead: 'The driver gets a code by email, sets a password and they’re in. From then on, one button takes them through each stage of the day.',
+    trzy: {
+      label: 'Three driver app screens · phone, dark mode',
+      note: 'From the left: “Working time” with three gauges (international transport), “Today” with the Wrocław → Milan job and an “At unloading” button, “My costs” with an “Add receipt” button.',
+    },
+    jeden: {
+      label: '“Today” screen · phone, dark mode',
+      note: 'The Wrocław → Milan job “On the road”: loading and unloading, “Navigate”, “Call” and “Chat” buttons, “I can’t continue”, and “Trip without an order” below.',
+    },
+  },
+};
+
+type Teksty = (typeof TEKSTY)['pl'];
+
+/** Trzy telefony wychodzące zza dolnej krawędzi sekcji. */
+function TelefonUciety({
+  className = '',
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={`relative rounded-t-[38px] border border-b-0 border-[#2A2A30] bg-black px-2 pt-2 lg:rounded-t-[44px] lg:px-2.5 lg:pt-2.5 ${className}`}
+    >
+      <div className="flex h-full flex-col overflow-hidden rounded-t-[30px] bg-surface text-[11px] lg:rounded-t-[36px] lg:text-[12px]">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/** Środkowy telefon – jedyny, który mieści się sensownie na wąskim ekranie. */
+const telefonSrodkowy = (t: Teksty) => (
+        <TelefonUciety className="z-2 h-[260px] w-[220px] shadow-[0_-20px_80px_rgba(0,0,0,.5)] lg:h-[500px] lg:w-[280px]">
+          <div className="flex flex-col gap-3.5 px-4 pt-5 lg:px-5 lg:pt-6 lg:text-[13px]">
+            <div className="flex justify-between text-ink-muted">
+              <span>06:02</span>
+              <span>WZ 4821K</span>
+            </div>
+            <div className="mt-2 rounded-[18px] bg-surface-2 p-4 lg:p-4.5">
+              <div className="text-ink-muted">{t.licznikPrzedStartem}</div>
+              <div className="mt-1.5 text-[24px] font-bold tracking-[-0.02em] lg:text-[30px]">
+                {t.licznik}
+              </div>
+              <div className="mt-3 flex h-[70px] items-center justify-center rounded-xl bg-line-dark text-ink-muted lg:h-[90px]">
+                {t.zdjecieLicznika}
+              </div>
+            </div>
+            <div className="flex justify-between px-1 text-ink-muted">
+              <span>{t.trasa}</span>
+              <span className="text-green">{t.gotowe}</span>
+            </div>
+          </div>
+          <div className="mt-auto rounded-t-[18px] bg-blue p-4 text-center text-[16px] font-semibold text-white lg:p-5 lg:text-[18px]">
+            {t.rozpocznij}
+          </div>
+        </TelefonUciety>
+);
+
+/** Komplet trzech telefonów – układ na szerokie ekrany. */
+const telefony = (t: Teksty) => (
+  <>
+
+        <TelefonUciety className="hidden w-[250px] translate-y-10 rotate-[-4deg] opacity-70 lg:block lg:h-[420px]">
+          <div className="p-4.5 text-ink-muted lg:p-5.5">
+            <div className="flex justify-between">
+              <span>05:40</span>
+              <span>{t.zlecenia}</span>
+            </div>
+            <div className="mt-5 text-[20px] font-semibold text-paper">{t.dzis}</div>
+            <div className="mt-3.5 rounded-[14px] bg-surface-2 p-3.5 text-paper">
+              <b>{t.trasa}</b>
+              <div className="mt-1 text-ink-muted">{t.zaladunek}</div>
+            </div>
+          </div>
+        </TelefonUciety>
+
+        <TelefonUciety className="z-2 h-[260px] w-[220px] shadow-[0_-20px_80px_rgba(0,0,0,.5)] lg:h-[500px] lg:w-[280px]">
+          <div className="flex flex-col gap-3.5 px-4 pt-5 lg:px-5 lg:pt-6 lg:text-[13px]">
+            <div className="flex justify-between text-ink-muted">
+              <span>06:02</span>
+              <span>WZ 4821K</span>
+            </div>
+            <div className="mt-2 rounded-[18px] bg-surface-2 p-4 lg:p-4.5">
+              <div className="text-ink-muted">{t.licznikPrzedStartem}</div>
+              <div className="mt-1.5 text-[24px] font-bold tracking-[-0.02em] lg:text-[30px]">
+                {t.licznik}
+              </div>
+              <div className="mt-3 flex h-[70px] items-center justify-center rounded-xl bg-line-dark text-ink-muted lg:h-[90px]">
+                {t.zdjecieLicznika}
+              </div>
+            </div>
+            <div className="flex justify-between px-1 text-ink-muted">
+              <span>{t.trasa}</span>
+              <span className="text-green">{t.gotowe}</span>
+            </div>
+          </div>
+          <div className="mt-auto rounded-t-[18px] bg-blue p-4 text-center text-[16px] font-semibold text-white lg:p-5 lg:text-[18px]">
+            {t.rozpocznij}
+          </div>
+        </TelefonUciety>
+
+        <TelefonUciety className="hidden w-[250px] translate-y-10 rotate-[4deg] opacity-70 lg:block lg:h-[420px]">
+          <div className="flex flex-col gap-3.5 p-4.5 text-ink-muted lg:p-5.5">
+            <div className="flex justify-between">
+              <span>11:38</span>
+              <span>{t.dodajKoszt}</span>
+            </div>
+            <div className="flex h-30 items-center justify-center rounded-[14px] bg-[#1E1E22]">
+              <div className="h-21 w-16 rounded-[3px] bg-mist" />
+            </div>
+            <div className="flex justify-between rounded-xl bg-surface-2 px-3.5 py-3 text-paper">
+              <span className="text-ink-muted">{t.kwota}</span>
+              <b>{t.kwotaWartosc}</b>
+            </div>
+          </div>
+        </TelefonUciety>
+  </>
+);
+
+/** Nagłówek strony – ciemny, z telefonami u dołu. */
+export function Hero() {
+  const t = TEKSTY[biezacyJezyk()];
+  return (
+    <section className="relative overflow-hidden bg-ink px-6 pt-24 text-paper lg:px-12 lg:pt-40">
+      <svg
+        viewBox="0 0 1440 1100"
+        preserveAspectRatio="xMidYMin slice"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[900px] w-full lg:h-[1100px]"
+        aria-hidden
+      >
+        <path
+          d="M -60 900 C 300 760, 520 820, 760 560 S 1120 200, 1500 80"
+          fill="none"
+          stroke="#0B5FFF"
+          strokeWidth="40"
+          opacity=".04"
+        />
+        <path
+          d="M -60 900 C 300 760, 520 820, 760 560 S 1120 200, 1500 80"
+          fill="none"
+          stroke="#0B5FFF"
+          strokeWidth="2"
+          opacity=".14"
+        />
+      </svg>
+
+      <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
+        <Eyebrow dark>{t.eyebrow}</Eyebrow>
+        <h1
+          data-reveal
+          className="max-w-[1040px] text-display-m font-bold text-balance lg:text-display"
+        >
+          {t.naglowek1} <br className="hidden lg:inline" />
+          {t.naglowek2}
+        </h1>
+        <p
+          data-reveal
+          className="max-w-[640px] text-lead-m text-pretty text-ink-muted lg:text-lead"
+        >
+          {t.lead}
+        </p>
+      </Container>
+
+      {/*
+        Dwa zrzuty zamiast jednego: szeroko trzy telefony obok siebie, wąsko
+        jeden. Ten sam obraz w obu miejscach znaczyłby albo trzy telefony
+        ściśnięte do 375 px, albo jeden zgubiony na szerokim ekranie.
+
+        Do czasu wrzucenia plików stoją tu rysowane makiety – `MockupSlot`
+        podmienia je sam, gdy plik pojawi się w `public/mockups/`.
+      */}
+      <div className="relative mt-16 lg:mt-24">
+        <div
+          aria-hidden
+          className="absolute inset-x-[25%] bottom-0 h-40 bg-blue opacity-35 blur-[90px] lg:h-50 lg:blur-[120px]"
+        />
+
+        {/*
+          Bez powiększenia i z ograniczoną szerokością – inaczej niż pozostałe
+          zrzuty telefonu na tej stronie.
+
+          Tamte mają telefon zajmujący 30% szerokości kadru i bez powiększenia
+          wychodzą jak miniaturki. Ten jest wykadrowany ciasno: treść zajmuje
+          91% szerokości i 90% wysokości, więc każde powiększenie wypycha go
+          poza ekran – przy 1,35 wychodziło 374 px.
+
+          Szerokość ograniczona, bo pełna kolumna daje przy proporcjach 4:3
+          ponad tysiąc pikseli wysokości i sam nagłówek strony znika z ekranu.
+        */}
+        <div className="relative mx-auto hidden max-w-[900px] lg:block">
+          <MockupSlot
+            file="mockup-kierowca-hero-trzy-phone.png"
+            label={t.trzy.label}
+            note={t.trzy.note}
+            ratio="4:3"
+            dark
+            noteClassName="mx-auto max-w-[640px]"
+          >
+            <div className="flex h-[560px] items-end justify-center gap-9">
+              {telefony(t)}
+            </div>
+          </MockupSlot>
+        </div>
+
+        {/*
+          Telefon wychodzi zza dolnej krawędzi sekcji – tak jak rysowane
+          makiety, które tu wcześniej stały.
+        
+          Nie trzeba do tego żadnego przycinania: przy skali 2 zrzut wystaje
+          poza swoje pudło o 123 px w górę i w dół, a `overflow-hidden`
+          sekcji obcina to, co wyjdzie pod spodem. Odstęp u góry oddaje
+          te 123 px, żeby telefon nie nachodził na akapit.
+        
+          Skala 2 wyliczona: telefon zajmuje 44% szerokości kadru, więc przy
+          pudle 327 px wychodzi szeroki na 290 z 375 dostępnych.
+        */}
+        <div className="relative mt-28 lg:hidden">
+          <MockupSlot
+            file="mockup-kierowca-hero-phone.png"
+            label={t.jeden.label}
+            note={t.jeden.note}
+            ratio="4:3"
+            imageScale={2}
+            imageScaleTelefon={2}
+            dark
+          >
+            <div className="flex h-[280px] items-end justify-center gap-4">
+              {telefonSrodkowy(t)}
+            </div>
+          </MockupSlot>
+        </div>
+      </div>
+    </section>
+  );
+}

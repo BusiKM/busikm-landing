@@ -1,0 +1,308 @@
+'use client';
+
+import { useMemo, useState, useSyncExternalStore } from 'react';
+import Link from '@/i18n/Link';
+
+import { firma } from '@/content/firma';
+import { firebaseGotowy } from '@/lib/firebase';
+import { zapiszNaListe } from '@/lib/zapisy';
+import { zdarzenieMeta } from '@/lib/meta';
+import { LIMITY_ZAPISU, type OpisListy } from '@/content/zapisy';
+import { TRESC_ZGODY } from '@/content/zgoda';
+import { odczytajWybor, opiszWybor } from '@/content/zainteresowanie';
+import { Wymagane } from '@/components/ui/Wymagane';
+import type { Tlumaczenia } from '@/i18n/jezyki';
+import { useJezyk } from '@/i18n/klient';
+
+/**
+ * Adres strony jako magazyn zewnętrzny.
+ *
+ * Parametry wyboru z cennika żyją poza Reactem, więc czytamy je hookiem od
+ * tego przeznaczonym, zamiast przepisywać efektem do stanu – ten drugi
+ * sposób kosztuje dodatkowy render przy każdym wejściu.
+ *
+ * Świadomie nie sięgamy po `useSearchParams` z Nexta: ten wymaga granicy
+ * `Suspense` nad formularzem i przy stronie budowanej statycznie każe
+ * pokazać stan zastępczy zamiast pól. Formularz jest tu treścią główną,
+ * więc ma się wyrenderować od razu, a `/zaloguj` ma zostać statyczna.
+ *
+ * `popstate` łapie cofnięcie się z cennika przyciskiem „wstecz".
+ */
+function subskrybujAdres(przy: () => void): () => void {
+  window.addEventListener('popstate', przy);
+  return () => window.removeEventListener('popstate', przy);
+}
+
+const adresTeraz = () => window.location.search;
+/** Serwer nie zna adresu czytelnika – do hydracji zachowujemy się jak bez parametrów. */
+const adresNaSerwerze = () => '';
+
+const pole =
+  'h-13 w-full rounded-btn border border-line bg-white px-4 text-[16px] outline-none placeholder:text-muted focus:border-blue lg:text-body';
+
+type Stan = 'gotowy' | 'wysyłam' | 'zapisany' | 'błąd';
+
+const TEKSTY: Tlumaczenia<{
+  tematDemo: string;
+  tematKonto: string;
+  imiePole: string;
+  emailPole: string;
+  zapisane: (imie: string) => string;
+  wybranyPlan: string;
+  zmien: string;
+  imie: string;
+  imieWzor: string;
+  email: string;
+  emailWzor: string;
+  wymagane: string;
+  pulapka: string;
+  zapisuje: string;
+  blad: [string, string];
+  prywatnosc: string;
+}> = {
+  pl: {
+    tematDemo: 'powiadom mnie o demo',
+    tematKonto: 'powiadom mnie o zapisach',
+    imiePole: 'Imię',
+    emailPole: 'E-mail',
+    zapisane: (imie) => `Zapisane, ${imie}.`,
+    wybranyPlan: 'Wybrany plan:',
+    zmien: 'zmień',
+    imie: 'Imię',
+    imieWzor: 'Marek',
+    email: 'Adres e-mail',
+    emailWzor: 'marek@twojafirma.pl',
+    wymagane: 'pola wymagane',
+    pulapka: 'Nie wypełniaj tego pola',
+    zapisuje: 'Zapisuję…',
+    blad: ['Nie udało się zapisać. Napisz wprost na', '– ta droga działa zawsze.'],
+    prywatnosc: 'Polityka prywatności',
+  },
+  en: {
+    tematDemo: 'let me know about the demo',
+    tematKonto: 'let me know when sign-ups open',
+    imiePole: 'Name',
+    emailPole: 'Email',
+    zapisane: (imie) => `You’re on the list, ${imie}.`,
+    wybranyPlan: 'Selected plan:',
+    zmien: 'change',
+    imie: 'First name',
+    imieWzor: 'Mark',
+    email: 'Email address',
+    emailWzor: 'mark@yourcompany.com',
+    wymagane: 'required fields',
+    pulapka: 'Do not fill in this field',
+    zapisuje: 'Saving…',
+    blad: ['That didn’t work. Write to us directly at', '– that always works.'],
+    prywatnosc: 'Privacy policy',
+  },
+};
+
+/**
+ * Zapis na listę – imię, adres i zgoda.
+ *
+ * Zgoda jest tu **wymagana** i to jest zgodne z prawem, choć wygląda na
+ * pierwszy rzut oka odwrotnie. Art. 7 ust. 4 RODO zabrania uzależniać
+ * wykonanie usługi od zgody, która nie jest do niej niezbędna – ale na tych
+ * stronach usługą **jest** lista. Zgoda nie warunkuje niczego innego, bo nic
+ * innego tu nie oferujemy. W formularzu kontaktowym jest odwrotnie i tam
+ * okienko musi być nieobowiązkowe.
+ *
+ * Imię nie jest ozdobą: pierwsza wiadomość ma zaczynać się od „Cześć Marek",
+ * a nie od „Dzień dobry".
+ *
+ * Bez konfiguracji Firebase formularz cofa się do `mailto:` – nigdy nie
+ * połknie adresu, nie mając gdzie go zapisać.
+ */
+export function FormularzZapisu({ opis }: { opis: OpisListy }) {
+  const jezyk = useJezyk();
+  const t = TEKSTY[jezyk];
+  const [imie, setImie] = useState('');
+  const [mail, setMail] = useState('');
+  const [zgoda, setZgoda] = useState(false);
+  const [pulapka, setPulapka] = useState('');
+  const [stan, setStan] = useState<Stan>('gotowy');
+
+  /** Plan i okres wybrane w cenniku – tylko gdy człowiek przyszedł stamtąd. */
+  const adres = useSyncExternalStore(subskrybujAdres, adresTeraz, adresNaSerwerze);
+  const wybor = useMemo(() => odczytajWybor(new URLSearchParams(adres)), [adres]);
+
+  const kompletne =
+    imie.trim().length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail) && zgoda;
+
+  const linkPocztowy = () =>
+    `mailto:${firma.email}?subject=${encodeURIComponent(
+      `BusiKM · ${opis.lista === 'demo' ? t.tematDemo : t.tematKonto}`,
+    )}&body=${encodeURIComponent(
+      [imie && `${t.imiePole}: ${imie}`, mail && `${t.emailPole}: ${mail}`]
+        .filter(Boolean)
+        .join('\n'),
+    )}`;
+
+  const wyslij = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!kompletne || stan === 'wysyłam') return;
+    setStan('wysyłam');
+    try {
+      await zapiszNaListe({
+        imie,
+        email: mail,
+        lista: opis.lista,
+        zrodlo: opis.zrodlo,
+        zainteresowanie: wybor,
+        jezyk,
+        pulapka,
+      });
+      zdarzenieMeta('Lead', { content_name: opis.zrodlo });
+      setStan('zapisany');
+    } catch {
+      setStan('błąd');
+    }
+  };
+
+  if (stan === 'zapisany') {
+    return (
+      <div
+        role="status"
+        className="flex flex-col gap-3 rounded-card border border-line bg-mist p-6 lg:p-8"
+      >
+        <div className="text-[19px] font-semibold lg:text-h3">
+          {t.zapisane(imie.trim().split(/\s+/)[0])}
+        </div>
+        <p className="text-[16px] leading-relaxed text-muted lg:text-body">{opis.poZapisie}</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={wyslij} className="flex flex-col gap-4 lg:gap-5">
+      {/*
+        Pokazujemy wybór z cennika, zamiast wozić go po cichu. Człowiek widzi,
+        że nie przepadł, i ma jak go poprawić – a my nie zbieramy w tle
+        niczego, czego nie postawilibyśmy mu przed oczami.
+      */}
+      {wybor && (
+        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 rounded-btn border border-blue-soft-line bg-blue-soft px-4 py-3 text-[14px] lg:text-caption">
+          <span className="text-muted">{t.wybranyPlan}</span>
+          <b>{opiszWybor(wybor, jezyk)}</b>
+          <Link
+            href="/cennik"
+            className="ml-auto font-medium text-blue-dark underline-offset-2 hover:underline"
+          >
+            {t.zmien}
+          </Link>
+        </div>
+      )}
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:gap-5">
+        <label className="flex flex-col gap-2">
+          <span className="text-[14px] font-medium lg:text-caption">
+            {t.imie}
+            <Wymagane />
+          </span>
+          <input
+            value={imie}
+            onChange={(e) => setImie(e.target.value)}
+            maxLength={LIMITY_ZAPISU.imie}
+            placeholder={t.imieWzor}
+            autoComplete="given-name"
+            required
+            className={pole}
+          />
+        </label>
+
+        <label className="flex flex-col gap-2">
+          <span className="text-[14px] font-medium lg:text-caption">
+            {t.email}
+            <Wymagane />
+          </span>
+          <input
+            type="email"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+            maxLength={LIMITY_ZAPISU.email}
+            placeholder={t.emailWzor}
+            autoComplete="email"
+            required
+            className={pole}
+          />
+        </label>
+      </div>
+
+
+      {/* Znaczenie gwiazdki musi być wyjaśnione – WCAG 3.3.2. */}
+      <p className="text-[12px] text-muted">
+        <span aria-hidden className="text-red-ink">*</span> {t.wymagane}
+      </p>
+
+      {/* Pułapka na boty – człowiek tego pola nie zobaczy i nie zatabuluje. */}
+      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label>
+          {t.pulapka}
+          <input
+            tabIndex={-1}
+            autoComplete="off"
+            value={pulapka}
+            onChange={(e) => setPulapka(e.target.value)}
+          />
+        </label>
+      </div>
+
+      {/*
+        Brzmienie zgody jest jedno dla całego serwisu i wersjonowane –
+        razem z adresem trafia do bazy, bo to na nas spoczywa ciężar dowodu
+        (art. 7 ust. 1 RODO). Nie zmieniaj go tutaj: `content/zgoda.ts`.
+      */}
+      <label className="flex cursor-pointer items-start gap-3 text-[14px] leading-relaxed text-muted lg:text-caption">
+        <input
+          type="checkbox"
+          checked={zgoda}
+          onChange={(e) => setZgoda(e.target.checked)}
+          required
+          className="mt-0.5 size-4.5 flex-none accent-blue"
+        />
+        <span>
+          {TRESC_ZGODY[jezyk]}
+          <Wymagane />
+        </span>
+      </label>
+
+      {firebaseGotowy ? (
+        <button
+          type="submit"
+          disabled={!kompletne || stan === 'wysyłam'}
+          className="inline-flex h-13 items-center justify-center rounded-btn bg-blue px-7 text-[16px] font-semibold text-white transition-colors hover:bg-blue-dark disabled:cursor-not-allowed disabled:bg-line disabled:text-muted lg:h-14 lg:self-start lg:text-body"
+        >
+          {stan === 'wysyłam' ? t.zapisuje : opis.wezwanie}
+        </button>
+      ) : (
+        <a
+          href={linkPocztowy()}
+          className="inline-flex h-13 items-center justify-center rounded-btn bg-blue px-7 text-[16px] font-semibold text-white transition-colors hover:bg-blue-dark lg:h-14 lg:self-start lg:text-body"
+        >
+          {opis.wezwanie}
+        </a>
+      )}
+
+      <p aria-live="polite" className="text-[13px] leading-relaxed text-muted lg:text-caption">
+        {stan === 'błąd' ? (
+          <span className="text-ink">
+            {t.blad[0]}{' '}
+            <a href={linkPocztowy()} className="text-blue">
+              {firma.email}
+            </a>{' '}
+            {t.blad[1]}
+          </span>
+        ) : (
+          <>
+            {opis.obietnica}{' '}
+            <Link href="/prywatnosc" className="text-blue">
+              {t.prywatnosc}
+            </Link>
+            .
+          </>
+        )}
+      </p>
+    </form>
+  );
+}

@@ -1,0 +1,119 @@
+rules_version = '2';
+
+// Reguły Firestore dla BusiKM — trzy kolekcje z landingu:
+//   wiadomosci      formularz kontaktowy
+//   zapisy-demo     lista wczesnego dostępu do demo
+//   zapisy-konto    lista oczekujących na otwarcie zapisów do aplikacji
+//
+// Klucze klienta Firebase są publiczne z założenia, więc to te reguły, a nie
+// klucze, decydują o bezpieczeństwie. Wolno wyłącznie utworzyć dokument i tylko
+// taki, który przejdzie walidację. Odczyt, edycja i kasowanie są zamknięte dla
+// wszystkich — dane czyta się z konsoli albo Admin SDK.
+//
+// Listy są osobnymi kolekcjami, nie jedną z polem `lista`: reguły przypisuje
+// się do ścieżki, więc osobne kolekcje można walidować niezależnie, a przy
+// eksporcie adresów trudniej je pomylić.
+//
+// ── Zgoda marketingowa ──────────────────────────────────────────────────────
+// Na listach zgoda jest **wymagana** — reguła odrzuca dokument bez `zgoda ==
+// true`. Wolno tak, bo usługą jest tam sama lista i zgoda nie warunkuje
+// niczego innego (art. 7 ust. 4 RODO).
+//
+// W kolekcji `wiadomosci` jest odwrotnie: usługą jest odpowiedź na pytanie,
+// więc zgoda musi być nieobowiązkowa i reguła przyjmuje oba stany.
+//
+// Dowód zgody (`trescZgody`, `wersjaZgody`, `kanalZgody`) jest wymagany
+// wszędzie tam, gdzie zgoda padła. To na nas spoczywa ciężar wykazania jej
+// treści — art. 7 ust. 1 RODO — a samo `true` nie dowodzi, pod czym ktoś się
+// podpisał.
+//
+// ── Język ───────────────────────────────────────────────────────────────────
+// `jezyk` ('pl' | 'en') to język formularza, a więc i brzmienia zgody, które
+// człowiek widział — `trescZgody` na stronie angielskiej jest po angielsku.
+// Pole jest opcjonalne tylko po to, żeby reguły dało się wdrożyć przed kodem:
+// stary kod go nie wysyła. Kolejność wdrożenia: najpierw te reguły, potem
+// kod — odwrotnie `hasOnly` odrzuci każdy nowy zapis.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /wiadomosci/{id} {
+      allow read, update, delete: if false;
+      allow create: if poprawnaWiadomosc(request.resource.data);
+    }
+
+    match /zapisy-demo/{id} {
+      allow read, update, delete: if false;
+      allow create: if poprawnyZapis(request.resource.data);
+    }
+
+    match /zapisy-konto/{id} {
+      allow read, update, delete: if false;
+      allow create: if poprawnyZapis(request.resource.data);
+    }
+
+    // Wszystko inne zablokowane.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+
+  // Dowód zgody: gdy `zgoda == true`, muszą być wszystkie trzy pola i muszą
+  // mieć sens. Gdy zgody nie ma — nie wolno ich podać wcale.
+  function dowodZgody(d) {
+    return d.zgoda == true
+      ? d.trescZgody is string && d.trescZgody.size() > 40 && d.trescZgody.size() <= 400
+        && d.wersjaZgody is int && d.wersjaZgody > 0
+        && d.kanalZgody == 'email'
+      : !('trescZgody' in d) && !('wersjaZgody' in d) && !('kanalZgody' in d);
+  }
+
+  function poprawnyJezyk(d) {
+    return !('jezyk' in d) || d.jezyk in ['pl', 'en'];
+  }
+
+  function poprawnaWiadomosc(d) {
+    return d.keys().hasOnly(['imie', 'email', 'temat', 'tresc', 'zgoda',
+                             'trescZgody', 'wersjaZgody', 'kanalZgody',
+                             'jezyk', 'createdAt', 'source'])
+      && d.keys().hasAll(['imie', 'email', 'temat', 'tresc', 'zgoda', 'createdAt'])
+      && d.imie is string && d.imie.size() > 0 && d.imie.size() <= 120
+      && d.email is string && d.email.size() <= 160 && d.email.matches('.+@.+[.].+')
+      && d.tresc is string && d.tresc.size() > 0 && d.tresc.size() <= 4000
+      && d.temat in ['pytanie przed zakupem', 'pomoc techniczna', 'rozliczenia i faktury', 'coś innego']
+      && d.zgoda is bool
+      && dowodZgody(d)
+      && poprawnyJezyk(d)
+      && d.createdAt == request.time
+      && (!('source' in d) || d.source == 'busikm-landing');
+  }
+
+  // Plan i okres wybrane w cenniku. Opcjonalne — na strony zapisu wchodzi się
+  // też wprost, z zakładki albo z wyszukiwarki. Ale jeśli już są, to oba
+  // naraz i wyłącznie ze znanych wartości: to deklaracja zainteresowania,
+  // a nie miejsce, gdzie ktoś z zewnątrz wpisze dowolny tekst.
+  function wyborZCennika(d) {
+    return ('plan' in d) == ('okres' in d)
+      && (!('plan' in d)
+          || (d.plan in ['start', 'firma']
+              && d.okres in ['miesiecznie', 'rocznie']));
+  }
+
+  function poprawnyZapis(d) {
+    return d.keys().hasOnly(['imie', 'email', 'zrodlo', 'zgoda',
+                             'trescZgody', 'wersjaZgody', 'kanalZgody',
+                             'plan', 'okres', 'jezyk',
+                             'createdAt', 'source'])
+      && d.keys().hasAll(['imie', 'email', 'zrodlo', 'zgoda',
+                          'trescZgody', 'wersjaZgody', 'kanalZgody', 'createdAt'])
+      && d.imie is string && d.imie.size() > 0 && d.imie.size() <= 80
+      && d.email is string && d.email.size() <= 160 && d.email.matches('.+@.+[.].+')
+      && d.zrodlo in ['demo', 'rejestracja']
+      // Bez zgody nie ma zapisu na listę — to nie jest pole opcjonalne.
+      && d.zgoda == true
+      && dowodZgody(d)
+      && wyborZCennika(d)
+      && poprawnyJezyk(d)
+      && d.createdAt == request.time
+      && (!('source' in d) || d.source == 'busikm-landing');
+  }
+}

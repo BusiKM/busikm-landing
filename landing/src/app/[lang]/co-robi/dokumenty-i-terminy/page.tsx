@@ -1,0 +1,189 @@
+import Link from '@/i18n/Link';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { FinalCta } from '@/components/sections/FinalCta';
+import { Akordeon } from '@/components/ui/Akordeon';
+import { Blok } from '@/components/ui/Blok';
+import { Drobiazgi } from '@/components/ui/Drobiazgi';
+import { MockupSlot } from '@/components/ui/MockupSlot';
+import { metadataPodstrony } from '@/lib/metadata';
+import { biezacyJezyk, jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
+import type { Tlumaczenia } from '@/i18n/jezyki';
+import { Hero } from '@/components/pages/dokumenty/Hero';
+import { WJednymMiejscu } from '@/components/pages/dokumenty/WJednymMiejscu';
+import { StatusEkran } from '@/components/pages/dokumenty/StatusEkran';
+import { WydrukIKolor } from '@/components/pages/dokumenty/WydrukIKolor';
+import { UstawPrzypomnienie } from '@/components/mockups/dokumenty/UstawPrzypomnienie';
+import { TelefonKierowcy } from '@/components/mockups/dokumenty/TelefonKierowcy';
+
+export const generateMetadata = metadataPodstrony('co-robi/dokumenty-i-terminy');
+
+type Teksty = {
+  pytania: readonly (readonly [string, string])[];
+  drobiazgi: readonly string[];
+  przypomnienie: { tytul: string; tresc: string };
+  kierowca: { tytul: string; tresc: string; label: string; note: string };
+  ktoUzywa: string;
+  wlascicielLink: string;
+  kierowcaLink: string;
+  pytaniaNaglowek: string;
+};
+
+const TEKSTY: Tlumaczenia<Teksty> = {
+  pl: {
+    pytania: [
+      [
+        'Skąd system zna daty?',
+        'Wpisujesz je raz przy dokumencie. Po odnowieniu przesuwasz termin jednym kliknięciem.',
+      ],
+      [
+        'Czy przypomnienie przyjdzie mailem?',
+        'Tak, mailem i w aplikacji – Tobie i dyspozytorowi, a o dokumentach firmy Tobie i księgowej. Kierowca widzi swoje terminy w aplikacji: na ekranie „Dziś” i w „Moich dokumentach”.',
+      ],
+      [
+        'Co, gdy dokument dotyczy tylko jednego pojazdu?',
+        'Wtedy siedzi przy tym pojeździe i nie miesza się z resztą floty.',
+      ],
+    ],
+    drobiazgi: [
+      'Skan dokumentu przy pozycji',
+      'Przypomnienie mailem i w aplikacji',
+      'Termin przesuwasz jednym kliknięciem po odnowieniu',
+      'Historia poprzednich polis i przeglądów',
+      'Dokumenty zlecenia (CMR, WZ) pod ręką kierowcy w trasie',
+      'Przypomnienie o zgraniu karty kierowcy co 28 dni i tachografu co 90',
+    ],
+    przypomnienie: {
+      tytul: 'Przypomnienie z wyprzedzeniem',
+      tresc: 'Na długo przed terminem, nie dzień po. Sam ustawiasz, ile dni wcześniej.',
+    },
+    kierowca: {
+      tytul: 'Kierowca też widzi swoje',
+      tresc:
+        'W „Moich dokumentach” ma prawo jazdy, świadectwo kwalifikacji, badania lekarskie i psychologiczne oraz kartę kierowcy, każdy z datą ważności. Gdy termin się zbliża, widzi komunikat na ekranie „Dziś”.',
+      label: 'Moje dokumenty · telefon, tryb nocny',
+      note: 'Ekran „Moje dokumenty” z kompletem ważnych dokumentów: badania lekarskie, kwalifikacja zawodowa, karta kierowcy, badania psychotechniczne i prawo jazdy, każdy z datą „Ważny do”.',
+    },
+    ktoUzywa: 'Kto tego używa:',
+    wlascicielLink: 'Właściciel →',
+    kierowcaLink: 'Kierowca →',
+    pytaniaNaglowek: 'Trzy pytania',
+  },
+  en: {
+    pytania: [
+      [
+        'Where do the dates come from?',
+        'You enter them once, with the document. After a renewal, you move the deadline with one click.',
+      ],
+      [
+        'Will the reminder come by email?',
+        'Yes, by email and in the app – to you and the dispatcher, and for company documents to you and your accountant. Drivers see their own deadlines in the app: on the “Today” screen and in “My documents”.',
+      ],
+      [
+        'What if a document only applies to one vehicle?',
+        'Then it sits with that vehicle and doesn’t get mixed up with the rest of the fleet.',
+      ],
+    ],
+    drobiazgi: [
+      'The document scan sits with the entry',
+      'Reminders by email and in the app',
+      'Move the deadline with one click after a renewal',
+      'History of past policies and inspections',
+      'Order documents (CMR, delivery notes) to hand for the driver on the road',
+      'Reminders to download the driver card every 28 days and the tachograph every 90',
+    ],
+    przypomnienie: {
+      tytul: 'Reminders well ahead',
+      tresc: 'Long before the deadline, not the day after. You decide how many days ahead.',
+    },
+    kierowca: {
+      tytul: 'The driver sees theirs too',
+      tresc:
+        'In “My documents” they keep their driving licence, driver CPC, medical and psychological checks and tachograph card, each with its expiry date. When a deadline gets close, they see a message on the “Today” screen.',
+      label: 'My documents · phone, dark mode',
+      note: 'The “My documents” screen with a full set of valid documents: medical check, professional qualification, tachograph card, psychological assessment and driving licence, each with a “Valid until” date.',
+    },
+    ktoUzywa: 'Who uses it:',
+    wlascicielLink: 'Owner →',
+    kierowcaLink: 'Driver →',
+    pytaniaNaglowek: 'Three questions',
+  },
+};
+
+/**
+ * Dokumenty i terminy – podstrona wg projektu „BusiKM Dokumenty i terminy"
+ * z Claude Design (design/10-dokumenty-i-terminy). Treść: docs/landing/05, rozdział A9.
+ *
+ * Jedyna strona w serwisie, na której wolno użyć koloru `amber` – i tylko dla
+ * dokumentu, który zaraz wygaśnie.
+ */
+export default async function Page({ params }: ParametryJezyka) {
+  await jezykZParametrow(params);
+  const t = TEKSTY[biezacyJezyk()];
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <WJednymMiejscu />
+
+        <Blok
+          numer="02"
+          tytul={t.przypomnienie.tytul}
+          tresc={t.przypomnienie.tresc}
+          makieta={<UstawPrzypomnienie />}
+        />
+
+        <Blok
+          tone="ink"
+          strona="left"
+          numer="03"
+          tytul={t.kierowca.tytul}
+          tresc={t.kierowca.tresc}
+          makieta={
+            <MockupSlot
+              file="mockup-dokumenty-kierowca-phone.png"
+              label={t.kierowca.label}
+              note={t.kierowca.note}
+              ratio="9:19.5"
+              box="6:7"
+              // Zrzut ma szeroki kadr 4:3 z telefonem zajmującym 30% jego
+              // szerokości – bez powiększenia wychodzi na 158 px w kolumnie
+              // mającej 520. Ta sama wartość, co przy pozostałych telefonach.
+              imageScale={1.8}
+              imageScaleTelefon={1.8}
+              dark
+              noteClassName="mx-auto max-w-[520px]"
+            >
+              <TelefonKierowcy />
+            </MockupSlot>
+          }
+        />
+
+        <StatusEkran />
+        <WydrukIKolor />
+
+        <Drobiazgi
+          tone="mist"
+          kafelki={t.drobiazgi}
+          stopka={
+            <>
+              {t.ktoUzywa}{' '}
+              <Link href="/dla-kogo/wlasciciel">
+                {t.wlascicielLink}
+              </Link>
+              <span className="mx-3">·</span>
+              <Link href="/dla-kogo/kierowca">
+                {t.kierowcaLink}
+              </Link>
+            </>
+          }
+        />
+
+        <Akordeon heading={t.pytaniaNaglowek} items={t.pytania} />
+      </main>
+      <FinalCta />
+      <Footer />
+    </>
+  );
+}

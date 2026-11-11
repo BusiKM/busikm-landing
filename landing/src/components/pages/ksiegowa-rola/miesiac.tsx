@@ -22,7 +22,7 @@ export const miesiacKsiegowej: Tlumaczenia<PunktDnia[]> = {
           miesiąc
         </>
       ),
-      pora: '1–31',
+      pora: '1-31',
       tresc: 'Faktury, koszty i trasy wpadają same. Nie prosisz o nic. Faktury i korekty wystawisz też tutaj.',
       karta: <KartaWpada />,
     },
@@ -34,7 +34,7 @@ export const miesiacKsiegowej: Tlumaczenia<PunktDnia[]> = {
           tydzień
         </>
       ),
-      pora: '24–31',
+      pora: '24-31',
       tresc: 'Otwierasz sześć kroków miesiąca: faktury, koszty, przebieg, płace i diety, deklaracje i zamknięcie z plikami. Przy braku masz odnośnik prosto do niego.',
       karta: <KartaSprawdzenie />,
     },
@@ -77,7 +77,7 @@ export const miesiacKsiegowej: Tlumaczenia<PunktDnia[]> = {
           month
         </>
       ),
-      pora: '1–31',
+      pora: '1-31',
       tresc: 'Invoices, costs and routes come in on their own. You don’t ask for anything, and you can issue invoices and corrections yourself.',
       karta: <KartaWpada />,
     },
@@ -89,7 +89,7 @@ export const miesiacKsiegowej: Tlumaczenia<PunktDnia[]> = {
           week
         </>
       ),
-      pora: '24–31',
+      pora: '24-31',
       tresc: 'You open the six month-end steps: invoices, costs, mileage, payroll and allowances, tax returns, and closing with the files. Any gap comes with a link straight to it.',
       karta: <KartaSprawdzenie />,
     },

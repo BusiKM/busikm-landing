@@ -37,16 +37,16 @@ export const opisSerwisu: Tlumaczenia<{ tytul: string; opis: string; opisOg: str
   pl: {
     tytul: 'Program do zarządzania transportem busami · BusiKM',
     opis:
-      'Ewidencja przebiegu pojazdu, czas pracy kierowców, zlecenia i faktury w jednym programie. Dla firm transportowych z busami 2,5–3,5 t. 14 dni za darmo.',
+      'Ewidencja przebiegu pojazdu, czas pracy kierowców, zlecenia i faktury w jednym programie. Dla firm transportowych z busami 2,5-3,5 t. 14 dni za darmo.',
     opisOg:
-      'Ewidencja przebiegu, czas pracy kierowców, zlecenia i faktury w jednym programie. Dla firm z busami 2,5–3,5 t. 14 dni gratis.',
+      'Ewidencja przebiegu, czas pracy kierowców, zlecenia i faktury w jednym programie. Dla firm z busami 2,5-3,5 t. 14 dni gratis.',
   },
   en: {
     tytul: 'Van fleet management software · BusiKM',
     opis:
-      'Mileage log, driver working time, orders and invoices in one app. For transport companies running 2.5–3.5 t vans. 14 days free.',
+      'Mileage log, driver working time, orders and invoices in one app. For transport companies running 2.5-3.5 t vans. 14 days free.',
     opisOg:
-      'Mileage log, driver working time, orders and invoices in one app. For companies with 2.5–3.5 t vans. 14 days free.',
+      'Mileage log, driver working time, orders and invoices in one app. For companies with 2.5-3.5 t vans. 14 days free.',
   },
 };
 

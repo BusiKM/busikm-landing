@@ -18,7 +18,7 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     etapy: [
       ['Teraz', 'MVP sprawdzamy na prawdziwych trasach, w małej grupie firm'],
-      ['Potem', 'otwieramy zapisy – pierwsze 14 dni bez opłat'],
+      ['Potem', 'otwieramy zapisy - pierwsze 14 dni bez opłat'],
       ['Dalej', 'aplikacja kierowcy w App Store i Google Play'],
     ],
     kontoTestowe: 'Masz już konto testowe?',
@@ -30,7 +30,7 @@ const TEKSTY: Tlumaczenia<{
   en: {
     etapy: [
       ['Now', 'we’re testing the MVP on real routes with a small group of companies'],
-      ['Next', 'sign-ups open – the first 14 days free'],
+      ['Next', 'sign-ups open - the first 14 days free'],
       ['Later', 'the driver app on the App Store and Google Play'],
     ],
     kontoTestowe: 'Already have a test account?',

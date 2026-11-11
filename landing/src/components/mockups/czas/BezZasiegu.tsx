@@ -13,9 +13,9 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     kto: 'Marek W. · dziś',
-    luka: 'tunel Brenner · brak zasięgu 12:05–12:38',
-    lukaKrotko: '12:05–12:38 · w telefonie',
-    lukaDlugo: '12:05–12:38 · zapisane w telefonie, dosłane 12:39',
+    luka: 'tunel Brenner · brak zasięgu 12:05-12:38',
+    lukaKrotko: '12:05-12:38 · w telefonie',
+    lukaDlugo: '12:05-12:38 · zapisane w telefonie, dosłane 12:39',
     wiersze: [
       ['Jazda w tunelu', '33 min'],
       ['Zapisane w telefonie', 'tak'],
@@ -24,9 +24,9 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     kto: 'Marek W. · today',
-    luka: 'Brenner tunnel · no signal 12:05–12:38',
-    lukaKrotko: '12:05–12:38 · on the phone',
-    lukaDlugo: '12:05–12:38 · saved on the phone, sent at 12:39',
+    luka: 'Brenner tunnel · no signal 12:05-12:38',
+    lukaKrotko: '12:05-12:38 · on the phone',
+    lukaDlugo: '12:05-12:38 · saved on the phone, sent at 12:39',
     wiersze: [
       ['Driving in the tunnel', '33 min'],
       ['Saved on the phone', 'yes'],

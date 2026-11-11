@@ -44,7 +44,7 @@ const TEKSTY: Tlumaczenia<Tresc> = {
       ],
       ['Nie znam się na aplikacjach.', 'Jeden przycisk na każdy etap dnia. Kod z maila od szefa, własne hasło i jedziesz.'],
     ],
-    nota: 'To pracodawca wybiera narzędzia. Ale to Ty spędzasz w tym osiem godzin dziennie – pokaż mu tę stronę.',
+    nota: 'To pracodawca wybiera narzędzia. Ale to Ty spędzasz w tym osiem godzin dziennie - pokaż mu tę stronę.',
   },
   en: {
     osNaglowek: 'Your day.',
@@ -67,7 +67,7 @@ const TEKSTY: Tlumaczenia<Tresc> = {
       ],
       ['I’m not good with apps.', 'One button for each stage of the day. A code from your boss by email, your own password, and off you go.'],
     ],
-    nota: 'Your employer chooses the tools. But you’re the one using them eight hours a day – show them this page.',
+    nota: 'Your employer chooses the tools. But you’re the one using them eight hours a day - show them this page.',
   },
 };
 

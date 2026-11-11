@@ -37,7 +37,7 @@ const TEKSTY: Tlumaczenia<{
     obowiazuje: (od, wersja) => `In force from ${od} · version ${wersja}`,
     wSkrocie: 'In short',
     zastrzezenie:
-      'This summary makes the document easier to read but does not replace it. The full document is binding – in its Polish version.',
+      'This summary makes the document easier to read but does not replace it. The full document is binding - in its Polish version.',
     ostatniaZmiana: 'Last updated:',
     pozostale: 'Other documents:',
     pytanie: 'Have a question about this document? Write to:',
@@ -97,7 +97,7 @@ function Tresc({ blok }: { blok: Blok }) {
           {blok.pozycje.map((d) => (
             <div key={d.termin} className="text-pretty">
               <dt className="inline font-semibold">{d.termin}</dt>{' '}
-              <dd className="inline">– {d.opis}</dd>
+              <dd className="inline">- {d.opis}</dd>
             </div>
           ))}
         </dl>

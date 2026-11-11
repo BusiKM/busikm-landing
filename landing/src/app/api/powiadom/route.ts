@@ -95,11 +95,11 @@ export async function POST(request: Request) {
         </tr>
         <tr>
           <td style="padding:4px 16px 4px 0;color:#6C6C74;vertical-align:top">Język</td>
-          <td>${jezyk === 'en' ? 'angielski (EN) – odpowiedz po angielsku' : 'polski'}</td>
+          <td>${jezyk === 'en' ? 'angielski (EN) - odpowiedz po angielsku' : 'polski'}</td>
         </tr>
         <tr>
           <td style="padding:4px 16px 4px 0;color:#6C6C74;vertical-align:top">Zgoda</td>
-          <td>${zgoda ? `tak – dopisany do listy (${klaviyo.ok ? 'Klaviyo OK' : bezpiecznie('Klaviyo: ' + ('pominiete' in klaviyo ? klaviyo.pominiete : klaviyo.blad))})` : 'nie – sam kontakt, bez listy'}</td>
+          <td>${zgoda ? `tak - dopisany do listy (${klaviyo.ok ? 'Klaviyo OK' : bezpiecznie('Klaviyo: ' + ('pominiete' in klaviyo ? klaviyo.pominiete : klaviyo.blad))})` : 'nie - sam kontakt, bez listy'}</td>
         </tr>
       </table>
       <div style="margin-top:20px;padding-top:20px;border-top:1px solid #E3E3E6;white-space:pre-wrap;font-size:15px">${bezpiecznie(tresc)}</div>
@@ -115,7 +115,7 @@ export async function POST(request: Request) {
         // Dzięki temu „Odpowiedz" w kliencie pocztowym trafia wprost do
         // osoby, która napisała, a nie do adresu nadawcy technicznego.
         reply_to: email,
-        subject: `BusiKM · ${temat}${jezyk === 'en' ? ' [EN]' : ''} – ${imie}`,
+        subject: `BusiKM · ${temat}${jezyk === 'en' ? ' [EN]' : ''} - ${imie}`,
         html,
       }),
     });

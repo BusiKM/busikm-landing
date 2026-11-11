@@ -33,7 +33,7 @@ export const dzienDyspozytora: Tlumaczenia<PunktDnia[]> = {
     {
       godzina: '13:20',
       pora: 'coś się zmienia',
-      tresc: 'Kurs może się spóźnić – widzisz to w kolejce „Wymaga reakcji”. Jednym kliknięciem powiadamiasz klienta albo piszesz do kierowcy.',
+      tresc: 'Kurs może się spóźnić - widzisz to w kolejce „Wymaga reakcji”. Jednym kliknięciem powiadamiasz klienta albo piszesz do kierowcy.',
       karta: <KartaKorek />,
     },
     {
@@ -66,7 +66,7 @@ export const dzienDyspozytora: Tlumaczenia<PunktDnia[]> = {
     {
       godzina: '13:20',
       pora: 'something changes',
-      tresc: 'A run may arrive late – you see it in the “Needs action” queue. One click to notify the client or message the driver.',
+      tresc: 'A run may arrive late - you see it in the “Needs action” queue. One click to notify the client or message the driver.',
       karta: <KartaKorek />,
     },
     {

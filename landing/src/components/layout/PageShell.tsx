@@ -87,8 +87,8 @@ export function PageShell({ slug }: { slug: string }) {
               className="mt-12 max-w-[60ch] rounded-card border border-dashed border-line bg-mist p-6 text-[15px] text-muted lg:mt-16"
             >
               {jezyk === 'pl'
-                ? 'Ta strona czeka na projekt. Treść jest gotowa i opisana w dokumentacji – dochodzi układ i makiety.'
-                : 'This page is waiting for its design. The content is ready – layout and mockups are on the way.'}
+                ? 'Ta strona czeka na projekt. Treść jest gotowa i opisana w dokumentacji - dochodzi układ i makiety.'
+                : 'This page is waiting for its design. The content is ready - layout and mockups are on the way.'}
             </p>
           </Container>
         </section>

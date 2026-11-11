@@ -11,7 +11,7 @@ export const artykulyZlecenia: Artykul[] = [
     gdzie: 'Zlecenia → Nowe zlecenie',
     czas: 'Pięć minut przy pierwszym, dwie przy kolejnych',
     zanim: [
-      'Kontrahent w bazie – albo dane, z których go dopiszesz',
+      'Kontrahent w bazie - albo dane, z których go dopiszesz',
       'Adresy załadunku i rozładunku',
       'Ustalona stawka frachtu',
     ],
@@ -41,11 +41,11 @@ export const artykulyZlecenia: Artykul[] = [
               },
               {
                 tytul: 'Cena i warunki',
-                opis: 'Fracht netto i Waluta, Termin płatności (dni) z karty klienta i Forma płatności. Tu wpisujesz też Uwagi dla kierowcy – zobaczy je w aplikacji – i Notatkę wewnętrzną, którą widzi tylko biuro.',
+                opis: 'Fracht netto i Waluta, Termin płatności (dni) z karty klienta i Forma płatności. Tu wpisujesz też Uwagi dla kierowcy - zobaczy je w aplikacji - i Notatkę wewnętrzną, którą widzi tylko biuro.',
               },
               {
                 tytul: 'Utwórz zlecenie',
-                opis: 'Albo od razu Utwórz i przypisz kierowcę – przejdziesz prosto do przypisania w Dyspozytorni.',
+                opis: 'Albo od razu Utwórz i przypisz kierowcę - przejdziesz prosto do przypisania w Dyspozytorni.',
               },
             ],
           },
@@ -67,7 +67,7 @@ export const artykulyZlecenia: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Gdy żadne auto nie zdąży, oddasz kurs przewoźnikowi – w ostatnim kroku kreatora (Oddaj przewoźnikowi) albo z karty zlecenia.',
+              'Gdy żadne auto nie zdąży, oddasz kurs przewoźnikowi - w ostatnim kroku kreatora (Oddaj przewoźnikowi) albo z karty zlecenia.',
           },
         ],
       },
@@ -79,7 +79,7 @@ export const artykulyZlecenia: Artykul[] = [
     slug: 'dyspozytornia',
     kategoria: 'zlecenia',
     tytul: 'Dyspozytornia na co dzień',
-    lead: 'Kolejka spraw, mapa floty i plan floty w jednym miejscu – zamiast dzwonienia po kierowcach.',
+    lead: 'Kolejka spraw, mapa floty i plan floty w jednym miejscu - zamiast dzwonienia po kierowcach.',
     role: ['dyspozytor', 'wlasciciel'],
     gdzie: 'Dyspozytornia',
     rozdzialy: [
@@ -91,8 +91,8 @@ export const artykulyZlecenia: Artykul[] = [
             wstep: 'U góry liczniki, które mówią, czy dzień idzie zgodnie z planem:',
             punkty: [
               'Załadunki dziś i Rozładunki dziś.',
-              'W trasie – auta w drodze.',
-              'Do przypisania – kursy bez kierowcy.',
+              'W trasie - auta w drodze.',
+              'Do przypisania - kursy bez kierowcy.',
               'Wolne auta.',
             ],
           },
@@ -123,7 +123,7 @@ export const artykulyZlecenia: Artykul[] = [
               },
               {
                 tytul: 'Napisz do kierowcy',
-                opis: 'Odpowiedz otwiera czat w karcie zlecenia. Wiadomość dociera do aplikacji w telefonie – nie musisz dzwonić do jadącego człowieka.',
+                opis: 'Odpowiedz otwiera czat w karcie zlecenia. Wiadomość dociera do aplikacji w telefonie - nie musisz dzwonić do jadącego człowieka.',
               },
               {
                 tytul: 'Zmień termin, jeśli trzeba',
@@ -166,7 +166,7 @@ export const artykulyZlecenia: Artykul[] = [
               },
               {
                 tytul: 'Dodaj osobę do kontaktu',
-                opis: 'Nieobowiązkowo – kto odbiera przy problemie z załadunkiem.',
+                opis: 'Nieobowiązkowo - kto odbiera przy problemie z załadunkiem.',
               },
               { tytul: 'Kliknij Zapisz kontrahenta' },
             ],
@@ -174,7 +174,7 @@ export const artykulyZlecenia: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Jeśli ta firma już jest w BusiKM, formularz to wykryje – kontrahent nie powstanie drugi raz.',
+              'Jeśli ta firma już jest w BusiKM, formularz to wykryje - kontrahent nie powstanie drugi raz.',
           },
         ],
       },
@@ -184,14 +184,14 @@ export const artykulyZlecenia: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Termin płatności (domyślnie 30 dni) i Waluta – z kraju firmy, możesz zmienić – podpowiadają się potem na fakturach. Ustaw je raz, zamiast poprawiać co miesiąc.',
+              'Termin płatności (domyślnie 30 dni) i Waluta - z kraju firmy, możesz zmienić - podpowiadają się potem na fakturach. Ustaw je raz, zamiast poprawiać co miesiąc.',
           },
           {
             typ: 'lista',
             wstep: 'Warto wypełnić także:',
             punkty: [
-              'E-mail do faktur – na ten adres pójdzie faktura, zwykle inny niż kontakt handlowy.',
-              'Osobę do kontaktu z telefonem – gdy coś pójdzie nie tak na miejscu.',
+              'E-mail do faktur - na ten adres pójdzie faktura, zwykle inny niż kontakt handlowy.',
+              'Osobę do kontaktu z telefonem - gdy coś pójdzie nie tak na miejscu.',
             ],
           },
           {
@@ -227,7 +227,7 @@ export const artykulyZlecenia: Artykul[] = [
             kroki: [
               {
                 tytul: 'Wejdź w Faktury i kliknij Nowa faktura',
-                opis: 'Albo w karcie zlecenia wybierz Wystaw fakturę – powstanie szkic z danymi zlecenia.',
+                opis: 'Albo w karcie zlecenia wybierz Wystaw fakturę - powstanie szkic z danymi zlecenia.',
               },
               {
                 tytul: 'Wybierz Ze zleceń',
@@ -259,7 +259,7 @@ export const artykulyZlecenia: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Na fakturze kliknij Wyślij klientowi. Przy fakturze w KSeF wybierasz Wyślij po nadaniu numeru – mail z PDF-em i kodem QR wyjdzie, gdy KSeF nada numer. Adres podpowiada się z karty klienta.',
+              'Na fakturze kliknij Wyślij klientowi. Przy fakturze w KSeF wybierasz Wyślij po nadaniu numeru - mail z PDF-em i kodem QR wyjdzie, gdy KSeF nada numer. Adres podpowiada się z karty klienta.',
           },
           {
             typ: 'akapit',
@@ -270,10 +270,10 @@ export const artykulyZlecenia: Artykul[] = [
             typ: 'lista',
             wstep: 'Na fakturze, w przyciskach i w menu Więcej akcji:',
             punkty: [
-              'Zarejestruj wpłatę – kwota, data i forma wpłaty.',
-              'Wyślij ponownie PDF – gdy klient zgubił maila.',
-              'Wystaw korektę – faktury z KSeF nie anulujesz ani nie usuniesz, zmieniasz ją korektą.',
-              'Powiel jako nową fakturę – gdy kolejna jest prawie taka sama.',
+              'Zarejestruj wpłatę - kwota, data i forma wpłaty.',
+              'Wyślij ponownie PDF - gdy klient zgubił maila.',
+              'Wystaw korektę - faktury z KSeF nie anulujesz ani nie usuniesz, zmieniasz ją korektą.',
+              'Powiel jako nową fakturę - gdy kolejna jest prawie taka sama.',
             ],
           },
           {
@@ -284,7 +284,7 @@ export const artykulyZlecenia: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Przypomnienia o płatności układamy codziennie – 3 dni przed terminem oraz 7 i 14 dni po nim. Nic nie wychodzi samo: przeglądasz je pod przyciskiem Przypomnienia na liście faktur i wysyłasz zaznaczone.',
+              'Przypomnienia o płatności układamy codziennie - 3 dni przed terminem oraz 7 i 14 dni po nim. Nic nie wychodzi samo: przeglądasz je pod przyciskiem Przypomnienia na liście faktur i wysyłasz zaznaczone.',
           },
         ],
       },

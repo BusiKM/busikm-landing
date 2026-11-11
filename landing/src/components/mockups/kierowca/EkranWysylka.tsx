@@ -21,7 +21,7 @@ const TEKSTY: Tlumaczenia<{
     kolejka: [
       ['Punkty trasy', '142 · od 12:05'],
       ['Paragon · OMV Brno', '103,30 € · zdjęcie'],
-      ['Przerwa 12:40–13:25', 'czas pracy'],
+      ['Przerwa 12:40-13:25', 'czas pracy'],
       ['Zdjęcie licznika', '184 210 km'],
     ],
     wyslane: 'wysłane',
@@ -34,7 +34,7 @@ const TEKSTY: Tlumaczenia<{
     kolejka: [
       ['Route points', '142 · since 12:05'],
       ['Receipt · OMV Brno', '€103.30 · photo'],
-      ['Break 12:40–13:25', 'working time'],
+      ['Break 12:40-13:25', 'working time'],
       ['Odometer photo', '184,210 km'],
     ],
     wyslane: 'sent',

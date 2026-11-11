@@ -75,7 +75,7 @@ const TEKSTY: Tlumaczenia<{
     wymagane: 'pola wymagane',
     pulapka: 'Nie wypełniaj tego pola',
     zapisuje: 'Zapisuję…',
-    blad: ['Nie udało się zapisać. Napisz wprost na', '– ta droga działa zawsze.'],
+    blad: ['Nie udało się zapisać. Napisz wprost na', '- ta droga działa zawsze.'],
     prywatnosc: 'Polityka prywatności',
   },
   en: {
@@ -93,7 +93,7 @@ const TEKSTY: Tlumaczenia<{
     wymagane: 'required fields',
     pulapka: 'Do not fill in this field',
     zapisuje: 'Saving…',
-    blad: ['That didn’t work. Write to us directly at', '– that always works.'],
+    blad: ['That didn’t work. Write to us directly at', '- that always works.'],
     prywatnosc: 'Privacy policy',
   },
 };

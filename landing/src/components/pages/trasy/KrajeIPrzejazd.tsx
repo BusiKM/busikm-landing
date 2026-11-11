@@ -33,7 +33,7 @@ const TEKSTY: Tlumaczenia<{
     },
     nazwy: ['Polska', 'Czechy', 'Niemcy', 'Austria', 'Włochy'],
     kurs: 'Marek W. · Warszawa → Mediolan',
-    daty: '2–3.09',
+    daty: '2-3.09',
     przejazd: {
       tytul: 'Przejazd bez zlecenia też się liczy',
       tresc: 'Dojazd do bazy, wyjazd do serwisu, przeprowadzka pojazdu. Kilometry nie giną.',
@@ -52,7 +52,7 @@ const TEKSTY: Tlumaczenia<{
     },
     nazwy: ['Poland', 'Czechia', 'Germany', 'Austria', 'Italy'],
     kurs: 'Marek W. · Warsaw → Milan',
-    daty: '2–3 Sep',
+    daty: '2-3 Sep',
     przejazd: {
       tytul: 'Trips without an order count too',
       tresc: 'Driving to the depot, over to the garage, moving a vehicle. No kilometre goes missing.',

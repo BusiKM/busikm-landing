@@ -38,7 +38,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
       [
         'Czy przypomnienie przyjdzie mailem?',
-        'Tak, mailem i w aplikacji – Tobie i dyspozytorowi, a o dokumentach firmy Tobie i księgowej. Kierowca widzi swoje terminy w aplikacji: na ekranie „Dziś” i w „Moich dokumentach”.',
+        'Tak, mailem i w aplikacji - Tobie i dyspozytorowi, a o dokumentach firmy Tobie i księgowej. Kierowca widzi swoje terminy w aplikacji: na ekranie „Dziś” i w „Moich dokumentach”.',
       ],
       [
         'Co, gdy dokument dotyczy tylko jednego pojazdu?',
@@ -77,7 +77,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
       [
         'Will the reminder come by email?',
-        'Yes, by email and in the app – to you and the dispatcher, and for company documents to you and your accountant. Drivers see their own deadlines in the app: on the “Today” screen and in “My documents”.',
+        'Yes, by email and in the app - to you and the dispatcher, and for company documents to you and your accountant. Drivers see their own deadlines in the app: on the “Today” screen and in “My documents”.',
       ],
       [
         'What if a document only applies to one vehicle?',

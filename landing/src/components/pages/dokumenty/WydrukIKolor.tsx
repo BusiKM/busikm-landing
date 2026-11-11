@@ -26,7 +26,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     wydruk: {
       tytul: 'Komplet do pobrania',
-      tresc: 'Dokumenty auta albo kierowcy w jednym pliku ZIP – dla klienta albo na kontrolę. Braki widzisz przed pobraniem.',
+      tresc: 'Dokumenty auta albo kierowcy w jednym pliku ZIP - dla klienta albo na kontrolę. Braki widzisz przed pobraniem.',
       naglowek: 'Dokumenty · wrzesień 2026',
       pozycje: [
         ['Ubezpieczenie OC · PO 2093J', '12.10'],
@@ -56,7 +56,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   en: {
     wydruk: {
       tytul: 'The full set to download',
-      tresc: 'A vehicle’s or driver’s documents in one ZIP file – for a client or a roadside check. You see what’s missing before you download.',
+      tresc: 'A vehicle’s or driver’s documents in one ZIP file - for a client or a roadside check. You see what’s missing before you download.',
       naglowek: 'Documents · September 2026',
       pozycje: [
         ['Third-party liability insurance · PO 2093J', '12 Oct'],

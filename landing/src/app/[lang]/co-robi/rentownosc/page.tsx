@@ -41,7 +41,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
       [
         'Co z kosztami, które nie należą do żadnego kursu?',
-        'Leasing, polisa, serwis – to koszty auta. Wchodzą do wyniku miesiąca i do kosztu na kilometr na karcie pojazdu, a wynik zlecenia zostaje czysty: fracht minus koszty kursu i diety.',
+        'Leasing, polisa, serwis - to koszty auta. Wchodzą do wyniku miesiąca i do kosztu na kilometr na karcie pojazdu, a wynik zlecenia zostaje czysty: fracht minus koszty kursu i diety.',
       ],
     ],
     drobiazgi: [
@@ -54,7 +54,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     ],
     koszty: {
       tytul: 'Wszystkie koszty w środku',
-      tresc: 'Na kursie: paliwo, opłaty drogowe, nocleg, parking, podwykonawca i diety kierowcy. Amortyzacja, leasing i polisa – w kosztach auta i w wyniku miesiąca.',
+      tresc: 'Na kursie: paliwo, opłaty drogowe, nocleg, parking, podwykonawca i diety kierowcy. Amortyzacja, leasing i polisa - w kosztach auta i w wyniku miesiąca.',
     },
     porownanie: {
       tytul: 'Porównanie okresów',
@@ -78,7 +78,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
       [
         'What about costs that don’t belong to any job?',
-        'Lease, insurance, servicing – those are vehicle costs. They go into the monthly result and the cost per kilometre on the vehicle card, so the order result stays clean: freight minus run costs and allowances.',
+        'Lease, insurance, servicing - those are vehicle costs. They go into the monthly result and the cost per kilometre on the vehicle card, so the order result stays clean: freight minus run costs and allowances.',
       ],
     ],
     drobiazgi: [
@@ -91,7 +91,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     ],
     koszty: {
       tytul: 'Every cost counted',
-      tresc: 'On the run: fuel, tolls, overnight stay, parking, subcontractor and the driver’s per diems (daily travel allowance). Depreciation, lease and insurance – in the vehicle’s costs and the monthly result.',
+      tresc: 'On the run: fuel, tolls, overnight stay, parking, subcontractor and the driver’s per diems (daily travel allowance). Depreciation, lease and insurance - in the vehicle’s costs and the monthly result.',
     },
     porownanie: {
       tytul: 'Compare periods',

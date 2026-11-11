@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Zobacz BusiKM od środka. Bez konta.',
     lead: [
       'Przykładowa firma transportowa z flotą, zleceniami, fakturami i kosztami.',
-      'Wybierasz rolę – właściciel, dyspozytor albo księgowa – i klikasz, ile chcesz.',
+      'Wybierasz rolę - właściciel, dyspozytor albo księgowa - i klikasz, ile chcesz.',
     ],
     wejdz: 'Wejdź do demo',
     zasady: 'Bez rejestracji · tylko do odczytu · sesja na godzinę',
@@ -57,7 +57,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'See BusiKM from the inside. No account.',
     lead: [
       'A sample transport company, with its fleet, orders, invoices and costs.',
-      'Pick a role – owner, dispatcher or accountant – and click around as much as you like.',
+      'Pick a role - owner, dispatcher or accountant - and click around as much as you like.',
     ],
     wejdz: 'Enter the demo',
     zasady: 'No sign-up · read-only · one-hour session',

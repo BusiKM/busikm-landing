@@ -61,7 +61,7 @@ const TEKSTY: Tlumaczenia<{
       'Plik zlecenia dołączony do kursu',
       'Podpowiedź, kto zdąży',
       'Historia zleceń z filtrami',
-      'Oddajesz kurs podwykonawcy – widzisz marżę i czy ma ważne OCP',
+      'Oddajesz kurs podwykonawcy - widzisz marżę i czy ma ważne OCP',
       'Link śledzenia dla klienta',
       'Doładunek po drodze',
     ],
@@ -80,12 +80,12 @@ const TEKSTY: Tlumaczenia<{
     rozmowa: {
       tytul: 'Do kierowcy piszesz jednym kliknięciem',
       tresc:
-        '„Napisz” na karcie kursu otwiera czat zlecenia. Nie szukasz numeru, a cała rozmowa zostaje przy kursie. Wolisz zadzwonić – obok jest „Zadzwoń”.',
+        '„Napisz” na karcie kursu otwiera czat zlecenia. Nie szukasz numeru, a cała rozmowa zostaje przy kursie. Wolisz zadzwonić - obok jest „Zadzwoń”.',
     },
     stanowisko: {
       tytul: 'Dyspozytor to osobne stanowisko',
       tresc:
-        'Ma własny dostęp. Widzi to, czego potrzebuje do prowadzenia tras – nie widzi faktur, kosztów firmy ani raportów. W małej firmie właściciel otwiera dyspozytornię z menu, bo ma ją u siebie.',
+        'Ma własny dostęp. Widzi to, czego potrzebuje do prowadzenia tras - nie widzi faktur, kosztów firmy ani raportów. W małej firmie właściciel otwiera dyspozytornię z menu, bo ma ją u siebie.',
     },
     ktoUzywa: 'Kto tego używa:',
     dyspozytor: 'Dyspozytor →',
@@ -111,7 +111,7 @@ const TEKSTY: Tlumaczenia<{
       'The client’s order file attached to the run',
       'A hint on who will make it',
       'Order history with filters',
-      'You hand a run to a subcontractor – you see the margin and whether their carrier’s insurance (OCP) is valid',
+      'You hand a run to a subcontractor - you see the margin and whether their carrier’s insurance (OCP) is valid',
       'A tracking link for the client',
       'An extra pickup on the way',
     ],
@@ -135,7 +135,7 @@ const TEKSTY: Tlumaczenia<{
     stanowisko: {
       tytul: 'Dispatcher is a role of its own',
       tresc:
-        'They get their own access. They see what they need to run routes – not invoices, company costs or reports. In a small firm the owner opens dispatch from the menu, because it’s there for them too.',
+        'They get their own access. They see what they need to run routes - not invoices, company costs or reports. In a small firm the owner opens dispatch from the menu, because it’s there for them too.',
     },
     ktoUzywa: 'Who uses it:',
     dyspozytor: 'Dispatcher →',

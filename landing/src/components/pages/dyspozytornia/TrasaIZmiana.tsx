@@ -15,12 +15,12 @@ const TEKSTY: Tlumaczenia<{
       [
         '04',
         'Trasa układa się sama',
-        'Wpisujesz punkty – system ustawia kolejność postojów, liczy kilometry i czas. Godzina dojazdu odświeża się z pozycji auta.',
+        'Wpisujesz punkty - system ustawia kolejność postojów, liczy kilometry i czas. Godzina dojazdu odświeża się z pozycji auta.',
       ],
       [
         '05',
         'Zmiana trasy',
-        'Klient przesuwa rozładunek albo nie chcesz płatnych dróg – klikasz „Zmień trasę” i wybierasz wariant: najszybszy albo bez płatnych dróg. Nową trasę widzi kierowca w aplikacji, a klient na stronie śledzenia widzi nową godzinę dojazdu.',
+        'Klient przesuwa rozładunek albo nie chcesz płatnych dróg - klikasz „Zmień trasę” i wybierasz wariant: najszybszy albo bez płatnych dróg. Nową trasę widzi kierowca w aplikacji, a klient na stronie śledzenia widzi nową godzinę dojazdu.',
       ],
     ],
     label: 'Trasa i śledzenie · desktop',
@@ -31,12 +31,12 @@ const TEKSTY: Tlumaczenia<{
       [
         '04',
         'The route plans itself',
-        'You enter the stops – the system puts them in order and works out the kilometres and time. The arrival time updates from the van’s position.',
+        'You enter the stops - the system puts them in order and works out the kilometres and time. The arrival time updates from the van’s position.',
       ],
       [
         '05',
         'Changing the route',
-        'The client moves the unloading, or you’d rather skip toll roads – you click “Change route” and pick an option: fastest or no toll roads. The driver sees the new route in the app, and the client sees the new arrival time on the tracking page.',
+        'The client moves the unloading, or you’d rather skip toll roads - you click “Change route” and pick an option: fastest or no toll roads. The driver sees the new route in the app, and the client sees the new arrival time on the tracking page.',
       ],
     ],
     label: 'Route and tracking · desktop',

@@ -22,7 +22,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       { co: 'Zakupy · 37 faktur', stan: 'komplet' },
       {
         co: 'Koszty · 318 paragonów',
-        opis: '3 paragony bez zlecenia · Tomasz L., 14–16.08',
+        opis: '3 paragony bez zlecenia · Tomasz L., 14-16.08',
         stan: 'brak',
       },
       {
@@ -45,7 +45,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       { co: 'Purchases · 37 invoices', stan: 'komplet' },
       {
         co: 'Costs · 318 receipts',
-        opis: '3 receipts with no order · Tomasz L., 14–16 Aug',
+        opis: '3 receipts with no order · Tomasz L., 14-16 Aug',
         stan: 'brak',
       },
       {

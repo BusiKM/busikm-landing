@@ -20,7 +20,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Cztery ekrany, które widzisz codziennie.',
     pulpit: {
       label: 'Pulpit właściciela · desktop',
-      note: 'Po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” – kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
+      note: 'Po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” - kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
       caption: 'Pulpit',
     },
     mapa: {
@@ -35,7 +35,7 @@ const TEKSTY: Tlumaczenia<{
     },
     dokumenty: {
       label: 'Dokumenty i terminy · desktop',
-      note: 'Liczniki – po terminie, brakuje, kończą się w 30 dni, w porządku – i lista dokumentów z datą ważności i stanem.',
+      note: 'Liczniki - po terminie, brakuje, kończą się w 30 dni, w porządku - i lista dokumentów z datą ważności i stanem.',
       caption: 'Dokumenty i terminy',
     },
   },
@@ -43,7 +43,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Four screens you see every day.',
     pulpit: {
       label: 'Owner’s dashboard · desktop',
-      note: '“To do” on the left with what’s waiting for your decision, “Today” on the right – runs on the road, loadings, deliveries and who is driving right now.',
+      note: '“To do” on the left with what’s waiting for your decision, “Today” on the right - runs on the road, loadings, deliveries and who is driving right now.',
       caption: 'Dashboard',
     },
     mapa: {
@@ -58,7 +58,7 @@ const TEKSTY: Tlumaczenia<{
     },
     dokumenty: {
       label: 'Documents and deadlines · desktop',
-      note: 'Counters – overdue, missing, expiring within 30 days, in order – and a list of documents with expiry date and status.',
+      note: 'Counters - overdue, missing, expiring within 30 days, in order - and a list of documents with expiry date and status.',
       caption: 'Documents and deadlines',
     },
   },

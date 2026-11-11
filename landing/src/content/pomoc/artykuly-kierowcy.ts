@@ -12,11 +12,11 @@ export const artykulyKierowcy: Artykul[] = [
     slug: 'zapraszamy-kierowce',
     kategoria: 'kierowcy',
     tytul: 'Jak dodać kierowcę',
-    lead: 'Wysyłasz zaproszenie mailem. Kierowca dostaje kod i sam ustawia hasło – nie znasz go i nie musisz.',
+    lead: 'Wysyłasz zaproszenie mailem. Kierowca dostaje kod i sam ustawia hasło - nie znasz go i nie musisz.',
     role: ['wlasciciel', 'dyspozytor'],
     gdzie: 'Kierowcy → Zaproś kierowcę',
     czas: 'Dwie minuty u Ciebie, reszta po jego stronie',
-    zanim: ['Adres e-mail kierowcy – na ten adres pójdzie zaproszenie'],
+    zanim: ['Adres e-mail kierowcy - na ten adres pójdzie zaproszenie'],
     rozdzialy: [
       {
         tytul: 'Wysłanie zaproszenia',
@@ -43,12 +43,12 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Kierowca dostaje e-mail z 8-znakowym kodem zaproszenia, np. K7QM-4RTZ. W aplikacji BusiKM Kierowca wybiera Mam zaproszenie, wpisuje e-mail i kod, a potem ustawia własne hasło (imię i nazwisko – tylko jeśli ich nie wpisałeś). Do tego czasu widnieje na Twojej liście jako zaproszony.',
+              'Kierowca dostaje e-mail z 8-znakowym kodem zaproszenia, np. K7QM-4RTZ. W aplikacji BusiKM Kierowca wybiera Mam zaproszenie, wpisuje e-mail i kod, a potem ustawia własne hasło (imię i nazwisko - tylko jeśli ich nie wpisałeś). Do tego czasu widnieje na Twojej liście jako zaproszony.',
           },
           {
             typ: 'uwaga',
             tresc:
-              'Hasła kierowcy nie znasz i nie możesz go odczytać. Jeśli kierowca je zgubi, korzysta z „Nie pamiętasz hasła?" na ekranie logowania – nie musisz nic robić.',
+              'Hasła kierowcy nie znasz i nie możesz go odczytać. Jeśli kierowca je zgubi, korzysta z „Nie pamiętasz hasła?" na ekranie logowania - nie musisz nic robić.',
           },
         ],
       },
@@ -59,7 +59,7 @@ export const artykulyKierowcy: Artykul[] = [
             typ: 'lista',
             wstep: 'Zanim wyślesz drugie, sprawdź po kolei:',
             punkty: [
-              'Czy adres jest wpisany bez literówki – najczęstsza przyczyna.',
+              'Czy adres jest wpisany bez literówki - najczęstsza przyczyna.',
               'Folder ze spamem u kierowcy. Zaproszenie przychodzi od BusiKM, nie od Ciebie.',
               'Czy kierowca nie ma już konta w innej firmie na tym adresie.',
             ],
@@ -67,7 +67,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Jeśli nic z tego nie pomogło, napisz do nas – widzimy po swojej stronie, czy wiadomość wyszła i co się z nią stało.',
+              'Jeśli nic z tego nie pomogło, napisz do nas - widzimy po swojej stronie, czy wiadomość wyszła i co się z nią stało.',
           },
         ],
       },
@@ -99,7 +99,7 @@ export const artykulyKierowcy: Artykul[] = [
               },
               {
                 tytul: 'Ustaw własne hasło',
-                opis: 'Hasło wymyśl sam – nikt w firmie go nie zobaczy. Imię i nazwisko wpisujesz tylko wtedy, gdy szef ich nie wpisał. Na koniec wybierz Załóż konto i wejdź.',
+                opis: 'Hasło wymyśl sam - nikt w firmie go nie zobaczy. Imię i nazwisko wpisujesz tylko wtedy, gdy szef ich nie wpisał. Na koniec wybierz Załóż konto i wejdź.',
               },
               {
                 tytul: 'Zgódź się na dostęp do lokalizacji i powiadomień',
@@ -110,7 +110,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Zgódź się na lokalizację podczas używania aplikacji. Na iPhonie po pierwszym kursie wybierz jeszcze „Zawsze" – trasa zapisze się nawet, gdy system zamknie aplikację.',
+              'Zgódź się na lokalizację podczas używania aplikacji. Na iPhonie po pierwszym kursie wybierz jeszcze „Zawsze" - trasa zapisze się nawet, gdy system zamknie aplikację.',
           },
           {
             typ: 'akapit',
@@ -126,11 +126,11 @@ export const artykulyKierowcy: Artykul[] = [
             typ: 'lista',
             wstep: 'Na dole ekranu masz pięć zakładek:',
             punkty: [
-              'Dziś – bieżący kurs z przyciskami Nawiguj, Zadzwoń i Czat, jeden przycisk na kolejny etap dnia i informacja, za ile przerwa. Tu przyjmujesz też nowe zlecenia.',
-              'Zlecenia – Aktywne, Oczekujące i Zakończone.',
-              'Dodaj – aparat: zdjęcie paragonu albo dokumentu zlecenia (CMR, WZ).',
-              'Czat – rozmowy z biurem przy każdym zleceniu.',
-              'Ja – Moje koszty i zwroty, Dokumenty, Czas pracy, Urlopy, Do wysłania i ustawienia.',
+              'Dziś - bieżący kurs z przyciskami Nawiguj, Zadzwoń i Czat, jeden przycisk na kolejny etap dnia i informacja, za ile przerwa. Tu przyjmujesz też nowe zlecenia.',
+              'Zlecenia - Aktywne, Oczekujące i Zakończone.',
+              'Dodaj - aparat: zdjęcie paragonu albo dokumentu zlecenia (CMR, WZ).',
+              'Czat - rozmowy z biurem przy każdym zleceniu.',
+              'Ja - Moje koszty i zwroty, Dokumenty, Czas pracy, Urlopy, Do wysłania i ustawienia.',
             ],
           },
         ],
@@ -148,7 +148,7 @@ export const artykulyKierowcy: Artykul[] = [
           },
           {
             typ: 'akapit',
-            tresc: 'Nie musisz o to prosić właściciela ani dyspozytora – robisz to sam.',
+            tresc: 'Nie musisz o to prosić właściciela ani dyspozytora - robisz to sam.',
           },
         ],
       },
@@ -160,7 +160,7 @@ export const artykulyKierowcy: Artykul[] = [
     slug: 'trasa-kierowcy',
     kategoria: 'kierowcy',
     tytul: 'Jak kierowca prowadzi trasę',
-    lead: 'Od przyjęcia zlecenia do potwierdzonego rozładunku – jeden przycisk na każdy etap dnia.',
+    lead: 'Od przyjęcia zlecenia do potwierdzonego rozładunku - jeden przycisk na każdy etap dnia.',
     role: ['kierowca'],
     gdzie: 'Aplikacja BusiKM Kierowca → Dziś',
     czas: 'Kilka tapnięć w ciągu dnia',
@@ -191,7 +191,7 @@ export const artykulyKierowcy: Artykul[] = [
             kroki: [
               {
                 tytul: 'Wybierz Zacznij dzień i zrób zdjęcie licznika',
-                opis: 'Otworzy się ekran Licznik na start. Stan licznika odczyta się sam ze zdjęcia – sprawdź go i wybierz Potwierdź i rozpocznij. Od tej chwili trasa zapisuje się w tle, a kilometry liczą się same.',
+                opis: 'Otworzy się ekran Licznik na start. Stan licznika odczyta się sam ze zdjęcia - sprawdź go i wybierz Potwierdź i rozpocznij. Od tej chwili trasa zapisuje się w tle, a kilometry liczą się same.',
               },
               {
                 tytul: 'Wybierz Nawiguj',
@@ -209,7 +209,7 @@ export const artykulyKierowcy: Artykul[] = [
               },
               {
                 tytul: 'Dodaj plombę i zdjęcia towaru, jeśli trzeba',
-                opis: 'To opcjonalne. Zdjęcia – do dwóch – wysyłają się w tle. Nie musisz czekać, aż się prześlą, ani mieć zasięgu w tej chwili.',
+                opis: 'To opcjonalne. Zdjęcia - do dwóch - wysyłają się w tle. Nie musisz czekać, aż się prześlą, ani mieć zasięgu w tej chwili.',
               },
               { tytul: 'Wybierz Zakończ załadunek i potwierdź Tak, zakończ' },
             ],
@@ -222,7 +222,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Stajesz na prywatną przerwę? Na ekranie Dziś wybierz Wstrzymaj – zapis trasy stanie do czasu, aż wybierzesz Wznów.',
+              'Stajesz na prywatną przerwę? Na ekranie Dziś wybierz Wstrzymaj - zapis trasy stanie do czasu, aż wybierzesz Wznów.',
           },
         ],
       },
@@ -247,7 +247,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Na ekranie Dziś, pod kursem, jest „Nie mogę kontynuować". Wybierasz powód: Awaria auta, Wypadek, Choroba, Odbiorca zamknięty albo Inny powód. Kurs się wstrzymuje, a biuro dostaje powiadomienie – bez telefonu. Opóźnienie, na przykład korek, zgłaszasz przyciskiem Zgłoś w szczegółach zlecenia.',
+              'Na ekranie Dziś, pod kursem, jest „Nie mogę kontynuować". Wybierasz powód: Awaria auta, Wypadek, Choroba, Odbiorca zamknięty albo Inny powód. Kurs się wstrzymuje, a biuro dostaje powiadomienie - bez telefonu. Opóźnienie, na przykład korek, zgłaszasz przyciskiem Zgłoś w szczegółach zlecenia.',
           },
         ],
       },
@@ -284,7 +284,7 @@ export const artykulyKierowcy: Artykul[] = [
               },
               {
                 tytul: 'Wybierz, czym zapłacono',
-                opis: 'Karta firmowa, karta paliwowa, gotówka firmowa albo moje pieniądze. Za koszt z własnej kieszeni biuro odda Ci pieniądze – zobaczysz to w Moich kosztach.',
+                opis: 'Karta firmowa, karta paliwowa, gotówka firmowa albo moje pieniądze. Za koszt z własnej kieszeni biuro odda Ci pieniądze - zobaczysz to w Moich kosztach.',
               },
               {
                 tytul: 'Wybierz zlecenie',
@@ -296,7 +296,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Kwotę, datę, sprzedawcę i NIP sprzedawcy BusiKM odczytuje sam po wysłaniu – nie musisz niczego przepisywać ani czekać. Bez zasięgu paragon czeka w kolejce Do wysłania i wysyła się, gdy wróci sieć.',
+              'Kwotę, datę, sprzedawcę i NIP sprzedawcy BusiKM odczytuje sam po wysłaniu - nie musisz niczego przepisywać ani czekać. Bez zasięgu paragon czeka w kolejce Do wysłania i wysyła się, gdy wróci sieć.',
           },
         ],
       },
@@ -306,7 +306,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'W Moich kosztach kierowca widzi każdy paragon ze statusem: Do uzupełnienia, Gotowe albo Zaksięgowane. Gdy biuro ma pytanie, paragon dostaje status Biuro pyta – kierowca odpowiada i poprawia w aplikacji. Jeśli zdjęcie wyszło nieczytelne, wystarczy zrobić je jeszcze raz.',
+              'W Moich kosztach kierowca widzi każdy paragon ze statusem: Do uzupełnienia, Gotowe albo Zaksięgowane. Gdy biuro ma pytanie, paragon dostaje status Biuro pyta - kierowca odpowiada i poprawia w aplikacji. Jeśli zdjęcie wyszło nieczytelne, wystarczy zrobić je jeszcze raz.',
           },
           {
             typ: 'uwaga',
@@ -339,7 +339,7 @@ export const artykulyKierowcy: Artykul[] = [
             typ: 'lista',
             wstep: 'Przy przewozie międzynarodowym ekran Czas pracy pokazuje:',
             punkty: [
-              'Trzy wskaźniki: jazdę ciągłą, dzienną i tydzień – każdy z limitem, do którego się zbliżasz.',
+              'Trzy wskaźniki: jazdę ciągłą, dzienną i tydzień - każdy z limitem, do którego się zbliżasz.',
               'Pasek Dwa tygodnie.',
               'Pasek dnia z podziałem na jazdę, pracę, przerwę i odpoczynek.',
               'Bieżący stan i od której godziny trwa.',
@@ -353,7 +353,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Liczniki liczy serwer. Bez sieci ostatni znany stan widzisz na ekranie Dziś, na pasku przerwy – sam ekran Czas pracy pobiera dane z serwera i odświeży się, gdy wróci sieć. Przerwy i odpoczynki zapisane bez zasięgu czekają w kolejce i dochodzą, gdy wróci sygnał.',
+              'Liczniki liczy serwer. Bez sieci ostatni znany stan widzisz na ekranie Dziś, na pasku przerwy - sam ekran Czas pracy pobiera dane z serwera i odświeży się, gdy wróci sieć. Przerwy i odpoczynki zapisane bez zasięgu czekają w kolejce i dochodzą, gdy wróci sygnał.',
           },
         ],
       },
@@ -363,7 +363,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Przerwę i odpoczynek zapisujesz w sekcji Zarejestruj ręcznie – są tam tylko dwa przyciski: Przerwa i Odpoczynek. Jazdę i pracę aplikacja zapisuje sama według etapu zlecenia.',
+              'Przerwę i odpoczynek zapisujesz w sekcji Zarejestruj ręcznie - są tam tylko dwa przyciski: Przerwa i Odpoczynek. Jazdę i pracę aplikacja zapisuje sama według etapu zlecenia.',
           },
           {
             typ: 'kroki',

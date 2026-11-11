@@ -22,7 +22,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     razem: 'Razem',
     suma: '9 022 zł',
-    stopka: 'Wchodzą do kosztów auta i wyniku miesiąca – koszt na kilometr widzisz na karcie pojazdu.',
+    stopka: 'Wchodzą do kosztów auta i wyniku miesiąca - koszt na kilometr widzisz na karcie pojazdu.',
   },
   en: {
     naglowek: 'Company costs · PO 2093J',
@@ -36,7 +36,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     razem: 'Total',
     suma: 'PLN 9,022',
-    stopka: 'Counted in the vehicle’s costs and the month’s result – the cost per kilometre is on the vehicle card.',
+    stopka: 'Counted in the vehicle’s costs and the month’s result - the cost per kilometre is on the vehicle card.',
   },
 };
 

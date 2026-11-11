@@ -12,11 +12,11 @@ export const artykulyKierowcyEn: Artykul[] = [
     slug: 'zapraszamy-kierowce',
     kategoria: 'kierowcy',
     tytul: 'How to add a driver',
-    lead: 'You send an invitation by email. The driver gets a code and sets their own password – you don’t know it and don’t need to.',
+    lead: 'You send an invitation by email. The driver gets a code and sets their own password - you don’t know it and don’t need to.',
     role: ['wlasciciel', 'dyspozytor'],
     gdzie: 'Drivers → Invite driver (Kierowcy → Zaproś kierowcę)',
     czas: 'Two minutes for you, the rest is on their side',
-    zanim: ['The driver’s email address – the invitation goes there'],
+    zanim: ['The driver’s email address - the invitation goes there'],
     rozdzialy: [
       {
         tytul: 'Sending the invitation',
@@ -48,7 +48,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'You don’t know the driver’s password and can’t look it up. If they lose it, they use “Forgotten your password?” (Nie pamiętasz hasła?) on the sign-in screen – you don’t need to do anything.',
+              'You don’t know the driver’s password and can’t look it up. If they lose it, they use “Forgotten your password?” (Nie pamiętasz hasła?) on the sign-in screen - you don’t need to do anything.',
           },
         ],
       },
@@ -59,7 +59,7 @@ export const artykulyKierowcyEn: Artykul[] = [
             typ: 'lista',
             wstep: 'Before you send a second one, check in this order:',
             punkty: [
-              'Is the address typed without a mistake – the most common cause.',
+              'Is the address typed without a mistake - the most common cause.',
               'The driver’s spam folder. The invitation comes from BusiKM, not from you.',
               'Does the driver already have an account with another company on this address.',
             ],
@@ -67,7 +67,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'If none of that helps, write to us – on our side we can see whether the message went out and what happened to it.',
+              'If none of that helps, write to us - on our side we can see whether the message went out and what happened to it.',
           },
         ],
       },
@@ -99,7 +99,7 @@ export const artykulyKierowcyEn: Artykul[] = [
               },
               {
                 tytul: 'Set your own password',
-                opis: 'Make the password up yourself – nobody in the company will see it. You only enter your first and last name if your boss hasn’t. Finish with Create account and sign in (Załóż konto i wejdź).',
+                opis: 'Make the password up yourself - nobody in the company will see it. You only enter your first and last name if your boss hasn’t. Finish with Create account and sign in (Załóż konto i wejdź).',
               },
               {
                 tytul: 'Allow access to location and notifications',
@@ -110,7 +110,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Allow location while using the app. On an iPhone, after your first job, also choose “Always” – the route then records even when the system closes the app.',
+              'Allow location while using the app. On an iPhone, after your first job, also choose “Always” - the route then records even when the system closes the app.',
           },
           {
             typ: 'akapit',
@@ -126,11 +126,11 @@ export const artykulyKierowcyEn: Artykul[] = [
             typ: 'lista',
             wstep: 'At the bottom of the screen there are five tabs:',
             punkty: [
-              'Today (Dziś) – the current job with Navigate (Nawiguj), Call (Zadzwoń) and Chat (Czat) buttons, one button for the next stage of the day and how long until your break. New orders are accepted here too.',
-              'Orders (Zlecenia) – Active, Pending and Finished (Aktywne, Oczekujące, Zakończone).',
-              'Add (Dodaj) – the camera: a photo of a receipt or of an order document (CMR, delivery note).',
-              'Chat (Czat) – conversations with the office on each order.',
-              'Me (Ja) – My costs and refunds, Documents, Working time, Leave and To send (Moje koszty i zwroty, Dokumenty, Czas pracy, Urlopy, Do wysłania), plus settings.',
+              'Today (Dziś) - the current job with Navigate (Nawiguj), Call (Zadzwoń) and Chat (Czat) buttons, one button for the next stage of the day and how long until your break. New orders are accepted here too.',
+              'Orders (Zlecenia) - Active, Pending and Finished (Aktywne, Oczekujące, Zakończone).',
+              'Add (Dodaj) - the camera: a photo of a receipt or of an order document (CMR, delivery note).',
+              'Chat (Czat) - conversations with the office on each order.',
+              'Me (Ja) - My costs and refunds, Documents, Working time, Leave and To send (Moje koszty i zwroty, Dokumenty, Czas pracy, Urlopy, Do wysłania), plus settings.',
             ],
           },
         ],
@@ -150,7 +150,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           },
           {
             typ: 'akapit',
-            tresc: 'You don’t need to ask the owner or the dispatcher – you do it yourself.',
+            tresc: 'You don’t need to ask the owner or the dispatcher - you do it yourself.',
           },
         ],
       },
@@ -162,7 +162,7 @@ export const artykulyKierowcyEn: Artykul[] = [
     slug: 'trasa-kierowcy',
     kategoria: 'kierowcy',
     tytul: 'How the driver runs a route',
-    lead: 'From accepting the order to a confirmed delivery – one button for each stage of the day.',
+    lead: 'From accepting the order to a confirmed delivery - one button for each stage of the day.',
     role: ['kierowca'],
     gdzie: 'BusiKM Driver app → Today (BusiKM Kierowca → Dziś)',
     czas: 'A few taps during the day',
@@ -193,7 +193,7 @@ export const artykulyKierowcyEn: Artykul[] = [
             kroki: [
               {
                 tytul: 'Choose Start the day (Zacznij dzień) and take a photo of the odometer',
-                opis: 'The Odometer at start (Licznik na start) screen opens. The reading fills itself in from the photo – check it and choose Confirm and start (Potwierdź i rozpocznij). From then on the route records in the background and the kilometres count themselves.',
+                opis: 'The Odometer at start (Licznik na start) screen opens. The reading fills itself in from the photo - check it and choose Confirm and start (Potwierdź i rozpocznij). From then on the route records in the background and the kilometres count themselves.',
               },
               {
                 tytul: 'Choose Navigate (Nawiguj)',
@@ -211,7 +211,7 @@ export const artykulyKierowcyEn: Artykul[] = [
               },
               {
                 tytul: 'Add a seal and photos of the goods if needed',
-                opis: 'This is optional. Photos – up to two – upload in the background. You don’t have to wait for them or have signal right then.',
+                opis: 'This is optional. Photos - up to two - upload in the background. You don’t have to wait for them or have signal right then.',
               },
               { tytul: 'Choose Finish loading (Zakończ załadunek) and confirm with Yes, finish (Tak, zakończ)' },
             ],
@@ -224,7 +224,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Stopping for a private break? On the Today screen choose Pause (Wstrzymaj) – route recording stops until you choose Resume (Wznów).',
+              'Stopping for a private break? On the Today screen choose Pause (Wstrzymaj) - route recording stops until you choose Resume (Wznów).',
           },
         ],
       },
@@ -249,7 +249,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'On the Today screen, below the job, there’s “I can’t continue” (Nie mogę kontynuować). You pick a reason: Vehicle breakdown, Accident, Illness, Recipient closed or Other reason. The job is put on hold and the office gets a notification – no phone call needed. A delay, such as a traffic jam, you report with the Report (Zgłoś) button in the order details.',
+              'On the Today screen, below the job, there’s “I can’t continue” (Nie mogę kontynuować). You pick a reason: Vehicle breakdown, Accident, Illness, Recipient closed or Other reason. The job is put on hold and the office gets a notification - no phone call needed. A delay, such as a traffic jam, you report with the Report (Zgłoś) button in the order details.',
           },
         ],
       },
@@ -286,7 +286,7 @@ export const artykulyKierowcyEn: Artykul[] = [
               },
               {
                 tytul: 'Choose how it was paid (Czym zapłacono?)',
-                opis: 'Company card, fuel card, company cash or my own money. If you paid out of your own pocket, the office pays you back – you’ll see it in My costs.',
+                opis: 'Company card, fuel card, company cash or my own money. If you paid out of your own pocket, the office pays you back - you’ll see it in My costs.',
               },
               {
                 tytul: 'Choose the order (Zlecenie)',
@@ -298,7 +298,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'BusiKM reads the amount, date, seller and the seller’s NIP (tax ID) itself after you send it – nothing to type in and nothing to wait for. With no signal, the receipt waits in the To send (Do wysłania) queue and goes out once the network is back.',
+              'BusiKM reads the amount, date, seller and the seller’s NIP (tax ID) itself after you send it - nothing to type in and nothing to wait for. With no signal, the receipt waits in the To send (Do wysłania) queue and goes out once the network is back.',
           },
         ],
       },
@@ -308,7 +308,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'In My costs the driver sees every receipt with its status: To complete, Ready or Booked (Do uzupełnienia, Gotowe, Zaksięgowane). When the office has a question, the receipt gets the Office asks (Biuro pyta) status – the driver replies and corrects it in the app. If the photo came out unreadable, they just take it again.',
+              'In My costs the driver sees every receipt with its status: To complete, Ready or Booked (Do uzupełnienia, Gotowe, Zaksięgowane). When the office has a question, the receipt gets the Office asks (Biuro pyta) status - the driver replies and corrects it in the app. If the photo came out unreadable, they just take it again.',
           },
           {
             typ: 'uwaga',
@@ -341,7 +341,7 @@ export const artykulyKierowcyEn: Artykul[] = [
             typ: 'lista',
             wstep: 'On international jobs the Working time (Czas pracy) screen shows:',
             punkty: [
-              'Three gauges: continuous driving, daily and weekly – each with the limit you’re getting close to.',
+              'Three gauges: continuous driving, daily and weekly - each with the limit you’re getting close to.',
               'A Two weeks (Dwa tygodnie) bar.',
               'A day bar split into driving, work, break and rest.',
               'Your current state and the time it started.',
@@ -355,7 +355,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'The server does the counting. With no network you see the last known state on the Today screen, in the break bar – the Working time screen itself loads its data from the server and refreshes once the network is back. Breaks and rest logged with no signal wait in a queue and go through once it’s back.',
+              'The server does the counting. With no network you see the last known state on the Today screen, in the break bar - the Working time screen itself loads its data from the server and refreshes once the network is back. Breaks and rest logged with no signal wait in a queue and go through once it’s back.',
           },
         ],
       },
@@ -365,7 +365,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'You log breaks and rest in the Record manually (Zarejestruj ręcznie) section – it has just two buttons: Break (Przerwa) and Rest (Odpoczynek). Driving and other work the app logs by itself with each stage of the order.',
+              'You log breaks and rest in the Record manually (Zarejestruj ręcznie) section - it has just two buttons: Break (Przerwa) and Rest (Odpoczynek). Driving and other work the app logs by itself with each stage of the order.',
           },
           {
             typ: 'kroki',

@@ -18,9 +18,9 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     eyebrow: 'Ile zostaje',
     tytul: ['Wiesz, ile zostaje.', 'Na tym kursie. Dziś.'],
-    lead: 'Fracht po kursie NBP minus paliwo, opłaty drogowe, nocleg, parking i diety kierowcy. Kierowca dodaje paragon w trasie – gdy paragon ma komplet danych, wynik przelicza się sam.',
+    lead: 'Fracht po kursie NBP minus paliwo, opłaty drogowe, nocleg, parking i diety kierowcy. Kierowca dodaje paragon w trasie - gdy paragon ma komplet danych, wynik przelicza się sam.',
     label: 'Karta zysku · desktop',
-    note: 'Zlecenie Warszawa → München, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu w wierszach – paliwo, opłaty drogowe, parking – obok wynik, marża i zysk na kilometr.',
+    note: 'Zlecenie Warszawa → München, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu w wierszach - paliwo, opłaty drogowe, parking - obok wynik, marża i zysk na kilometr.',
     zostaje: 'Zostaje',
     kwota: '3 699 zł',
     opis: 'z 1 020 € frachtu. Liczba zmieni się, gdy Jan doda kolejny paragon.',
@@ -28,9 +28,9 @@ const TEKSTY: Tlumaczenia<{
   en: {
     eyebrow: 'What you keep',
     tytul: ['You know what you keep.', 'On this job. Today.'],
-    lead: 'Freight at the NBP rate minus fuel, tolls, the overnight stay, parking and the driver’s allowances. The driver adds a receipt on the road – once it has all its details, the result updates by itself.',
+    lead: 'Freight at the NBP rate minus fuel, tolls, the overnight stay, parking and the driver’s allowances. The driver adds a receipt on the road - once it has all its details, the result updates by itself.',
     label: 'Profit card · desktop',
-    note: 'Order Warsaw → Munich, Finance tab: freight in euros converted at the NBP rate, run costs line by line – fuel, tolls, parking – with the result, margin and profit per kilometre alongside.',
+    note: 'Order Warsaw → Munich, Finance tab: freight in euros converted at the NBP rate, run costs line by line - fuel, tolls, parking - with the result, margin and profit per kilometre alongside.',
     zostaje: 'You keep',
     kwota: 'PLN 3,699',
     opis: 'out of €1,020 in freight. The number will change when Jan adds the next receipt.',

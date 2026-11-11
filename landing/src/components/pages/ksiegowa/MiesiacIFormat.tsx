@@ -23,7 +23,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     miesiac: {
       tytul: 'Wybiera miesiąc i klika raz',
-      tresc: 'Dostaje wszystko za ten okres w jednym pliku ZIP. Przed zamknięciem miesiąca – wersję roboczą, po zamknięciu – ostateczną, z JPK_V7M.',
+      tresc: 'Dostaje wszystko za ten okres w jednym pliku ZIP. Przed zamknięciem miesiąca - wersję roboczą, po zamknięciu - ostateczną, z JPK_V7M.',
       miesiace: ['czerwiec', 'lipiec', 'sierpień', 'wrzesień'],
       przycisk: 'Pobierz paczkę dla biura',
     },
@@ -41,7 +41,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   en: {
     miesiac: {
       tytul: 'Pick a month, click once',
-      tresc: 'Everything for that period arrives in one ZIP file. Before the month is closed – a draft version; after closing – the final one, with JPK_V7M.',
+      tresc: 'Everything for that period arrives in one ZIP file. Before the month is closed - a draft version; after closing - the final one, with JPK_V7M.',
       miesiace: ['June', 'July', 'August', 'September'],
       przycisk: 'Download the package for the office',
     },

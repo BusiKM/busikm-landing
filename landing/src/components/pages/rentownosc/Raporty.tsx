@@ -7,7 +7,7 @@ type Raport = { tytul: string; wiersze: readonly (readonly [string, string])[] }
 const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; raporty: readonly Raport[] }> = {
   pl: {
     tytul: 'Raporty',
-    tresc: 'Flota: koszt na kilometr i dni pracy każdego auta. Kierowcy: zysk z ich tras w złotych – to widzi tylko właściciel. Kierunki: marża według kraju rozładunku.',
+    tresc: 'Flota: koszt na kilometr i dni pracy każdego auta. Kierowcy: zysk z ich tras w złotych - to widzi tylko właściciel. Kierunki: marża według kraju rozładunku.',
     raporty: [
       { tytul: 'Flota', wiersze: [['WZ 4821K', '0,92 zł/km · 22 dni'], ['PO 2093J', '1,04 zł/km · 20 dni'], ['GD 7710R', '1,11 zł/km · 18 dni']] },
       { tytul: 'Kierowcy', wiersze: [['Marek W.', '18 400 zł'], ['Piotr K.', '15 900 zł'], ['Tomasz L.', '12 300 zł']] },
@@ -16,7 +16,7 @@ const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; raporty: readonly Rapo
   },
   en: {
     tytul: 'Reports',
-    tresc: 'Fleet: cost per kilometre and working days for each van. Drivers: profit from their routes in złoty – only the owner sees this. Destinations: margin by unloading country.',
+    tresc: 'Fleet: cost per kilometre and working days for each van. Drivers: profit from their routes in złoty - only the owner sees this. Destinations: margin by unloading country.',
     raporty: [
       { tytul: 'Fleet', wiersze: [['WZ 4821K', 'PLN 0.92/km · 22 days'], ['PO 2093J', 'PLN 1.04/km · 20 days'], ['GD 7710R', 'PLN 1.11/km · 18 days']] },
       { tytul: 'Drivers', wiersze: [['Marek W.', 'PLN 18,400'], ['Piotr K.', 'PLN 15,900'], ['Tomasz L.', 'PLN 12,300']] },

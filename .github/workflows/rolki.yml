@@ -1,14 +1,16 @@
 # Przenosi nowe rolki z Facebooka do R2. Opis: docs/landing/17-rolki.md
 #
 # Akcja, a nie Worker, bo film z Facebooka bywa w AV1 i trzeba go przeliczyć
-# ffmpegiem. Bez sekretów przebieg kończy się błędem, ale niczego nie zmienia.
+# ffmpegiem. ffmpeg instaluje sam skrypt, tylko gdy trafi na nową rolkę.
+# Bez sekretów przebieg kończy się błędem, ale niczego nie zmienia.
 
 name: Rolki
 
 on:
+  # Zapas. Główny wyzwalacz to cron Workera busikm-media co 15 minut
+  # (workflow_dispatch), bo ten harmonogram GitHub odpala rzadko i późno.
   schedule:
-    # Minuta inna niż pełna godzina: o pełnych GitHub ma największe kolejki.
-    - cron: '17 * * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
 
 # Dwa przebiegi naraz zapisałyby katalog jeden na drugim.
@@ -28,9 +30,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-
-      - name: Instalacja ffmpeg
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
 
       - name: Synchronizacja
         env:

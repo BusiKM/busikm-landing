@@ -128,17 +128,46 @@ export function znajdzWPoczekalni(rolka, poczekalnia) {
   return kandydaci.length === 1 ? kandydaci[0] : null;
 }
 
+/** Awaria po stronie Facebooka, która mija sama. Następny przebieg nadrobi. */
+class ChwilowyBlad extends Error {}
+
+const PRZERWY = [10_000, 30_000];
+
+/**
+ * Zapytanie do Graph API. Facebook co kilkaset zapytań oddaje HTTP 500
+ * „Please retry your request later”, więc ponawiamy, a dopiero potem
+ * zgłaszamy błąd. Błąd 4xx (zły klucz, blokada konta) nie mija, więc bez powtórek.
+ */
+async function graph(adres, token, opis) {
+  for (let proba = 0; ; proba++) {
+    let odp;
+    let dane = {};
+    try {
+      odp = await fetch(adres, { headers: { Authorization: `Bearer ${token}` } });
+      dane = await odp.json().catch(() => ({}));
+    } catch (e) {
+      odp = null;
+      dane = { error: { message: e.message } };
+    }
+    if (odp?.ok) return dane;
+    const status = odp ? `HTTP ${odp.status}` : 'brak połączenia';
+    const blad = `${opis}, ${status}: ${(dane.error?.message ?? 'brak opisu').replace(/\.$/, '')}`;
+    const chwilowy = !odp || odp.status >= 500 || dane.error?.is_transient === true;
+    if (!chwilowy) throw new Error(blad);
+    if (proba === PRZERWY.length) throw new ChwilowyBlad(blad);
+    console.log(`${blad}. Ponawiam za ${PRZERWY[proba] / 1000} s.`);
+    await new Promise((r) => setTimeout(r, PRZERWY[proba]));
+  }
+}
+
 /**
  * Lista rolek wymaga klucza strony, a konto techniczne ma klucz użytkownika.
  * Klucz strony żyje tylko w pamięci tego przebiegu, a GitHub nie zna go jako
  * sekretu, więc maskujemy go w logu sami.
  */
 async function kluczStrony(token) {
-  const odp = await fetch(`${GRAPH}/${STRONA}?fields=access_token`, { headers: { Authorization: `Bearer ${token}` } });
-  const dane = await odp.json().catch(() => ({}));
-  if (!odp.ok || !dane.access_token) {
-    throw new Error(`Klucz strony, HTTP ${odp.status}: ${dane.error?.message ?? 'brak w odpowiedzi'}`);
-  }
+  const dane = await graph(`${GRAPH}/${STRONA}?fields=access_token`, token, 'Klucz strony');
+  if (!dane.access_token) throw new Error('Klucz strony: brak w odpowiedzi');
   if (process.env.GITHUB_ACTIONS) console.log(`::add-mask::${dane.access_token}`);
   return dane.access_token;
 }
@@ -149,9 +178,7 @@ async function rolkiZFacebooka(token) {
   let po = '';
   do {
     const adres = `${GRAPH}/${STRONA}/video_reels?fields=${encodeURIComponent(POLA)}&limit=50${po ? `&after=${encodeURIComponent(po)}` : ''}`;
-    const odp = await fetch(adres, { headers: { Authorization: `Bearer ${token}` } });
-    const dane = await odp.json().catch(() => ({}));
-    if (!odp.ok) throw new Error(`Facebook HTTP ${odp.status}: ${dane.error?.message ?? 'brak opisu'}`);
+    const dane = await graph(adres, token, 'Lista rolek');
     wynik.push(...dane.data);
     po = dane.paging?.next ? dane.paging.cursors.after : '';
   } while (po);
@@ -223,7 +250,46 @@ async function pobierz(adres, plik) {
   await pipeline(Readable.fromWeb(odp.body), createWriteStream(plik));
 }
 
-function ffmpeg(...args) {
+function jestFfmpeg() {
+  try {
+    execFileSync('ffmpeg', ['-version'], { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+let ffmpegGotowy = false;
+
+/**
+ * ffmpeg instalujemy dopiero przy nowej rolce. Instalacja z apt przy każdym
+ * przebiegu wywracała go, gdy maszyna GitHuba nie widziała serwerów Ubuntu
+ * (11.11.2026), choć zwykle nie było czego przeliczać.
+ */
+async function przygotujFfmpeg() {
+  if (ffmpegGotowy || jestFfmpeg()) {
+    ffmpegGotowy = true;
+    return;
+  }
+  if (!process.env.GITHUB_ACTIONS) throw new Error('Brak ffmpeg. Zainstaluj go: brew install ffmpeg');
+  for (let proba = 0; proba < 2; proba++) {
+    if (proba) await new Promise((r) => setTimeout(r, 15_000));
+    try {
+      console.log('Instaluję ffmpeg');
+      execFileSync('sh', ['-c', 'sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null'], {
+        stdio: ['ignore', 'ignore', 'inherit'],
+      });
+      ffmpegGotowy = true;
+      return;
+    } catch {
+      // Druga próba albo ostrzeżenie niżej.
+    }
+  }
+  throw new ChwilowyBlad('Instalacja ffmpeg nie powiodła się');
+}
+
+async function ffmpeg(...args) {
+  await przygotujFfmpeg();
   execFileSync('ffmpeg', ['-y', '-v', 'error', ...args], { stdio: ['ignore', 'ignore', 'inherit'] });
 }
 
@@ -269,7 +335,7 @@ async function main() {
         const surowy = join(robocze, `${r.id}-surowy.mp4`);
         const gotowy = join(robocze, `${r.id}.mp4`);
         await pobierz(r.source, surowy);
-        ffmpeg(
+        await ffmpeg(
           '-i', surowy,
           '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p',
           '-c:a', 'aac', '-b:a', '128k',
@@ -292,7 +358,7 @@ async function main() {
         const surowa = join(robocze, `${r.id}-surowa.jpg`);
         const gotowa = join(robocze, `${r.id}.jpg`);
         await pobierz(adres, surowa);
-        ffmpeg('-i', surowa, '-vf', 'scale=540:-2', '-q:v', '3', gotowa);
+        await ffmpeg('-i', surowa, '-vf', 'scale=540:-2', '-q:v', '3', gotowa);
         okladka = `pliki/fb-${r.id}.jpg`;
         m.zapisz(okladka, gotowa, 'image/jpeg');
       }
@@ -343,6 +409,12 @@ async function main() {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch((e) => {
+    // Chwilowa awaria Facebooka to nie powód do maila co kwadrans: przebieg
+    // kończy się sukcesem z ostrzeżeniem, a katalog zostaje nietknięty.
+    if (e instanceof ChwilowyBlad) {
+      console.log(`::warning::${e.message}. Katalog bez zmian, spróbuje następny przebieg.`);
+      return;
+    }
     console.error(`Błąd: ${e.message}`);
     process.exit(1);
   });

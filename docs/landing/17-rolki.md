@@ -115,7 +115,7 @@ Sekret Workera `busikm-media` (Cloudflare, nie GitHub):
 
 | Sekret | Do czego |
 |---|---|
-| `GITHUB_TOKEN` | Uruchamianie akcji „Rolki”. Klucz *fine-grained* tylko do `BusiKM/busikm-docs`, jedno prawo: Actions — zapis |
+| `GITHUB_TOKEN` | Uruchamianie akcji „Rolki”. Klucz *fine-grained* tylko do `BusiKM/busikm-landing`, jedno prawo: Actions — zapis |
 
 Wgrywa się go z własnego terminala, bez wklejania do czatu:
 
@@ -136,7 +136,7 @@ z `paging.next` (Facebook dokleja tam token) i nie wypisuje adresów z Facebooka
 Ręczne uruchomienie: GitHub → Actions → Rolki → Run workflow, albo:
 
 ```bash
-gh workflow run rolki.yml --repo BusiKM/busikm-docs --ref develop
+gh workflow run rolki.yml --repo BusiKM/busikm-landing --ref develop
 ```
 
 GitHub wyłącza własny harmonogram po 60 dniach bez aktywności w repozytorium. Cron Workera tego

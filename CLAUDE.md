@@ -9,7 +9,7 @@ To jest repozytorium **strony marketingowej** projektu BusiKM — platformy SaaS
 - `landing/` — strona marketingowa busikm.pl (Next.js 16 App Router + Tailwind CSS 4)
 - `docs/landing/` — **dokumentacja nowej strony** oparta na finalnej wersji aplikacji (backlog BusiKM v2): inwentarz produktu i tabela twierdzeń, odbiorcy i język, architektura informacji, treść strony głównej i podstron, system animacji, gotowe prompty do Claude Design. **Zacznij tu przed jakąkolwiek zmianą treści na stronie.**
 
-**Poprzednia wersja strony (Astro 6, katalog `site/`) została usunięta** — jest dostępna wyłącznie w historii gita (ostatni commit z `site/` na `main`, sprzed mergu gałęzi `feat/landing-nextjs`). Nie odtwarzaj z niej plików bez wyraźnej prośby użytkownika.
+**Poprzednia wersja strony (Astro 6, katalog `site/`) została usunięta** — jest dostępna wyłącznie w historii prywatnego archiwum `BusiKM/busikm-docs` (ostatni commit z `site/` na `main`, sprzed mergu gałęzi `feat/landing-nextjs`). To repozytorium (`busikm-landing`) zaczyna się od stanu z 12.11.2026, bez wcześniejszej historii. Nie odtwarzaj z niej plików bez wyraźnej prośby użytkownika.
 
 Dokumentacja techniczna i biznesowa (`PROJECT_OVERVIEW`, `ARCHITECTURE`, `FEATURES`, `MONETIZATION`, `SUBSCRIPTION_MANAGEMENT`, `MARKETING_PLAN`, user guides itd.) została przeniesiona do repozytorium backendu. Kod źródłowy platformy (backend, mobile, web) znajduje się w oddzielnych repozytoriach.
 
@@ -157,7 +157,7 @@ Komenda **`UPDATE ROADMAP`** (lub jej wariant po polsku) uruchamia pełną resyn
 
 Odpytaj Atlassian MCP (`searchJiraIssuesUsingJql`) i zapisz w pamięci roboczej:
 
-- **Sprinty zamknięte**: nazwa, planowana data zakończenia (z poprzedniej wersji roadmapy — dopóki strony nie ma, weź ją z sekcji "Stan wdrożenia" w `llms.txt` albo z historii gita: `git show <commit>:site/src/pages/roadmapa.astro`), faktyczna `completeDate` (Jira), liczba `Done` ticketów.
+- **Sprinty zamknięte**: nazwa, planowana data zakończenia (z poprzedniej wersji roadmapy — dopóki strony nie ma, weź ją z sekcji "Stan wdrożenia" w `llms.txt` albo z historii archiwum `BusiKM/busikm-docs`: `git show <commit>:site/src/pages/roadmapa.astro`), faktyczna `completeDate` (Jira), liczba `Done` ticketów.
 - **Sprinty aktywne i przyszłe**: nazwa, planowane `startDate` / `endDate`.
 - **Backlog**: liczba ticketów w statusach innych niż Done (mapowanie do "ticketów w backlogu").
 - **Łączna liczba ticketów Done** (suma per sprint zamknięty).

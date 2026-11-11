@@ -1,7 +1,7 @@
 # 01 · Produkt finalny — co aplikacja naprawdę robi
 
 Źródła: backlog **BusiKM v2** (artefakt z 1 września 2026, 7 etapów, 45 epików, 191 zadań),
-`landing/public/llms.txt`, oraz inwentarz funkcji z poprzedniej wersji strony (historia gita).
+`landing/public/llms.txt`, oraz inwentarz funkcji z poprzedniej wersji strony (historia archiwum `BusiKM/busikm-docs`).
 
 > **Uwaga metodologiczna.** Backlog v2 to lista **zmian**, nie spis funkcji. Rzeczy już
 > zbudowane i nietykane (nawigacja w aplikacji kierowcy, odczyt paragonów, KSeF, czat)

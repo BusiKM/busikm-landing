@@ -35,12 +35,12 @@ interface Env {
     ): Promise<R2ObjectBody | null>;
     head(key: string): Promise<R2ObjectBody | null>;
   };
-  /** Klucz GitHuba z jednym prawem: Actions (zapis) w BusiKM/busikm-docs. */
+  /** Klucz GitHuba z jednym prawem: Actions (zapis) w BusiKM/busikm-landing. */
   GITHUB_TOKEN?: string;
 }
 
 const AKCJA_ROLEK =
-  'https://api.github.com/repos/BusiKM/busikm-docs/actions/workflows/rolki.yml/dispatches';
+  'https://api.github.com/repos/BusiKM/busikm-landing/actions/workflows/rolki.yml/dispatches';
 
 async function uruchomRolki(token: string | undefined): Promise<void> {
   if (!token) {

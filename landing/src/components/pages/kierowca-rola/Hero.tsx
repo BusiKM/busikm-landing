@@ -27,7 +27,7 @@ const TEKSTY: Tlumaczenia<{
     lead: 'Jedna aplikacja na cały dzień. Nawigacja jednym dotknięciem, paragon zdjęciem, przerwa z wyprzedzeniem.',
     proba: 'Wypróbuj 14 dni',
     demo: 'Zobacz demo',
-    label: 'Dwa telefony pod kątem · tryb nocny',
+    label: 'Dwa telefony pod kątem (tryb nocny)',
     note: 'Lewy: ekran „Dziś” z kursem Wrocław → Milano i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: „Czas pracy” przy przewozie międzynarodowym - trzy wskaźniki i przyciski „Przerwa” i „Odpoczynek”.',
   },
   en: {
@@ -41,7 +41,7 @@ const TEKSTY: Tlumaczenia<{
     lead: 'One app for the whole day. Navigation in one tap, receipts by photo, breaks flagged in advance.',
     proba: 'Try 14 days free',
     demo: 'See the demo',
-    label: 'Two phones at an angle · dark mode',
+    label: 'Two phones at an angle (dark mode)',
     note: 'Left: the “Today” screen with the Wrocław → Milan job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: “Working time” for international transport - three gauges and the “Break” and “Rest” buttons.',
   },
 };

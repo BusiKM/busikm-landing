@@ -34,7 +34,7 @@ const TEKSTY: Tlumaczenia<{
         '„Moje dokumenty”: prawo jazdy, świadectwo kwalifikacji, badania, karta kierowcy - każdy z datą ważności. Gdy termin się zbliża, kierowca widzi to na ekranie „Dziś”, a Ty i dyspozytor dostajecie przypomnienie. Do tego dokumenty zlecenia, CMR i WZ, pod ręką w trasie.',
     },
     dokumenty: [
-      ['Prawo jazdy · B', '3 lata'],
+      ['Prawo jazdy, kat. B', '3 lata'],
       ['Badania lekarskie', '41 dni'],
       ['Karta kierowcy', '41 dni'],
       ['Świadectwo kwalifikacji', '2 lata'],
@@ -57,7 +57,7 @@ const TEKSTY: Tlumaczenia<{
         '“My documents”: driving licence, driver CPC, medicals and the tachograph card - each with its expiry date. When a deadline gets close, the driver sees it on the “Today” screen, and you and the dispatcher get a reminder. Plus the order documents, CMR and delivery notes, to hand on the road.',
     },
     dokumenty: [
-      ['Driving licence · B', '3 years'],
+      ['Driving licence, cat. B', '3 years'],
       ['Medical check', '41 days'],
       ['Driver card', '41 days'],
       ['Driver CPC (Code 95)', '2 years'],

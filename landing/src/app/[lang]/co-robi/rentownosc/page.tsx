@@ -59,7 +59,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     porownanie: {
       tytul: 'Porównanie okresów',
       tresc: 'Pulpit porównuje z poprzednim tygodniem, miesiącem albo rokiem. Raport „Wynik” pokazuje miesiąc po miesiącu, a bieżący miesiąc z prognozą do końca.',
-      label: 'Raporty → Wynik · desktop, tryb nocny',
+      label: 'Raporty → Wynik (desktop, tryb nocny)',
       note: 'Raporty, zakładka Wynik: przychód, koszty, zysk, marża i zysk na kilometr z różnicą do poprzedniego okresu, niżej wykres miesiąc po miesiącu z prognozą do końca bieżącego miesiąca.',
     },
     ktoUzywa: 'Kto tego używa:',
@@ -96,7 +96,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     porownanie: {
       tytul: 'Compare periods',
       tresc: 'The dashboard compares with the previous week, month or year. The “Result” report shows month by month, with a forecast to the end of the current month.',
-      label: 'Reports → Result · desktop, dark mode',
+      label: 'Reports → Result (desktop, dark mode)',
       note: 'Reports, Result tab: revenue, costs, profit, margin and profit per kilometre with the change on the previous period, and below, a month-by-month chart with a forecast to the end of the current month.',
     },
     ktoUzywa: 'Who uses it:',

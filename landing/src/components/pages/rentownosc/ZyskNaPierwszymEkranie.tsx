@@ -9,7 +9,7 @@ const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; liczby: readonly Liczb
     tytul: 'Zysk na pierwszym ekranie',
     tresc: 'Na pulpicie, pod sprawami na dziś: przychód netto, koszty i wynik, obok poprzedni tydzień, miesiąc albo rok.',
     liczby: [
-      { label: 'Przychód netto · wrzesień', value: '184 320 zł', mocna: false },
+      { label: 'Przychód netto, wrzesień', value: '184 320 zł', mocna: false },
       { label: 'Koszty', value: '121 840 zł', mocna: false },
       { label: 'Wynik', value: '62 480 zł', mocna: true },
     ],
@@ -18,7 +18,7 @@ const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; liczby: readonly Liczb
     tytul: 'Profit on the first screen',
     tresc: 'On the dashboard, below today’s tasks: net revenue, costs and result, next to the previous week, month or year.',
     liczby: [
-      { label: 'Net revenue · September', value: 'PLN 184,320', mocna: false },
+      { label: 'Net revenue, September', value: 'PLN 184,320', mocna: false },
       { label: 'Costs', value: 'PLN 121,840', mocna: false },
       { label: 'Result', value: 'PLN 62,480', mocna: true },
     ],

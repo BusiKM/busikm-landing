@@ -115,7 +115,7 @@ export async function POST(request: Request) {
         // Dzięki temu „Odpowiedz" w kliencie pocztowym trafia wprost do
         // osoby, która napisała, a nie do adresu nadawcy technicznego.
         reply_to: email,
-        subject: `BusiKM · ${temat}${jezyk === 'en' ? ' [EN]' : ''} - ${imie}`,
+        subject: `BusiKM: ${temat}${jezyk === 'en' ? ' [EN]' : ''} - ${imie}`,
         html,
       }),
     });

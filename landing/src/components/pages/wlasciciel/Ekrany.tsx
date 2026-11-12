@@ -19,22 +19,22 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     naglowek: 'Cztery ekrany, które widzisz codziennie.',
     pulpit: {
-      label: 'Pulpit właściciela · desktop',
+      label: 'Pulpit właściciela (desktop)',
       note: 'Po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” - kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
       caption: 'Pulpit',
     },
     mapa: {
-      label: 'Mapa floty · desktop',
+      label: 'Mapa floty (desktop)',
       note: 'Dyspozytornia: mapa Europy ze znacznikami aut i filtrami „Wszystkie”, „W trasie”, „Wolne”, „Serwis”, obok kolejka kursów.',
       caption: 'Mapa floty',
     },
     zysk: {
-      label: 'Raporty → Zlecenia i trasy · desktop',
+      label: 'Raporty → Zlecenia i trasy (desktop)',
       note: 'Średni zysk z kursu, puste kilometry, zlecenia poniżej progu marży i marża według kraju rozładunku.',
       caption: 'Rentowność zleceń',
     },
     dokumenty: {
-      label: 'Dokumenty i terminy · desktop',
+      label: 'Dokumenty i terminy (desktop)',
       note: 'Liczniki - po terminie, brakuje, kończą się w 30 dni, w porządku - i lista dokumentów z datą ważności i stanem.',
       caption: 'Dokumenty i terminy',
     },
@@ -42,22 +42,22 @@ const TEKSTY: Tlumaczenia<{
   en: {
     naglowek: 'Four screens you see every day.',
     pulpit: {
-      label: 'Owner’s dashboard · desktop',
+      label: 'Owner’s dashboard (desktop)',
       note: '“To do” on the left with what’s waiting for your decision, “Today” on the right - runs on the road, loadings, deliveries and who is driving right now.',
       caption: 'Dashboard',
     },
     mapa: {
-      label: 'Fleet map · desktop',
+      label: 'Fleet map (desktop)',
       note: 'Dispatch: a map of Europe with vehicle markers and “All”, “On the road”, “Free”, “Service” filters, the run queue alongside.',
       caption: 'Fleet map',
     },
     zysk: {
-      label: 'Reports → Orders and routes · desktop',
+      label: 'Reports → Orders and routes (desktop)',
       note: 'Average profit per run, empty kilometres, orders below the margin threshold and margin by unloading country.',
       caption: 'Order profitability',
     },
     dokumenty: {
-      label: 'Documents and deadlines · desktop',
+      label: 'Documents and deadlines (desktop)',
       note: 'Counters - overdue, missing, expiring within 30 days, in order - and a list of documents with expiry date and status.',
       caption: 'Documents and deadlines',
     },

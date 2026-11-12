@@ -21,7 +21,7 @@ const TEKSTY: Tlumaczenia<{
       '„Napisz” na karcie kursu otwiera czat zlecenia',
     ],
     nota: 'Dyspozytor ma w BusiKM własne stanowisko i własny dostęp.',
-    label: 'Ekran dyspozytora · desktop 1440',
+    label: 'Ekran dyspozytora (desktop 1440)',
     opis: 'Dyspozytornia: u góry liczniki dnia, po lewej kolejka z zakładkami „Wymaga reakcji”, „Do przypisania” i „W trasie”, po prawej mapa floty z filtrami, niżej plan floty.',
   },
   en: {
@@ -33,7 +33,7 @@ const TEKSTY: Tlumaczenia<{
       '“Message” on a run opens the order chat',
     ],
     nota: 'In BusiKM the dispatcher has their own workspace and their own login.',
-    label: 'Dispatcher’s screen · desktop 1440',
+    label: 'Dispatcher’s screen (desktop 1440)',
     opis: 'Dispatch: the day’s counters at the top, the queue on the left with “Needs action”, “To assign” and “On the road” tabs, the fleet map with filters on the right, the fleet plan below.',
   },
 };

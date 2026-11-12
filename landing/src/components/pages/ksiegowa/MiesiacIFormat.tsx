@@ -31,7 +31,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'W formacie jej programu',
       tresc: 'Comarch Optima, Insert GT albo Symfonia. Rejestry VAT i płace także w Excelu.',
       formaty: [
-        ['Comarch Optima', 'XML · wybrany', true],
+        ['Comarch Optima', 'XML, wybrany', true],
         ['Insert GT', 'EPP', false],
         ['Symfonia', 'TXT + AMS', false],
         ['Excel', 'rejestry VAT, płace i diety', false],
@@ -49,7 +49,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'In the format of their software',
       tresc: 'Comarch Optima, Insert GT or Symfonia (the accounting programs most Polish firms use). VAT registers and payroll in Excel too.',
       formaty: [
-        ['Comarch Optima', 'XML · selected', true],
+        ['Comarch Optima', 'XML, selected', true],
         ['Insert GT', 'EPP', false],
         ['Symfonia', 'TXT + AMS', false],
         ['Excel', 'VAT registers, payroll and allowances', false],

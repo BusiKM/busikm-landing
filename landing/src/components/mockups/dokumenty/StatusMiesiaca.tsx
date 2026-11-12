@@ -10,7 +10,7 @@ type Kolumna = {
 };
 
 type Teksty = {
-  chrome: string;
+  chrome: readonly string[];
   miesiac: string;
   tytul: string;
   podsumowanie: string;
@@ -19,10 +19,10 @@ type Teksty = {
 
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
-    chrome: 'app.busikm.pl · Dokumenty · status na wrzesień',
+    chrome: ['app.busikm.pl', 'Dokumenty', 'status na wrzesień'],
     miesiac: 'Wrzesień 2026',
     tytul: 'Jedna rzecz wymaga uwagi w tym miesiącu.',
-    podsumowanie: '17 dokumentów · 16 w porządku',
+    podsumowanie: '17 dokumentów, 16 w porządku',
     kolumny: [
       {
         grupa: 'Pojazdy',
@@ -31,27 +31,27 @@ const TEKSTY: Tlumaczenia<Teksty> = {
           { co: 'Ubezpieczenie OC', kto: 'PO 2093J', kiedy: '9 dni', pilne: true },
           { co: 'Przegląd techniczny', kto: 'WZ 4821K', kiedy: '88 dni' },
         ],
-        reszta: 'pozostałe 12 · w porządku',
+        reszta: 'pozostałe 12, w porządku',
       },
       {
         grupa: 'Firma',
         ile: '3',
         pozycje: [{ co: 'Licencja wspólnotowa', kto: 'Firma', kiedy: '214 dni' }],
-        reszta: 'pozostałe 2 · w porządku',
+        reszta: 'pozostałe 2, w porządku',
       },
       {
         grupa: 'Kierowcy',
         ile: '9',
         pozycje: [{ co: 'Badania lekarskie', kto: 'Tomasz L.', kiedy: '41 dni' }],
-        reszta: 'pozostałe 26 · w porządku',
+        reszta: 'pozostałe 26, w porządku',
       },
     ],
   },
   en: {
-    chrome: 'app.busikm.pl · Documents · status for September',
+    chrome: ['app.busikm.pl', 'Documents', 'status for September'],
     miesiac: 'September 2026',
     tytul: 'One thing needs your attention this month.',
-    podsumowanie: '17 documents · 16 all fine',
+    podsumowanie: '17 documents, 16 all fine',
     kolumny: [
       {
         grupa: 'Vehicles',
@@ -60,19 +60,19 @@ const TEKSTY: Tlumaczenia<Teksty> = {
           { co: 'Third-party liability insurance', kto: 'PO 2093J', kiedy: '9 days', pilne: true },
           { co: 'Roadworthiness test', kto: 'WZ 4821K', kiedy: '88 days' },
         ],
-        reszta: 'other 12 · all fine',
+        reszta: 'other 12, all fine',
       },
       {
         grupa: 'Company',
         ile: '3',
         pozycje: [{ co: 'Community licence', kto: 'Company', kiedy: '214 days' }],
-        reszta: 'other 2 · all fine',
+        reszta: 'other 2, all fine',
       },
       {
         grupa: 'Drivers',
         ile: '9',
         pozycje: [{ co: 'Medical check', kto: 'Tomasz L.', kiedy: '41 days' }],
-        reszta: 'other 26 · all fine',
+        reszta: 'other 26, all fine',
       },
     ],
   },

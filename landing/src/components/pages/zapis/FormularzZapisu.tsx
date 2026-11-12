@@ -132,7 +132,7 @@ export function FormularzZapisu({ opis }: { opis: OpisListy }) {
 
   const linkPocztowy = () =>
     `mailto:${firma.email}?subject=${encodeURIComponent(
-      `BusiKM · ${opis.lista === 'demo' ? t.tematDemo : t.tematKonto}`,
+      `BusiKM: ${opis.lista === 'demo' ? t.tematDemo : t.tematKonto}`,
     )}&body=${encodeURIComponent(
       [imie && `${t.imiePole}: ${imie}`, mail && `${t.emailPole}: ${mail}`]
         .filter(Boolean)

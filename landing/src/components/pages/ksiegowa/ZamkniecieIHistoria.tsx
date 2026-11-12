@@ -19,7 +19,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     zamkniecie: {
       tytul: 'Zamknięcie miesiąca',
       tresc: 'Zamknięty miesiąc blokuje zmiany w fakturach, trasach, płacach i zaliczkach. Otworzysz go tylko z podaniem powodu - zostaje ślad.',
-      zamkniety: ['Lipiec 2026', 'zamknięty · 4.08, Ewa M.'],
+      zamkniety: ['Lipiec 2026', 'zamknięty 4.08 przez Ewę M.'],
       otwarty: ['Sierpień 2026', 'otwarty'],
       przycisk: 'Zamknij sierpień',
     },
@@ -39,7 +39,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     zamkniecie: {
       tytul: 'Month-end close',
       tresc: 'A closed month locks changes to invoices, trips, payroll and advances. You can reopen it only by giving a reason - and that leaves a trace.',
-      zamkniety: ['July 2026', 'closed · 4 Aug, Ewa M.'],
+      zamkniety: ['July 2026', 'closed on 4 Aug by Ewa M.'],
       otwarty: ['August 2026', 'open'],
       przycisk: 'Close August',
     },

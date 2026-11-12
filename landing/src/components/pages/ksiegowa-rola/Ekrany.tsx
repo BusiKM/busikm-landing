@@ -20,17 +20,17 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis] }> = {
     naglowek: 'Trzy ekrany, które widzisz co miesiąc.',
     opisy: [
       {
-        label: 'Rozliczenia → Eksporty · desktop',
+        label: 'Rozliczenia → Eksporty (desktop)',
         note: 'Dekrety do FK z wyborem programu, rejestry VAT, płace i diety, delegacje, ewidencje przebiegu, VAT-REF i JPK_FA, u góry „Pobierz paczkę dla biura”.',
         caption: 'Eksporty',
       },
       {
-        label: 'Zamknięcie miesiąca · desktop',
+        label: 'Zamknięcie miesiąca (desktop)',
         note: 'Kroki miesiąca - faktury, koszty, przebieg, płace i diety, deklaracje, zamknięcie - z przejściem do braku, obok najbliższe terminy i zamknięte miesiące.',
         caption: 'Zamknięcie miesiąca',
       },
       {
-        label: 'Płace i diety · desktop',
+        label: 'Płace i diety (desktop)',
         note: 'Rozliczenie Krzysztofa Kamińskiego za wrzesień: kalendarz dni w Niemczech, wynagrodzenie, diety i noclegi, kwota do rozliczenia.',
         caption: 'Płace i diety',
       },
@@ -40,17 +40,17 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis] }> = {
     naglowek: 'Three screens you see every month.',
     opisy: [
       {
-        label: 'Settlements → Exports · desktop',
+        label: 'Settlements → Exports (desktop)',
         note: 'Ledger entries with a choice of software, VAT registers, payroll and allowances, business trips, mileage logs, VAT-REF and JPK_FA, with “Download the package for the office” at the top.',
         caption: 'Exports',
       },
       {
-        label: 'Month-end close · desktop',
+        label: 'Month-end close (desktop)',
         note: 'Month-end steps - invoices, costs, mileage, payroll and allowances, tax returns, closing - each linking to what’s missing, with upcoming deadlines and closed months alongside.',
         caption: 'Month-end close',
       },
       {
-        label: 'Payroll and allowances · desktop',
+        label: 'Payroll and allowances (desktop)',
         note: 'Krzysztof Kamiński’s September settlement: a calendar of days in Germany, pay, per diems and overnight allowances, the total to settle.',
         caption: 'Payroll and allowances',
       },

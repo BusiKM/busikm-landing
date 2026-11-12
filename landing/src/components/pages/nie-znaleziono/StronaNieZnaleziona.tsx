@@ -31,7 +31,7 @@ const TEKSTY: Tlumaczenia<{
   skroty: { href: string; label: string; opis: string }[];
 }> = {
   pl: {
-    tytul: 'Nie ma takiej strony · BusiKM',
+    tytul: 'Nie ma takiej strony | BusiKM',
     blad: 'Błąd 404',
     naglowek: 'Tej strony tu nie ma.',
     lead: 'Może w odnośniku zgubiła się literówka, a może adres się zmienił. Jeśli trafiłeś tu z naszej strony - napisz, poprawimy.',
@@ -50,7 +50,7 @@ const TEKSTY: Tlumaczenia<{
     ],
   },
   en: {
-    tytul: 'Page not found · BusiKM',
+    tytul: 'Page not found | BusiKM',
     blad: 'Error 404',
     naglowek: 'This page isn’t here.',
     lead: 'Maybe the link has a typo, or the address has changed. If you got here from our site - let us know and we’ll fix it.',

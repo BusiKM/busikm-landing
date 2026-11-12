@@ -2,6 +2,7 @@
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent } from 'react';
 import { Container } from '@/components/ui/Container';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { Eyebrow } from '@/components/ui/Section';
 import { firma } from '@/content/firma';
@@ -246,7 +247,9 @@ export function StronaRolek({ rolki }: { rolki: Rolka[] }) {
                     {r.tytul}
                   </span>
                   <span className="mt-1.5 block font-mono text-[12px] text-muted lg:text-[13px]">
-                    {r.dataTekst} · {czasFilmu(r.sekundy)}
+                    {r.dataTekst}
+                    <Rozdzielacz className="mx-2" />
+                    {czasFilmu(r.sekundy)}
                   </span>
                 </a>
               ))}

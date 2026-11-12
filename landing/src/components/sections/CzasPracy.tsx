@@ -25,7 +25,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     tacho: 'Tachograf zapisuje. BusiKM pokazuje.',
     tachoOpis: 'Tachograf jest wymagany i robi swoje - rejestruje. BusiKM go nie zastępuje i nie udaje. Jest po to, żeby kierowca widział na ekranie, ile jeszcze może jechać i kiedy musi stanąć. Wcześniej, a nie po fakcie.',
-    label: 'Kierowcy, zakładka „Czas pracy” · desktop',
+    label: 'Kierowcy, zakładka „Czas pracy” (desktop)',
     opis: 'Lista kierowców z kolumnami: teraz, jazda dziś, do przerwy, tydzień, dwa tygodnie, powrót do domu i stan „W normie”; u góry kafle „W trasie teraz”, „Blisko limitu” i „Naruszenia”.',
   },
   en: {
@@ -39,7 +39,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     tacho: 'The tachograph records. BusiKM shows.',
     tachoOpis: 'The tachograph is required and does its job - it records. BusiKM doesn’t replace it and doesn’t pretend to. It’s there so the driver can see on screen how much longer they can drive and when they have to stop. Ahead of time, not after the fact.',
-    label: 'Drivers, “Working time” tab · desktop',
+    label: 'Drivers, “Working time” tab (desktop)',
     opis: 'A list of drivers with columns for now, driving today, time to break, week, two weeks, home time and a “Within limits” status; tiles at the top for “On the road now”, “Close to the limit” and “Infringements”.',
   },
 };

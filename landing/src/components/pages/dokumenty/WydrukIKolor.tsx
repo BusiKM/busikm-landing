@@ -27,15 +27,15 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     wydruk: {
       tytul: 'Komplet do pobrania',
       tresc: 'Dokumenty auta albo kierowcy w jednym pliku ZIP - dla klienta albo na kontrolę. Braki widzisz przed pobraniem.',
-      naglowek: 'Dokumenty · wrzesień 2026',
+      naglowek: 'Dokumenty, wrzesień 2026',
       pozycje: [
-        ['Ubezpieczenie OC · PO 2093J', '12.10'],
-        ['Badania lek. · Tomasz L.', '13.10'],
-        ['Przegląd · WZ 4821K', '29.11'],
+        ['Ubezpieczenie OC, PO 2093J', '12.10'],
+        ['Badania lek., Tomasz L.', '13.10'],
+        ['Przegląd, WZ 4821K', '29.11'],
         ['Licencja wspólnotowa', '04.04.27'],
       ],
       reszta: '… 13 kolejnych',
-      stopka: 'Pobrano 2.09.2026 · busikm.pl',
+      stopka: 'Pobrano 2.09.2026 z busikm.pl',
     },
     kolor: {
       tytul: 'Kolor ostrzegawczy tylko tutaj',
@@ -57,15 +57,15 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     wydruk: {
       tytul: 'The full set to download',
       tresc: 'A vehicle’s or driver’s documents in one ZIP file - for a client or a roadside check. You see what’s missing before you download.',
-      naglowek: 'Documents · September 2026',
+      naglowek: 'Documents, September 2026',
       pozycje: [
-        ['Third-party liability insurance · PO 2093J', '12 Oct'],
-        ['Medical check · Tomasz L.', '13 Oct'],
-        ['Roadworthiness test · WZ 4821K', '29 Nov'],
+        ['Third-party liability insurance, PO 2093J', '12 Oct'],
+        ['Medical check, Tomasz L.', '13 Oct'],
+        ['Roadworthiness test, WZ 4821K', '29 Nov'],
         ['Community licence', '4 Apr 2027'],
       ],
       reszta: '… 13 more',
-      stopka: 'Downloaded 2 Sep 2026 · busikm.pl',
+      stopka: 'Downloaded from busikm.pl on 2 Sep 2026',
     },
     kolor: {
       tytul: 'The warning colour lives here only',

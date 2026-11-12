@@ -12,7 +12,7 @@ type Teksty = {
 
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
-    naglowek: 'Rozliczenie · sierpień',
+    naglowek: 'Rozliczenie, sierpień',
     liczby: [
       ['Dni za granicą', '14', false],
       ['Diety', '2 856 zł', false],
@@ -28,7 +28,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     gotowe: 'gotowe do wczytania',
   },
   en: {
-    naglowek: 'Settlement · August',
+    naglowek: 'Settlement, August',
     liczby: [
       ['Days abroad', '14', false],
       ['Per diems', 'PLN 2,856', false],

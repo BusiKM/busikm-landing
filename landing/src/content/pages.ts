@@ -56,11 +56,11 @@ const strony = {
   },
 
   'co-robi/aplikacja-kierowcy': {
-    eyebrow: 'BusiKM Kierowca · iPhone i Android',
+    eyebrow: 'BusiKM Kierowca na iPhone i Androida',
     heading: 'Cały dzień pracy w jednej aplikacji.\nBez wpisywania czegokolwiek w trasie.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku.',
     title: 'Aplikacja kierowcy',
-    seoTitle: 'Aplikacja dla kierowcy busa - trasa i koszty · BusiKM',
+    seoTitle: 'Aplikacja dla kierowcy busa - trasa i koszty | BusiKM',
     description:
       'Aplikacja dla kierowców: zlecenia, nawigacja w Apple Maps, Google Maps albo Waze, koszt ze zdjęcia i przerwy zapisane bez zasięgu. iPhone i Android.',
     outline: [
@@ -80,7 +80,7 @@ const strony = {
     heading: 'Cały dzień pracy\nna jednym ekranie.',
     lead: 'Kolejka zleceń i mapa floty obok siebie. Do kierowcy piszesz jednym kliknięciem.',
     title: 'Dyspozytornia',
-    seoTitle: 'Program dla dyspozytora transportu i mapa floty · BusiKM',
+    seoTitle: 'Program dla dyspozytora transportu i mapa floty | BusiKM',
     description:
       'Kolejka zleceń i mapa floty na jednym ekranie. System ustawia kolejność postojów i liczy czas, a zmiana trafia do kierowcy od razu.',
     outline: [
@@ -99,7 +99,7 @@ const strony = {
     heading: 'Widzisz, gdzie jest każdy bus.\nBez dzwonienia.',
     lead: 'Pozycje na żywo, historia tras i przejazdy, które liczą się nawet bez zlecenia.',
     title: 'Trasy i mapa floty',
-    seoTitle: 'Mapa floty i trasy busów na żywo · BusiKM',
+    seoTitle: 'Mapa floty i trasy busów na żywo | BusiKM',
     description:
       'Widzisz, gdzie jest każdy bus, bez dzwonienia. Trasa zapisuje się sama i zamienia w gotową ewidencję przebiegu pojazdu.',
     outline: [
@@ -117,7 +117,7 @@ const strony = {
     heading: 'Wiesz, kiedy kierowca musi stanąć.\nZanim stanie za późno.',
     lead: 'Czas jazdy i przerwy liczą się same. Kierowca dostaje przypomnienie 15 minut wcześniej, a przerwę zapisze też bez zasięgu.',
     title: 'Czas pracy i przerwy',
-    seoTitle: 'Ewidencja czasu pracy kierowcy - program · BusiKM',
+    seoTitle: 'Ewidencja czasu pracy kierowcy - program | BusiKM',
     description:
       'Czas jazdy, przerwy i odpoczynki liczone same z trasy. Kierowca wie, kiedy musi stanąć, a Ty masz gotowe zestawienie za miesiąc.',
     outline: [
@@ -136,7 +136,7 @@ const strony = {
     heading: 'Ze zlecenia robi się faktura.\nKlient ma ją, zanim wrócisz do biura.',
     lead: 'Faktura powstaje z danych zlecenia i jednym przyciskiem idzie do KSeF. Wysyłkę do klienta zlecasz od razu - PDF z kodem QR wyjdzie, gdy KSeF nada numer.',
     title: 'Zlecenia i faktury',
-    seoTitle: 'Zlecenia transportowe i faktury - program · BusiKM',
+    seoTitle: 'Zlecenia transportowe i faktury - program | BusiKM',
     description:
       'Ze zlecenia robi się faktura. Jednym przyciskiem idzie do KSeF, klient dostaje PDF mailem, a Ty widzisz, kto jeszcze nie zapłacił.',
     outline: [
@@ -154,7 +154,7 @@ const strony = {
     heading: 'Reklamówka paragonów.\nDo wyrzucenia.',
     lead: 'Kierowca robi zdjęcie na stacji, wybiera rodzaj kosztu i zlecenie. Kwotę, datę i sprzedawcę BusiKM odczyta sam.',
     title: 'Koszty i paragony',
-    seoTitle: 'Rozliczanie kosztów i paragonów w transporcie · BusiKM',
+    seoTitle: 'Rozliczanie kosztów i paragonów w transporcie | BusiKM',
     description:
       'Kierowca robi zdjęcie paragonu, a system sam odczytuje kwotę, datę i walutę. Koniec z reklamówką rachunków pod siedzeniem.',
     outline: [
@@ -172,7 +172,7 @@ const strony = {
     heading: 'Wiesz, ile zostaje.\nNa tym kursie. Dziś.',
     lead: 'Kierowca dodaje paragon w trasie. Gdy koszt ma komplet danych, wynik zlecenia przelicza się sam.',
     title: 'Ile zostaje',
-    seoTitle: 'Rentowność zleceń transportowych - zysk na kursie · BusiKM',
+    seoTitle: 'Rentowność zleceń transportowych - zysk na kursie | BusiKM',
     description:
       'Przychód, koszty i zysk na każdym kursie z osobna. Marża liczona na bieżąco, razem z kosztami w obcych walutach.',
     outline: [
@@ -190,7 +190,7 @@ const strony = {
     heading: 'Komplet dokumentów.\nJednym przyciskiem.',
     lead: 'Wybiera miesiąc, klika raz i ma wszystko - w formacie programu, którego już używa.',
     title: 'Dane dla księgowej',
-    seoTitle: 'Dokumenty dla księgowej z firmy transportowej · BusiKM',
+    seoTitle: 'Dokumenty dla księgowej z firmy transportowej | BusiKM',
     description:
       'Paczka dla biura jednym przyciskiem: dekrety FK, rejestry VAT, płace, delegacje i ewidencje przebiegu - dla Insert GT, Optimy albo Symfonii.',
     outline: [
@@ -210,7 +210,7 @@ const strony = {
     heading: 'Nic nie wygaśnie\npo cichu.',
     lead: 'Ubezpieczenie, przegląd, licencja, prawo jazdy, badania. System pilnuje dat i mówi wcześniej.',
     title: 'Dokumenty i terminy',
-    seoTitle: 'Pilnowanie terminów dokumentów i badań w firmie · BusiKM',
+    seoTitle: 'Pilnowanie terminów dokumentów i badań w firmie | BusiKM',
     description:
       'Przeglądy, ubezpieczenia, badania kierowców i uprawnienia w jednym miejscu. Dostajesz przypomnienie, zanim coś wygaśnie.',
     outline: [
@@ -232,7 +232,7 @@ const strony = {
   },
 
   'dla-kogo/wlasciciel': {
-    eyebrow: 'Właściciel · przeglądarka',
+    eyebrow: 'Właściciel w przeglądarce',
     heading: 'Wiesz, ile zostaje.\nI gdzie jest każdy bus.',
     lead: 'Na pierwszym ekranie to, co wymaga uwagi dziś. Niżej przychód, koszty i wynik.',
     title: 'BusiKM dla właściciela',
@@ -242,7 +242,7 @@ const strony = {
   },
 
   'dla-kogo/dyspozytor': {
-    eyebrow: 'Dyspozytor · przeglądarka',
+    eyebrow: 'Dyspozytor w przeglądarce',
     heading: 'Cały dzień pracy\nna jednym ekranie.',
     lead: 'Kolejka zleceń i mapa floty obok siebie. System ustawia kolejność postojów i liczy czas.',
     title: 'BusiKM dla dyspozytora',
@@ -252,7 +252,7 @@ const strony = {
   },
 
   'dla-kogo/ksiegowa': {
-    eyebrow: 'Księgowa · przeglądarka',
+    eyebrow: 'Księgowa w przeglądarce',
     heading: 'Koniec miesiąca\nw jednym kliknięciu.',
     lead: 'Komplet dokumentów w formacie Twojego programu. Zamykasz miesiąc i nikt nie zmienia danych wstecz.',
     title: 'BusiKM dla księgowej',
@@ -262,7 +262,7 @@ const strony = {
   },
 
   'dla-kogo/kierowca': {
-    eyebrow: 'Kierowca · telefon',
+    eyebrow: 'Kierowca w telefonie',
     heading: 'Zacznij dzień.\nResztą zajmuje się telefon.',
     lead: 'Zlecenia, przerwy i koszty w jednej aplikacji. Nawigację otwierasz jednym dotknięciem.',
     title: 'BusiKM dla kierowcy',
@@ -276,7 +276,7 @@ const strony = {
     heading: 'Płacisz za pojazdy.\nNie za ludzi.',
     lead: 'Kierowcy i pracownicy biura bez limitu. Przyczepy i naczepy nie liczą się do abonamentu.',
     title: 'Cennik',
-    seoTitle: 'Cennik - od 149 zł miesięcznie · BusiKM',
+    seoTitle: 'Cennik - od 149 zł miesięcznie | BusiKM',
     description:
       'Start 149 zł i Firma 299 zł miesięcznie, ceny końcowe bez VAT. Płacisz za pojazdy, kierowcy i biuro bez limitu. 14 dni za darmo.',
     opisOg:
@@ -312,7 +312,7 @@ const strony = {
     heading: 'Pomoc,\nkiedy jej potrzebujesz.',
     lead: 'Pierwsze kroki, praca kierowcy, rozliczenia i konto. A jak czegoś nie ma - piszesz do człowieka.',
     title: 'Centrum pomocy',
-    seoTitle: 'Centrum pomocy · BusiKM',
+    seoTitle: 'Centrum pomocy | BusiKM',
     description:
       'Pierwsze kroki, aplikacja kierowcy, rozliczenia i księgowość, konto i płatności. A jak czegoś nie ma - piszesz do człowieka.',
   },
@@ -322,7 +322,7 @@ const strony = {
     heading: 'Pierwsza trasa\npierwszego dnia.',
     lead: 'Od założenia konta po pierwszą zamkniętą fakturę. Krok po kroku.',
     title: 'Pierwsze kroki',
-    seoTitle: 'Pierwsze kroki - od konta do pierwszej faktury · BusiKM',
+    seoTitle: 'Pierwsze kroki - od konta do pierwszej faktury | BusiKM',
     description:
       'Dodaj pojazd, zaproś kierowcę, odbierz pierwszą trasę. Cała droga od założenia konta po pierwszą wystawioną fakturę.',
   },
@@ -332,7 +332,7 @@ const strony = {
     heading: 'Minuta z firmy transportowej.',
     lead: 'Zlecenia, faktury, trasy i BusiKM od środka. Nowa rolka prawie codziennie.',
     title: 'Rolki',
-    seoTitle: 'Rolki - krótkie filmy dla firm z busami · BusiKM',
+    seoTitle: 'Rolki - krótkie filmy dla firm z busami | BusiKM',
     description:
       'Krótkie filmy o zleceniach, fakturach i trasach w firmie z busami. Nowa rolka prawie codziennie. Oglądasz na stronie, bez konta na Facebooku.',
   },
@@ -342,7 +342,7 @@ const strony = {
     heading: 'Napisz.\nOdpisujemy tego samego dnia.',
     lead: 'Pytanie o funkcję, o rozliczenie albo o to, czy BusiKM poradzi sobie z Twoim przypadkiem.',
     title: 'Kontakt',
-    seoTitle: 'Kontakt · BusiKM',
+    seoTitle: 'Kontakt | BusiKM',
     description:
       'Napisz do nas - odpowiadamy tego samego dnia roboczego. Pytania o funkcje, rozliczenia i wdrożenie w Twojej firmie.',
   },
@@ -352,7 +352,7 @@ const strony = {
     heading: 'Czy BusiKM\ndziała.',
     lead: 'Aktualny stan usługi i historia przerw.',
     title: 'Status usługi',
-    seoTitle: 'Status usługi - czy BusiKM działa · BusiKM',
+    seoTitle: 'Status usługi - czy BusiKM działa | BusiKM',
     description:
       'Aktualny stan działania BusiKM i historia przerw w dostępie. Sprawdź tutaj, zanim napiszesz do nas - może problem jest już u nas na tablicy.',
   },
@@ -364,7 +364,7 @@ const strony = {
     heading: 'Polityka prywatności strony busikm.pl',
     lead: 'Jakie dane zbiera strona busikm.pl, po co i jak długo je trzymamy.',
     title: 'Polityka prywatności strony busikm.pl',
-    seoTitle: 'Polityka prywatności strony busikm.pl i plików cookie · BusiKM',
+    seoTitle: 'Polityka prywatności strony busikm.pl i plików cookie | BusiKM',
     description:
       'Jakie dane zbiera strona busikm.pl: formularze, zapisy na listę, statystyka odwiedzin, reklama i pliki cookie. Przetwarzanie danych w usłudze BusiKM opisuje osobna polityka w aplikacji.',
   },
@@ -380,17 +380,17 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Nine things\nthat get done without you.',
     lead: 'From the driver’s route to a full set of documents for your accountant. Pick the area you care about.',
     title: 'What BusiKM does',
-    seoTitle: 'Van fleet management software - features · BusiKM',
+    seoTitle: 'Van fleet management software - features | BusiKM',
     description:
       'Orders, routes, working time, costs, invoices and data for your accountant - nine areas in one system for van fleets.',
   },
 
   'co-robi/aplikacja-kierowcy': {
-    eyebrow: 'BusiKM Driver · iPhone and Android',
+    eyebrow: 'BusiKM Driver for iPhone and Android',
     heading: 'A whole working day in one app.\nNothing to type on the road.',
     lead: 'The driver gets a code by email, enters it in the app, sets a password and is in.',
     title: 'Driver app',
-    seoTitle: 'Van driver app - routes and expenses · BusiKM',
+    seoTitle: 'Van driver app - routes and expenses | BusiKM',
     description:
       'App for van drivers: orders, navigation in Apple Maps, Google Maps or Waze, costs from a photo, and breaks saved without signal. iPhone and Android.',
     outline: [
@@ -410,7 +410,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'A whole working day\non one screen.',
     lead: 'The order queue and the fleet map side by side. Message a driver in one click.',
     title: 'Dispatch',
-    seoTitle: 'Transport dispatch software and fleet map · BusiKM',
+    seoTitle: 'Transport dispatch software and fleet map | BusiKM',
     description:
       'The order queue and fleet map on one screen. The system orders the stops and works out the time, and a change reaches the driver straight away.',
     outline: [
@@ -429,7 +429,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You see where every van is.\nWithout calling.',
     lead: 'Live positions, route history and trips that count even without an order.',
     title: 'Routes and fleet map',
-    seoTitle: 'Live van fleet map and route tracking · BusiKM',
+    seoTitle: 'Live van fleet map and route tracking | BusiKM',
     description:
       'See where every van is without picking up the phone. Routes record themselves and turn into a ready-made vehicle mileage log.',
     outline: [
@@ -447,7 +447,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You know when the driver has to stop.\nBefore it’s too late.',
     lead: 'Driving time and breaks count themselves. The driver gets a reminder 15 minutes ahead and can log a break without signal too.',
     title: 'Working time and breaks',
-    seoTitle: 'Driver working time and break tracking · BusiKM',
+    seoTitle: 'Driver working time and break tracking | BusiKM',
     description:
       'Driving time, breaks and rest periods counted from the route. The driver knows when to stop, and you get a ready monthly summary.',
     outline: [
@@ -466,7 +466,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'The order becomes the invoice.\nYour client has it before you’re back in the office.',
     lead: 'The invoice is built from the order data and one button sends it to KSeF, Poland’s national e-invoicing system. You send it to the client straight away - the PDF with a QR code goes out once KSeF assigns the number.',
     title: 'Orders and invoices',
-    seoTitle: 'Transport order and invoicing software · BusiKM',
+    seoTitle: 'Transport order and invoicing software | BusiKM',
     description:
       'An order turns into an invoice. One button sends it to KSeF, the client gets the PDF by email, and you see who still hasn’t paid.',
     outline: [
@@ -484,7 +484,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'A carrier bag of receipts.\nStraight in the bin.',
     lead: 'The driver takes a photo at the fuel station and picks the cost type and the order. BusiKM reads the amount, date and seller itself.',
     title: 'Costs and receipts',
-    seoTitle: 'Expense and receipt tracking for transport · BusiKM',
+    seoTitle: 'Expense and receipt tracking for transport | BusiKM',
     description:
       'The driver snaps the receipt and the system reads the amount, date and currency. No more bag of receipts under the seat.',
     outline: [
@@ -502,7 +502,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You know what you keep.\nOn this job. Today.',
     lead: 'The driver adds a receipt on the road. Once the cost has all its details, the job’s result recalculates itself.',
     title: 'What you keep',
-    seoTitle: 'Transport job profitability - profit per run · BusiKM',
+    seoTitle: 'Transport job profitability - profit per run | BusiKM',
     description:
       'Revenue, costs and profit on every job separately. Margin calculated as you go, including costs in foreign currencies.',
     outline: [
@@ -520,7 +520,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Every document.\nOne button.',
     lead: 'Your accountant picks the month, clicks once and has everything - in the format of the software they already use.',
     title: 'Data for your accountant',
-    seoTitle: 'Accounting export for transport companies · BusiKM',
+    seoTitle: 'Accounting export for transport companies | BusiKM',
     description:
       'The office pack in one click: accounting entries, VAT registers, payroll, business trips and mileage logs - for Insert GT, Optima or Symfonia.',
     outline: [
@@ -540,7 +540,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Nothing expires\nwithout warning.',
     lead: 'Insurance, inspection, operator licence, driving licence, medicals. The system watches the dates and tells you early.',
     title: 'Documents and deadlines',
-    seoTitle: 'Vehicle and driver document expiry reminders · BusiKM',
+    seoTitle: 'Vehicle and driver document expiry reminders | BusiKM',
     description:
       'Inspections, insurance, driver medicals and qualifications in one place. You get a reminder before anything expires.',
     outline: [
@@ -557,13 +557,13 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Four people.\nOne system.',
     lead: 'Everyone sees their own part. And in a small company the owner is often the dispatcher too - the owner’s account sees everything.',
     title: 'Who BusiKM is for',
-    seoTitle: 'Van fleet management for every role · BusiKM',
+    seoTitle: 'Van fleet management for every role | BusiKM',
     description:
       'Owner, dispatcher, accountant and driver - each with their own view and their own access.',
   },
 
   'dla-kogo/wlasciciel': {
-    eyebrow: 'Owner · browser',
+    eyebrow: 'Owner in the browser',
     heading: 'You know what you keep.\nAnd where every van is.',
     lead: 'The first screen shows what needs your attention today. Revenue, costs and result below.',
     title: 'BusiKM for owners',
@@ -573,7 +573,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
   },
 
   'dla-kogo/dyspozytor': {
-    eyebrow: 'Dispatcher · browser',
+    eyebrow: 'Dispatcher in the browser',
     heading: 'A whole working day\non one screen.',
     lead: 'The order queue and the fleet map side by side. The system orders the stops and works out the time.',
     title: 'BusiKM for dispatchers',
@@ -583,7 +583,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
   },
 
   'dla-kogo/ksiegowa': {
-    eyebrow: 'Accountant · browser',
+    eyebrow: 'Accountant in the browser',
     heading: 'Month-end\nin one click.',
     lead: 'Every document in your accounting software’s format. You close the month and nobody changes the data after the fact.',
     title: 'BusiKM for accountants',
@@ -593,7 +593,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
   },
 
   'dla-kogo/kierowca': {
-    eyebrow: 'Driver · phone',
+    eyebrow: 'Driver on the phone',
     heading: 'Start the day.\nYour phone does the rest.',
     lead: 'Orders, breaks and costs in one app. Navigation opens in one tap.',
     title: 'BusiKM for drivers',
@@ -607,7 +607,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You pay for vehicles.\nNot for people.',
     lead: 'Unlimited drivers and office staff. Trailers and semi-trailers don’t count towards the subscription.',
     title: 'Pricing',
-    seoTitle: 'Pricing - from PLN 149 a month · BusiKM',
+    seoTitle: 'Pricing - from PLN 149 a month | BusiKM',
     description:
       'Start PLN 149 and Business PLN 299 a month, final prices with no VAT on top. You pay per vehicle; drivers and office are unlimited. 14 days free.',
     opisOg:
@@ -643,7 +643,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Help,\nwhen you need it.',
     lead: 'Getting started, the driver’s work, billing and your account. And if something’s missing, you write to a person.',
     title: 'Help centre',
-    seoTitle: 'Help centre · BusiKM',
+    seoTitle: 'Help centre | BusiKM',
     description:
       'Getting started, the driver app, billing and accounting, account and payments. And if something’s missing, you write to a person.',
   },
@@ -653,7 +653,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Your first route\non day one.',
     lead: 'From creating an account to your first closed invoice. Step by step.',
     title: 'Getting started',
-    seoTitle: 'Getting started - from account to first invoice · BusiKM',
+    seoTitle: 'Getting started - from account to first invoice | BusiKM',
     description:
       'Add a vehicle, invite a driver, receive your first route. The whole way from creating an account to your first invoice.',
   },
@@ -663,7 +663,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'A minute from a transport company.',
     lead: 'Orders, invoices, routes and BusiKM from the inside. Short videos, in Polish.',
     title: 'Reels',
-    seoTitle: 'Reels - short videos for van companies · BusiKM',
+    seoTitle: 'Reels - short videos for van companies | BusiKM',
     description:
       'Short videos, in Polish, about orders, invoices and routes in a company running vans. Watch them right here, with no Facebook account.',
   },
@@ -673,7 +673,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Write to us.\nWe reply the same day.',
     lead: 'A question about a feature, about billing, or whether BusiKM can handle your case.',
     title: 'Contact',
-    seoTitle: 'Contact · BusiKM',
+    seoTitle: 'Contact | BusiKM',
     description:
       'Write to us - we reply the same working day. Questions about features, billing and getting BusiKM running in your company.',
   },
@@ -683,7 +683,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'Is BusiKM\nworking.',
     lead: 'Current service status and outage history.',
     title: 'Service status',
-    seoTitle: 'Service status - is BusiKM working · BusiKM',
+    seoTitle: 'Service status - is BusiKM working | BusiKM',
     description:
       'Current BusiKM service status and outage history. Check here before you write to us - we may already be on it.',
   },
@@ -693,7 +693,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'busikm.pl Website Privacy Policy',
     lead: 'What data the busikm.pl website collects, why, and how long we keep it.',
     title: 'busikm.pl Website Privacy Policy',
-    seoTitle: 'busikm.pl Website Privacy and Cookie Policy · BusiKM',
+    seoTitle: 'busikm.pl Website Privacy and Cookie Policy | BusiKM',
     description:
       'What data the busikm.pl website collects: forms, list sign-ups, visit statistics, advertising and cookies. Data processing in the BusiKM service is described in a separate policy in the app.',
   },

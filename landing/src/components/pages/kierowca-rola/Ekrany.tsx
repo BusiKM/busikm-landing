@@ -36,22 +36,22 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis, Opis] }>
     naglowek: 'Cztery ekrany. Cały dzień.',
     opisy: [
       {
-        label: 'Zlecenia · telefon, tryb nocny',
+        label: 'Zlecenia (telefon, tryb nocny)',
         note: 'Lista „Zlecenia” z zakładkami Aktywne, Oczekujące i Zakończone, kurs Wrocław → Milano „W trasie”.',
         caption: 'Zlecenia',
       },
       {
-        label: 'Wybór nawigacji · telefon, tryb nocny',
+        label: 'Wybór nawigacji (telefon, tryb nocny)',
         note: 'Plansza „Czym nawigujesz?”: Apple Maps, Google Maps albo Waze.',
         caption: 'Nawigacja',
       },
       {
-        label: 'Moje koszty · telefon, tryb nocny',
+        label: 'Moje koszty (telefon, tryb nocny)',
         note: 'Paragony z miesiąca ze statusami i przycisk „Dodaj paragon”.',
         caption: 'Paragon',
       },
       {
-        label: 'Czas pracy · telefon, tryb nocny',
+        label: 'Czas pracy (telefon, tryb nocny)',
         note: 'Przy przewozie międzynarodowym: trzy wskaźniki (jazda ciągła, dzienna, tydzień), pasek „Dwa tygodnie”, przyciski „Przerwa” i „Odpoczynek”.',
         caption: 'Przerwa',
       },
@@ -61,22 +61,22 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis, Opis] }>
     naglowek: 'Four screens. The whole day.',
     opisy: [
       {
-        label: 'Orders · phone, dark mode',
+        label: 'Orders (phone, dark mode)',
         note: 'The “Orders” list with Active, Pending and Finished tabs, and the Wrocław → Milan job “On the road”.',
         caption: 'Orders',
       },
       {
-        label: 'Choosing navigation · phone, dark mode',
+        label: 'Choosing navigation (phone, dark mode)',
         note: 'The “What do you navigate with?” sheet: Apple Maps, Google Maps or Waze.',
         caption: 'Navigation',
       },
       {
-        label: 'My costs · phone, dark mode',
+        label: 'My costs (phone, dark mode)',
         note: 'The month’s receipts with their status and an “Add receipt” button.',
         caption: 'Receipt',
       },
       {
-        label: 'Working time · phone, dark mode',
+        label: 'Working time (phone, dark mode)',
         note: 'For international transport: three gauges (continuous driving, daily, week), a “Two weeks” bar, and the “Break” and “Rest” buttons.',
         caption: 'Break',
       },

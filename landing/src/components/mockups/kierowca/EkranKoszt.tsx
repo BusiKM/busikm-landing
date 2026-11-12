@@ -17,7 +17,7 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     naglowek: 'Dodaj paragon',
     pola: [
-      ['Kwota', '103,30 € · 442 zł'],
+      ['Kwota', '103,30 € (442 zł)'],
       ['Data', '2.09.2026'],
       ['Rodzaj', 'Paliwo'],
       ['Zlecenie', 'Warszawa → Mediolan'],
@@ -34,7 +34,7 @@ const TEKSTY: Tlumaczenia<{
   en: {
     naglowek: 'Add receipt',
     pola: [
-      ['Amount', '€103.30 · PLN 442'],
+      ['Amount', '€103.30 (PLN 442)'],
       ['Date', '2 Sep 2026'],
       ['Type', 'Fuel'],
       ['Order', 'Warsaw → Milan'],

@@ -15,7 +15,7 @@ type Koszt = {
 };
 
 type Teksty = {
-  chrome: string;
+  chrome: readonly string[];
   filtry: readonly string[];
   sumaKrotka: string;
   suma: string;
@@ -26,34 +26,34 @@ type Teksty = {
 
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
-    chrome: 'app.busikm.pl · Koszty · wrzesień 2026',
+    chrome: ['app.busikm.pl', 'Koszty', 'wrzesień 2026'],
     filtry: ['1-30 września ▾', 'Pojazd: wszystkie ▾', 'Kategoria: wszystkie ▾'],
-    sumaKrotka: '318 · 121 840 zł',
-    suma: '318 kosztów · 121 840 zł',
-    kolumny: { data: 'Data', sprzedawca: 'Sprzedawca', kategoria: 'Kategoria', pojazd: 'Pojazd · kierowca', zlecenie: 'Zlecenie', kwota: 'Kwota' },
+    sumaKrotka: '318 (121 840 zł)',
+    suma: '318 kosztów, 121 840 zł',
+    kolumny: { data: 'Data', sprzedawca: 'Sprzedawca', kategoria: 'Kategoria', pojazd: 'Pojazd i kierowca', zlecenie: 'Zlecenie', kwota: 'Kwota' },
     koszty: [
-      { data: '2.09', sprzedawca: 'Shell · Rotterdam', kategoria: 'Paliwo', pojazd: 'PO 2093J · Tomasz L.', zlecenie: 'Poznań → Rotterdam', kwota: '648,42 zł' },
-      { data: '2.09', sprzedawca: 'OMV · Brno', kategoria: 'Paliwo', pojazd: 'WZ 4821K · Marek W.', zlecenie: 'Warszawa → Mediolan', kwota: '442,12 zł' },
-      { data: '2.09', sprzedawca: 'ASFINAG · A13', kategoria: 'Opłaty drogowe', pojazd: 'WZ 4821K · Marek W.', zlecenie: 'Warszawa → Mediolan', kwota: '112,40 zł' },
-      { data: '2.09', sprzedawca: 'Hotel Brenner Nord', kategoria: 'Hotel', pojazd: 'WZ 4821K · Marek W.', zlecenie: 'Warszawa → Mediolan', kwota: '333,84 zł', tylkoDesktop: true },
-      { data: '1.09', sprzedawca: 'Stena Line · Gdynia', kategoria: 'Prom', pojazd: 'GD 7710R · Piotr K.', zlecenie: 'Gdańsk → Hamburg', kwota: '1 240,00 zł', tylkoDesktop: true },
-      { data: '1.09', sprzedawca: 'Leasing · rata 9/36', kategoria: 'Koszt firmowy', pojazd: 'PO 2093J', zlecenie: '-', kwota: '2 890,00 zł', bezZdjecia: true },
+      { data: '2.09', sprzedawca: 'Shell, Rotterdam', kategoria: 'Paliwo', pojazd: 'PO 2093J, Tomasz L.', zlecenie: 'Poznań → Rotterdam', kwota: '648,42 zł' },
+      { data: '2.09', sprzedawca: 'OMV, Brno', kategoria: 'Paliwo', pojazd: 'WZ 4821K, Marek W.', zlecenie: 'Warszawa → Mediolan', kwota: '442,12 zł' },
+      { data: '2.09', sprzedawca: 'ASFINAG, A13', kategoria: 'Opłaty drogowe', pojazd: 'WZ 4821K, Marek W.', zlecenie: 'Warszawa → Mediolan', kwota: '112,40 zł' },
+      { data: '2.09', sprzedawca: 'Hotel Brenner Nord', kategoria: 'Hotel', pojazd: 'WZ 4821K, Marek W.', zlecenie: 'Warszawa → Mediolan', kwota: '333,84 zł', tylkoDesktop: true },
+      { data: '1.09', sprzedawca: 'Stena Line, Gdynia', kategoria: 'Prom', pojazd: 'GD 7710R, Piotr K.', zlecenie: 'Gdańsk → Hamburg', kwota: '1 240,00 zł', tylkoDesktop: true },
+      { data: '1.09', sprzedawca: 'Leasing, rata 9/36', kategoria: 'Koszt firmowy', pojazd: 'PO 2093J', zlecenie: '-', kwota: '2 890,00 zł', bezZdjecia: true },
     ],
     stopka: 'Miniatura = zdjęcie paragonu. Klikasz i widzisz oryginał.',
   },
   en: {
-    chrome: 'app.busikm.pl · Costs · September 2026',
+    chrome: ['app.busikm.pl', 'Costs', 'September 2026'],
     filtry: ['1-30 September ▾', 'Vehicle: all ▾', 'Category: all ▾'],
-    sumaKrotka: '318 · PLN 121,840',
-    suma: '318 costs · PLN 121,840',
-    kolumny: { data: 'Date', sprzedawca: 'Merchant', kategoria: 'Category', pojazd: 'Vehicle · driver', zlecenie: 'Order', kwota: 'Amount' },
+    sumaKrotka: '318 (PLN 121,840)',
+    suma: '318 costs, PLN 121,840',
+    kolumny: { data: 'Date', sprzedawca: 'Merchant', kategoria: 'Category', pojazd: 'Vehicle and driver', zlecenie: 'Order', kwota: 'Amount' },
     koszty: [
-      { data: '2 Sep', sprzedawca: 'Shell · Rotterdam', kategoria: 'Fuel', pojazd: 'PO 2093J · Tomasz L.', zlecenie: 'Poznań → Rotterdam', kwota: 'PLN 648.42' },
-      { data: '2 Sep', sprzedawca: 'OMV · Brno', kategoria: 'Fuel', pojazd: 'WZ 4821K · Marek W.', zlecenie: 'Warsaw → Milan', kwota: 'PLN 442.12' },
-      { data: '2 Sep', sprzedawca: 'ASFINAG · A13', kategoria: 'Tolls', pojazd: 'WZ 4821K · Marek W.', zlecenie: 'Warsaw → Milan', kwota: 'PLN 112.40' },
-      { data: '2 Sep', sprzedawca: 'Hotel Brenner Nord', kategoria: 'Hotel', pojazd: 'WZ 4821K · Marek W.', zlecenie: 'Warsaw → Milan', kwota: 'PLN 333.84', tylkoDesktop: true },
-      { data: '1 Sep', sprzedawca: 'Stena Line · Gdynia', kategoria: 'Ferry', pojazd: 'GD 7710R · Piotr K.', zlecenie: 'Gdańsk → Hamburg', kwota: 'PLN 1,240.00', tylkoDesktop: true },
-      { data: '1 Sep', sprzedawca: 'Lease · instalment 9/36', kategoria: 'Company cost', pojazd: 'PO 2093J', zlecenie: '-', kwota: 'PLN 2,890.00', bezZdjecia: true },
+      { data: '2 Sep', sprzedawca: 'Shell, Rotterdam', kategoria: 'Fuel', pojazd: 'PO 2093J, Tomasz L.', zlecenie: 'Poznań → Rotterdam', kwota: 'PLN 648.42' },
+      { data: '2 Sep', sprzedawca: 'OMV, Brno', kategoria: 'Fuel', pojazd: 'WZ 4821K, Marek W.', zlecenie: 'Warsaw → Milan', kwota: 'PLN 442.12' },
+      { data: '2 Sep', sprzedawca: 'ASFINAG, A13', kategoria: 'Tolls', pojazd: 'WZ 4821K, Marek W.', zlecenie: 'Warsaw → Milan', kwota: 'PLN 112.40' },
+      { data: '2 Sep', sprzedawca: 'Hotel Brenner Nord', kategoria: 'Hotel', pojazd: 'WZ 4821K, Marek W.', zlecenie: 'Warsaw → Milan', kwota: 'PLN 333.84', tylkoDesktop: true },
+      { data: '1 Sep', sprzedawca: 'Stena Line, Gdynia', kategoria: 'Ferry', pojazd: 'GD 7710R, Piotr K.', zlecenie: 'Gdańsk → Hamburg', kwota: 'PLN 1,240.00', tylkoDesktop: true },
+      { data: '1 Sep', sprzedawca: 'Lease, instalment 9/36', kategoria: 'Company cost', pojazd: 'PO 2093J', zlecenie: '-', kwota: 'PLN 2,890.00', bezZdjecia: true },
     ],
     stopka: 'Thumbnail = photo of the receipt. Click it to see the original.',
   },
@@ -116,7 +116,7 @@ export function ListaKosztow() {
             <div className="min-w-0">
               <b className="block truncate">{k.sprzedawca}</b>
               <span className="block truncate text-muted lg:hidden">
-                {k.data} · {k.kategoria}
+                {k.data}, {k.kategoria}
               </span>
             </div>
             <span className="hidden truncate lg:block">{k.kategoria}</span>

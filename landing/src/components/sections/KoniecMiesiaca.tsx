@@ -23,7 +23,7 @@ const TEKSTY: Tlumaczenia<{
       'Zamknięty miesiąc blokuje zmiany wstecz',
     ],
     nota: 'Księgowa może być z zewnątrz. Zapraszasz ją mailem, dostaje własny dostęp.',
-    label: 'Rozliczenia → Eksporty · desktop',
+    label: 'Rozliczenia → Eksporty (desktop)',
     opis: 'Rozliczenia, zakładka Eksporty: dekrety do FK z wyborem programu (Comarch Optima, Insert GT, Symfonia), rejestry VAT, lista płac i diety, delegacje kierowców, ewidencje przebiegu, zwrot VAT z UE i JPK_FA, u góry przycisk „Pobierz paczkę dla biura”.',
   },
   en: {
@@ -36,7 +36,7 @@ const TEKSTY: Tlumaczenia<{
       'A closed month locks changes after the fact',
     ],
     nota: 'Your accountant can be external. You invite them by email and they get their own login.',
-    label: 'Settlements → Exports · desktop',
+    label: 'Settlements → Exports (desktop)',
     opis: 'Settlements, Exports tab: ledger entries with a choice of software (Comarch Optima, Insert GT, Symfonia), VAT registers, payroll and allowances, drivers’ business trips, mileage logs, EU VAT refund and JPK_FA, with a “Download the package for the office” button at the top.',
   },
 };

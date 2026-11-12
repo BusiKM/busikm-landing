@@ -8,14 +8,14 @@ const TEKSTY: Tlumaczenia<{
   nowaWersja: string;
 }> = {
   pl: {
-    poprawiona: 'Trasa poprawiona · 07:12',
-    korek: 'Korek na A22 · omijamy przez Brixen',
+    poprawiona: 'Trasa poprawiona, 07:12',
+    korek: 'Korek na A22, omijamy przez Brixen',
     dojazd: 'Dojazd',
     nowaWersja: 'kierowca ma nową wersję',
   },
   en: {
-    poprawiona: 'Route updated · 07:12',
-    korek: 'Jam on the A22 · detour via Brixen',
+    poprawiona: 'Route updated, 07:12',
+    korek: 'Jam on the A22, detour via Brixen',
     dojazd: 'Arrival',
     nowaWersja: 'driver has the new version',
   },

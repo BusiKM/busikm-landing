@@ -14,7 +14,7 @@ const TEKSTY: Tlumaczenia<{
       ['02', 'Marża na każdym zleceniu', 'Nie raz na kwartał, tylko od razu. W raportach widzisz też marżę według kierunku.'],
       ['03', 'Liczba zmienia się w trakcie', 'Kierowca dodaje paragon - gdy ma komplet danych, marża przelicza się sama.'],
     ],
-    label: 'Raporty → Zlecenia i trasy · desktop 1440',
+    label: 'Raporty → Zlecenia i trasy (desktop 1440)',
     note: 'Raporty, zakładka Zlecenia i trasy: liczba zleceń, średni zysk z kursu, puste kilometry, zlecenia poniżej progu marży, wykres marży według kraju rozładunku i zleceń według przedziału marży.',
   },
   en: {
@@ -22,7 +22,7 @@ const TEKSTY: Tlumaczenia<{
       ['02', 'The margin on every order', 'Not once a quarter. Right away. Reports also show the margin by destination.'],
       ['03', 'The number moves as you go', 'The driver adds a receipt - once it has all its details, the margin recalculates itself.'],
     ],
-    label: 'Reports → Orders and routes · desktop 1440',
+    label: 'Reports → Orders and routes (desktop 1440)',
     note: 'Reports, Orders and routes tab: number of orders, average profit per run, empty kilometres, orders below the margin threshold, a chart of margin by unloading country and orders by margin band.',
   },
 };

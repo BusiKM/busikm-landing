@@ -133,7 +133,7 @@ export function Formularz() {
     const podpis = [imie && `- ${imie}`, mail].filter(Boolean).join('\n');
     const body = [tresc, podpis].filter(Boolean).join('\n\n');
     return `mailto:${firma.email}?subject=${encodeURIComponent(
-      `BusiKM · ${t.tematy[tematy[temat]]}`,
+      `BusiKM: ${t.tematy[tematy[temat]]}`,
     )}&body=${encodeURIComponent(body)}`;
   };
 

@@ -73,9 +73,10 @@ export function PageShell({ slug }: { slug: string }) {
                     data-reveal
                     className="flex gap-3 py-1 text-body text-ink/70"
                   >
-                    <span aria-hidden className="text-muted">
-                      ·
-                    </span>
+                    <span
+                      aria-hidden
+                      className="mt-[0.8em] h-px w-2.5 flex-none bg-line-strong"
+                    />
                     {item}
                   </div>
                 ))}

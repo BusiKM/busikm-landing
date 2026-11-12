@@ -15,6 +15,7 @@ import { KorektyIWaluty } from '@/components/pages/faktury/KorektyIWaluty';
 import { OknoWysylki } from '@/components/mockups/faktury/OknoWysylki';
 import { Kontrahenci } from '@/components/mockups/faktury/Kontrahenci';
 import { ListaDokumentow } from '@/components/mockups/faktury/ListaDokumentow';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/zlecenia-i-faktury');
 
@@ -59,7 +60,7 @@ const TEKSTY: Tlumaczenia<{
       tytul: 'Jednym przyciskiem do KSeF',
       tresc:
         'Klikasz „Wystaw i wyślij do KSeF”. Wysyłkę do klienta zlecasz od razu - PDF z kodem QR wyjdzie mailem, razem z CMR, gdy KSeF nada numer. Na fakturze widzisz drogę: wystawiona, w KSeF, u klienta, zapłacona. Chcesz wysłać jeszcze raz albo na inny adres - masz „Wyślij klientowi”.',
-      label: 'Okno „Wyślij klientowi” · desktop',
+      label: 'Okno „Wyślij klientowi” (desktop)',
       note: 'Wysyłka FV/031/10/2026: adres z karty klienta, temat i treść z numerem KSeF, obok podgląd maila z załącznikiem PDF i przycisk „Wyślij”.',
     },
     kontrahenci: {
@@ -70,7 +71,7 @@ const TEKSTY: Tlumaczenia<{
     historia: {
       tytul: 'Kto nie zapłacił',
       tresc: 'Widzisz, kto zalega, ile dni i ile wpłynie w najbliższych tygodniach. Odsetki i rekompensatę 40 € BusiKM policzy sam. Przypomnienie albo notę wysyłasz jednym kliknięciem.',
-      label: 'Lista faktur · desktop, tryb nocny',
+      label: 'Lista faktur (desktop, tryb nocny)',
       note: 'Faktury: liczniki - do zapłaty, po terminie, zapłacone, KSeF - zakładki od szkiców po korekty, w tabeli termin płatności, stan płatności i status w KSeF.',
     },
     ktoUzywa: 'Kto tego używa:',
@@ -105,7 +106,7 @@ const TEKSTY: Tlumaczenia<{
       tytul: 'One button to KSeF',
       tresc:
         'You click “Issue and send to KSeF”. You schedule the email to the client straight away - the PDF with a QR code goes out, along with the CMR, as soon as KSeF assigns a number. On the invoice you see its path: issued, in KSeF, with the client, paid. Want to send it again or to another address? There’s “Send to client”.',
-      label: '“Send to client” window · desktop',
+      label: '“Send to client” window (desktop)',
       note: 'Sending FV/031/10/2026: the address from the client card, a subject and message with the KSeF number, and a preview of the email with the PDF attached and a “Send” button.',
     },
     kontrahenci: {
@@ -116,7 +117,7 @@ const TEKSTY: Tlumaczenia<{
     historia: {
       tytul: 'Who hasn’t paid',
       tresc: 'You see who owes you, how many days late, and how much is coming in over the next few weeks. BusiKM works out the interest and the €40 compensation itself. You send a reminder or a debit note in one click.',
-      label: 'Invoice list · desktop, dark mode',
+      label: 'Invoice list (desktop, dark mode)',
       note: 'Invoices: counters - due, overdue, paid, KSeF - tabs from drafts to corrections, and a table with payment terms, payment status and KSeF status.',
     },
     ktoUzywa: 'Who uses it:',
@@ -192,7 +193,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/wlasciciel">
                 {t.link1}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/ksiegowa">
                 {t.link2}
               </Link>

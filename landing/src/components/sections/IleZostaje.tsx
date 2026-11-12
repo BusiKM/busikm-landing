@@ -27,7 +27,7 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Zostaje',
     kwota: '3 699 zł',
     podpis: 'z 1 020 € frachtu. Liczba zmieni się, gdy Jan doda kolejny paragon.',
-    label: 'Karta zysku · desktop',
+    label: 'Karta zysku (desktop)',
     opis: 'Zlecenie Warszawa → München, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu w wierszach - paliwo, opłaty drogowe, parking - obok wynik, marża i zysk na kilometr.',
   },
   en: {
@@ -42,7 +42,7 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'You keep',
     kwota: 'PLN 3,699',
     podpis: 'out of €1,020 freight. The figure will change when Jan adds another receipt.',
-    label: 'Profit card · desktop',
+    label: 'Profit card (desktop)',
     opis: 'Order Warsaw → Munich, Finance tab: freight in euros converted at the NBP rate, run costs line by line - fuel, tolls, parking - with the result, margin and profit per kilometre alongside.',
   },
 };

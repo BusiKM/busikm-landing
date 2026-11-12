@@ -16,14 +16,14 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Koszty i paragony',
     tytul: ['Reklamówka paragonów.', 'Do wyrzucenia.'],
     lead: 'Kierowca robi zdjęcie na stacji, wybiera rodzaj kosztu i zlecenie. Kwotę, datę i sprzedawcę BusiKM odczyta sam.',
-    label: 'Moje koszty · telefon, tryb nocny',
+    label: 'Moje koszty (telefon, tryb nocny)',
     note: 'Ekran „Moje koszty”: zwrot dla kierowcy, liczniki „Biuro pyta”, „Do uzupełnienia”, „Gotowe” i „Zaksięgowane”, przycisk „Dodaj paragon” i lista paragonów z miesiąca. Ten sam ekran co na stronie głównej.',
   },
   en: {
     eyebrow: 'Costs and receipts',
     tytul: ['The carrier bag of receipts.', 'Bin it.'],
     lead: 'The driver takes a photo at the fuel station and picks the cost type and the order. BusiKM reads the amount, date and merchant itself.',
-    label: 'My costs · phone, dark mode',
+    label: 'My costs (phone, dark mode)',
     note: 'The “My costs” screen: the driver’s refund, counters for “Office asks”, “To complete”, “Ready” and “Booked”, an “Add receipt” button and the month’s receipts. The same screen as on the home page.',
   },
 };

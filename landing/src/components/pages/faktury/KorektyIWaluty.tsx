@@ -20,8 +20,8 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     zaliczka: [
-      { label: 'Zaliczka · ZAL/017/08/2026', value: '1 000 €' },
-      { label: 'Faktura końcowa · FV/041/09/2026', value: '3 900 €' },
+      { label: 'Zaliczka ZAL/017/08/2026', value: '1 000 €' },
+      { label: 'Faktura końcowa FV/041/09/2026', value: '3 900 €' },
       { label: 'Odliczona zaliczka', value: '− 1 000 €', przygaszony: true },
       { label: 'Do zapłaty', value: '2 900 €', mocny: true },
     ],
@@ -46,8 +46,8 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     zaliczka: [
-      { label: 'Advance · ZAL/017/08/2026', value: '€1,000' },
-      { label: 'Final invoice · FV/041/09/2026', value: '€3,900' },
+      { label: 'Advance ZAL/017/08/2026', value: '€1,000' },
+      { label: 'Final invoice FV/041/09/2026', value: '€3,900' },
       { label: 'Advance deducted', value: '− €1,000', przygaszony: true },
       { label: 'To pay', value: '€2,900', mocny: true },
     ],

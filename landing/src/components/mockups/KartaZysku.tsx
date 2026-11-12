@@ -27,37 +27,37 @@ type Teksty = {
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     costs: [
-      { label: 'Kierowca', detail: ' · wynagrodzenie i dieta, 5 dni', value: '− 1 060 €' },
-      { label: 'Paliwo', detail: ' · 6 paragonów', value: '− 716 €' },
-      { label: 'Opłaty drogowe', detail: ' · AT, IT', value: '− 291 €' },
-      { label: 'Amortyzacja', detail: ' · 3 280 km', value: '− 273 €' },
-      { label: 'Nocleg', detail: ' · Brenner', value: '− 156 €' },
+      { label: 'Kierowca', detail: 'wynagrodzenie i dieta, 5 dni', value: '− 1 060 €' },
+      { label: 'Paliwo', detail: '6 paragonów', value: '− 716 €' },
+      { label: 'Opłaty drogowe', detail: 'AT, IT', value: '− 291 €' },
+      { label: 'Amortyzacja', detail: '3 280 km', value: '− 273 €' },
+      { label: 'Nocleg', detail: 'Brenner', value: '− 156 €' },
     ],
-    zlecenie: 'Zlecenie · 2026/09/041',
+    zlecenie: 'Zlecenie 2026/09/041',
     trasa: 'Warszawa → Mediolan',
     wTrasie: 'w trasie',
     fracht: 'Fracht',
     kwotaFrachtu: '3 900 €',
     zysk: 'Zysk na kursie',
     kwotaZysku: '1 404 €',
-    kwotaZyskuPln: ' · 6 009 zł',
+    kwotaZyskuPln: '(6 009 zł)',
   },
   en: {
     costs: [
-      { label: 'Driver', detail: ' · pay and daily allowance, 5 days', value: '− €1,060' },
-      { label: 'Fuel', detail: ' · 6 receipts', value: '− €716' },
-      { label: 'Road tolls', detail: ' · AT, IT', value: '− €291' },
-      { label: 'Depreciation', detail: ' · 3,280 km', value: '− €273' },
-      { label: 'Overnight stay', detail: ' · Brenner', value: '− €156' },
+      { label: 'Driver', detail: 'pay and daily allowance, 5 days', value: '− €1,060' },
+      { label: 'Fuel', detail: '6 receipts', value: '− €716' },
+      { label: 'Road tolls', detail: 'AT, IT', value: '− €291' },
+      { label: 'Depreciation', detail: '3,280 km', value: '− €273' },
+      { label: 'Overnight stay', detail: 'Brenner', value: '− €156' },
     ],
-    zlecenie: 'Order · 2026/09/041',
+    zlecenie: 'Order 2026/09/041',
     trasa: 'Warsaw → Milan',
     wTrasie: 'en route',
     fracht: 'Freight',
     kwotaFrachtu: '€3,900',
     zysk: 'Profit on this job',
     kwotaZysku: '€1,404',
-    kwotaZyskuPln: ' · PLN 6,009',
+    kwotaZyskuPln: '(PLN 6,009)',
   },
 };
 
@@ -98,7 +98,7 @@ export function KartaZysku() {
         >
           <span>
             {c.label}
-            <span className="hidden lg:inline">{c.detail}</span>
+            <span className="ml-2 hidden opacity-70 lg:inline">{c.detail}</span>
           </span>
           <span>{c.value}</span>
         </div>
@@ -109,7 +109,7 @@ export function KartaZysku() {
           <div className="text-ink-muted">{t.zysk}</div>
           <div className="text-[18px] font-bold tracking-[-0.02em] text-green lg:text-[30px]">
             {t.kwotaZysku}
-            <span className="hidden lg:inline">{t.kwotaZyskuPln}</span>
+            <span className="ml-2 hidden lg:inline">{t.kwotaZyskuPln}</span>
           </div>
         </div>
         <div className="hidden h-11 items-end gap-1 lg:flex" aria-hidden>

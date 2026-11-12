@@ -16,14 +16,14 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Dane dla księgowej',
     tytul: ['Komplet dokumentów.', 'Jednym przyciskiem.'],
     lead: 'Wybiera miesiąc, klika „Pobierz paczkę dla biura” i ma wszystko - w formacie programu, którego już używa.',
-    label: 'Rozliczenia → Eksporty · desktop',
+    label: 'Rozliczenia → Eksporty (desktop)',
     note: 'Rozliczenia, zakładka Eksporty: dekrety do FK z wyborem programu (Comarch Optima, Insert GT, Symfonia), rejestry VAT, lista płac i diety, delegacje kierowców, ewidencje przebiegu, zwrot VAT z UE i JPK_FA, u góry przycisk „Pobierz paczkę dla biura”.',
   },
   en: {
     eyebrow: 'Data for your accountant',
     tytul: ['Every document.', 'One button.'],
     lead: 'Your accountant picks a month, clicks “Download the package for the office” and has the lot - in the format of the accounting software they already use.',
-    label: 'Settlements → Exports · desktop',
+    label: 'Settlements → Exports (desktop)',
     note: 'Settlements, Exports tab: ledger entries with a choice of software (Comarch Optima, Insert GT, Symfonia), VAT registers, payroll and allowances, drivers’ business trips, mileage logs, EU VAT refund and JPK_FA, with a “Download the package for the office” button at the top.',
   },
 };

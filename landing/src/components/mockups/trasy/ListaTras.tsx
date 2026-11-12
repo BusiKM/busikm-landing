@@ -24,34 +24,34 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     przejazdy: [
-      { data: '2.09', trasa: 'Warszawa → Mediolan', skrot: 'WAW → MIL', kto: 'Marek W. · WZ 4821K', km: '1 640', czas: '19:40' },
-      { data: '1.09', trasa: 'Poznań → Rotterdam', skrot: 'POZ → RTM', kto: 'Tomasz L. · PO 2093J', km: '1 120', czas: '13:15' },
-      { data: '1.09', trasa: 'Gdańsk → Hamburg', skrot: 'GDA → HAM', kto: 'Piotr K. · GD 7710R', km: '680', czas: '8:05' },
-      { data: '31.08', trasa: 'Mediolan → serwis Bergamo', skrot: 'MIL → serwis', kto: 'Marek W. · WZ 4821K', km: '48', czas: '0:55' },
-      { data: '30.08', trasa: 'Kraków → Wiedeń', skrot: 'KRK → VIE', kto: 'Anna R. · KR 5512M', km: '420', czas: '5:30', tylkoDesktop: true },
+      { data: '2.09', trasa: 'Warszawa → Mediolan', skrot: 'WAW → MIL', kto: 'Marek W., WZ 4821K', km: '1 640', czas: '19:40' },
+      { data: '1.09', trasa: 'Poznań → Rotterdam', skrot: 'POZ → RTM', kto: 'Tomasz L., PO 2093J', km: '1 120', czas: '13:15' },
+      { data: '1.09', trasa: 'Gdańsk → Hamburg', skrot: 'GDA → HAM', kto: 'Piotr K., GD 7710R', km: '680', czas: '8:05' },
+      { data: '31.08', trasa: 'Mediolan → serwis Bergamo', skrot: 'MIL → serwis', kto: 'Marek W., WZ 4821K', km: '48', czas: '0:55' },
+      { data: '30.08', trasa: 'Kraków → Wiedeń', skrot: 'KRK → VIE', kto: 'Anna R., KR 5512M', km: '420', czas: '5:30', tylkoDesktop: true },
     ],
-    naglowek: 'Trasy · wrzesień',
-    licznikKrotki: '38 · 21 460 km',
-    licznik: '38 przejazdów · 21 460 km',
+    naglowek: 'Trasy, wrzesień',
+    licznikKrotki: '38 (21 460 km)',
+    licznik: '38 przejazdów, 21 460 km',
     filtry: ['1-30 września ▾', 'Kierowca: wszyscy ▾', 'Pojazd: wszystkie ▾'],
-    kolumny: ['Data', 'Trasa · kierowca', 'km', 'Czas'],
+    kolumny: ['Data', 'Trasa i kierowca', 'km', 'Czas'],
     postoje: 'Postoje dłuższe niż 15 min zaznaczone na trasie',
     postojeKrotko: 'Postoje zaznaczone',
     eksport: 'eksport do arkusza',
   },
   en: {
     przejazdy: [
-      { data: '2 Sep', trasa: 'Warsaw → Milan', skrot: 'WAW → MIL', kto: 'Marek W. · WZ 4821K', km: '1,640', czas: '19:40' },
-      { data: '1 Sep', trasa: 'Poznań → Rotterdam', skrot: 'POZ → RTM', kto: 'Tomasz L. · PO 2093J', km: '1,120', czas: '13:15' },
-      { data: '1 Sep', trasa: 'Gdańsk → Hamburg', skrot: 'GDA → HAM', kto: 'Piotr K. · GD 7710R', km: '680', czas: '8:05' },
-      { data: '31 Aug', trasa: 'Milan → garage, Bergamo', skrot: 'MIL → garage', kto: 'Marek W. · WZ 4821K', km: '48', czas: '0:55' },
-      { data: '30 Aug', trasa: 'Kraków → Vienna', skrot: 'KRK → VIE', kto: 'Anna R. · KR 5512M', km: '420', czas: '5:30', tylkoDesktop: true },
+      { data: '2 Sep', trasa: 'Warsaw → Milan', skrot: 'WAW → MIL', kto: 'Marek W., WZ 4821K', km: '1,640', czas: '19:40' },
+      { data: '1 Sep', trasa: 'Poznań → Rotterdam', skrot: 'POZ → RTM', kto: 'Tomasz L., PO 2093J', km: '1,120', czas: '13:15' },
+      { data: '1 Sep', trasa: 'Gdańsk → Hamburg', skrot: 'GDA → HAM', kto: 'Piotr K., GD 7710R', km: '680', czas: '8:05' },
+      { data: '31 Aug', trasa: 'Milan → garage, Bergamo', skrot: 'MIL → garage', kto: 'Marek W., WZ 4821K', km: '48', czas: '0:55' },
+      { data: '30 Aug', trasa: 'Kraków → Vienna', skrot: 'KRK → VIE', kto: 'Anna R., KR 5512M', km: '420', czas: '5:30', tylkoDesktop: true },
     ],
-    naglowek: 'Routes · September',
-    licznikKrotki: '38 · 21,460 km',
-    licznik: '38 runs · 21,460 km',
+    naglowek: 'Routes, September',
+    licznikKrotki: '38 (21,460 km)',
+    licznik: '38 runs, 21,460 km',
     filtry: ['1-30 September ▾', 'Driver: all ▾', 'Vehicle: all ▾'],
-    kolumny: ['Date', 'Route · driver', 'km', 'Time'],
+    kolumny: ['Date', 'Route and driver', 'km', 'Time'],
     postoje: 'Stops longer than 15 min marked on the route',
     postojeKrotko: 'Stops marked',
     eksport: 'export to spreadsheet',
@@ -60,7 +60,7 @@ const TEKSTY: Tlumaczenia<{
 
 /**
  * Kolumny: data, trasa, km, czas. Kierowca i pojazd idą pod trasę – osobną
- * kolumną w karcie 4:3 na pół szerokości ucinały się do „Marek W. · WZ 4…".
+ * kolumną w karcie 4:3 na pół szerokości ucinały się do „Marek W., WZ 4…".
  */
 const kolumny = 'grid grid-cols-[44px_1fr_52px_52px] gap-2.5 lg:grid-cols-[60px_1fr_64px_60px]';
 

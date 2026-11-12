@@ -129,8 +129,8 @@ export async function POST(request: Request) {
         reply_to: email,
         // Plan w temacie, żeby dało się ocenić zgłoszenie bez otwierania.
         subject:
-          `BusiKM · zapis na listę (${ETYKIETY[zrodlo] ?? zrodlo})${jezyk === 'en' ? ' [EN]' : ''} - ${imie}` +
-          (wybor ? ` · ${nazwaPlanu(wybor.plan)} ${nazwaOkresu(wybor.okres)}` : ''),
+          `BusiKM: zapis na listę (${ETYKIETY[zrodlo] ?? zrodlo})${jezyk === 'en' ? ' [EN]' : ''} - ${imie}` +
+          (wybor ? `, ${nazwaPlanu(wybor.plan)} ${nazwaOkresu(wybor.okres)}` : ''),
         html,
       }),
     });

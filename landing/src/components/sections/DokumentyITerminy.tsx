@@ -19,7 +19,7 @@ const TEKSTY: Tlumaczenia<{
       'Przypomnienia 60, 30, 14 i 3 dni przed terminem',
       'Jeden ekran pokazuje, co wymaga uwagi w tym miesiącu',
     ],
-    label: 'Dokumenty i terminy · desktop',
+    label: 'Dokumenty i terminy (desktop)',
     opis: 'Dokumenty: u góry liczniki - po terminie, brakuje, kończą się w 30 dni, w porządku - niżej lista z datą ważności i stanem każdego dokumentu.',
   },
   en: {
@@ -30,7 +30,7 @@ const TEKSTY: Tlumaczenia<{
       'Reminders 60, 30, 14 and 3 days before the deadline',
       'One screen shows what needs attention this month',
     ],
-    label: 'Documents and deadlines · desktop',
+    label: 'Documents and deadlines (desktop)',
     opis: 'Documents: counters at the top - overdue, missing, expiring within 30 days, in order - and below, a list with each document’s expiry date and status.',
   },
 };

@@ -15,6 +15,7 @@ import { StatusEkran } from '@/components/pages/dokumenty/StatusEkran';
 import { WydrukIKolor } from '@/components/pages/dokumenty/WydrukIKolor';
 import { UstawPrzypomnienie } from '@/components/mockups/dokumenty/UstawPrzypomnienie';
 import { TelefonKierowcy } from '@/components/mockups/dokumenty/TelefonKierowcy';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/dokumenty-i-terminy');
 
@@ -61,7 +62,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'Kierowca też widzi swoje',
       tresc:
         'W „Moich dokumentach” ma prawo jazdy, świadectwo kwalifikacji, badania lekarskie i psychologiczne oraz kartę kierowcy, każdy z datą ważności. Gdy termin się zbliża, widzi komunikat na ekranie „Dziś”.',
-      label: 'Moje dokumenty · telefon, tryb nocny',
+      label: 'Moje dokumenty (telefon, tryb nocny)',
       note: 'Ekran „Moje dokumenty” z kompletem ważnych dokumentów: badania lekarskie, kwalifikacja zawodowa, karta kierowcy, badania psychotechniczne i prawo jazdy, każdy z datą „Ważny do”.',
     },
     ktoUzywa: 'Kto tego używa:',
@@ -100,7 +101,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'The driver sees theirs too',
       tresc:
         'In “My documents” they keep their driving licence, driver CPC, medical and psychological checks and tachograph card, each with its expiry date. When a deadline gets close, they see a message on the “Today” screen.',
-      label: 'My documents · phone, dark mode',
+      label: 'My documents (phone, dark mode)',
       note: 'The “My documents” screen with a full set of valid documents: medical check, professional qualification, tachograph card, psychological assessment and driving licence, each with a “Valid until” date.',
     },
     ktoUzywa: 'Who uses it:',
@@ -172,7 +173,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/wlasciciel">
                 {t.wlascicielLink}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/kierowca">
                 {t.kierowcaLink}
               </Link>

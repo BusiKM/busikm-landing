@@ -23,7 +23,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     kontoTestowe: 'Masz już konto testowe?',
     zalogujTestowo: 'Zaloguj się w wersji testowej →',
-    mockupLabel: 'Pulpit właściciela · desktop 1440',
+    mockupLabel: 'Pulpit właściciela (desktop 1440)',
     mockupNota:
       'Pulpit po zalogowaniu: na górze to, co wymaga uwagi dziś, niżej przychód, koszty i wynik.',
   },
@@ -35,7 +35,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     kontoTestowe: 'Already have a test account?',
     zalogujTestowo: 'Sign in to the test version →',
-    mockupLabel: 'Owner’s dashboard · desktop 1440',
+    mockupLabel: 'Owner’s dashboard (desktop 1440)',
     mockupNota:
       'The dashboard after signing in: what needs your attention today at the top, with revenue, costs and result below.',
   },

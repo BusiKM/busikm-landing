@@ -23,7 +23,7 @@ const TEKSTY: Tlumaczenia<{
         'Klient przesuwa rozładunek albo nie chcesz płatnych dróg - klikasz „Zmień trasę” i wybierasz wariant: najszybszy albo bez płatnych dróg. Nową trasę widzi kierowca w aplikacji, a klient na stronie śledzenia widzi nową godzinę dojazdu.',
       ],
     ],
-    label: 'Trasa i śledzenie · desktop',
+    label: 'Trasa i śledzenie (desktop)',
     note: 'Zlecenie Olsztyn → München, zakładka Trasa i śledzenie: ostrzeżenie o spóźnieniu, trasa najszybsza 1167 km z przyciskiem „Zmień trasę”, auto na mapie, czas dojazdu i przebieg kursu.',
   },
   en: {
@@ -39,7 +39,7 @@ const TEKSTY: Tlumaczenia<{
         'The client moves the unloading, or you’d rather skip toll roads - you click “Change route” and pick an option: fastest or no toll roads. The driver sees the new route in the app, and the client sees the new arrival time on the tracking page.',
       ],
     ],
-    label: 'Route and tracking · desktop',
+    label: 'Route and tracking (desktop)',
     note: 'Order Olsztyn → München, Route and tracking tab: a late-arrival warning, the fastest route of 1,167 km with a “Change route” button, the van on the map, arrival time and the run’s timeline.',
   },
 };

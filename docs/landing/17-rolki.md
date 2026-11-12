@@ -125,7 +125,7 @@ pbpaste | npx wrangler secret put GITHUB_TOKEN
 ```
 
 Organizacja BusiKM nie pozwala na klucze bez terminu, najdłużej 366 dni. Obecny klucz
-(`busikm-media rolki`) wygasa **8.11.2027**, a GitHub przypomina o tym mailem tydzień wcześniej.
+(`busikm-media rolki landing`) wygasa **13.11.2027**, a GitHub przypomina o tym mailem tydzień wcześniej.
 Gdy klucz wygaśnie albo zostanie cofnięty, przebiegi z Workera ustaną: w Cloudflare → Workers →
 `busikm-media` → Logs widać wtedy „GitHub odmówił uruchomienia rolek: 401”. Wymiana klucza to ta sama
 komenda z nowym kluczem, bez wdrażania Workera.

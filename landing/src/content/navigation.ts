@@ -165,7 +165,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       { href: '/status', label: 'Status usługi', benefit: 'Czy wszystko działa' },
     ],
     rolesNote:
-      'W małej firmie właściciel bywa też dyspozytorem – konto właściciela widzi wszystko.',
+      'W małej firmie właściciel bywa też dyspozytorem - konto właściciela widzi wszystko.',
     stopka: {
       firma: 'Firma',
       prawne: 'Prawne',
@@ -193,7 +193,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       demo: {
         href: '/demo',
         label: 'Zobacz demo',
-        benefit: 'Bez konta, tylko do odczytu – właściciel, dyspozytor albo księgowa',
+        benefit: 'Bez konta, tylko do odczytu - właściciel, dyspozytor albo księgowa',
       },
       login: { href: '/zaloguj', label: 'Zaloguj się', benefit: 'Konta otwieramy wkrótce' },
     },
@@ -304,7 +304,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       { href: '/status', label: 'Service status', benefit: 'Is everything working' },
     ],
     rolesNote:
-      'In a small company the owner is often the dispatcher too – the owner’s account sees everything.',
+      'In a small company the owner is often the dispatcher too - the owner’s account sees everything.',
     stopka: {
       firma: 'Company',
       prawne: 'Legal',
@@ -332,7 +332,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       demo: {
         href: '/demo',
         label: 'See the demo',
-        benefit: 'No account, read-only – owner, dispatcher or accountant',
+        benefit: 'No account, read-only - owner, dispatcher or accountant',
       },
       login: { href: '/zaloguj', label: 'Sign in', benefit: 'Accounts open soon' },
     },

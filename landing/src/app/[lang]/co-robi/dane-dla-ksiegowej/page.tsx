@@ -56,15 +56,15 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     ],
     walidacja: {
       tytul: 'System sam mówi, czego brakuje',
-      tresc: 'Sześć kroków miesiąca: faktury, koszty, przebieg, płace i diety, deklaracje i zamknięcie z pobraniem plików. Przy każdym widać, co jest gotowe, a przy braku – odnośnik prosto tam, gdzie go uzupełnisz.',
-      label: 'Zamknięcie miesiąca · desktop',
-      note: 'Rozliczenia, zakładka Miesiąc: zamknięcie września krok po kroku – faktury sprzedaży, koszty, ewidencja przebiegu, płace i diety, deklaracje – przy każdym kroku przejście do braku, obok najbliższe terminy JPK_V7M i VAT-UE oraz zamknięte poprzednie miesiące.',
+      tresc: 'Sześć kroków miesiąca: faktury, koszty, przebieg, płace i diety, deklaracje i zamknięcie z pobraniem plików. Przy każdym widać, co jest gotowe, a przy braku - odnośnik prosto tam, gdzie go uzupełnisz.',
+      label: 'Zamknięcie miesiąca (desktop)',
+      note: 'Rozliczenia, zakładka Miesiąc: zamknięcie września krok po kroku - faktury sprzedaży, koszty, ewidencja przebiegu, płace i diety, deklaracje - przy każdym kroku przejście do braku, obok najbliższe terminy JPK_V7M i VAT-UE oraz zamknięte poprzednie miesiące.',
     },
     kierowcy: {
       tytul: 'Rozliczenie kierowców',
       tresc: 'Dni za granicą, diety i noclegi, wynagrodzenie. Lista płac do pobrania w Excelu albo CSV.',
-      label: 'Płace i diety · desktop',
-      note: 'Rozliczenia, zakładka Płace i diety: kierowcy z dniami za granicą, wynagrodzeniem i dietami, obok rozliczenie Krzysztofa Kamińskiego za wrzesień – kalendarz dni w Niemczech, wynagrodzenie, diety i noclegi, kwota do rozliczenia.',
+      label: 'Płace i diety (desktop)',
+      note: 'Rozliczenia, zakładka Płace i diety: kierowcy z dniami za granicą, wynagrodzeniem i dietami, obok rozliczenie Krzysztofa Kamińskiego za wrzesień - kalendarz dni w Niemczech, wynagrodzenie, diety i noclegi, kwota do rozliczenia.',
     },
     zewnatrz: {
       tytul: 'Księgowa z zewnątrz',
@@ -100,14 +100,14 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     walidacja: {
       tytul: 'It tells you what’s missing',
       tresc: 'Six month-end steps: invoices, costs, mileage, payroll and allowances, tax returns, and closing with the file download. Each shows what’s ready, and any gap comes with a link straight to where you fix it.',
-      label: 'Month-end close · desktop',
-      note: 'Settlements, Month tab: closing September step by step – sales invoices, costs, mileage log, payroll and allowances, tax returns – each step linking to what’s missing, with the next JPK_V7M and VAT-UE deadlines and previous closed months alongside.',
+      label: 'Month-end close (desktop)',
+      note: 'Settlements, Month tab: closing September step by step - sales invoices, costs, mileage log, payroll and allowances, tax returns - each step linking to what’s missing, with the next JPK_V7M and VAT-UE deadlines and previous closed months alongside.',
     },
     kierowcy: {
       tytul: 'Driver settlements',
       tresc: 'Days abroad, per diems (statutory daily travel allowances) and overnight allowances, pay. The payroll downloads as Excel or CSV.',
-      label: 'Payroll and allowances · desktop',
-      note: 'Settlements, Payroll and allowances tab: drivers with days abroad, pay and allowances, next to Krzysztof Kamiński’s September settlement – a calendar of days in Germany, pay, per diems and overnight allowances, the total to settle.',
+      label: 'Payroll and allowances (desktop)',
+      note: 'Settlements, Payroll and allowances tab: drivers with days abroad, pay and allowances, next to Krzysztof Kamiński’s September settlement - a calendar of days in Germany, pay, per diems and overnight allowances, the total to settle.',
     },
     zewnatrz: {
       tytul: 'An outside accountant',

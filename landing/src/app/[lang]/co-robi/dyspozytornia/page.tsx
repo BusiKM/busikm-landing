@@ -16,6 +16,7 @@ import { KartaZlecenia } from '@/components/mockups/dyspozytornia/KartaZlecenia'
 import { PrzypiszKierowce } from '@/components/mockups/dyspozytornia/PrzypiszKierowce';
 import { Rozmowa } from '@/components/mockups/dyspozytornia/Rozmowa';
 import { ZakresDostepu } from '@/components/mockups/dyspozytornia/ZakresDostepu';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/dyspozytornia');
 
@@ -61,7 +62,7 @@ const TEKSTY: Tlumaczenia<{
       'Plik zlecenia dołączony do kursu',
       'Podpowiedź, kto zdąży',
       'Historia zleceń z filtrami',
-      'Oddajesz kurs podwykonawcy – widzisz marżę i czy ma ważne OCP',
+      'Oddajesz kurs podwykonawcy - widzisz marżę i czy ma ważne OCP',
       'Link śledzenia dla klienta',
       'Doładunek po drodze',
     ],
@@ -70,7 +71,7 @@ const TEKSTY: Tlumaczenia<{
       tytul: 'Zlecenie od przyjęcia po rozliczenie',
       tresc:
         'Zleceniodawca, załadunek, rozładunek, terminy, stawka. Pasek u góry karty pokazuje, gdzie jest kurs: przyjęte, przypisane, załadowane, w trasie, dostarczone, zafakturowane.',
-      label: 'Karta zlecenia · desktop',
+      label: 'Karta zlecenia (desktop)',
       note: 'Zlecenie Wrocław → Milano, zakładka Przegląd: pasek etapów, postoje z mapą, kierowca i auto z przyciskami „Zadzwoń” i „Napisz”, fracht i marża.',
     },
     przypisanie: {
@@ -80,12 +81,12 @@ const TEKSTY: Tlumaczenia<{
     rozmowa: {
       tytul: 'Do kierowcy piszesz jednym kliknięciem',
       tresc:
-        '„Napisz” na karcie kursu otwiera czat zlecenia. Nie szukasz numeru, a cała rozmowa zostaje przy kursie. Wolisz zadzwonić – obok jest „Zadzwoń”.',
+        '„Napisz” na karcie kursu otwiera czat zlecenia. Nie szukasz numeru, a cała rozmowa zostaje przy kursie. Wolisz zadzwonić - obok jest „Zadzwoń”.',
     },
     stanowisko: {
       tytul: 'Dyspozytor to osobne stanowisko',
       tresc:
-        'Ma własny dostęp. Widzi to, czego potrzebuje do prowadzenia tras – nie widzi faktur, kosztów firmy ani raportów. W małej firmie właściciel otwiera dyspozytornię z menu, bo ma ją u siebie.',
+        'Ma własny dostęp. Widzi to, czego potrzebuje do prowadzenia tras - nie widzi faktur, kosztów firmy ani raportów. W małej firmie właściciel otwiera dyspozytornię z menu, bo ma ją u siebie.',
     },
     ktoUzywa: 'Kto tego używa:',
     dyspozytor: 'Dyspozytor →',
@@ -111,7 +112,7 @@ const TEKSTY: Tlumaczenia<{
       'The client’s order file attached to the run',
       'A hint on who will make it',
       'Order history with filters',
-      'You hand a run to a subcontractor – you see the margin and whether their carrier’s insurance (OCP) is valid',
+      'You hand a run to a subcontractor - you see the margin and whether their carrier’s insurance (OCP) is valid',
       'A tracking link for the client',
       'An extra pickup on the way',
     ],
@@ -120,7 +121,7 @@ const TEKSTY: Tlumaczenia<{
       tytul: 'An order from acceptance to settlement',
       tresc:
         'Client, loading, unloading, deadlines, rate. The bar at the top of the card shows where the run is: accepted, assigned, loaded, on the road, delivered, invoiced.',
-      label: 'Order card · desktop',
+      label: 'Order card (desktop)',
       note: 'Order Wrocław → Milano, Overview tab: progress bar, stops with a map, driver and van with “Call” and “Message” buttons, freight and margin.',
     },
     przypisanie: {
@@ -135,7 +136,7 @@ const TEKSTY: Tlumaczenia<{
     stanowisko: {
       tytul: 'Dispatcher is a role of its own',
       tresc:
-        'They get their own access. They see what they need to run routes – not invoices, company costs or reports. In a small firm the owner opens dispatch from the menu, because it’s there for them too.',
+        'They get their own access. They see what they need to run routes - not invoices, company costs or reports. In a small firm the owner opens dispatch from the menu, because it’s there for them too.',
     },
     ktoUzywa: 'Who uses it:',
     dyspozytor: 'Dispatcher →',
@@ -217,7 +218,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/dyspozytor">
                 {t.dyspozytor}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/wlasciciel">
                 {t.wlasciciel}
               </Link>

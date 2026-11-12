@@ -14,6 +14,7 @@ import { MapaIKlient } from '@/components/pages/trasy/MapaIKlient';
 import { KrajeIPrzejazd } from '@/components/pages/trasy/KrajeIPrzejazd';
 import { PrzeliczonaTrasa } from '@/components/mockups/trasy/PrzeliczonaTrasa';
 import { ListaTras } from '@/components/mockups/trasy/ListaTras';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/trasy-i-mapa');
 
@@ -54,14 +55,14 @@ const TEKSTY: Tlumaczenia<{
     przeliczenie: {
       tytul: 'Trasa układa się sama',
       tresc:
-        'Wpisujesz punkty – system ustawia kolejność postojów, liczy kilometry i czas. Godzina dojazdu odświeża się z pozycji auta. Gdy chcesz inaczej, klikasz „Zmień trasę” i wybierasz wariant: najszybszy albo bez płatnych dróg. Możesz też omijać płatne drogi, autostrady i promy. Nową trasę widzi kierowca w aplikacji, a klient na stronie śledzenia widzi nową godzinę dojazdu.',
-      label: 'Wybór trasy · desktop',
-      note: 'Zlecenie Olsztyn → München, „Wybierz trasę”: dwa warianty na mapie – najszybsza 11 h 53 min, 1167 km, i bez płatnych dróg 12 h 10 min, 1294 km – oraz przyciski omijania: płatne drogi, autostrady, promy.',
+        'Wpisujesz punkty - system ustawia kolejność postojów, liczy kilometry i czas. Godzina dojazdu odświeża się z pozycji auta. Gdy chcesz inaczej, klikasz „Zmień trasę” i wybierasz wariant: najszybszy albo bez płatnych dróg. Możesz też omijać płatne drogi, autostrady i promy. Nową trasę widzi kierowca w aplikacji, a klient na stronie śledzenia widzi nową godzinę dojazdu.',
+      label: 'Wybór trasy (desktop)',
+      note: 'Zlecenie Olsztyn → München, „Wybierz trasę”: dwa warianty na mapie - najszybsza 11 h 53 min, 1167 km, i bez płatnych dróg 12 h 10 min, 1294 km - oraz przyciski omijania: płatne drogi, autostrady, promy.',
     },
     historia: {
       tytul: 'Historia tras',
       tresc: 'Każdy przejazd zapisany: kilometry, czas i ślad do odtworzenia. Filtrujesz po kierowcy i pojeździe, sprawdzasz po miesiącu i po roku.',
-      label: 'Lista tras z filtrami · desktop, tryb nocny',
+      label: 'Lista tras z filtrami (desktop, tryb nocny)',
       note: 'Trasy: filtry statusu, kierowcy, pojazdu, roku i miesiąca. Kolumny: data, kierowca, pojazd, dystans i stan potwierdzenia przez kierowcę i właściciela.',
     },
     ktoUzywa: 'Kto tego używa:',
@@ -95,14 +96,14 @@ const TEKSTY: Tlumaczenia<{
     przeliczenie: {
       tytul: 'The route plans itself',
       tresc:
-        'You enter the stops – the system puts them in order and works out the kilometres and time. The arrival time updates from the van’s position. Want it different? Click “Change route” and pick an option: fastest or no toll roads. You can also avoid toll roads, motorways and ferries. The driver sees the new route in the app, and the client sees the new arrival time on the tracking page.',
-      label: 'Choosing a route · desktop',
-      note: 'Order Olsztyn → München, “Choose route”: two options on the map – fastest at 11 h 53 min, 1,167 km, and no toll roads at 12 h 10 min, 1,294 km – plus avoid buttons: toll roads, motorways, ferries.',
+        'You enter the stops - the system puts them in order and works out the kilometres and time. The arrival time updates from the van’s position. Want it different? Click “Change route” and pick an option: fastest or no toll roads. You can also avoid toll roads, motorways and ferries. The driver sees the new route in the app, and the client sees the new arrival time on the tracking page.',
+      label: 'Choosing a route (desktop)',
+      note: 'Order Olsztyn → München, “Choose route”: two options on the map - fastest at 11 h 53 min, 1,167 km, and no toll roads at 12 h 10 min, 1,294 km - plus avoid buttons: toll roads, motorways, ferries.',
     },
     historia: {
       tytul: 'Route history',
       tresc: 'Every trip on record: kilometres, time and a trace you can replay. Filter by driver and vehicle, and check it a month or a year later.',
-      label: 'Route list with filters · desktop, dark mode',
+      label: 'Route list with filters (desktop, dark mode)',
       note: 'Trips: filters for status, driver, vehicle, year and month. Columns: date, driver, vehicle, distance and confirmation by the driver and the owner.',
     },
     ktoUzywa: 'Who uses it:',
@@ -170,7 +171,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/dyspozytor">
                 {t.link1}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/wlasciciel">
                 {t.link2}
               </Link>

@@ -44,13 +44,13 @@ const NAZWY_OKRESOW: Tlumaczenia<Record<OkresId, string>> = {
 };
 
 /**
- * Do pokazania człowiekowi i do powiadomienia: „Firma · rocznie".
+ * Do pokazania człowiekowi i do powiadomienia: „Firma, rocznie".
  *
  * Język domyślnie polski – powiadomienia na naszą skrzynkę zostają po
  * polsku, niezależnie od języka formularza.
  */
 export function opiszWybor({ plan, okres }: Zainteresowanie, jezyk: Jezyk = 'pl'): string {
-  return `${NAZWY_PLANOW[jezyk][plan]} · ${NAZWY_OKRESOW[jezyk][okres]}`;
+  return `${NAZWY_PLANOW[jezyk][plan]}, ${NAZWY_OKRESOW[jezyk][okres]}`;
 }
 
 export function nazwaPlanu(plan: PlanId, jezyk: Jezyk = 'pl'): string {

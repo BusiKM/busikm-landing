@@ -41,7 +41,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
       [
         'Co z kosztami, które nie należą do żadnego kursu?',
-        'Leasing, polisa, serwis – to koszty auta. Wchodzą do wyniku miesiąca i do kosztu na kilometr na karcie pojazdu, a wynik zlecenia zostaje czysty: fracht minus koszty kursu i diety.',
+        'Leasing, polisa, serwis - to koszty auta. Wchodzą do wyniku miesiąca i do kosztu na kilometr na karcie pojazdu, a wynik zlecenia zostaje czysty: fracht minus koszty kursu i diety.',
       ],
     ],
     drobiazgi: [
@@ -54,12 +54,12 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     ],
     koszty: {
       tytul: 'Wszystkie koszty w środku',
-      tresc: 'Na kursie: paliwo, opłaty drogowe, nocleg, parking, podwykonawca i diety kierowcy. Amortyzacja, leasing i polisa – w kosztach auta i w wyniku miesiąca.',
+      tresc: 'Na kursie: paliwo, opłaty drogowe, nocleg, parking, podwykonawca i diety kierowcy. Amortyzacja, leasing i polisa - w kosztach auta i w wyniku miesiąca.',
     },
     porownanie: {
       tytul: 'Porównanie okresów',
       tresc: 'Pulpit porównuje z poprzednim tygodniem, miesiącem albo rokiem. Raport „Wynik” pokazuje miesiąc po miesiącu, a bieżący miesiąc z prognozą do końca.',
-      label: 'Raporty → Wynik · desktop, tryb nocny',
+      label: 'Raporty → Wynik (desktop, tryb nocny)',
       note: 'Raporty, zakładka Wynik: przychód, koszty, zysk, marża i zysk na kilometr z różnicą do poprzedniego okresu, niżej wykres miesiąc po miesiącu z prognozą do końca bieżącego miesiąca.',
     },
     ktoUzywa: 'Kto tego używa:',
@@ -78,7 +78,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
       [
         'What about costs that don’t belong to any job?',
-        'Lease, insurance, servicing – those are vehicle costs. They go into the monthly result and the cost per kilometre on the vehicle card, so the order result stays clean: freight minus run costs and allowances.',
+        'Lease, insurance, servicing - those are vehicle costs. They go into the monthly result and the cost per kilometre on the vehicle card, so the order result stays clean: freight minus run costs and allowances.',
       ],
     ],
     drobiazgi: [
@@ -91,12 +91,12 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     ],
     koszty: {
       tytul: 'Every cost counted',
-      tresc: 'On the run: fuel, tolls, overnight stay, parking, subcontractor and the driver’s per diems (daily travel allowance). Depreciation, lease and insurance – in the vehicle’s costs and the monthly result.',
+      tresc: 'On the run: fuel, tolls, overnight stay, parking, subcontractor and the driver’s per diems (daily travel allowance). Depreciation, lease and insurance - in the vehicle’s costs and the monthly result.',
     },
     porownanie: {
       tytul: 'Compare periods',
       tresc: 'The dashboard compares with the previous week, month or year. The “Result” report shows month by month, with a forecast to the end of the current month.',
-      label: 'Reports → Result · desktop, dark mode',
+      label: 'Reports → Result (desktop, dark mode)',
       note: 'Reports, Result tab: revenue, costs, profit, margin and profit per kilometre with the change on the previous period, and below, a month-by-month chart with a forecast to the end of the current month.',
     },
     ktoUzywa: 'Who uses it:',

@@ -23,41 +23,41 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     podpowiedz: 'podpowiedź',
-    zlecen: 'Milano · 12 zleceń',
+    zlecen: 'Milano, 12 zleceń',
     fracht: 'Fracht',
     kwota: '3 900 €',
     kierowcy: [
-      { kto: 'Jan S.', poj: '· KR 5512M', stan: '9:00 wolne · 12 km', pigulka: 'podpowiedź' },
-      { kto: 'Anna R.', poj: '· WZ 7734F', stan: '4:10 wolne · 40 km', pigulka: 'możliwe' },
+      { kto: 'Jan S.', poj: 'KR 5512M', stan: '9:00 wolne, 12 km', pigulka: 'podpowiedź' },
+      { kto: 'Anna R.', poj: 'WZ 7734F', stan: '4:10 wolne, 40 km', pigulka: 'możliwe' },
     ],
     trasa: 'Łódź → Praga',
-    wTelefonie: 'w telefonie Jana S. · 07:06',
-    korek: 'Spóźni się · Bolzano → Mediolan',
+    wTelefonie: 'w telefonie Jana S., 07:06',
+    korek: 'Spóźni się, Bolzano → Mediolan',
     dojazd: 'Na miejscu ok.',
-    nowaWersja: 'klient powiadomiony · 13:21',
+    nowaWersja: 'klient powiadomiony, 13:21',
     zamkniecie: [
-      ['Marek W.', 'Bolzano · kończy 19:30'],
-      ['Tomasz L.', 'rozładowany · Rotterdam'],
+      ['Marek W.', 'Bolzano, kończy 19:30'],
+      ['Tomasz L.', 'rozładowany, Rotterdam'],
       ['Jan S.', 'rusza jutro 06:00'],
     ],
   },
   en: {
     podpowiedz: 'suggestion',
-    zlecen: 'Milan · 12 orders',
+    zlecen: 'Milan, 12 orders',
     fracht: 'Freight',
     kwota: '€3,900',
     kierowcy: [
-      { kto: 'Jan S.', poj: '· KR 5512M', stan: '9:00 left · 12 km', pigulka: 'suggested' },
-      { kto: 'Anna R.', poj: '· WZ 7734F', stan: '4:10 left · 40 km', pigulka: 'possible' },
+      { kto: 'Jan S.', poj: 'KR 5512M', stan: '9:00 left, 12 km', pigulka: 'suggested' },
+      { kto: 'Anna R.', poj: 'WZ 7734F', stan: '4:10 left, 40 km', pigulka: 'possible' },
     ],
     trasa: 'Łódź → Prague',
-    wTelefonie: 'on Jan S.’s phone · 07:06',
-    korek: 'Running late · Bolzano → Milan',
+    wTelefonie: 'on Jan S.’s phone, 07:06',
+    korek: 'Running late, Bolzano → Milan',
     dojazd: 'Arrives around',
-    nowaWersja: 'client notified · 13:21',
+    nowaWersja: 'client notified, 13:21',
     zamkniecie: [
-      ['Marek W.', 'Bolzano · finishes 19:30'],
-      ['Tomasz L.', 'unloaded · Rotterdam'],
+      ['Marek W.', 'Bolzano, finishes 19:30'],
+      ['Tomasz L.', 'unloaded, Rotterdam'],
       ['Jan S.', 'sets off tomorrow 06:00'],
     ],
   },
@@ -133,7 +133,7 @@ export function KartaTrasa() {
         <circle cx="25" cy="122" r="5" fill="#0B5FFF" />
       </svg>
       <div className="absolute top-3 left-3.5 rounded-lg bg-surface-2 px-2.5 py-2 text-[11px]">
-        <b>{t.trasa}</b> <span className="text-ink-muted">· 540 km</span>
+        <b>{t.trasa}</b> <span className="text-ink-muted">540 km</span>
         <div className="text-ink-muted">{t.wTelefonie}</div>
       </div>
     </div>

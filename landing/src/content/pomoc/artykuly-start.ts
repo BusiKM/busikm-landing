@@ -27,12 +27,12 @@ export const artykulyStart: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'BusiKM sprawdzamy na prawdziwych trasach, w małej grupie firm. Zapisz się na listę na stronie „Zaloguj się” – napiszemy, gdy otworzymy konto dla Ciebie.',
+              'BusiKM sprawdzamy na prawdziwych trasach, w małej grupie firm. Zapisz się na listę na stronie „Zaloguj się” - napiszemy, gdy otworzymy konto dla Ciebie.',
           },
           {
             typ: 'wkrotce',
             tresc:
-              'Demo obejrzysz już teraz, bez konta – przycisk Zobacz demo na stronie. Rejestracja dla wszystkich ruszy wkrótce; do tego czasu na stronie zapisujesz się na listę, a nie zakładasz konto.',
+              'Demo obejrzysz już teraz, bez konta - przycisk Zobacz demo na stronie. Rejestracja dla wszystkich ruszy wkrótce; do tego czasu na stronie zapisujesz się na listę, a nie zakładasz konto.',
           },
         ],
       },
@@ -53,7 +53,7 @@ export const artykulyStart: Artykul[] = [
               { tytul: 'Ustaw hasło' },
               {
                 tytul: 'Potwierdź adres e-mail',
-                opis: 'Klikasz odnośnik z maila. Konto jest aktywne, a 14 dni próby – bez karty – już trwa.',
+                opis: 'Klikasz odnośnik z maila. Konto jest aktywne, a 14 dni próby - bez karty - już trwa.',
               },
             ],
           },
@@ -86,7 +86,7 @@ export const artykulyStart: Artykul[] = [
             kroki: [
               {
                 tytul: 'Wejdź w Ustawienia → Dane firmy',
-                opis: 'Część danych jest już wpisana z rejestru przy zakładaniu konta. Sprawdź je – drukujemy je na fakturach, CMR i w eksportach dla księgowej.',
+                opis: 'Część danych jest już wpisana z rejestru przy zakładaniu konta. Sprawdź je - drukujemy je na fakturach, CMR i w eksportach dla księgowej.',
               },
               {
                 tytul: 'Uzupełnij dane rejestrowe',
@@ -98,7 +98,7 @@ export const artykulyStart: Artykul[] = [
               },
               {
                 tytul: 'Dodaj konto bankowe',
-                opis: 'Ustawienia → Konta bankowe. Numer drukuje się na fakturze – bez niego klient nie ma na co przelać.',
+                opis: 'Ustawienia → Konta bankowe. Numer drukuje się na fakturze - bez niego klient nie ma na co przelać.',
               },
               {
                 tytul: 'Wskaż program księgowy',
@@ -123,7 +123,7 @@ export const artykulyStart: Artykul[] = [
           },
           {
             typ: 'akapit',
-            tresc: 'Cele możesz zostawić puste – pulpit po prostu ich nie pokaże.',
+            tresc: 'Cele możesz zostawić puste - pulpit po prostu ich nie pokaże.',
           },
         ],
       },
@@ -134,11 +134,11 @@ export const artykulyStart: Artykul[] = [
             typ: 'lista',
             wstep: 'Do tych wrócisz, gdy zaczniesz wystawiać i rozliczać:',
             punkty: [
-              'Logo na dokumentach – logo na fakturach i dokumentach dla klientów.',
-              'Faktury – numeracja faktur i domyślny termin płatności.',
-              'KSeF – połączenie z Krajowym Systemem e-Faktur.',
-              'Przypomnienia o terminach – przypominamy 60, 30, 14 i 3 dni przed terminem dokumentu.',
-              'Stawki z przepisów – diety, kilometrówka i kursy NBP, do podglądu.',
+              'Logo na dokumentach - logo na fakturach i dokumentach dla klientów.',
+              'Faktury - numeracja faktur i domyślny termin płatności.',
+              'KSeF - połączenie z Krajowym Systemem e-Faktur.',
+              'Przypomnienia o terminach - przypominamy 60, 30, 14 i 3 dni przed terminem dokumentu.',
+              'Stawki z przepisów - diety, kilometrówka i kursy NBP, do podglądu.',
             ],
           },
         ],
@@ -155,7 +155,7 @@ export const artykulyStart: Artykul[] = [
     role: ['wlasciciel'],
     gdzie: 'Pojazdy → Dodaj pojazd',
     czas: 'Trzy minuty na pojazd',
-    zanim: ['Dowód rejestracyjny – zdjęcia wszystkich stron albo PDF', 'Stan licznika na dziś'],
+    zanim: ['Dowód rejestracyjny - zdjęcia wszystkich stron albo PDF', 'Stan licznika na dziś'],
     rozdzialy: [
       {
         tytul: 'Trzy kroki kreatora',
@@ -166,15 +166,15 @@ export const artykulyStart: Artykul[] = [
               { tytul: 'Wejdź w Pojazdy i kliknij Dodaj pojazd' },
               {
                 tytul: 'Z dowodu',
-                opis: 'Wgraj zdjęcie dowodu rejestracyjnego – możesz wybrać kilka zdjęć naraz. AI odczyta numer rejestracyjny, VIN, markę, model, rok i masy, a Ty sprawdzasz pola z dowodem. Dane możesz też przepisać ręcznie.',
+                opis: 'Wgraj zdjęcie dowodu rejestracyjnego - możesz wybrać kilka zdjęć naraz. AI odczyta numer rejestracyjny, VIN, markę, model, rok i masy, a Ty sprawdzasz pola z dowodem. Dane możesz też przepisać ręcznie.',
               },
               {
                 tytul: 'Jak używasz',
-                opis: 'Czyje jest auto (kupione, leasing albo najem), gdzie jeździ, kto jest kierowcą domyślnym i jaki jest licznik dziś. Od tego zależy między innymi odliczenie VAT – przy pełnym odliczeniu podajesz datę złożenia VAT-26.',
+                opis: 'Czyje jest auto (kupione, leasing albo najem), gdzie jeździ, kto jest kierowcą domyślnym i jaki jest licznik dziś. Od tego zależy między innymi odliczenie VAT - przy pełnym odliczeniu podajesz datę złożenia VAT-26.',
               },
               {
                 tytul: 'Terminy',
-                opis: 'Termin badania technicznego policzymy z dowodu. Wgraj polisę – daty OC, AC i NNW odczytamy z dokumentu.',
+                opis: 'Termin badania technicznego policzymy z dowodu. Wgraj polisę - daty OC, AC i NNW odczytamy z dokumentu.',
               },
               {
                 tytul: 'Kliknij Dodaj pojazd',
@@ -185,7 +185,7 @@ export const artykulyStart: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Licznik dziś to punkt startowy – od niego liczymy serwis i przebieg. Wpisz stan z dnia, w którym zaczynacie pracę w BusiKM, a nie z dnia zakupu auta.',
+              'Licznik dziś to punkt startowy - od niego liczymy serwis i przebieg. Wpisz stan z dnia, w którym zaczynacie pracę w BusiKM, a nie z dnia zakupu auta.',
           },
           {
             typ: 'akapit',
@@ -200,7 +200,7 @@ export const artykulyStart: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Kolejne dokumenty dodasz w karcie pojazdu, w zakładce Terminy i dokumenty. Wystarczy zdjęcie albo PDF – rodzaj, numer i daty odczytamy, a Ty je sprawdzasz.',
+              'Kolejne dokumenty dodasz w karcie pojazdu, w zakładce Terminy i dokumenty. Wystarczy zdjęcie albo PDF - rodzaj, numer i daty odczytamy, a Ty je sprawdzasz.',
           },
           {
             typ: 'lista',

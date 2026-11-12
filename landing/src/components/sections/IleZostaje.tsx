@@ -18,7 +18,7 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     tytul1: 'Wiesz, ile zostaje.',
     tytul2: 'Na tym kursie. Dziś.',
-    lead: 'Fracht po kursie NBP minus paliwo, opłaty drogowe, nocleg, parking i diety kierowcy. Kierowca dodaje paragon w trasie – gdy paragon ma komplet danych, wynik przelicza się sam. Nie na koniec kwartału.',
+    lead: 'Fracht po kursie NBP minus paliwo, opłaty drogowe, nocleg, parking i diety kierowcy. Kierowca dodaje paragon w trasie - gdy paragon ma komplet danych, wynik przelicza się sam. Nie na koniec kwartału.',
     bullets: [
       'Przychód, koszty i wynik na pulpicie, obok poprzedni okres',
       'Marża na każdym zleceniu z osobna',
@@ -27,13 +27,13 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Zostaje',
     kwota: '3 699 zł',
     podpis: 'z 1 020 € frachtu. Liczba zmieni się, gdy Jan doda kolejny paragon.',
-    label: 'Karta zysku · desktop',
-    opis: 'Zlecenie Warszawa → München, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu w wierszach – paliwo, opłaty drogowe, parking – obok wynik, marża i zysk na kilometr.',
+    label: 'Karta zysku (desktop)',
+    opis: 'Zlecenie Warszawa → München, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu w wierszach - paliwo, opłaty drogowe, parking - obok wynik, marża i zysk na kilometr.',
   },
   en: {
     tytul1: 'You know what you keep.',
     tytul2: 'On this job. Today.',
-    lead: 'Freight at the NBP rate minus fuel, tolls, overnight stay, parking and the driver’s allowances. The driver adds a receipt on the road – once it has all its details, the result updates by itself. Not at the end of the quarter.',
+    lead: 'Freight at the NBP rate minus fuel, tolls, overnight stay, parking and the driver’s allowances. The driver adds a receipt on the road - once it has all its details, the result updates by itself. Not at the end of the quarter.',
     bullets: [
       'Revenue, costs and result on the dashboard, next to the previous period',
       'The margin on every single order',
@@ -42,8 +42,8 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'You keep',
     kwota: 'PLN 3,699',
     podpis: 'out of €1,020 freight. The figure will change when Jan adds another receipt.',
-    label: 'Profit card · desktop',
-    opis: 'Order Warsaw → Munich, Finance tab: freight in euros converted at the NBP rate, run costs line by line – fuel, tolls, parking – with the result, margin and profit per kilometre alongside.',
+    label: 'Profit card (desktop)',
+    opis: 'Order Warsaw → Munich, Finance tab: freight in euros converted at the NBP rate, run costs line by line - fuel, tolls, parking - with the result, margin and profit per kilometre alongside.',
   },
 };
 

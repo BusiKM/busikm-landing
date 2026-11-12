@@ -14,24 +14,24 @@ type Teksty = { trasa: string; razem: string; pozycje: Pozycja[] };
 /** Udziały sumują się do 100 – pasek nad listą dzieli się dokładnie tak. */
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
-    trasa: 'Koszty · Warszawa → Mediolan',
+    trasa: 'Koszty: Warszawa → Mediolan',
     razem: '2 496 € razem',
     pozycje: [
-      { label: 'Kierowca', detail: ' · wynagrodzenie i dieta', kwota: '1 060 €', udzial: 42, kolor: '#0B5FFF' },
+      { label: 'Kierowca', detail: 'wynagrodzenie i dieta', kwota: '1 060 €', udzial: 42, kolor: '#0B5FFF' },
       { label: 'Paliwo', kwota: '716 €', udzial: 29, kolor: '#0A46C0' },
       { label: 'Opłaty drogowe', kwota: '291 €', udzial: 12, kolor: '#6E6E76' },
-      { label: 'Amortyzacja', detail: ' · 3 280 km', kwota: '273 €', udzial: 11, kolor: '#9A9AA2' },
+      { label: 'Amortyzacja', detail: '3 280 km', kwota: '273 €', udzial: 11, kolor: '#9A9AA2' },
       { label: 'Nocleg', kwota: '156 €', udzial: 6, kolor: '#C9CBD1' },
     ],
   },
   en: {
-    trasa: 'Costs · Warsaw → Milan',
+    trasa: 'Costs: Warsaw → Milan',
     razem: '€2,496 total',
     pozycje: [
-      { label: 'Driver', detail: ' · pay and per diem', kwota: '€1,060', udzial: 42, kolor: '#0B5FFF' },
+      { label: 'Driver', detail: 'pay and per diem', kwota: '€1,060', udzial: 42, kolor: '#0B5FFF' },
       { label: 'Fuel', kwota: '€716', udzial: 29, kolor: '#0A46C0' },
       { label: 'Tolls', kwota: '€291', udzial: 12, kolor: '#6E6E76' },
-      { label: 'Depreciation', detail: ' · 3,280 km', kwota: '€273', udzial: 11, kolor: '#9A9AA2' },
+      { label: 'Depreciation', detail: '3,280 km', kwota: '€273', udzial: 11, kolor: '#9A9AA2' },
       { label: 'Overnight stay', kwota: '€156', udzial: 6, kolor: '#C9CBD1' },
     ],
   },
@@ -72,11 +72,11 @@ export function RozbicieKosztow() {
               />
               <span className="truncate">
                 {p.label}
-                {p.detail && <span className="hidden lg:inline">{p.detail}</span>}
+                {p.detail && <span className="ml-2 hidden opacity-70 lg:inline">{p.detail}</span>}
               </span>
             </span>
             <span className="flex-none">
-              {p.kwota} · {p.udzial}%
+              {p.kwota} ({p.udzial}%)
             </span>
           </div>
         ))}

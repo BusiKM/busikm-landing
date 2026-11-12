@@ -12,12 +12,12 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     naglowek: 'Zobacz BusiKM od środka. Bez konta.',
-    lead: 'Prawdziwa aplikacja na danych przykładowej firmy transportowej. Przy wejściu wybierasz rolę – właściciel, dyspozytor albo księgowa – i klikasz, ile chcesz. Demo jest tylko do odczytu, więc niczego nie zepsujesz.',
+    lead: 'Prawdziwa aplikacja na danych przykładowej firmy transportowej. Przy wejściu wybierasz rolę - właściciel, dyspozytor albo księgowa - i klikasz, ile chcesz. Demo jest tylko do odczytu, więc niczego nie zepsujesz.',
     odnosnik: 'Wejdź do demo',
   },
   en: {
     naglowek: 'See BusiKM from the inside. No account.',
-    lead: 'The real app, on a sample transport company’s data. When you enter, you pick a role – owner, dispatcher or accountant – and click around as much as you like. The demo is read-only, so you can’t break anything.',
+    lead: 'The real app, on a sample transport company’s data. When you enter, you pick a role - owner, dispatcher or accountant - and click around as much as you like. The demo is read-only, so you can’t break anything.',
     odnosnik: 'Enter the demo',
   },
 };

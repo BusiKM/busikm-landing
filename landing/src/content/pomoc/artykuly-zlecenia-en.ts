@@ -11,7 +11,7 @@ export const artykulyZleceniaEn: Artykul[] = [
     gdzie: 'Orders → New order (Zlecenia → Nowe zlecenie)',
     czas: 'Five minutes the first time, two after that',
     zanim: [
-      'The client in your database – or the details to add them',
+      'The client in your database - or the details to add them',
       'Loading and unloading addresses',
       'The agreed freight rate',
     ],
@@ -41,11 +41,11 @@ export const artykulyZleceniaEn: Artykul[] = [
               },
               {
                 tytul: 'Price and terms (Cena i warunki)',
-                opis: 'Net freight and currency, payment term (days) from the client card and payment method. This is also where you add notes for the driver – they see them in the app – and an internal note that only the office sees.',
+                opis: 'Net freight and currency, payment term (days) from the client card and payment method. This is also where you add notes for the driver - they see them in the app - and an internal note that only the office sees.',
               },
               {
                 tytul: 'Create order (Utwórz zlecenie)',
-                opis: 'Or straight away Create and assign a driver (Utwórz i przypisz kierowcę) – you go directly to assigning in Dispatch.',
+                opis: 'Or straight away Create and assign a driver (Utwórz i przypisz kierowcę) - you go directly to assigning in Dispatch.',
               },
             ],
           },
@@ -67,7 +67,7 @@ export const artykulyZleceniaEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'If no vehicle can make it in time, hand the job to a carrier – in the last step of the wizard (Oddaj przewoźnikowi) or from the order card.',
+              'If no vehicle can make it in time, hand the job to a carrier - in the last step of the wizard (Oddaj przewoźnikowi) or from the order card.',
           },
         ],
       },
@@ -79,7 +79,7 @@ export const artykulyZleceniaEn: Artykul[] = [
     slug: 'dyspozytornia',
     kategoria: 'zlecenia',
     tytul: 'Dispatch day to day',
-    lead: 'The queue, the fleet map and the fleet plan in one place – instead of phoning round the drivers.',
+    lead: 'The queue, the fleet map and the fleet plan in one place - instead of phoning round the drivers.',
     role: ['dyspozytor', 'wlasciciel'],
     gdzie: 'Dispatch (Dyspozytornia)',
     rozdzialy: [
@@ -91,15 +91,15 @@ export const artykulyZleceniaEn: Artykul[] = [
             wstep: 'At the top, counters that tell you whether the day is going to plan:',
             punkty: [
               'Loadings today and unloadings today.',
-              'On the road – vehicles under way.',
-              'To assign – jobs without a driver.',
+              'On the road - vehicles under way.',
+              'To assign - jobs without a driver.',
               'Free vehicles.',
             ],
           },
           {
             typ: 'akapit',
             tresc:
-              'Below the counters is the queue with the tabs Needs attention (Wymaga reakcji – start here), To assign and On the road, and next to it the fleet map with the filter All, On the road, Free and Service. Further down is the fleet plan for 3 days or a week. On a phone you switch between List, Map and Fleet plan.',
+              'Below the counters is the queue with the tabs Needs attention (Wymaga reakcji - start here), To assign and On the road, and next to it the fleet map with the filter All, On the road, Free and Service. Further down is the fleet plan for 3 days or a week. On a phone you switch between List, Map and Fleet plan.',
           },
           {
             typ: 'uwaga',
@@ -123,7 +123,7 @@ export const artykulyZleceniaEn: Artykul[] = [
               },
               {
                 tytul: 'Message the driver',
-                opis: 'Reply (Odpowiedz) opens the chat on the order card. The message reaches the app on their phone – no need to call someone who’s driving.',
+                opis: 'Reply (Odpowiedz) opens the chat on the order card. The message reaches the app on their phone - no need to call someone who’s driving.',
               },
               {
                 tytul: 'Change the time slot if needed',
@@ -166,7 +166,7 @@ export const artykulyZleceniaEn: Artykul[] = [
               },
               {
                 tytul: 'Add a contact person',
-                opis: 'Optional – who picks up the phone when there’s a problem at loading.',
+                opis: 'Optional - who picks up the phone when there’s a problem at loading.',
               },
               { tytul: 'Click Save client (Zapisz kontrahenta)' },
             ],
@@ -174,7 +174,7 @@ export const artykulyZleceniaEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'If the company is already in BusiKM, the form spots it – the client won’t be created twice.',
+              'If the company is already in BusiKM, the form spots it - the client won’t be created twice.',
           },
         ],
       },
@@ -184,14 +184,14 @@ export const artykulyZleceniaEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'The payment term (30 days by default) and the currency – based on the company’s country, which you can change – are then suggested on invoices. Set them once instead of correcting them every month.',
+              'The payment term (30 days by default) and the currency - based on the company’s country, which you can change - are then suggested on invoices. Set them once instead of correcting them every month.',
           },
           {
             typ: 'lista',
             wstep: 'Also worth filling in:',
             punkty: [
-              'Invoice email – where the invoice goes, usually different from the sales contact.',
-              'A contact person with a phone number – for when something goes wrong on site.',
+              'Invoice email - where the invoice goes, usually different from the sales contact.',
+              'A contact person with a phone number - for when something goes wrong on site.',
             ],
           },
           {
@@ -227,7 +227,7 @@ export const artykulyZleceniaEn: Artykul[] = [
             kroki: [
               {
                 tytul: 'Go to Invoices and click New invoice (Nowa faktura)',
-                opis: 'Or on the order card choose Issue invoice (Wystaw fakturę) – a draft is created from the order data.',
+                opis: 'Or on the order card choose Issue invoice (Wystaw fakturę) - a draft is created from the order data.',
               },
               {
                 tytul: 'Choose From orders (Ze zleceń)',
@@ -259,7 +259,7 @@ export const artykulyZleceniaEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'On the invoice, click Send to client (Wyślij klientowi). For an invoice in KSeF you choose Send once numbered (Wyślij po nadaniu numeru) – the email with the PDF and QR code goes out as soon as KSeF assigns the number. The address comes from the client card.',
+              'On the invoice, click Send to client (Wyślij klientowi). For an invoice in KSeF you choose Send once numbered (Wyślij po nadaniu numeru) - the email with the PDF and QR code goes out as soon as KSeF assigns the number. The address comes from the client card.',
           },
           {
             typ: 'akapit',
@@ -270,10 +270,10 @@ export const artykulyZleceniaEn: Artykul[] = [
             typ: 'lista',
             wstep: 'On the invoice, in the buttons and the More actions menu (Więcej akcji):',
             punkty: [
-              'Record payment (Zarejestruj wpłatę) – amount, date and payment method.',
-              'Resend PDF (Wyślij ponownie PDF) – when the client has lost the email.',
-              'Issue a correction (Wystaw korektę) – an invoice in KSeF can’t be cancelled or deleted; you change it with a correction.',
-              'Duplicate as a new invoice (Powiel jako nową fakturę) – when the next one is almost the same.',
+              'Record payment (Zarejestruj wpłatę) - amount, date and payment method.',
+              'Resend PDF (Wyślij ponownie PDF) - when the client has lost the email.',
+              'Issue a correction (Wystaw korektę) - an invoice in KSeF can’t be cancelled or deleted; you change it with a correction.',
+              'Duplicate as a new invoice (Powiel jako nową fakturę) - when the next one is almost the same.',
             ],
           },
           {
@@ -284,7 +284,7 @@ export const artykulyZleceniaEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'We put payment reminders together every day – 3 days before the due date and 7 and 14 days after it. Nothing goes out on its own: you review them under the Reminders button (Przypomnienia) on the invoice list and send the ones you tick.',
+              'We put payment reminders together every day - 3 days before the due date and 7 and 14 days after it. Nothing goes out on its own: you review them under the Reminders button (Przypomnienia) on the invoice list and send the ones you tick.',
           },
         ],
       },

@@ -21,7 +21,7 @@ const TEKSTY: Tlumaczenia<{
       'KSeF jednym przyciskiem, mail do klienta po nadaniu numeru',
       'Zaliczki, korekty i faktura zbiorcza z kilku zleceń',
     ],
-    label: 'Zlecenie i faktura · desktop',
+    label: 'Zlecenie i faktura (desktop)',
     opis: 'Zlecenie Radom → Köln, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu, wynik i marża, obok faktura FV/029/10/2026 ze statusem „W KSeF” i przyciskiem „Wyślij klientowi”.',
   },
   en: {
@@ -33,7 +33,7 @@ const TEKSTY: Tlumaczenia<{
       'KSeF in one click, the client’s email once the number is in',
       'Advance invoices, corrections and one invoice for several orders',
     ],
-    label: 'Order and invoice · desktop',
+    label: 'Order and invoice (desktop)',
     opis: 'Order Radom → Köln, Finance tab: freight in euros converted at the NBP rate, run costs, result and margin, next to invoice FV/029/10/2026 marked “In KSeF” with a “Send to client” button.',
   },
 };

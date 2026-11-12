@@ -14,7 +14,7 @@ const TEKSTY: Tlumaczenia<{
     calaSciezka: 'Cała ścieżka',
     wynik: '~10 minut',
     opis: 'Twojej pracy. Resztę robi kierowca i system.',
-    twojaPraca: 'Twoja praca · 10 min',
+    twojaPraca: 'Twoja praca: 10 min',
     poStronieKierowcy: 'po stronie kierowcy',
   },
   en: {
@@ -22,7 +22,7 @@ const TEKSTY: Tlumaczenia<{
     calaSciezka: 'The whole path',
     wynik: '~10 minutes',
     opis: 'Of your time. The driver and the system do the rest.',
-    twojaPraca: 'Your work · 10 min',
+    twojaPraca: 'Your work: 10 min',
     poStronieKierowcy: 'on the driver’s side',
   },
 };
@@ -30,13 +30,13 @@ const TEKSTY: Tlumaczenia<{
 /** Udziały odcinków są proporcjonalne do minut, więc pasek pokazuje realny rozkład pracy. */
 function odcinki(kierowca: string) {
   return [
-    { etykieta: '1 · 2 min', udzial: 2 },
-    { etykieta: '2 · 1 min', udzial: 1 },
-    { etykieta: '3 · 2 min', udzial: 2 },
-    { etykieta: '4 · 3 min', udzial: 3 },
-    { etykieta: `5 · ${kierowca}`, udzial: 1.5, kierowca: true },
-    { etykieta: '6 · 1 min', udzial: 1 },
-    { etykieta: '7 · 1 min', udzial: 1 },
+    { etykieta: '1 (2 min)', udzial: 2 },
+    { etykieta: '2 (1 min)', udzial: 1 },
+    { etykieta: '3 (2 min)', udzial: 2 },
+    { etykieta: '4 (3 min)', udzial: 3 },
+    { etykieta: `5 (${kierowca})`, udzial: 1.5, kierowca: true },
+    { etykieta: '6 (1 min)', udzial: 1 },
+    { etykieta: '7 (1 min)', udzial: 1 },
   ];
 }
 

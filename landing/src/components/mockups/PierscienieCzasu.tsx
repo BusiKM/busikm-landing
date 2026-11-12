@@ -45,7 +45,7 @@ export function PierscienieCzasu() {
   return (
     <div className="flex flex-col gap-5 rounded-card border border-line-dark bg-surface text-paper p-5 text-[12px] shadow-[0_30px_80px_rgba(0,0,0,.5)] lg:aspect-4/3 lg:gap-7 lg:p-8 lg:text-[13px]">
       <div className="hidden justify-between text-ink-muted lg:flex">
-        <span>Marek W. · WZ 4821K</span>
+        <span>Marek W., WZ 4821K</span>
         <span>{t.dzis}</span>
       </div>
 
@@ -74,7 +74,7 @@ export function PierscienieCzasu() {
           >
             <span className="truncate">
               {d.who}
-              <span className="hidden lg:inline"> · {d.vehicle}</span>
+              <span className="hidden lg:inline">, {d.vehicle}</span>
             </span>
             <span className={`flex-none ${d.tone}`}>{t.stany[i]}</span>
           </div>

@@ -15,10 +15,10 @@ const TEKSTY: Tlumaczenia<{
     items: [
       'Serwery w Europie (Frankfurt)',
       'Kopia codziennie, zaszyfrowana, u drugiego dostawcy',
-      'Po rezygnacji konto zostaje do odczytu – pobierasz faktury i eksporty',
+      'Po rezygnacji konto zostaje do odczytu - pobierasz faktury i eksporty',
       'Widać, kto co zmienił i kiedy',
     ],
-    wyjatki: 'Wyjątki – odczyt dokumentów przez AI i powiadomienia w telefonie – opisujemy w',
+    wyjatki: 'Wyjątki - odczyt dokumentów przez AI i powiadomienia w telefonie - opisujemy w',
     rejestr: 'rejestrze podprocesorów',
   },
   en: {
@@ -26,10 +26,10 @@ const TEKSTY: Tlumaczenia<{
     items: [
       'Servers in Europe (Frankfurt)',
       'A daily backup, encrypted, with a second provider',
-      'After you cancel, your account stays read-only – download invoices and exports',
+      'After you cancel, your account stays read-only - download invoices and exports',
       'You can see who changed what, and when',
     ],
-    wyjatki: 'Exceptions – AI reading of documents and phone notifications – are described in our',
+    wyjatki: 'Exceptions - AI reading of documents and phone notifications - are described in our',
     rejestr: 'list of subprocessors',
   },
 };

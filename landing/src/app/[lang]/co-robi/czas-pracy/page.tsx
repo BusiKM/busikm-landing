@@ -17,6 +17,7 @@ import { ListaKierowcow } from '@/components/mockups/czas/ListaKierowcow';
 import { BezZasiegu } from '@/components/mockups/czas/BezZasiegu';
 import { KartaMiesieczna } from '@/components/mockups/czas/KartaMiesieczna';
 import { DniWKrajach } from '@/components/mockups/czas/DniWKrajach';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/czas-pracy');
 
@@ -71,7 +72,7 @@ const TEKSTY: Tlumaczenia<{
     karta: {
       tytul: 'Miesięczna karta do wydruku',
       tresc: 'Gotowa, bez przepisywania. Do teczki albo do księgowej.',
-      label: 'Karta miesięczna do wydruku · desktop',
+      label: 'Karta miesięczna do wydruku (desktop)',
       note: 'Dni, godziny jazdy, pracy i odpoczynku, kraje; podsumowanie i przycisk PDF. Jasna, jak wydruk.',
     },
     kraje: {
@@ -119,7 +120,7 @@ const TEKSTY: Tlumaczenia<{
     karta: {
       tytul: 'A monthly sheet to print',
       tresc: 'Ready, with no copying out. For the file or for your accountant.',
-      label: 'Monthly sheet to print · desktop',
+      label: 'Monthly sheet to print (desktop)',
       note: 'Days, hours of driving, work and rest, countries; a summary and a PDF button. Light, like a printout.',
     },
     kraje: {
@@ -201,7 +202,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/kierowca">
                 {t.link1}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/wlasciciel">
                 {t.link2}
               </Link>

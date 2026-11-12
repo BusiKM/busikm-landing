@@ -32,10 +32,10 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Zobacz BusiKM od środka. Bez konta.',
     lead: [
       'Przykładowa firma transportowa z flotą, zleceniami, fakturami i kosztami.',
-      'Wybierasz rolę – właściciel, dyspozytor albo księgowa – i klikasz, ile chcesz.',
+      'Wybierasz rolę - właściciel, dyspozytor albo księgowa - i klikasz, ile chcesz.',
     ],
     wejdz: 'Wejdź do demo',
-    zasady: 'Bez rejestracji · tylko do odczytu · sesja na godzinę',
+    zasady: 'Bez rejestracji, tylko do odczytu, sesja na godzinę',
     konto: 'Wolisz własne konto?',
     kontoLink: 'Zapisz się na listę',
     kafelki: [
@@ -44,11 +44,11 @@ const TEKSTY: Tlumaczenia<{
       ['Zlecenie z fakturą', 'jak jedno robi się drugim'],
       ['Komplet dla księgowej', 'eksporty i paczka dla biura jednym przyciskiem'],
     ],
-    mockupLabel: 'Demo · pulpit właściciela · desktop, tryb nocny',
+    mockupLabel: 'Demo, pulpit właściciela (desktop, tryb nocny)',
     mockupNota:
       'Pulpit właściciela na danych przykładowej firmy: „Do zrobienia” z listą spraw i „Dziś” z kursami w trasie.',
     coZobaczysz: 'Co zobaczysz w środku',
-    przelacznik: 'Wybór roli przy wejściu: właściciel · dyspozytor · księgowa',
+    przelacznik: 'Wybór roli przy wejściu: właściciel, dyspozytor, księgowa',
     przelacznikOpis:
       'Wybierasz rolę i oglądasz jej stanowisko pracy na danych przykładowej firmy transportowej. Demo jest tylko do odczytu, więc niczego nie zepsujesz.',
   },
@@ -57,10 +57,10 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'See BusiKM from the inside. No account.',
     lead: [
       'A sample transport company, with its fleet, orders, invoices and costs.',
-      'Pick a role – owner, dispatcher or accountant – and click around as much as you like.',
+      'Pick a role - owner, dispatcher or accountant - and click around as much as you like.',
     ],
     wejdz: 'Enter the demo',
-    zasady: 'No sign-up · read-only · one-hour session',
+    zasady: 'No sign-up, read-only, one-hour session',
     konto: 'Want your own account?',
     kontoLink: 'Join the list',
     kafelki: [
@@ -69,11 +69,11 @@ const TEKSTY: Tlumaczenia<{
       ['Order to invoice', 'how one turns into the other'],
       ['Full pack for your accountant', 'exports and the package for the office in one click'],
     ],
-    mockupLabel: 'Demo · owner’s dashboard · desktop, night mode',
+    mockupLabel: 'Demo, owner’s dashboard (desktop, night mode)',
     mockupNota:
       'The owner’s dashboard on a sample company’s data: “To do” with a list of tasks and “Today” with the runs on the road.',
     coZobaczysz: 'What you’ll see inside',
-    przelacznik: 'Pick a role when you enter: owner · dispatcher · accountant',
+    przelacznik: 'Pick a role when you enter: owner, dispatcher, accountant',
     przelacznikOpis:
       'You pick a role and look around its workspace on a sample transport company’s data. The demo is read-only, so you can’t break anything.',
   },

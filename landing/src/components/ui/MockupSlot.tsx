@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Makieta } from '@/components/ui/Makieta';
 import { biezacyJezyk } from '@/i18n/serwer';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 /**
  * Miejsce na zrzut z aplikacji – wg docs/landing/08-makiety-i-zdjecia.md
@@ -54,7 +55,7 @@ function sciezkaZrzutu(file: string): string | null {
 type MockupSlotProps = {
   /** Nazwa pliku wg schematu `mockup-<obszar>-<ekran>-<urządzenie>.png`. */
   file: string;
-  /** Etykieta w notce, wersalikami – np. „Ekran właściciela · desktop 1440". */
+  /** Etykieta w notce, wersalikami – np. „Ekran właściciela (desktop 1440)". */
   label: string;
   /** Co dokładnie ma być widać na docelowym zrzucie. */
   note: string;
@@ -138,9 +139,13 @@ export function MockupSlot({
         <b className="text-[15px] lg:text-body">{caption}</b>
         {brakuje && (
           <span
-            className={`font-mono text-[10px] lg:text-[11px] ${dark ? 'text-ink-muted' : 'text-muted'}`}
+            className={`inline-flex items-center font-mono text-[10px] lg:text-[11px] ${dark ? 'text-ink-muted' : 'text-muted'}`}
           >
-            {doPodmiany} · {file} · {ratio}
+            {doPodmiany}
+            <Rozdzielacz className="mx-2" />
+            {file}
+            <Rozdzielacz className="mx-2" />
+            {ratio}
           </span>
         )}
       </div>
@@ -170,7 +175,7 @@ export function MockupSlot({
       >
         <Makieta
           src={src}
-          alt={`${label} – ${note}`}
+          alt={`${label} - ${note}`}
           sizes="(max-width: 1024px) 100vw, 1120px"
           etykietaPowieksz={pl ? 'Powiększ' : 'Enlarge'}
           etykietaZamknij={pl ? 'Zamknij' : 'Close'}
@@ -224,7 +229,7 @@ export function MockupSlot({
         } ${noteClassName}`}
       >
         <div className="font-semibold tracking-[0.06em] uppercase">
-          {doPodmiany} · {label}
+          {doPodmiany}: {label}
         </div>
         <div>{note}</div>
         <div className="flex flex-wrap justify-between gap-x-4">

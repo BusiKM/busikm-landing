@@ -82,7 +82,8 @@ export function SpisTresci({ paragrafy }: { paragrafy: Paragraf[] }) {
         className="rounded-card border border-line bg-white lg:hidden"
       >
         <summary className="cursor-pointer list-none px-4 py-3.5 text-[15px] font-semibold">
-          {t.spis} · {t.liczba(paragrafy.length)}
+          {t.spis}
+          <span className="ml-2 font-normal text-muted">{t.liczba(paragrafy.length)}</span>
         </summary>
         <div className="px-2 pb-3">{pozycje}</div>
       </details>

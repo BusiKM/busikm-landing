@@ -28,7 +28,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     miesiac: 'Sierpień 2026',
     przycisk: 'Pobierz komplet za sierpień',
     kompletnosc: ['Kompletność', '9 z 9 gotowe'],
-    ostatnie: 'Ostatnie pobranie: 1.09, 09:14 · Ewa M.',
+    ostatnie: 'Ostatnie pobranie: 1.09, 09:14 (Ewa M.)',
     stan: 'Miesiąc otwarty',
   },
   en: {
@@ -47,7 +47,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     miesiac: 'August 2026',
     przycisk: 'Download the full set for August',
     kompletnosc: ['Completeness', '9 of 9 ready'],
-    ostatnie: 'Last download: 1 Sep, 09:14 · Ewa M.',
+    ostatnie: 'Last download: 1 Sep, 09:14 (Ewa M.)',
     stan: 'Month open',
   },
 };

@@ -149,7 +149,7 @@ export function metadataTresci({
   opis: string;
   jezyk: Jezyk;
 }): Metadata {
-  const pelnyTytul = tytul.includes(serwis.nazwa) ? tytul : `${tytul} · ${serwis.nazwa}`;
+  const pelnyTytul = tytul.includes(serwis.nazwa) ? tytul : `${tytul} | ${serwis.nazwa}`;
   const wIndeksie = !nieindeksowane.includes(sciezka);
 
   return {
@@ -191,7 +191,7 @@ export function pageMetadata(slug: string, jezyk: Jezyk, opcje: Opcje = {}): Met
   // („BusiKM dla kierowcy"), bo powtórzenie zjada limit ~60 znaków.
   const nazwa = page.seoTitle ?? page.title;
   const zMarka = nazwa.includes(serwis.nazwa);
-  const tytul = opcje.tytul ?? (zMarka ? nazwa : `${nazwa} · ${serwis.nazwa}`);
+  const tytul = opcje.tytul ?? (zMarka ? nazwa : `${nazwa} | ${serwis.nazwa}`);
   const opis = opcje.opis ?? page.description;
   // Podgląd społecznościowy ucina wcześniej niż wyszukiwarka – patrz `opisOg`.
   const opisPodgladu = page.opisOg ?? opis;

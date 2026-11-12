@@ -15,6 +15,7 @@ import { KorektyIWaluty } from '@/components/pages/faktury/KorektyIWaluty';
 import { OknoWysylki } from '@/components/mockups/faktury/OknoWysylki';
 import { Kontrahenci } from '@/components/mockups/faktury/Kontrahenci';
 import { ListaDokumentow } from '@/components/mockups/faktury/ListaDokumentow';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/zlecenia-i-faktury');
 
@@ -50,7 +51,7 @@ const TEKSTY: Tlumaczenia<{
     drobiazgi: [
       'Numeracja ciągła, bez luk',
       'Termin płatności z karty klienta',
-      'Przypomnienia o płatności – Ty klikasz „Wyślij”',
+      'Przypomnienia o płatności - Ty klikasz „Wyślij”',
       'CMR wypełnia się sam z danych zlecenia',
       'PDF z kodem QR z KSeF',
       'PDF wyślesz ponownie jednym kliknięciem',
@@ -58,20 +59,20 @@ const TEKSTY: Tlumaczenia<{
     wysylka: {
       tytul: 'Jednym przyciskiem do KSeF',
       tresc:
-        'Klikasz „Wystaw i wyślij do KSeF”. Wysyłkę do klienta zlecasz od razu – PDF z kodem QR wyjdzie mailem, razem z CMR, gdy KSeF nada numer. Na fakturze widzisz drogę: wystawiona, w KSeF, u klienta, zapłacona. Chcesz wysłać jeszcze raz albo na inny adres – masz „Wyślij klientowi”.',
-      label: 'Okno „Wyślij klientowi” · desktop',
+        'Klikasz „Wystaw i wyślij do KSeF”. Wysyłkę do klienta zlecasz od razu - PDF z kodem QR wyjdzie mailem, razem z CMR, gdy KSeF nada numer. Na fakturze widzisz drogę: wystawiona, w KSeF, u klienta, zapłacona. Chcesz wysłać jeszcze raz albo na inny adres - masz „Wyślij klientowi”.',
+      label: 'Okno „Wyślij klientowi” (desktop)',
       note: 'Wysyłka FV/031/10/2026: adres z karty klienta, temat i treść z numerem KSeF, obok podgląd maila z załącznikiem PDF i przycisk „Wyślij”.',
     },
     kontrahenci: {
       tytul: 'Kontrahenci w jednym miejscu',
       tresc:
-        'Wpisujesz NIP albo numer VAT z UE – nazwa i adres wpisują się same z GUS i VIES. Co noc sprawdzamy status VAT i rachunek na Białej Liście, a klient podpowiada się przy każdym kolejnym zleceniu.',
+        'Wpisujesz NIP albo numer VAT z UE - nazwa i adres wpisują się same z GUS i VIES. Co noc sprawdzamy status VAT i rachunek na Białej Liście, a klient podpowiada się przy każdym kolejnym zleceniu.',
     },
     historia: {
       tytul: 'Kto nie zapłacił',
       tresc: 'Widzisz, kto zalega, ile dni i ile wpłynie w najbliższych tygodniach. Odsetki i rekompensatę 40 € BusiKM policzy sam. Przypomnienie albo notę wysyłasz jednym kliknięciem.',
-      label: 'Lista faktur · desktop, tryb nocny',
-      note: 'Faktury: liczniki – do zapłaty, po terminie, zapłacone, KSeF – zakładki od szkiców po korekty, w tabeli termin płatności, stan płatności i status w KSeF.',
+      label: 'Lista faktur (desktop, tryb nocny)',
+      note: 'Faktury: liczniki - do zapłaty, po terminie, zapłacone, KSeF - zakładki od szkiców po korekty, w tabeli termin płatności, stan płatności i status w KSeF.',
     },
     ktoUzywa: 'Kto tego używa:',
     link1: 'Właściciel →',
@@ -96,7 +97,7 @@ const TEKSTY: Tlumaczenia<{
     drobiazgi: [
       'Continuous numbering, no gaps',
       'Payment term taken from the client card',
-      'Payment reminders – you click “Send”',
+      'Payment reminders - you click “Send”',
       'The CMR fills itself in from the order details',
       'PDF with the KSeF QR code',
       'Resend the PDF in one click',
@@ -104,20 +105,20 @@ const TEKSTY: Tlumaczenia<{
     wysylka: {
       tytul: 'One button to KSeF',
       tresc:
-        'You click “Issue and send to KSeF”. You schedule the email to the client straight away – the PDF with a QR code goes out, along with the CMR, as soon as KSeF assigns a number. On the invoice you see its path: issued, in KSeF, with the client, paid. Want to send it again or to another address? There’s “Send to client”.',
-      label: '“Send to client” window · desktop',
+        'You click “Issue and send to KSeF”. You schedule the email to the client straight away - the PDF with a QR code goes out, along with the CMR, as soon as KSeF assigns a number. On the invoice you see its path: issued, in KSeF, with the client, paid. Want to send it again or to another address? There’s “Send to client”.',
+      label: '“Send to client” window (desktop)',
       note: 'Sending FV/031/10/2026: the address from the client card, a subject and message with the KSeF number, and a preview of the email with the PDF attached and a “Send” button.',
     },
     kontrahenci: {
       tytul: 'Clients in one place',
       tresc:
-        'You type in the Polish tax number (NIP) or an EU VAT number – the name and address fill in by themselves from the Polish business register (GUS) and VIES. Every night we check the VAT status and the bank account on the Polish VAT White List, and the client is suggested on every order after that.',
+        'You type in the Polish tax number (NIP) or an EU VAT number - the name and address fill in by themselves from the Polish business register (GUS) and VIES. Every night we check the VAT status and the bank account on the Polish VAT White List, and the client is suggested on every order after that.',
     },
     historia: {
       tytul: 'Who hasn’t paid',
       tresc: 'You see who owes you, how many days late, and how much is coming in over the next few weeks. BusiKM works out the interest and the €40 compensation itself. You send a reminder or a debit note in one click.',
-      label: 'Invoice list · desktop, dark mode',
-      note: 'Invoices: counters – due, overdue, paid, KSeF – tabs from drafts to corrections, and a table with payment terms, payment status and KSeF status.',
+      label: 'Invoice list (desktop, dark mode)',
+      note: 'Invoices: counters - due, overdue, paid, KSeF - tabs from drafts to corrections, and a table with payment terms, payment status and KSeF status.',
     },
     ktoUzywa: 'Who uses it:',
     link1: 'Owner →',
@@ -192,7 +193,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/wlasciciel">
                 {t.link1}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/ksiegowa">
                 {t.link2}
               </Link>

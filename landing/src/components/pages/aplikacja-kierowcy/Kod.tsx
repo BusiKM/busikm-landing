@@ -17,10 +17,10 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     naglowek: 'Wchodzi kodem z maila',
     tresc:
-      'Wysyłasz zaproszenie, kierowca dostaje mailem kod. W aplikacji wybiera „Mam zaproszenie”, wpisuje e-mail i kod, potem własne hasło – imię i nazwisko tylko wtedy, gdy ich nie wpisałeś. Następnym razem loguje się e-mailem i hasłem. Nie dzwoni do Ciebie z pytaniem, jaki ma login.',
-    label: 'Zlecenia · telefon, tryb nocny',
+      'Wysyłasz zaproszenie, kierowca dostaje mailem kod. W aplikacji wybiera „Mam zaproszenie”, wpisuje e-mail i kod, potem własne hasło - imię i nazwisko tylko wtedy, gdy ich nie wpisałeś. Następnym razem loguje się e-mailem i hasłem. Nie dzwoni do Ciebie z pytaniem, jaki ma login.',
+    label: 'Zlecenia (telefon, tryb nocny)',
     note: 'Lista „Zlecenia” z zakładkami Aktywne, Oczekujące i Zakończone: kurs Wrocław → Milano „W trasie”, pasek zakładek u dołu.',
-    mail: 'E-mail · BusiKM',
+    mail: 'E-mail od BusiKM',
     powitanie: 'Marek, Twój kod zaproszenia do BusiKM:',
     kod: 'K7QM-4RTZ',
     wpisz: 'W aplikacji wybierz „Mam zaproszenie”.',
@@ -28,10 +28,10 @@ const TEKSTY: Tlumaczenia<{
   en: {
     naglowek: 'In with a code from the email',
     tresc:
-      'You send an invite and the driver gets a code by email. In the app they choose “I have an invitation”, enter their email and the code, then their own password – and their name only if you haven’t entered it. After that they sign in with email and password. No calls to you asking what their login is.',
-    label: 'Orders · phone, dark mode',
+      'You send an invite and the driver gets a code by email. In the app they choose “I have an invitation”, enter their email and the code, then their own password - and their name only if you haven’t entered it. After that they sign in with email and password. No calls to you asking what their login is.',
+    label: 'Orders (phone, dark mode)',
     note: 'The “Orders” list with Active, Pending and Finished tabs: the Wrocław → Milan job “On the road”, tab bar at the bottom.',
-    mail: 'Email · BusiKM',
+    mail: 'Email from BusiKM',
     powitanie: 'Marek, your BusiKM invitation code:',
     kod: 'K7QM-4RTZ',
     wpisz: 'In the app, choose “I have an invitation”.',

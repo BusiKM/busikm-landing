@@ -15,7 +15,7 @@ const TEKSTY: Tlumaczenia<{
   nieOdp: string;
 }> = {
   pl: {
-    label: 'Czas pracy · telefon, tryb nocny',
+    label: 'Czas pracy (telefon, tryb nocny)',
     note: 'Ekran „Czas pracy” przy przewozie międzynarodowym: trzy wskaźniki (jazda ciągła, dzienna, tydzień), pasek „Dwa tygodnie”, przyciski „Przerwa” i „Odpoczynek”.',
     naglowek: 'Kierowca dostaje przypomnienie wcześniej',
     tresc: 'Telefon mówi „za 15 minut przerwa”, a nie „miałeś stanąć godzinę temu”.',
@@ -25,7 +25,7 @@ const TEKSTY: Tlumaczenia<{
     nieOdp: 'nie',
   },
   en: {
-    label: 'Working time · phone, dark mode',
+    label: 'Working time (phone, dark mode)',
     note: 'The “Working time” screen for international transport: three gauges (continuous driving, daily, week), a “Two weeks” bar, and the “Break” and “Rest” buttons.',
     naglowek: 'The driver gets the reminder early',
     tresc: 'The phone says “break in 15 minutes”, not “you should have stopped an hour ago”.',

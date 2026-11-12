@@ -99,7 +99,7 @@ export function Tabela() {
             <div key={nazwa} className={`${wiersz} border-b border-line py-3.5 lg:py-4`}>
               <span className="font-medium">{nazwa}</span>
               <span className={`text-center lg:text-left ${wStart ? 'text-blue' : 'text-muted'}`}>
-                {wStart ? '✓' : '–'}
+                {wStart ? '✓' : '-'}
               </span>
               <span className="text-center text-blue lg:text-left">✓</span>
             </div>

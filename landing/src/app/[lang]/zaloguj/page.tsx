@@ -18,24 +18,24 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     etapy: [
       ['Teraz', 'MVP sprawdzamy na prawdziwych trasach, w małej grupie firm'],
-      ['Potem', 'otwieramy zapisy – pierwsze 14 dni bez opłat'],
+      ['Potem', 'otwieramy zapisy - pierwsze 14 dni bez opłat'],
       ['Dalej', 'aplikacja kierowcy w App Store i Google Play'],
     ],
     kontoTestowe: 'Masz już konto testowe?',
     zalogujTestowo: 'Zaloguj się w wersji testowej →',
-    mockupLabel: 'Pulpit właściciela · desktop 1440',
+    mockupLabel: 'Pulpit właściciela (desktop 1440)',
     mockupNota:
       'Pulpit po zalogowaniu: na górze to, co wymaga uwagi dziś, niżej przychód, koszty i wynik.',
   },
   en: {
     etapy: [
       ['Now', 'we’re testing the MVP on real routes with a small group of companies'],
-      ['Next', 'sign-ups open – the first 14 days free'],
+      ['Next', 'sign-ups open - the first 14 days free'],
       ['Later', 'the driver app on the App Store and Google Play'],
     ],
     kontoTestowe: 'Already have a test account?',
     zalogujTestowo: 'Sign in to the test version →',
-    mockupLabel: 'Owner’s dashboard · desktop 1440',
+    mockupLabel: 'Owner’s dashboard (desktop 1440)',
     mockupNota:
       'The dashboard after signing in: what needs your attention today at the top, with revenue, costs and result below.',
   },

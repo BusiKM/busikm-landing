@@ -29,7 +29,7 @@ export const artykulyStartEn: Artykul[] = [
           {
             typ: 'wkrotce',
             tresc:
-              'You can explore the demo right now, no account needed – use the See the demo button on the website. Sign-up for everyone is coming soon; until then, the website puts you on a list rather than creating an account.',
+              'You can explore the demo right now, no account needed - use the See the demo button on the website. Sign-up for everyone is coming soon; until then, the website puts you on a list rather than creating an account.',
           },
         ],
       },
@@ -50,7 +50,7 @@ export const artykulyStartEn: Artykul[] = [
               { tytul: 'Set a password' },
               {
                 tytul: 'Confirm your email address',
-                opis: 'Click the link in the email. Your account is active and the 14-day trial – no card needed – has started.',
+                opis: 'Click the link in the email. Your account is active and the 14-day trial - no card needed - has started.',
               },
             ],
           },
@@ -69,7 +69,7 @@ export const artykulyStartEn: Artykul[] = [
     slug: 'dane-firmy',
     kategoria: 'start',
     tytul: 'Company details and setup',
-    lead: 'Fill it in once – every invoice and every export takes its data from here.',
+    lead: 'Fill it in once - every invoice and every export takes its data from here.',
     role: ['wlasciciel', 'ksiegowa'],
     gdzie: 'Settings → Company details (Ustawienia → Dane firmy)',
     czas: 'A quarter of an hour',
@@ -83,7 +83,7 @@ export const artykulyStartEn: Artykul[] = [
             kroki: [
               {
                 tytul: 'Go to Settings → Company details (Ustawienia → Dane firmy)',
-                opis: 'Some of it is already filled in from the register when you signed up. Check it – we print it on invoices, CMRs and the exports for your accountant.',
+                opis: 'Some of it is already filled in from the register when you signed up. Check it - we print it on invoices, CMRs and the exports for your accountant.',
               },
               {
                 tytul: 'Complete the registration details',
@@ -95,7 +95,7 @@ export const artykulyStartEn: Artykul[] = [
               },
               {
                 tytul: 'Add a bank account',
-                opis: 'Settings → Bank accounts (Konta bankowe). The number is printed on the invoice – without it your client has nowhere to pay.',
+                opis: 'Settings → Bank accounts (Konta bankowe). The number is printed on the invoice - without it your client has nowhere to pay.',
               },
               {
                 tytul: 'Choose your accounting software',
@@ -106,7 +106,7 @@ export const artykulyStartEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Add your transport licence and its certified copies straight away in Settings → Licence and copies (Licencja i wypisy), even if you don’t need them today. At a roadside check people hunt for them in a rush – here they sit in one place.',
+              'Add your transport licence and its certified copies straight away in Settings → Licence and copies (Licencja i wypisy), even if you don’t need them today. At a roadside check people hunt for them in a rush - here they sit in one place.',
           },
         ],
       },
@@ -120,7 +120,7 @@ export const artykulyStartEn: Artykul[] = [
           },
           {
             typ: 'akapit',
-            tresc: 'You can leave the goals empty – the dashboard simply won’t show them.',
+            tresc: 'You can leave the goals empty - the dashboard simply won’t show them.',
           },
         ],
       },
@@ -131,11 +131,11 @@ export const artykulyStartEn: Artykul[] = [
             typ: 'lista',
             wstep: 'You’ll come back to these once you start invoicing and settling up:',
             punkty: [
-              'Logo on documents (Logo na dokumentach) – your logo on invoices and documents for clients.',
-              'Invoices (Faktury) – invoice numbering and the default payment term.',
-              'KSeF – the connection to Poland’s National e-Invoicing System.',
-              'Deadline reminders (Przypomnienia o terminach) – we remind you 60, 30, 14 and 3 days before a document expires.',
-              'Statutory rates (Stawki z przepisów) – allowances, mileage rates and NBP exchange rates, for reference.',
+              'Logo on documents (Logo na dokumentach) - your logo on invoices and documents for clients.',
+              'Invoices (Faktury) - invoice numbering and the default payment term.',
+              'KSeF - the connection to Poland’s National e-Invoicing System.',
+              'Deadline reminders (Przypomnienia o terminach) - we remind you 60, 30, 14 and 3 days before a document expires.',
+              'Statutory rates (Stawki z przepisów) - allowances, mileage rates and NBP exchange rates, for reference.',
             ],
           },
         ],
@@ -152,7 +152,7 @@ export const artykulyStartEn: Artykul[] = [
     role: ['wlasciciel'],
     gdzie: 'Vehicles → Add vehicle (Pojazdy → Dodaj pojazd)',
     czas: 'Three minutes per vehicle',
-    zanim: ['The registration certificate – photos of all pages or a PDF', 'Today’s odometer reading'],
+    zanim: ['The registration certificate - photos of all pages or a PDF', 'Today’s odometer reading'],
     rozdzialy: [
       {
         tytul: 'Three steps of the wizard',
@@ -163,15 +163,15 @@ export const artykulyStartEn: Artykul[] = [
               { tytul: 'Go to Vehicles and click Add vehicle (Dodaj pojazd)' },
               {
                 tytul: 'From the certificate (Z dowodu)',
-                opis: 'Upload a photo of the registration certificate – you can pick several photos at once. AI reads the registration number, VIN, make, model, year and weights, and you check the fields against the certificate. You can also type the details in yourself.',
+                opis: 'Upload a photo of the registration certificate - you can pick several photos at once. AI reads the registration number, VIN, make, model, year and weights, and you check the fields against the certificate. You can also type the details in yourself.',
               },
               {
                 tytul: 'How you use it (Jak używasz)',
-                opis: 'Who owns the vehicle (bought, leased or rented), where it drives, who the default driver is and today’s odometer reading. Among other things, this decides the VAT deduction – with full deduction you enter the date the VAT-26 form was filed.',
+                opis: 'Who owns the vehicle (bought, leased or rented), where it drives, who the default driver is and today’s odometer reading. Among other things, this decides the VAT deduction - with full deduction you enter the date the VAT-26 form was filed.',
               },
               {
                 tytul: 'Deadlines (Terminy)',
-                opis: 'We work out the roadworthiness test date from the certificate. Upload the insurance policy – we read the OC, AC and NNW dates from the document.',
+                opis: 'We work out the roadworthiness test date from the certificate. Upload the insurance policy - we read the OC, AC and NNW dates from the document.',
               },
               {
                 tytul: 'Click Add vehicle',
@@ -182,7 +182,7 @@ export const artykulyStartEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Today’s odometer reading is the starting point – servicing and mileage count from it. Enter the reading from the day you start working in BusiKM, not from the day you bought the vehicle.',
+              'Today’s odometer reading is the starting point - servicing and mileage count from it. Enter the reading from the day you start working in BusiKM, not from the day you bought the vehicle.',
           },
           {
             typ: 'akapit',
@@ -197,7 +197,7 @@ export const artykulyStartEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Add further documents on the vehicle card, in the Deadlines and documents tab (Terminy i dokumenty). A photo or a PDF is enough – we read the type, number and dates, and you check them.',
+              'Add further documents on the vehicle card, in the Deadlines and documents tab (Terminy i dokumenty). A photo or a PDF is enough - we read the type, number and dates, and you check them.',
           },
           {
             typ: 'lista',

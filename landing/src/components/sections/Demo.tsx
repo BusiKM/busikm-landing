@@ -12,12 +12,12 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     naglowek: 'Zobacz BusiKM od środka. Bez konta.',
-    lead: 'Prawdziwa aplikacja na danych przykładowej firmy transportowej. Przy wejściu wybierasz rolę – właściciel, dyspozytor albo księgowa – i klikasz, ile chcesz. Demo jest tylko do odczytu, więc niczego nie zepsujesz.',
+    lead: 'Prawdziwa aplikacja na danych przykładowej firmy transportowej. Przy wejściu wybierasz rolę - właściciel, dyspozytor albo księgowa - i klikasz, ile chcesz. Demo jest tylko do odczytu, więc niczego nie zepsujesz.',
     odnosnik: 'Wejdź do demo',
   },
   en: {
     naglowek: 'See BusiKM from the inside. No account.',
-    lead: 'The real app, on a sample transport company’s data. When you enter, you pick a role – owner, dispatcher or accountant – and click around as much as you like. The demo is read-only, so you can’t break anything.',
+    lead: 'The real app, on a sample transport company’s data. When you enter, you pick a role - owner, dispatcher or accountant - and click around as much as you like. The demo is read-only, so you can’t break anything.',
     odnosnik: 'Enter the demo',
   },
 };
@@ -26,7 +26,9 @@ const TEKSTY: Tlumaczenia<{
 export function Demo() {
   const t = TEKSTY[biezacyJezyk()];
   return (
-    <Section>
+    // `id` czyta przyklejony przycisk „Zobacz demo” na telefonie – chowa się,
+    // gdy ta sekcja jest na ekranie.
+    <Section id="demo">
       <div className="flex flex-col gap-8 lg:gap-18">
         <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-16">
           <h2 data-reveal className="text-h2-m font-bold text-balance lg:text-h1">

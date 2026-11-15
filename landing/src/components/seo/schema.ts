@@ -1,10 +1,11 @@
-import { serwis, trasy, opisSerwisu } from '@/content/seo';
+import { serwis, trasy, opisSerwisu, dataZmiany } from '@/content/seo';
 import { KODY, type Jezyk } from '@/i18n/jezyki';
 import { lokalizuj } from '@/i18n/trasy';
 import { firma } from '@/content/firma';
 import { pages } from '@/content/pages';
 import { plans } from '@/content/cennik';
 import type { Rolka } from '@/content/rolki';
+import type { Artykul } from '@/content/pomoc/typy';
 
 /**
  * Budowniki grafu danych strukturalnych (schema.org).
@@ -178,9 +179,10 @@ export function grafPodstawowy(jezyk: Jezyk) {
 /**
  * Ścieżka okruszków dla podstrony.
  *
- * Człony pośrednie, które nie mają własnej strony, są pomijane – `/co-robi`
- * i `/dla-kogo` to w nawigacji wyłącznie wyzwalacze menu, więc wskazanie
- * na nie prowadziłoby robota pod adres bez treści.
+ * Człony pośrednie, których nie ma w `trasy`, są pomijane – `/co-robi` to
+ * w nawigacji wyłącznie wyzwalacz menu, więc wskazanie na niego prowadziłoby
+ * robota pod adres bez treści. `/dla-kogo` ma już własną treść i jest w `trasy`,
+ * więc w okruszkach się pojawia.
  */
 export function okruszki(sciezka: string, jezyk: Jezyk) {
   const istnieje = new Set(trasy.map((t) => t.sciezka));
@@ -260,5 +262,35 @@ export function pytaniaIOdpowiedzi(items: readonly (readonly [string, string])[]
       name: pytanie,
       acceptedAnswer: { '@type': 'Answer', text: odpowiedz },
     })),
+  };
+}
+
+/**
+ * Artykuł centrum pomocy (instrukcja albo poradnik o przepisach).
+ *
+ * Okruszki dokłada `OkruszkiSeo` w układzie, tu jest sam artykuł. Data
+ * zmiany to ta sama, którą `sitemap.xml` podaje jako `lastmod` (wpis
+ * w `trasy` w `content/seo.ts`) – dwie różne daty dla jednej strony to
+ * sygnał, któremu Google przestaje ufać. Autorem i wydawcą jest BusiKM
+ * jako organizacja: artykuły nie mają podpisanego autora i nie udajemy,
+ * że mają.
+ */
+export function artykulPomocy(artykul: Artykul, jezyk: Jezyk) {
+  const sciezka = `/pomoc/${artykul.slug}`;
+  const trasa = trasy.find((t) => t.sciezka === sciezka);
+  const url = `${serwis.url}${lokalizuj(sciezka, jezyk)}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: artykul.tytul,
+    description: artykul.lead,
+    ...(trasa && { dateModified: dataZmiany(trasa).toISOString().slice(0, 10) }),
+    inLanguage: KODY[jezyk].lang,
+    url,
+    mainEntityOfPage: url,
+    image: `${serwis.url}${serwis.ogImage}`,
+    author: { '@type': 'Organization', '@id': ID_FIRMA, name: serwis.nazwa, url: serwis.url },
+    publisher: { '@id': ID_FIRMA },
   };
 }

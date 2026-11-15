@@ -15,20 +15,20 @@ const TEKSTY: Tlumaczenia<{
   nieOdp: string;
 }> = {
   pl: {
-    label: 'Czas pracy · telefon, tryb nocny',
-    note: 'Ekran „Czas pracy” przy przewozie międzynarodowym: trzy wskaźniki (jazda ciągła, dzienna, tydzień), pasek „Dwa tygodnie”, przyciski „Przerwa” i „Odpoczynek”.',
+    label: 'Przerwa (telefon)',
+    note: 'Ekran przerwy na cały telefon: odliczanie 32:03 do końca obowiązkowej przerwy 45 minut, komunikat „Odpocznij. Nie prowadź pojazdu” i zablokowany przycisk „Jedź dalej”.',
     naglowek: 'Kierowca dostaje przypomnienie wcześniej',
-    tresc: 'Telefon mówi „za 15 minut przerwa”, a nie „miałeś stanąć godzinę temu”.',
+    tresc: 'Telefon mówi „za 15 minut przerwa”, a nie „miałeś stanąć godzinę temu”. Gdy przerwa trwa, ekran odlicza 45 minut, a „Jedź dalej” odblokowuje się dopiero po ich upływie.',
     tak: 'Za 15 minut przerwa',
     takOdp: 'tak',
     nie: 'Miałeś stanąć godzinę temu',
     nieOdp: 'nie',
   },
   en: {
-    label: 'Working time · phone, dark mode',
-    note: 'The “Working time” screen for international transport: three gauges (continuous driving, daily, week), a “Two weeks” bar, and the “Break” and “Rest” buttons.',
+    label: 'Break (phone)',
+    note: 'The full-screen break: a 32:03 countdown to the end of the mandatory 45-minute break, the message “Rest. Do not drive” and a locked “Drive on” button.',
     naglowek: 'The driver gets the reminder early',
-    tresc: 'The phone says “break in 15 minutes”, not “you should have stopped an hour ago”.',
+    tresc: 'The phone says “break in 15 minutes”, not “you should have stopped an hour ago”. During the break the screen counts down 45 minutes, and “Drive on” unlocks only when they are up.',
     tak: 'Break in 15 minutes',
     takOdp: 'yes',
     nie: 'You should have stopped an hour ago',
@@ -49,13 +49,12 @@ export function Przypomnienie() {
           />
           <div className="relative">
             <MockupSlot
-              file="mockup-kierowca-czas-phone.png"
+              file="mockup-kierowca-przerwa-phone.png"
               label={t.label}
               note={t.note}
               ratio="9:19.5"
               box="6:7"
-              // Ten sam plik i ta sama wartość, co na stronie aplikacji
-              // kierowcy: telefon zajmuje 30% szerokości kadru, więc bez
+              // Pojedynczy telefon zajmuje 30% szerokości kadru, więc bez
               // powiększenia wychodzi szeroki na 158 px w kolumnie mającej 520.
               imageScale={1.8}
               imageScaleTelefon={1.8}

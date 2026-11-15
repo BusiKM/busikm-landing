@@ -26,7 +26,7 @@ type Tresc = {
 
 const TEKSTY: Tlumaczenia<Tresc> = {
   pl: {
-    nadtytul: 'Dla właściciela',
+    nadtytul: 'Program dla właściciela firmy transportowej',
     tytul: (
       <>
         Wiesz, ile zostaje. <br className="hidden lg:inline" />
@@ -73,7 +73,7 @@ const TEKSTY: Tlumaczenia<Tresc> = {
     ],
   },
   en: {
-    nadtytul: 'For owners',
+    nadtytul: 'Software for transport company owners',
     tytul: (
       <>
         You know what you keep. <br className="hidden lg:inline" />

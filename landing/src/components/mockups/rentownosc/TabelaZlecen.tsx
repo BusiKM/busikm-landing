@@ -22,8 +22,8 @@ type Zlecenie = {
 
 type Teksty = {
   zlecenia: Zlecenie[];
-  chrome: string;
-  chromeWaski: string;
+  chrome: readonly string[];
+  chromeWaski: readonly string[];
   kolumny: { zlecenie: string; kto: string; fracht: string; koszty: string; zysk: string; marza: string };
   kierowca: string;
   minus: string;
@@ -37,7 +37,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Gdańsk → Hamburg',
         skrot: 'GDA → HAM',
-        kto: 'Piotr K. · GD 7710R',
+        kto: 'Piotr K., GD 7710R',
         fracht: '1 800 €',
         koszty: '− 1 062 €',
         zysk: '738 €',
@@ -47,19 +47,19 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Warszawa → Mediolan',
         skrot: 'WAW → MIL',
-        kto: 'Marek W. · WZ 4821K',
+        kto: 'Marek W., WZ 4821K',
         fracht: '3 900 €',
         koszty: '− 2 496 €',
         zysk: '1 404 €',
         marza: '36%',
         poprzednia: '← 38%',
-        nota: 'paragon dodany 11:42 · OMV Brno',
+        nota: 'paragon dodany 11:42, OMV Brno',
         dobra: true,
       },
       {
         trasa: 'Wrocław → Drezno',
         skrot: 'WRO → DRS',
-        kto: 'Ewa D. · SZ 3140P',
+        kto: 'Ewa D., SZ 3140P',
         fracht: '1 150 €',
         koszty: '− 771 €',
         zysk: '379 €',
@@ -69,7 +69,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Poznań → Rotterdam',
         skrot: 'POZ → RTM',
-        kto: 'Tomasz L. · PO 2093J',
+        kto: 'Tomasz L., PO 2093J',
         fracht: '2 650 €',
         koszty: '− 1 855 €',
         zysk: '795 €',
@@ -79,7 +79,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Szczecin → Kopenhaga',
         skrot: 'SZZ → CPH',
-        kto: 'Rafał B. · LU 8265T',
+        kto: 'Rafał B., LU 8265T',
         fracht: '2 100 €',
         koszty: '− 1 512 €',
         zysk: '588 €',
@@ -89,7 +89,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Lublin → Monachium',
         skrot: 'LUB → MUC',
-        kto: 'Piotr K. · GD 7710R',
+        kto: 'Piotr K., GD 7710R',
         fracht: '1 950 €',
         koszty: '− 1 482 €',
         zysk: '468 €',
@@ -99,7 +99,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Katowice → Praga',
         skrot: 'KTW → PRG',
-        kto: 'Tomasz L. · PO 2093J',
+        kto: 'Tomasz L., PO 2093J',
         fracht: '4 800 zł',
         koszty: '− 3 792 zł',
         zysk: '1 008 zł',
@@ -109,7 +109,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Kraków → Wiedeń',
         skrot: 'KRK → VIE',
-        kto: 'Anna R. · KR 5512M',
+        kto: 'Anna R., KR 5512M',
         fracht: '1 450 €',
         koszty: '− 1 189 €',
         zysk: '261 €',
@@ -119,7 +119,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Łódź → Praga',
         skrot: 'ŁDZ → PRG',
-        kto: 'Jan S. · KR 5512M',
+        kto: 'Jan S., KR 5512M',
         fracht: '4 200 zł',
         koszty: '− 4 410 zł',
         zysk: '− 210 zł',
@@ -127,11 +127,11 @@ const TEKSTY: Tlumaczenia<Teksty> = {
         minus: true,
       },
     ],
-    chrome: 'Zlecenia · wrzesień · posortowane po marży',
-    chromeWaski: 'Zlecenia · po marży',
-    kolumny: { zlecenie: 'Zlecenie', kto: 'Kierowca · pojazd', fracht: 'Fracht', koszty: 'Koszty', zysk: 'Zysk', marza: 'Marża' },
+    chrome: ['Zlecenia', 'wrzesień', 'posortowane po marży'],
+    chromeWaski: ['Zlecenia', 'po marży'],
+    kolumny: { zlecenie: 'Zlecenie', kto: 'Kierowca i pojazd', fracht: 'Fracht', koszty: 'Koszty', zysk: 'Zysk', marza: 'Marża' },
     kierowca: 'Kierowca',
-    minus: 'Zlecenie na minusie widać od razu – bez czerwieni, po prostu na dole listy.',
+    minus: 'Zlecenie na minusie widać od razu - bez czerwieni, po prostu na dole listy.',
     minusKrotko: 'Minus na dole listy',
     razem: 'razem: 62 480 zł',
   },
@@ -140,7 +140,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Gdańsk → Hamburg',
         skrot: 'GDA → HAM',
-        kto: 'Piotr K. · GD 7710R',
+        kto: 'Piotr K., GD 7710R',
         fracht: '€1,800',
         koszty: '− €1,062',
         zysk: '€738',
@@ -150,19 +150,19 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Warsaw → Milan',
         skrot: 'WAW → MIL',
-        kto: 'Marek W. · WZ 4821K',
+        kto: 'Marek W., WZ 4821K',
         fracht: '€3,900',
         koszty: '− €2,496',
         zysk: '€1,404',
         marza: '36%',
         poprzednia: '← 38%',
-        nota: 'receipt added 11:42 · OMV Brno',
+        nota: 'receipt added 11:42, OMV Brno',
         dobra: true,
       },
       {
         trasa: 'Wrocław → Dresden',
         skrot: 'WRO → DRS',
-        kto: 'Ewa D. · SZ 3140P',
+        kto: 'Ewa D., SZ 3140P',
         fracht: '€1,150',
         koszty: '− €771',
         zysk: '€379',
@@ -172,7 +172,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Poznań → Rotterdam',
         skrot: 'POZ → RTM',
-        kto: 'Tomasz L. · PO 2093J',
+        kto: 'Tomasz L., PO 2093J',
         fracht: '€2,650',
         koszty: '− €1,855',
         zysk: '€795',
@@ -182,7 +182,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Szczecin → Copenhagen',
         skrot: 'SZZ → CPH',
-        kto: 'Rafał B. · LU 8265T',
+        kto: 'Rafał B., LU 8265T',
         fracht: '€2,100',
         koszty: '− €1,512',
         zysk: '€588',
@@ -192,7 +192,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Lublin → Munich',
         skrot: 'LUB → MUC',
-        kto: 'Piotr K. · GD 7710R',
+        kto: 'Piotr K., GD 7710R',
         fracht: '€1,950',
         koszty: '− €1,482',
         zysk: '€468',
@@ -202,7 +202,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Katowice → Prague',
         skrot: 'KTW → PRG',
-        kto: 'Tomasz L. · PO 2093J',
+        kto: 'Tomasz L., PO 2093J',
         fracht: 'PLN 4,800',
         koszty: '− PLN 3,792',
         zysk: 'PLN 1,008',
@@ -212,7 +212,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Kraków → Vienna',
         skrot: 'KRK → VIE',
-        kto: 'Anna R. · KR 5512M',
+        kto: 'Anna R., KR 5512M',
         fracht: '€1,450',
         koszty: '− €1,189',
         zysk: '€261',
@@ -222,7 +222,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       {
         trasa: 'Łódź → Prague',
         skrot: 'LDZ → PRG',
-        kto: 'Jan S. · KR 5512M',
+        kto: 'Jan S., KR 5512M',
         fracht: 'PLN 4,200',
         koszty: '− PLN 4,410',
         zysk: '− PLN 210',
@@ -230,11 +230,11 @@ const TEKSTY: Tlumaczenia<Teksty> = {
         minus: true,
       },
     ],
-    chrome: 'Orders · September · sorted by margin',
-    chromeWaski: 'Orders · by margin',
-    kolumny: { zlecenie: 'Order', kto: 'Driver · vehicle', fracht: 'Freight', koszty: 'Costs', zysk: 'Profit', marza: 'Margin' },
+    chrome: ['Orders', 'September', 'sorted by margin'],
+    chromeWaski: ['Orders', 'by margin'],
+    kolumny: { zlecenie: 'Order', kto: 'Driver and vehicle', fracht: 'Freight', koszty: 'Costs', zysk: 'Profit', marza: 'Margin' },
     kierowca: 'Driver',
-    minus: 'A loss-making order shows up straight away – no red, just at the bottom of the list.',
+    minus: 'A loss-making order shows up straight away - no red, just at the bottom of the list.',
     minusKrotko: 'Losses at the bottom',
     razem: 'total: PLN 62,480',
   },
@@ -340,7 +340,7 @@ export function TabelaZlecenWaska() {
             className={`${kolumnyWaskie} border-b border-line-dark py-2.5 last:border-0`}
           >
             <b className="truncate">{z.trasa}</b>
-            <span className="truncate text-ink-muted">{z.kto.split(' · ')[0]}</span>
+            <span className="truncate text-ink-muted">{z.kto.split(', ')[0]}</span>
             <span className="text-right">{z.zysk}</span>
             <b className={`text-right ${z.dobra ? 'text-green' : ''} ${z.minus ? 'text-ink-muted' : ''}`}>
               {z.marza}

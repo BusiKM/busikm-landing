@@ -26,7 +26,7 @@ type Tresc = {
 
 const TEKSTY: Tlumaczenia<Tresc> = {
   pl: {
-    nadtytul: 'Dla dyspozytora',
+    nadtytul: 'Program dla dyspozytora busów',
     tytul: 'Cały dzień pracy na jednym ekranie.',
     lead: 'Kolejka zleceń i mapa floty obok siebie, a do kierowcy piszesz jednym kliknięciem. Bez przeskakiwania między oknami i bez dzwonienia trzy razy dziennie.',
     nieRobisz: [
@@ -72,7 +72,7 @@ const TEKSTY: Tlumaczenia<Tresc> = {
     ],
   },
   en: {
-    nadtytul: 'For dispatchers',
+    nadtytul: 'Software for van dispatchers',
     tytul: 'A whole working day on one screen.',
     lead: 'The order queue and the fleet map side by side, and you message a driver in one click. No jumping between windows and no calling three times a day.',
     nieRobisz: [

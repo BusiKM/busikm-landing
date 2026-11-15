@@ -1,7 +1,7 @@
 /**
  * Wybór z cennika przeniesiony na stronę zapisu.
  *
- * Ktoś, kto klika „Wypróbuj 14 dni" przy planie Firma z rozliczeniem
+ * Ktoś, kto klika „Zapisz się na start" przy planie Firma z rozliczeniem
  * rocznym, powiedział o sobie więcej niż samym adresem. Ta informacja
  * ginęła: przycisk prowadził na `/zaloguj` bez śladu po tym, co człowiek
  * przed chwilą oglądał. Tutaj jedzie w adresie i dalej – do bazy,
@@ -44,13 +44,13 @@ const NAZWY_OKRESOW: Tlumaczenia<Record<OkresId, string>> = {
 };
 
 /**
- * Do pokazania człowiekowi i do powiadomienia: „Firma · rocznie".
+ * Do pokazania człowiekowi i do powiadomienia: „Firma, rocznie".
  *
  * Język domyślnie polski – powiadomienia na naszą skrzynkę zostają po
  * polsku, niezależnie od języka formularza.
  */
 export function opiszWybor({ plan, okres }: Zainteresowanie, jezyk: Jezyk = 'pl'): string {
-  return `${NAZWY_PLANOW[jezyk][plan]} · ${NAZWY_OKRESOW[jezyk][okres]}`;
+  return `${NAZWY_PLANOW[jezyk][plan]}, ${NAZWY_OKRESOW[jezyk][okres]}`;
 }
 
 export function nazwaPlanu(plan: PlanId, jezyk: Jezyk = 'pl'): string {
@@ -61,7 +61,11 @@ export function nazwaOkresu(okres: OkresId, jezyk: Jezyk = 'pl'): string {
   return NAZWY_OKRESOW[jezyk][okres];
 }
 
-/** Adres, pod który prowadzi „Wypróbuj 14 dni" w cenniku. */
+/**
+ * Adres, pod który prowadzi „Zapisz się na start" w cenniku. Nazwa została
+ * z czasów przycisku „Wypróbuj 14 dni": po otwarciu kont to będzie znowu
+ * wejście do okresu próbnego.
+ */
 export function linkProbny(wybor: Zainteresowanie): string {
   return `/zaloguj?plan=${wybor.plan}&okres=${wybor.okres}`;
 }

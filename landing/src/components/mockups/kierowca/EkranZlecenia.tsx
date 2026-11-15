@@ -18,12 +18,12 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     dzis: 'Dziś',
     trasa1: 'Warszawa → Mediolan',
-    zaladunek1: 'Załadunek · ul. Marywilska 44',
-    rozladunek1: 'Rozładunek jutro 08:00 · Via Tortona 12',
+    zaladunek1: 'Załadunek: ul. Marywilska 44',
+    rozladunek1: 'Rozładunek jutro 08:00, Via Tortona 12',
     otworz: 'Otwórz',
     trasa2: 'Mediolan → Warszawa',
     dzien2: 'czw.',
-    zaladunek2: 'Załadunek 14:00 · Corsico',
+    zaladunek2: 'Załadunek 14:00, Corsico',
     zakonczone: 'Zakończone',
     historia: [
       ['Poznań → Berlin', 'rozliczone'],
@@ -34,12 +34,12 @@ const TEKSTY: Tlumaczenia<{
   en: {
     dzis: 'Today',
     trasa1: 'Warsaw → Milan',
-    zaladunek1: 'Loading · ul. Marywilska 44',
-    rozladunek1: 'Unloading tomorrow 08:00 · Via Tortona 12',
+    zaladunek1: 'Loading: ul. Marywilska 44',
+    rozladunek1: 'Unloading tomorrow 08:00, Via Tortona 12',
     otworz: 'Open',
     trasa2: 'Milan → Warsaw',
     dzien2: 'Thu',
-    zaladunek2: 'Loading 14:00 · Corsico',
+    zaladunek2: 'Loading 14:00, Corsico',
     zakonczone: 'Finished',
     historia: [
       ['Poznań → Berlin', 'settled'],

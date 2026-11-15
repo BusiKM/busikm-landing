@@ -17,10 +17,10 @@ const TEKSTY: Tlumaczenia<{
       { kraj: 'Włochy', dni: '5 dni', udzial: 16, kolor: '#0A46C0', poprawione: '4 dni' },
       { kraj: 'Austria', dni: '3 dni', udzial: 10, kolor: '#0B5FFF' },
     ],
-    kto: 'Marek W. · sierpień',
-    dopisek: ' · dni w krajach',
+    kto: 'Marek W., sierpień',
+    dopisek: ', dni w krajach',
     zrodlo: 'z trasy',
-    poprawione: 'poprawione ręcznie · „nocleg za granicą”',
+    poprawione: 'poprawione ręcznie: „nocleg za granicą”',
   },
   en: {
     kraje: [
@@ -29,10 +29,10 @@ const TEKSTY: Tlumaczenia<{
       { kraj: 'Italy', dni: '5 days', udzial: 16, kolor: '#0A46C0', poprawione: '4 days' },
       { kraj: 'Austria', dni: '3 days', udzial: 10, kolor: '#0B5FFF' },
     ],
-    kto: 'Marek W. · August',
-    dopisek: ' · days per country',
+    kto: 'Marek W., August',
+    dopisek: ', days per country',
     zrodlo: 'from the route',
-    poprawione: 'corrected by hand · “overnight abroad”',
+    poprawione: 'corrected by hand: “overnight abroad”',
   },
 };
 

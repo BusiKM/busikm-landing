@@ -86,7 +86,7 @@ export async function POST(request: Request) {
 
   const html = `
     <div style="font-family:system-ui,-apple-system,sans-serif;color:#0A0A0B;line-height:1.6">
-      <h2 style="margin:0 0 4px;font-size:18px">Nowy zapis – ${bezpiecznie(ETYKIETY[zrodlo] ?? zrodlo)}</h2>
+      <h2 style="margin:0 0 4px;font-size:18px">Nowy zapis - ${bezpiecznie(ETYKIETY[zrodlo] ?? zrodlo)}</h2>
       <table style="border-collapse:collapse;font-size:14px;margin-top:16px">
         <tr>
           <td style="padding:4px 16px 4px 0;color:#6C6C74">Imię</td>
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
         }
         <tr>
           <td style="padding:4px 16px 4px 0;color:#6C6C74">Język</td>
-          <td>${jezyk === 'en' ? 'angielski (EN) – pisz po angielsku' : 'polski'}</td>
+          <td>${jezyk === 'en' ? 'angielski (EN) - pisz po angielsku' : 'polski'}</td>
         </tr>
         <tr>
           <td style="padding:4px 16px 4px 0;color:#6C6C74">Tag</td>
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
         </tr>
         <tr>
           <td style="padding:4px 16px 4px 0;color:#6C6C74">Klaviyo</td>
-          <td>${klaviyo.ok ? 'zapisany' : bezpiecznie('nie – ' + ('pominiete' in klaviyo ? klaviyo.pominiete : klaviyo.blad))}</td>
+          <td>${klaviyo.ok ? 'zapisany' : bezpiecznie('nie - ' + ('pominiete' in klaviyo ? klaviyo.pominiete : klaviyo.blad))}</td>
         </tr>
       </table>
     </div>`;
@@ -129,8 +129,8 @@ export async function POST(request: Request) {
         reply_to: email,
         // Plan w temacie, żeby dało się ocenić zgłoszenie bez otwierania.
         subject:
-          `BusiKM · zapis na listę (${ETYKIETY[zrodlo] ?? zrodlo})${jezyk === 'en' ? ' [EN]' : ''} – ${imie}` +
-          (wybor ? ` · ${nazwaPlanu(wybor.plan)} ${nazwaOkresu(wybor.okres)}` : ''),
+          `BusiKM: zapis na listę (${ETYKIETY[zrodlo] ?? zrodlo})${jezyk === 'en' ? ' [EN]' : ''} - ${imie}` +
+          (wybor ? `, ${nazwaPlanu(wybor.plan)} ${nazwaOkresu(wybor.okres)}` : ''),
         html,
       }),
     });

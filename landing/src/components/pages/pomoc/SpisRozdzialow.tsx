@@ -83,7 +83,8 @@ export function SpisRozdzialow({ rozdzialy }: { rozdzialy: { tytul: string }[] }
         className="rounded-card border border-line bg-white lg:hidden"
       >
         <summary className="cursor-pointer list-none px-4 py-3.5 text-[15px] font-semibold">
-          {t.naglowek} · {t.liczba(rozdzialy.length)}
+          {t.naglowek}
+          <span className="ml-2 font-normal text-muted">{t.liczba(rozdzialy.length)}</span>
         </summary>
         <div className="px-2 pb-3">{pozycje}</div>
       </details>

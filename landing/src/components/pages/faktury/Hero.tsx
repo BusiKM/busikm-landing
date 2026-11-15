@@ -14,20 +14,20 @@ const TEKSTY: Tlumaczenia<{
   note: string;
 }> = {
   pl: {
-    eyebrow: 'Zlecenia i faktury',
+    eyebrow: 'Faktury KSeF ze zlecenia transportowego',
     naglowek1: 'Ze zlecenia robi się faktura.',
     naglowek2: 'Klient ma ją, zanim wrócisz do biura.',
-    lead: 'Kierowca kończy kurs, Ty sprawdzasz kwotę i wysyłasz do KSeF. Mail z PDF do klienta zlecasz od razu – wyjdzie po nadaniu numeru. Niczego nie przepisujesz.',
-    label: 'Karta faktury · desktop 1440',
-    note: 'Faktura FV/031/10/2026: droga wystawiona → w KSeF → u klienta → zapłacona, windykacja z odsetkami, przypomnieniem i notą obciążeniową, obok numer KSeF z plikiem XML i kodem QR oraz stan płatności.',
+    lead: 'Kierowca kończy kurs, Ty sprawdzasz kwotę i wysyłasz do KSeF. Mail z PDF do klienta zlecasz od razu - wyjdzie po nadaniu numeru. Niczego nie przepisujesz.',
+    label: 'Karta faktury (desktop 1440)',
+    note: 'Faktura FV/020/11/2026: droga wystawiona → w KSeF → u klienta → zapłacona, windykacja z odsetkami, przypomnieniem i notą obciążeniową, obok numer KSeF z plikiem XML i kodem QR oraz stan płatności.',
   },
   en: {
-    eyebrow: 'Orders and invoices',
+    eyebrow: 'KSeF invoices from a transport order',
     naglowek1: 'The order turns into an invoice.',
     naglowek2: 'The client has it before you’re back at the office.',
-    lead: 'The driver finishes the job, you check the amount and send it to KSeF. You schedule the email with the PDF right away – it goes out once KSeF assigns a number. Nothing to retype.',
-    label: 'Invoice card · desktop 1440',
-    note: 'Invoice FV/031/10/2026: its path issued → in KSeF → with the client → paid, debt collection with interest, a reminder and a debit note, alongside the KSeF number with the XML file and QR code, and the payment status.',
+    lead: 'The driver finishes the job, you check the amount and send it to KSeF. You schedule the email with the PDF right away - it goes out once KSeF assigns a number. Nothing to retype.',
+    label: 'Invoice card (desktop 1440)',
+    note: 'Invoice FV/020/11/2026: its path issued → in KSeF → with the client → paid, debt collection with interest, a reminder and a debit note, alongside the KSeF number with the XML file and QR code, and the payment status.',
   },
 };
 
@@ -42,14 +42,14 @@ export function Hero() {
       />
 
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1">{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="max-w-[1080px] text-display-m font-bold text-balance lg:text-display"
         >
           {t.naglowek1} <br className="hidden lg:inline" />
           {t.naglowek2}
-        </h1>
+        </p>
         <p
           data-reveal
           className="max-w-[640px] text-lead-m text-pretty text-muted lg:text-lead"

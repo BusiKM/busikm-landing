@@ -13,17 +13,17 @@ const TEKSTY: Tlumaczenia<{
   note: string;
 }> = {
   pl: {
-    eyebrow: 'Dyspozytornia',
+    eyebrow: 'Program TMS dla dyspozytora busów',
     naglowek: 'Cały dzień pracy na jednym ekranie.',
     lead: 'Kolejka zleceń i mapa floty obok siebie, pod spodem plan floty. Do kierowcy piszesz jednym kliknięciem.',
-    label: 'Ekran dyspozytora · desktop 1440',
+    label: 'Ekran dyspozytora (desktop 1440)',
     note: 'Dyspozytornia: u góry liczniki dnia, po lewej kolejka z zakładkami „Wymaga reakcji”, „Do przypisania” i „W trasie”, po prawej mapa floty z filtrami, niżej plan floty.',
   },
   en: {
-    eyebrow: 'Dispatch',
+    eyebrow: 'Van TMS for dispatchers',
     naglowek: 'A whole working day on one screen.',
     lead: 'The order queue and the fleet map side by side, with the fleet plan underneath. You message a driver in one click.',
-    label: 'Dispatcher screen · desktop 1440',
+    label: 'Dispatcher screen (desktop 1440)',
     note: 'Dispatch: the day’s counters at the top, the queue on the left with “Needs action”, “To assign” and “On the road” tabs, the fleet map with filters on the right, the fleet plan below.',
   },
 };
@@ -39,13 +39,13 @@ export function Hero() {
       />
 
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1">{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="max-w-[980px] text-display-m font-bold text-balance lg:text-display"
         >
           {t.naglowek}
-        </h1>
+        </p>
         <p data-reveal className="max-w-[640px] text-lead-m text-pretty text-muted lg:text-lead">
           {t.lead}
         </p>

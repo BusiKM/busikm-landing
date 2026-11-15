@@ -13,7 +13,7 @@ type Order = {
 
 type Teksty = {
   orders: Order[];
-  okno: string;
+  okno: readonly string[];
   zlecenia: string;
   nowe: string;
   naMiejscu: string;
@@ -26,13 +26,13 @@ type Teksty = {
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     orders: [
-      { route: 'Warszawa → Mediolan', short: 'WAW → MIL', rate: '3 900 €', meta: 'Załadunek 06:00 · Marek W. · WZ 4821K', metaShort: 'Marek W.', state: 'active' },
-      { route: 'Poznań → Rotterdam', short: 'POZ → RTM', rate: '2 650 €', meta: 'W trasie · Tomasz L. · PO 2093J', metaShort: 'Tomasz L.', state: 'plain' },
-      { route: 'Gdańsk → Hamburg', short: 'GDA → HAM', rate: '1 800 €', meta: 'Rozładunek 12:30 · Piotr K. · GD 7710R', metaShort: 'Piotr K.', state: 'plain' },
-      { route: 'Łódź → Wiedeń', short: 'ŁDZ → VIE', rate: '4 200 zł', meta: 'Nieprzypisane · podpowiedź: Anna R.', metaShort: 'nieprzypisane', state: 'empty' },
+      { route: 'Warszawa → Mediolan', short: 'WAW → MIL', rate: '3 900 €', meta: 'Załadunek 06:00, Marek W., WZ 4821K', metaShort: 'Marek W.', state: 'active' },
+      { route: 'Poznań → Rotterdam', short: 'POZ → RTM', rate: '2 650 €', meta: 'W trasie, Tomasz L., PO 2093J', metaShort: 'Tomasz L.', state: 'plain' },
+      { route: 'Gdańsk → Hamburg', short: 'GDA → HAM', rate: '1 800 €', meta: 'Rozładunek 12:30, Piotr K., GD 7710R', metaShort: 'Piotr K.', state: 'plain' },
+      { route: 'Łódź → Wiedeń', short: 'ŁDZ → VIE', rate: '4 200 zł', meta: 'Nieprzypisane, podpowiedź: Anna R.', metaShort: 'nieprzypisane', state: 'empty' },
     ],
-    okno: 'Dyspozytornia · wtorek, 2 września',
-    zlecenia: 'Zlecenia · 6',
+    okno: ['Dyspozytornia', 'wtorek, 2 września'],
+    zlecenia: 'Zlecenia (6)',
     nowe: '+ Nowe',
     naMiejscu: 'Na miejscu 08:00',
     wszystkoWazne: 'wszystko ważne',
@@ -45,13 +45,13 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   },
   en: {
     orders: [
-      { route: 'Warsaw → Milan', short: 'WAW → MIL', rate: '€3,900', meta: 'Loading 06:00 · Marek W. · WZ 4821K', metaShort: 'Marek W.', state: 'active' },
-      { route: 'Poznań → Rotterdam', short: 'POZ → RTM', rate: '€2,650', meta: 'En route · Tomasz L. · PO 2093J', metaShort: 'Tomasz L.', state: 'plain' },
-      { route: 'Gdańsk → Hamburg', short: 'GDA → HAM', rate: '€1,800', meta: 'Unloading 12:30 · Piotr K. · GD 7710R', metaShort: 'Piotr K.', state: 'plain' },
-      { route: 'Łódź → Vienna', short: 'ŁDZ → VIE', rate: 'PLN 4,200', meta: 'Unassigned · suggested: Anna R.', metaShort: 'unassigned', state: 'empty' },
+      { route: 'Warsaw → Milan', short: 'WAW → MIL', rate: '€3,900', meta: 'Loading 06:00, Marek W., WZ 4821K', metaShort: 'Marek W.', state: 'active' },
+      { route: 'Poznań → Rotterdam', short: 'POZ → RTM', rate: '€2,650', meta: 'En route, Tomasz L., PO 2093J', metaShort: 'Tomasz L.', state: 'plain' },
+      { route: 'Gdańsk → Hamburg', short: 'GDA → HAM', rate: '€1,800', meta: 'Unloading 12:30, Piotr K., GD 7710R', metaShort: 'Piotr K.', state: 'plain' },
+      { route: 'Łódź → Vienna', short: 'ŁDZ → VIE', rate: 'PLN 4,200', meta: 'Unassigned, suggested: Anna R.', metaShort: 'unassigned', state: 'empty' },
     ],
-    okno: 'Dispatch · Tuesday, 2 September',
-    zlecenia: 'Orders · 6',
+    okno: ['Dispatch', 'Tuesday, 2 September'],
+    zlecenia: 'Orders (6)',
     nowe: '+ New',
     naMiejscu: 'Arrives 08:00',
     wszystkoWazne: 'all documents valid',
@@ -118,7 +118,7 @@ export function DyspozytorniaMockup() {
             <circle cx="330" cy="105" r="7" fill="#fff" stroke="#0B5FFF" strokeWidth="3" />
           </svg>
           <div className="absolute top-[42%] left-[52%] hidden rounded-lg border border-line bg-white px-3 py-2 shadow-card lg:block">
-            <b>WZ 4821K</b> · Marek W.
+            <b>WZ 4821K</b>, Marek W.
             <div className="text-muted">{t.naMiejscu}</div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export function DyspozytorniaMockup() {
             <div className="min-w-0">
               <b>Marek W.</b>
               <div className="hidden truncate text-muted lg:block">
-                WZ 4821K · {t.wszystkoWazne} <span className="text-green-ink">●</span>
+                WZ 4821K, {t.wszystkoWazne} <span className="text-green-ink">●</span>
               </div>
             </div>
           </div>

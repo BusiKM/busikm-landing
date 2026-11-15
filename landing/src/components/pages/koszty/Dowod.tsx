@@ -8,13 +8,13 @@ const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; label: string; note: s
   pl: {
     tytul: 'Zdjęcie zostaje dowodem',
     tresc: 'Nikt nie szuka papierka po trzech miesiącach. Zdjęcie leży przy koszcie.',
-    label: 'Lista kosztów miesiąca · desktop 1440',
+    label: 'Lista kosztów miesiąca (desktop 1440)',
     note: 'Koszty z kategoriami, pojazdami i miniaturami zdjęć; filtry u góry.',
   },
   en: {
     tytul: 'The photo is your proof',
     tresc: 'Nobody hunts for a slip of paper three months later. The photo sits with the cost.',
-    label: 'Monthly cost list · desktop 1440',
+    label: 'Monthly cost list (desktop 1440)',
     note: 'Costs with categories, vehicles and photo thumbnails; filters at the top.',
   },
 };

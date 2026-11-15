@@ -10,7 +10,7 @@ const TEKSTY: Tlumaczenia<{
   pole: string;
 }> = {
   pl: {
-    status: 'WZ 4821K · w drodze · A22',
+    status: 'WZ 4821K, w drodze, A22',
     wiadomosci: [
       'Załadunek gotowy, ruszam 06:10.',
       'Jedź. Rozładunek jutro 08:00.',
@@ -21,7 +21,7 @@ const TEKSTY: Tlumaczenia<{
     pole: 'Napisz do kierowcy…',
   },
   en: {
-    status: 'WZ 4821K · on the road · A22',
+    status: 'WZ 4821K, on the road, A22',
     wiadomosci: [
       'Loaded, leaving at 06:10.',
       'Go ahead. Unloading tomorrow 08:00.',

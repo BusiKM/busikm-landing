@@ -19,7 +19,7 @@ const TEKSTY: Tlumaczenia<{
       'Koszt w obcej walucie przeliczony po kursie z dnia',
       'Faktury z KSeF i z maila wpadają same',
     ],
-    label: 'Moje koszty · telefon, tryb nocny',
+    label: 'Moje koszty (telefon, tryb nocny)',
     opis: 'Ekran „Moje koszty”: zwrot dla kierowcy, liczniki „Biuro pyta”, „Do uzupełnienia”, „Gotowe” i „Zaksięgowane”, przycisk „Dodaj paragon” i lista paragonów z miesiąca.',
   },
   en: {
@@ -30,7 +30,7 @@ const TEKSTY: Tlumaczenia<{
       'Foreign-currency costs converted at the day’s rate',
       'Invoices from KSeF and email arrive by themselves',
     ],
-    label: 'My costs · phone, dark mode',
+    label: 'My costs (phone, dark mode)',
     opis: 'The “My costs” screen: the driver’s refund, counters for “Office asks”, “To complete”, “Ready” and “Booked”, an “Add receipt” button and the month’s receipts.',
   },
 };

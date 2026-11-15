@@ -24,7 +24,7 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     eyebrow: 'Pomoc',
     naglowek: 'W czym pomóc?',
-    placeholder: 'Wpisz, czego szukasz – np. faktura, przerwa, eksport',
+    placeholder: 'Wpisz, czego szukasz - np. faktura, przerwa, eksport',
     etykietaPola: 'Szukaj w pomocy',
     popularneEtykieta: 'Najczęściej szukane:',
     popularne: ['kierowca', 'faktura', 'eksport', 'paragon', 'przerwa'],
@@ -33,12 +33,12 @@ const TEKSTY: Tlumaczenia<{
     startOpis: 'Siedem kroków od konta do pierwszej faktury, do odhaczania po kolei.',
     startAkcja: 'Przejdź listę →',
     brak: (fraza) =>
-      `Nic nie pasuje do „${fraza}”. Napisz do nas – odpisujemy tego samego dnia roboczego.`,
+      `Nic nie pasuje do „${fraza}”. Napisz do nas - odpisujemy tego samego dnia roboczego.`,
   },
   en: {
     eyebrow: 'Help',
     naglowek: 'How can we help?',
-    placeholder: 'Type what you’re looking for – e.g. invoice, break, export',
+    placeholder: 'Type what you’re looking for - e.g. invoice, break, export',
     etykietaPola: 'Search help',
     popularneEtykieta: 'Most searched:',
     popularne: ['driver', 'invoice', 'export', 'receipt', 'break'],
@@ -47,7 +47,7 @@ const TEKSTY: Tlumaczenia<{
     startOpis: 'Seven steps from account to first invoice, to tick off one by one.',
     startAkcja: 'Go through the list →',
     brak: (fraza) =>
-      `Nothing matches “${fraza}”. Write to us – we reply the same working day.`,
+      `Nothing matches “${fraza}”. Write to us - we reply the same working day.`,
   },
 };
 

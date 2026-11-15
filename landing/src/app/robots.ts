@@ -38,6 +38,9 @@ export default function robots(): MetadataRoute.Robots {
           'meta-externalagent',
         ],
         allow: '/',
+        // Robot czyta tylko jedną, najlepiej pasującą grupę. Bez tej linii
+        // grupa botów AI nadpisuje `*` i wpuszcza je w zablokowane adresy.
+        disallow: zablokowane,
       },
     ],
     sitemap: `${serwis.url}/sitemap.xml`,

@@ -23,7 +23,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     miesiac: {
       tytul: 'Wybiera miesiąc i klika raz',
-      tresc: 'Dostaje wszystko za ten okres w jednym pliku ZIP. Przed zamknięciem miesiąca – wersję roboczą, po zamknięciu – ostateczną, z JPK_V7M.',
+      tresc: 'Dostaje wszystko za ten okres w jednym pliku ZIP. Przed zamknięciem miesiąca - wersję roboczą, po zamknięciu - ostateczną, z JPK_V7M.',
       miesiace: ['czerwiec', 'lipiec', 'sierpień', 'wrzesień'],
       przycisk: 'Pobierz paczkę dla biura',
     },
@@ -31,7 +31,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'W formacie jej programu',
       tresc: 'Comarch Optima, Insert GT albo Symfonia. Rejestry VAT i płace także w Excelu.',
       formaty: [
-        ['Comarch Optima', 'XML · wybrany', true],
+        ['Comarch Optima', 'XML, wybrany', true],
         ['Insert GT', 'EPP', false],
         ['Symfonia', 'TXT + AMS', false],
         ['Excel', 'rejestry VAT, płace i diety', false],
@@ -41,7 +41,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
   en: {
     miesiac: {
       tytul: 'Pick a month, click once',
-      tresc: 'Everything for that period arrives in one ZIP file. Before the month is closed – a draft version; after closing – the final one, with JPK_V7M.',
+      tresc: 'Everything for that period arrives in one ZIP file. Before the month is closed - a draft version; after closing - the final one, with JPK_V7M.',
       miesiace: ['June', 'July', 'August', 'September'],
       przycisk: 'Download the package for the office',
     },
@@ -49,7 +49,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'In the format of their software',
       tresc: 'Comarch Optima, Insert GT or Symfonia (the accounting programs most Polish firms use). VAT registers and payroll in Excel too.',
       formaty: [
-        ['Comarch Optima', 'XML · selected', true],
+        ['Comarch Optima', 'XML, selected', true],
         ['Insert GT', 'EPP', false],
         ['Symfonia', 'TXT + AMS', false],
         ['Excel', 'VAT registers, payroll and allowances', false],

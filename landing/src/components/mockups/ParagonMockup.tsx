@@ -11,11 +11,11 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     fields: [
-      ['Sprzedawca', 'Shell · Rotterdam', 'Shell'],
+      ['Sprzedawca', 'Shell, Rotterdam', 'Shell'],
       ['Data', '2.09.2026', '2.09.2026'],
-      ['Kwota', '151,50 € · 648,42 zł', '151,50 €'],
+      ['Kwota', '151,50 € (648,42 zł)', '151,50 €'],
       ['Rodzaj', 'Paliwo', 'Paliwo'],
-      ['Zlecenie · pojazd', 'Poznań → Rotterdam · PO 2093J', 'PO 2093J'],
+      ['Zlecenie i pojazd', 'Poznań → Rotterdam, PO 2093J', 'PO 2093J'],
     ],
     nowyKoszt: 'Nowy koszt',
     myjnia: 'Myjnia',
@@ -25,11 +25,11 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     fields: [
-      ['Seller', 'Shell · Rotterdam', 'Shell'],
+      ['Seller', 'Shell, Rotterdam', 'Shell'],
       ['Date', '2 Sep 2026', '2 Sep 2026'],
-      ['Amount', '€151.50 · PLN 648.42', '€151.50'],
+      ['Amount', '€151.50 (PLN 648.42)', '€151.50'],
       ['Type', 'Fuel', 'Fuel'],
-      ['Order · vehicle', 'Poznań → Rotterdam · PO 2093J', 'PO 2093J'],
+      ['Order and vehicle', 'Poznań → Rotterdam, PO 2093J', 'PO 2093J'],
     ],
     nowyKoszt: 'New cost',
     myjnia: 'Car wash',
@@ -52,7 +52,7 @@ export function ParagonMockup() {
           </div>
           <div className="flex flex-1 items-center justify-center rounded-xl bg-[#D9D9DE] lg:m-3.5 lg:rounded-2xl">
             <div className="flex w-[90px] flex-col gap-1.5 rounded-[3px] bg-white p-3 font-mono text-[8px] shadow-[0_4px_12px_rgba(0,0,0,.1)] lg:w-[140px]">
-              <div className="text-center font-bold">Shell · Rotterdam</div>
+              <div className="text-center font-bold">Shell, Rotterdam</div>
               <div className="hidden text-center text-muted lg:block">02.09.2026 11:38</div>
               <div className="hidden justify-between lg:flex">
                 <span>Diesel 82,1 l</span>

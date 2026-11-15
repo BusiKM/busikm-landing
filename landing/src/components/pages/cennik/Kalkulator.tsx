@@ -36,26 +36,26 @@ const TEKSTY: Tlumaczenia<{
       if (n >= 2 && n <= 4) return 'pojazdy';
       return 'pojazdów';
     },
-    koniecStart: '3 · koniec Start',
-    koniecFirma: '10 · w cenie Firma',
+    koniecStart: '3 (koniec Start)',
+    koniecFirma: '10 (w cenie Firma)',
     zaplacisz: 'Zapłacisz miesięcznie',
     kwota: (n) => `${n} zł`,
     dopisek: (ponad) => `299 + ${ponad} × 29 zł`,
     puenta: 'Tyle samo, ilu byś nie miał kierowców.',
-    wezwanie: 'Wypróbuj 14 dni',
-    drobne: 'Przez pierwsze 14 dni nie płacisz. Rezygnujesz jednym kliknięciem.',
+    wezwanie: 'Zapisz się na start',
+    drobne: 'Od otwarcia kont pierwsze 14 dni bez opłat. Rezygnujesz jednym kliknięciem.',
   },
   en: {
     pytanie: 'How many vehicles do you have?',
     odmiana: (n) => (n === 1 ? 'vehicle' : 'vehicles'),
-    koniecStart: '3 · Start ends',
-    koniecFirma: '10 · included in Business',
+    koniecStart: '3 (Start ends)',
+    koniecFirma: '10 (included in Business)',
     zaplacisz: 'You pay per month',
     kwota: (n) => `PLN ${n}`,
     dopisek: (ponad) => `PLN 299 + ${ponad} × PLN 29`,
     puenta: 'The same, however many drivers you have.',
-    wezwanie: 'Try 14 days free',
-    drobne: 'You pay nothing for the first 14 days. Cancel in one click.',
+    wezwanie: 'Sign up for launch',
+    drobne: 'Once accounts open, the first 14 days are free. Cancel in one click.',
   },
 };
 
@@ -125,14 +125,14 @@ export function Kalkulator() {
           <p className="text-[16px] leading-relaxed text-ink-muted lg:text-body">
             {jezyk === 'pl' ? (
               <>
-                cena końcowa, bez VAT · plan <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b>
+                cena końcowa bez VAT, plan <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b>
               </>
             ) : (
               <>
-                final price, no VAT · <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b> plan
+                final price before VAT, <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b> plan
               </>
             )}
-            {dopisek && <> · {dopisek}</>}
+            {dopisek && <>, {dopisek}</>}
           </p>
           <p className="text-lead-m font-semibold text-balance lg:text-lead">{t.puenta}</p>
 

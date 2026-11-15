@@ -73,9 +73,10 @@ export function PageShell({ slug }: { slug: string }) {
                     data-reveal
                     className="flex gap-3 py-1 text-body text-ink/70"
                   >
-                    <span aria-hidden className="text-muted">
-                      ·
-                    </span>
+                    <span
+                      aria-hidden
+                      className="mt-[0.8em] h-px w-2.5 flex-none bg-line-strong"
+                    />
                     {item}
                   </div>
                 ))}
@@ -87,8 +88,8 @@ export function PageShell({ slug }: { slug: string }) {
               className="mt-12 max-w-[60ch] rounded-card border border-dashed border-line bg-mist p-6 text-[15px] text-muted lg:mt-16"
             >
               {jezyk === 'pl'
-                ? 'Ta strona czeka na projekt. Treść jest gotowa i opisana w dokumentacji – dochodzi układ i makiety.'
-                : 'This page is waiting for its design. The content is ready – layout and mockups are on the way.'}
+                ? 'Ta strona czeka na projekt. Treść jest gotowa i opisana w dokumentacji - dochodzi układ i makiety.'
+                : 'This page is waiting for its design. The content is ready - layout and mockups are on the way.'}
             </p>
           </Container>
         </section>

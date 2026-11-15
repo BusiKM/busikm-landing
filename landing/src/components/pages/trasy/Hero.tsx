@@ -14,19 +14,19 @@ const TEKSTY: Tlumaczenia<{
   note: string;
 }> = {
   pl: {
-    eyebrow: 'Trasy i mapa floty',
+    eyebrow: 'Lokalizacja GPS busów z telefonu kierowcy',
     naglowek1: 'Widzisz, gdzie jest każdy bus.',
     naglowek2: 'Bez dzwonienia.',
-    lead: 'Klient pyta o ładunek – odpowiadasz w pięć sekund, patrząc na jeden ekran.',
-    label: 'Mapa floty · desktop 1440',
+    lead: 'Klient pyta o ładunek - odpowiadasz w pięć sekund, patrząc na jeden ekran.',
+    label: 'Mapa floty (desktop 1440)',
     note: 'Dyspozytornia: mapa Europy ze znacznikami aut i filtrami „Wszystkie”, „W trasie”, „Wolne”, „Serwis”, obok kolejka kursów, nad nimi liczniki dnia.',
   },
   en: {
-    eyebrow: 'Routes and fleet map',
+    eyebrow: 'Van GPS tracking from the driver’s phone',
     naglowek1: 'You see where every van is.',
     naglowek2: 'Without picking up the phone.',
-    lead: 'A client asks about their load – you answer in five seconds, looking at one screen.',
-    label: 'Fleet map · desktop 1440',
+    lead: 'A client asks about their load - you answer in five seconds, looking at one screen.',
+    label: 'Fleet map (desktop 1440)',
     note: 'Dispatch: a map of Europe with vehicle markers and “All”, “On the road”, “Free”, “Service” filters, the run queue alongside, the day’s counters above.',
   },
 };
@@ -65,14 +65,14 @@ export function Hero() {
       </svg>
 
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1">{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="max-w-[1120px] text-display-m font-bold text-balance lg:text-display"
         >
           {t.naglowek1} <br className="hidden lg:inline" />
           {t.naglowek2}
-        </h1>
+        </p>
         <p
           data-reveal
           className="max-w-[640px] text-lead-m text-pretty text-muted lg:text-lead"

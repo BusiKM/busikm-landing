@@ -15,21 +15,21 @@ const TEKSTY: Tlumaczenia<{
   opisy: readonly (readonly [string, string])[];
 }> = {
   pl: {
-    naglowek: 'Przypisz kierowcę · Łódź → Praga',
+    naglowek: 'Przypisz kierowcę: Łódź → Praga',
     termin: 'czw. 06:00',
     opisy: [
-      ['Uprawnienia ważne · 9:00 jazdy wolne', 'podpowiedź'],
-      ['Uprawnienia ważne · 4:10 jazdy wolne', 'możliwe'],
+      ['Uprawnienia ważne, 9:00 jazdy wolne', 'podpowiedź'],
+      ['Uprawnienia ważne, 4:10 jazdy wolne', 'możliwe'],
       ['W drodze do Mediolanu', 'zajęty'],
       ['Odpoczynek do 05:30', 'odpoczynek'],
     ],
   },
   en: {
-    naglowek: 'Assign a driver · Łódź → Prague',
+    naglowek: 'Assign a driver: Łódź → Prague',
     termin: 'Thu 06:00',
     opisy: [
-      ['Licence valid · 9:00 driving left', 'suggested'],
-      ['Licence valid · 4:10 driving left', 'possible'],
+      ['Licence valid, 9:00 driving left', 'suggested'],
+      ['Licence valid, 4:10 driving left', 'possible'],
       ['On the way to Milan', 'busy'],
       ['Resting until 05:30', 'resting'],
     ],
@@ -58,7 +58,7 @@ export function PrzypiszKierowce() {
           }`}
         >
           <div className={k.wariant === 'off' ? 'text-ink-muted' : undefined}>
-            <b className="text-paper">{k.kto}</b> · {k.pojazd}
+            <b className="text-paper">{k.kto}</b>, {k.pojazd}
             <div className="mt-0.5 text-ink-muted">{t.opisy[i][0]}</div>
           </div>
           <span

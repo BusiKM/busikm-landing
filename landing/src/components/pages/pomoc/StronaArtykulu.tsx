@@ -3,6 +3,8 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Container } from '@/components/ui/Container';
 import { SpisRozdzialow } from '@/components/pages/pomoc/SpisRozdzialow';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { artykulPomocy } from '@/components/seo/schema';
 import { firma } from '@/content/firma';
 import { artykulPoSlugu, kategorie } from '@/content/pomoc';
 import { kotwicaRozdzialu, NAZWY_ROL, type Artykul, type Blok } from '@/content/pomoc/typy';
@@ -209,6 +211,7 @@ export function StronaArtykulu({ artykul }: { artykul: Artykul }) {
 
   return (
     <>
+      <JsonLd dane={artykulPomocy(artykul, jezyk)} />
       <Header />
       <main className="bg-paper px-6 pt-16 pb-20 lg:px-12 lg:pt-24 lg:pb-28">
         <Container className="flex flex-col gap-10 lg:gap-14">
@@ -234,7 +237,7 @@ export function StronaArtykulu({ artykul }: { artykul: Artykul }) {
               <div className="flex flex-wrap gap-x-10 gap-y-5 border-y border-line py-5">
                 <Znacznik
                   etykieta={t.dlaKogo}
-                  wartosc={artykul.role.map((r) => NAZWY_ROL[jezyk][r]).join(' · ')}
+                  wartosc={artykul.role.map((r) => NAZWY_ROL[jezyk][r]).join(', ')}
                 />
                 {artykul.gdzie && <Znacznik etykieta={t.gdzie} wartosc={artykul.gdzie} />}
                 {artykul.czas && <Znacznik etykieta={t.ileZajmie} wartosc={artykul.czas} />}

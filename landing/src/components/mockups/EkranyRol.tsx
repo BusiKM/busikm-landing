@@ -1,18 +1,21 @@
+import { Fragment } from 'react';
+
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 /** Cztery ekrany do sekcji „Cztery osoby" – jeden na rolę. */
 
 type Teksty = {
   wlasciciel: {
-    okno: string;
+    okno: readonly string[];
     liczby: [string, string, string, boolean][];
     flota: string;
     marza: string;
     kursy: [string, string, boolean][];
   };
   dyspozytor: {
-    okno: string;
+    okno: readonly string[];
     zlecenia: string;
     lista: [string, string, boolean][];
     kierowca: string;
@@ -20,7 +23,7 @@ type Teksty = {
     odpowiedz: string;
   };
   ksiegowa: {
-    okno: string;
+    okno: readonly string[];
     tytul: string;
     pobierz: string;
     wiersze: [string, string, boolean][];
@@ -31,13 +34,13 @@ type Teksty = {
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     wlasciciel: {
-      okno: 'Pulpit · Właściciel',
+      okno: ['Pulpit', 'Właściciel'],
       liczby: [
         ['Przychód', '184 320 zł', '184 320', false],
         ['Koszty', '121 840 zł', '121 840', false],
         ['Zysk', '62 480 zł', '62 480', true],
       ],
-      flota: 'Cała flota · 3 w trasie',
+      flota: 'Cała flota, 3 w trasie',
       marza: 'Marża na kursie',
       kursy: [
         ['Gdańsk → Hamburg', '41%', true],
@@ -46,7 +49,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
     },
     dyspozytor: {
-      okno: 'Dyspozytornia · wtorek',
+      okno: ['Dyspozytornia', 'wtorek'],
       zlecenia: 'Zlecenia',
       lista: [
         ['Warszawa → Mediolan', 'Załadunek 06:00', true],
@@ -58,7 +61,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       odpowiedz: 'Jedź. Rozładunek 15:00.',
     },
     ksiegowa: {
-      okno: 'Księgowa · sierpień 2026',
+      okno: ['Księgowa', 'sierpień 2026'],
       tytul: 'Komplet za sierpień',
       pobierz: 'Pobierz komplet',
       wiersze: [
@@ -72,19 +75,19 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     },
     kierowca: {
       trasa: 'Warszawa → Mediolan',
-      rozladunek: 'Rozładunek 08:00 · jutro',
+      rozladunek: 'Rozładunek 08:00, jutro',
       rusz: 'Rusz',
     },
   },
   en: {
     wlasciciel: {
-      okno: 'Dashboard · Owner',
+      okno: ['Dashboard', 'Owner'],
       liczby: [
         ['Revenue', 'PLN 184,320', '184,320', false],
         ['Costs', 'PLN 121,840', '121,840', false],
         ['Profit', 'PLN 62,480', '62,480', true],
       ],
-      flota: 'Whole fleet · 3 on the road',
+      flota: 'Whole fleet, 3 on the road',
       marza: 'Margin per job',
       kursy: [
         ['Gdańsk → Hamburg', '41%', true],
@@ -93,7 +96,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
     },
     dyspozytor: {
-      okno: 'Dispatch · Tuesday',
+      okno: ['Dispatch', 'Tuesday'],
       zlecenia: 'Orders',
       lista: [
         ['Warsaw → Milan', 'Loading 06:00', true],
@@ -105,7 +108,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       odpowiedz: 'Go ahead. Unloading 15:00.',
     },
     ksiegowa: {
-      okno: 'Accountant · August 2026',
+      okno: ['Accountant', 'August 2026'],
       tytul: 'August, complete',
       pobierz: 'Download the full set',
       wiersze: [
@@ -119,20 +122,27 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     },
     kierowca: {
       trasa: 'Warsaw → Milan',
-      rozladunek: 'Unloading 08:00 · tomorrow',
+      rozladunek: 'Unloading 08:00, tomorrow',
       rusz: 'Go',
     },
   },
 };
 
-function Okno({ label, children }: { label: string; children: React.ReactNode }) {
+function Okno({ label, children }: { label: readonly string[]; children: React.ReactNode }) {
   return (
     <div className="overflow-hidden rounded-card border border-line-dark bg-surface shadow-[0_30px_80px_rgba(0,0,0,.5)] lg:aspect-16/10">
       <div className="flex h-8 items-center gap-1.5 border-b border-line-dark px-4 lg:h-10">
         {[0, 1, 2].map((i) => (
           <span key={i} className="size-[9px] rounded-full bg-[#2E2E34]" />
         ))}
-        <span className="ml-3.5 text-[12px] text-ink-muted">{label}</span>
+        <span className="ml-3.5 inline-flex items-center text-[12px] text-ink-muted">
+          {label.map((czesc, i) => (
+            <Fragment key={czesc}>
+              {i > 0 && <Rozdzielacz className="mx-2" />}
+              {czesc}
+            </Fragment>
+          ))}
+        </span>
       </div>
       {children}
     </div>

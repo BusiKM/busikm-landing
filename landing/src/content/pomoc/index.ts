@@ -4,12 +4,14 @@ import { artykulyZlecenia } from '@/content/pomoc/artykuly-zlecenia';
 import { artykulyKoszty } from '@/content/pomoc/artykuly-koszty';
 import { artykulyKsiegowosc } from '@/content/pomoc/artykuly-ksiegowosc';
 import { artykulyKonto } from '@/content/pomoc/artykuly-konto';
+import { artykulyPoradniki } from '@/content/pomoc/artykuly-poradniki';
 import { artykulyStartEn } from '@/content/pomoc/artykuly-start-en';
 import { artykulyKierowcyEn } from '@/content/pomoc/artykuly-kierowcy-en';
 import { artykulyZleceniaEn } from '@/content/pomoc/artykuly-zlecenia-en';
 import { artykulyKosztyEn } from '@/content/pomoc/artykuly-koszty-en';
 import { artykulyKsiegowoscEn } from '@/content/pomoc/artykuly-ksiegowosc-en';
 import { artykulyKontoEn } from '@/content/pomoc/artykuly-konto-en';
+import { artykulyPoradnikiEn } from '@/content/pomoc/artykuly-poradniki-en';
 import { kategorie, NAZWY_ROL, type Artykul, type Kategoria } from '@/content/pomoc/typy';
 import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
 
@@ -30,6 +32,9 @@ export const artykuly: Artykul[] = [
   ...artykulyKoszty,
   ...artykulyKsiegowosc,
   ...artykulyKonto,
+  // Poradniki o przepisach (KSeF 2027, tachograf w busie) – w kategoriach
+  // „Zlecenia i faktury" i „Kierowcy", na końcu każdej z nich.
+  ...artykulyPoradniki,
 ];
 
 const artykulyEn: Artykul[] = [
@@ -39,6 +44,7 @@ const artykulyEn: Artykul[] = [
   ...artykulyKosztyEn,
   ...artykulyKsiegowoscEn,
   ...artykulyKontoEn,
+  ...artykulyPoradnikiEn,
 ];
 
 export const artykulyWgJezyka: Tlumaczenia<Artykul[]> = { pl: artykuly, en: artykulyEn };
@@ -100,7 +106,7 @@ export function grupyWyszukiwarki(jezyk: Jezyk): GrupaWyszukiwarki[] {
       slug: a.slug,
       tytul: a.tytul,
       lead: a.lead,
-      role: a.role.map((r) => NAZWY_ROL[jezyk][r]).join(' · '),
+      role: a.role.map((r) => NAZWY_ROL[jezyk][r]).join(', '),
       indeks: indeksArtykulu(a, jezyk),
     })),
   }));

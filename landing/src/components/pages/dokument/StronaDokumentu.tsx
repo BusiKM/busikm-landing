@@ -2,6 +2,7 @@ import Link from '@/i18n/Link';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Container } from '@/components/ui/Container';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 import { Eyebrow } from '@/components/ui/Section';
 import { SpisTresci } from '@/components/pages/dokument/SpisTresci';
 import { OdnosnikPolski } from '@/components/pages/dokument/OdnosnikPolski';
@@ -24,7 +25,7 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     etykieta: 'Dokument',
-    obowiazuje: (od, wersja) => `Obowiązuje od ${od} · wersja ${wersja}`,
+    obowiazuje: (od, wersja) => `Obowiązuje od ${od}, wersja ${wersja}`,
     wSkrocie: 'W skrócie',
     zastrzezenie:
       'To streszczenie ułatwia czytanie, ale nie zastępuje dokumentu. Wiążąca jest treść poniżej.',
@@ -34,19 +35,44 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     etykieta: 'Document',
-    obowiazuje: (od, wersja) => `In force from ${od} · version ${wersja}`,
+    obowiazuje: (od, wersja) => `In force from ${od}, version ${wersja}`,
     wSkrocie: 'In short',
     zastrzezenie:
-      'This summary makes the document easier to read but does not replace it. The full document is binding – in its Polish version.',
+      'This summary makes the document easier to read but does not replace it. The full document is binding - in its Polish version.',
     ostatniaZmiana: 'Last updated:',
     pozostale: 'Other documents:',
     pytanie: 'Have a question about this document? Write to:',
   },
 };
 
+/**
+ * Adres `https://…` w treści dokumentu staje się odnośnikiem. Treść siedzi
+ * w danych jako zwykły tekst, a odesłania do dokumentów usługi
+ * (app.busikm.pl) muszą dać się kliknąć. Kropka, przecinek albo nawias tuż
+ * za adresem należą do zdania, nie do adresu.
+ */
+const ADRES = /(https:\/\/[^\s,;()]*[^\s,;().])/g;
+
+function ZOdnosnikami({ tekst }: { tekst: string }) {
+  // `split` z grupą przechwytującą: adresy lądują na nieparzystych pozycjach.
+  return tekst.split(ADRES).map((czesc, i) =>
+    i % 2 === 1 ? (
+      <a key={i} href={czesc} className="text-blue underline underline-offset-2">
+        {czesc.replace(/^https:\/\//, '')}
+      </a>
+    ) : (
+      czesc
+    ),
+  );
+}
+
 function Tresc({ blok }: { blok: Blok }) {
   if (blok.typ === 'akapit') {
-    return <p className={`${KOLUMNA} text-pretty`}>{blok.tresc}</p>;
+    return (
+      <p className={`${KOLUMNA} text-pretty`}>
+        <ZOdnosnikami tekst={blok.tresc} />
+      </p>
+    );
   }
 
   if (blok.typ === 'lista') {
@@ -56,7 +82,7 @@ function Tresc({ blok }: { blok: Blok }) {
         <ol className="flex list-decimal flex-col gap-2.5 pl-5 marker:text-muted">
           {blok.punkty.map((p) => (
             <li key={p} className="pl-1 text-pretty">
-              {p}
+              <ZOdnosnikami tekst={p} />
             </li>
           ))}
         </ol>
@@ -72,7 +98,7 @@ function Tresc({ blok }: { blok: Blok }) {
           {blok.pozycje.map((d) => (
             <div key={d.termin} className="text-pretty">
               <dt className="inline font-semibold">{d.termin}</dt>{' '}
-              <dd className="inline">– {d.opis}</dd>
+              <dd className="inline">- {d.opis}</dd>
             </div>
           ))}
         </dl>
@@ -111,14 +137,19 @@ function Tresc({ blok }: { blok: Blok }) {
           </tbody>
         </table>
       </div>
-      {blok.stopka && <p className="text-[14px] text-muted">{blok.stopka}</p>}
+      {blok.stopka && (
+        <p className={`${KOLUMNA} text-[14px] text-pretty text-muted`}>
+          <ZOdnosnikami tekst={blok.stopka} />
+        </p>
+      )}
     </div>
   );
 }
 
 /**
  * Wzorzec strony dokumentu prawnego – wg projektu „BusiKM Dokument prawny"
- * z Claude Design (design/23-prawne). Jeden układ na cztery adresy.
+ * z Claude Design (design/23-prawne). Dziś używa go tylko polityka
+ * prywatności strony; dokumenty usługi wyświetla aplikacja (app.busikm.pl).
  *
  * To jedyne miejsce w serwisie, gdzie wolno używać języka prawnego, więc układ
  * robi wszystko, żeby ten tekst dało się przeczytać: wiersz do 62 znaków,
@@ -212,7 +243,7 @@ export function StronaDokumentu({
                       <Link href={d.href} className="text-blue">
                         {d.tytul}
                       </Link>
-                      {i < pozostale.length - 1 && <span aria-hidden>·</span>}
+                      {i < pozostale.length - 1 && <Rozdzielacz className="mx-0" />}
                     </span>
                   ))}
                 </p>

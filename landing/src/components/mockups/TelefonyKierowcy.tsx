@@ -20,13 +20,13 @@ const TEKSTY: Tlumaczenia<{
     dojazd: 'dojazd',
     trasa: 'Warszawa → Mediolan',
     wTrasie: 'w trasie',
-    rozladunek: 'Rozładunek: Via Tortona 12 · 08:00',
+    rozladunek: 'Rozładunek: Via Tortona 12, 08:00',
     nawiguj: 'Nawiguj',
     koszt: 'Koszt',
     dodajKoszt: 'Dodaj paragon',
     razem: 'RAZEM',
     pola: [
-      ['Kwota', '103,30 €', '103,30 € · 442 zł'],
+      ['Kwota', '103,30 €', '103,30 € (442 zł)'],
       ['Rodzaj', 'Paliwo', 'Paliwo'],
       ['Zapłacono', 'Karta firmowa', 'Karta firmowa'],
     ],
@@ -38,13 +38,13 @@ const TEKSTY: Tlumaczenia<{
     dojazd: 'arrival',
     trasa: 'Warsaw → Milan',
     wTrasie: 'en route',
-    rozladunek: 'Unloading: Via Tortona 12 · 08:00',
+    rozladunek: 'Unloading: Via Tortona 12, 08:00',
     nawiguj: 'Navigate',
     koszt: 'Cost',
     dodajKoszt: 'Add receipt',
     razem: 'TOTAL',
     pola: [
-      ['Amount', '€103.30', '€103.30 · PLN 442'],
+      ['Amount', '€103.30', '€103.30 (PLN 442)'],
       ['Type', 'Fuel', 'Fuel'],
       ['Paid with', 'Company card', 'Company card'],
     ],
@@ -83,7 +83,7 @@ export function TelefonyKierowcy() {
             </svg>
             <div className="absolute top-3.5 right-3.5 left-3.5 hidden justify-between rounded-xl bg-surface-2 p-3 lg:flex">
               <div>
-                <div className="text-[18px] font-semibold">A1 · 214 km</div>
+                <div className="text-[18px] font-semibold">A1, 214 km</div>
                 <div className="text-ink-muted">{t.potem}</div>
               </div>
               <div className="text-right">

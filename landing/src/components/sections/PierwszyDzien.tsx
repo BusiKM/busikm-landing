@@ -10,7 +10,7 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     naglowek: 'Pierwsza trasa pierwszego dnia.',
     steps: [
-      ['Dodajesz pojazd', '2 minuty', 'Zdjęcie dowodu rejestracyjnego – dane wpisują się same.'],
+      ['Dodajesz pojazd', '2 minuty', 'Zdjęcie dowodu rejestracyjnego - dane wpisują się same.'],
       ['Zapraszasz kierowcę', '1 minuta', 'Dostaje kod mailem. Wpisuje go w aplikacji, ustawia hasło i jest w środku.'],
       ['Kierowca rusza', 'od razu', 'Pierwsza trasa pojawia się u Ciebie tego samego dnia.'],
     ],
@@ -19,7 +19,7 @@ const TEKSTY: Tlumaczenia<{
   en: {
     naglowek: 'Your first route on day one.',
     steps: [
-      ['Add a van', '2 minutes', 'A photo of the registration certificate – the details fill themselves in.'],
+      ['Add a van', '2 minutes', 'A photo of the registration certificate - the details fill themselves in.'],
       ['Invite a driver', '1 minute', 'They get a code by email. They enter it in the app, set a password and they’re in.'],
       ['The driver sets off', 'straight away', 'The first route shows up at your end the same day.'],
     ],

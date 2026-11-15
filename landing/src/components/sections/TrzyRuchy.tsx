@@ -13,12 +13,12 @@ const TEKSTY: Tlumaczenia<{
       [
         '02',
         'Dane same lecą',
-        'Trasa, kilometry, czas pracy, paragony. Wszystko ląduje u Ciebie – nawet wtedy, gdy kierowca nie ma zasięgu.',
+        'Trasa, kilometry, czas pracy, paragony. Wszystko ląduje u Ciebie - nawet wtedy, gdy kierowca nie ma zasięgu.',
       ],
       [
         '03',
         'Miesiąc się zamyka',
-        'Faktury dla klientów, koszty, przebieg i komplet dla księgowej. Jednym przyciskiem.',
+        'Faktury dla klientów, koszty i przebieg. W planie Firma także komplet dla księgowej jednym przyciskiem.',
       ],
     ],
   },
@@ -29,12 +29,12 @@ const TEKSTY: Tlumaczenia<{
       [
         '02',
         'The data sends itself',
-        'Route, kilometres, working time, receipts. It all lands with you – even when the driver has no signal.',
+        'Route, kilometres, working time, receipts. It all lands with you - even when the driver has no signal.',
       ],
       [
         '03',
         'The month closes',
-        'Client invoices, costs, mileage and the full set for your accountant. With one button.',
+        'Client invoices, costs and mileage. In the Business plan, the full set for your accountant in one click too.',
       ],
     ],
   },

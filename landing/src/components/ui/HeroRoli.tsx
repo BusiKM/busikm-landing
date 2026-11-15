@@ -1,13 +1,16 @@
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Section';
 import { appLinks } from '@/content/navigation';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
-const PRZYCISKI: Tlumaczenia<{ trial: string; demo: string }> = {
-  pl: { trial: 'Wypróbuj 14 dni', demo: 'Zobacz demo' },
-  en: { trial: 'Try it free for 14 days', demo: 'See the demo' },
+/**
+ * Dopóki rejestracja jest zamknięta, głównym wejściem jest demo, a drugi
+ * przycisk zapisuje na listę otwarcia kont – tak samo jak na stronie głównej.
+ */
+const PRZYCISKI: Tlumaczenia<{ zapis: string; demo: string }> = {
+  pl: { zapis: 'Zapisz się na start', demo: 'Zobacz demo' },
+  en: { zapis: 'Sign up for launch', demo: 'See the demo' },
 };
 
 /**
@@ -15,6 +18,12 @@ const PRZYCISKI: Tlumaczenia<{ trial: string; demo: string }> = {
  *
  * Podstrony obszarowe otwierają się wyśrodkowanym nagłówkiem i dużym ekranem;
  * strona roli zaczyna od słów i od razu przechodzi w oś dnia.
+ *
+ * Nagłówkiem `h1` jest `nadtytul`, nie slogan. Slogan („Wiesz, ile zostaje")
+ * sprzedaje komuś, kto już jest na stronie, ale nie zawiera słów, które ktoś
+ * wpisuje w wyszukiwarkę – a `h1` jest po tytule najmocniejszym sygnałem,
+ * o czym jest strona. Dlatego `nadtytul` powinien nieść frazę
+ * („Program TMS dla busów 2,5-3,5 t"), a slogan zostaje dużym tekstem.
  */
 export function HeroRoli({
   nadtytul,
@@ -46,13 +55,22 @@ export function HeroRoli({
       />
 
       <Container className="relative flex flex-col gap-6 lg:gap-8">
-        <Eyebrow dark={dark}>{nadtytul}</Eyebrow>
+        {/* Fraza z nadtytułu jest nagłówkiem strony, slogan pod nią – tylko
+            wielkim tekstem. Wygląd bez zmian: h1 dostaje klasy nadtytułu
+            (`Eyebrow`), a slogan klasy dawnego h1. */}
         <h1
+          className={`text-[12px] font-medium tracking-[0.1em] uppercase lg:text-caption ${
+            dark ? 'text-ink-muted' : 'text-muted'
+          }`}
+        >
+          {nadtytul}
+        </h1>
+        <p
           data-reveal
           className="max-w-[1120px] text-display-m font-bold text-balance lg:text-display"
         >
           {tytul}
-        </h1>
+        </p>
         <p
           data-reveal
           className={`max-w-[700px] text-lead-m text-pretty lg:text-lead ${
@@ -62,11 +80,11 @@ export function HeroRoli({
           {lead}
         </p>
         <div data-reveal className="mt-2 flex flex-col gap-2.5 lg:flex-row lg:gap-3">
-          <Button href={appLinks.trial} fullWidth className="lg:w-auto">
-            {t.trial}
-          </Button>
-          <Button href={appLinks.demo} variant="secondary" fullWidth className="lg:w-auto">
+          <Button href={appLinks.demo} fullWidth className="lg:w-auto">
             {t.demo}
+          </Button>
+          <Button href={appLinks.zapis} variant="secondary" fullWidth className="lg:w-auto">
+            {t.zapis}
           </Button>
         </div>
       </Container>

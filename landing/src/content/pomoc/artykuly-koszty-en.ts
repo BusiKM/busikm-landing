@@ -23,7 +23,7 @@ export const artykulyKosztyEn: Artykul[] = [
             typ: 'tabela',
             naglowki: ['Tab', 'What it means'],
             wiersze: [
-              ['To complete (Do uzupełnienia)', 'Something is missing or needs checking – e.g. the amount, the cost type, a possible duplicate'],
+              ['To complete (Do uzupełnienia)', 'Something is missing or needs checking - e.g. the amount, the cost type, a possible duplicate'],
               ['Ready (Gotowe)', 'Complete details, the cost counts in the result'],
               ['Posted (Zaksięgowane)', 'Passed on to the accountant'],
               ['To refund to drivers (Do zwrotu kierowcom)', 'The driver paid out of their own pocket'],
@@ -40,11 +40,11 @@ export const artykulyKosztyEn: Artykul[] = [
               { tytul: 'Open the To complete tab' },
               {
                 tytul: 'Open the cost',
-                opis: 'Next to the amounts and details you see the photo of the document – the one the driver took. No need to hunt for the paper.',
+                opis: 'Next to the amounts and details you see the photo of the document - the one the driver took. No need to hunt for the paper.',
               },
               {
                 tytul: 'Resolve what’s missing',
-                opis: 'At the top there’s a card for each reason, with ready-made buttons – for example Save with vehicle, The amount is right, Correct the amount, or It’s the same one, keep one.',
+                opis: 'At the top there’s a card for each reason, with ready-made buttons - for example Save with vehicle, The amount is right, Correct the amount, or It’s the same one, keep one.',
               },
               {
                 tytul: 'If something is unclear, click Ask the driver (Zapytaj kierowcę)',
@@ -69,11 +69,11 @@ export const artykulyKosztyEn: Artykul[] = [
           {
             typ: 'lista',
             punkty: [
-              'From drivers – a photo of the receipt from the app, on the road.',
-              'From KSeF – we fetch purchase invoices every day at 6:00, so you don’t have to add them.',
-              'By email – invoices forwarded to your company’s BusiKM address.',
-              'From a fuel card – the collective invoice split into fill-ups.',
-              'Added in the office – in Costs → Add cost (Dodaj koszt) you upload files or enter a cost without a file.',
+              'From drivers - a photo of the receipt from the app, on the road.',
+              'From KSeF - we fetch purchase invoices every day at 6:00, so you don’t have to add them.',
+              'By email - invoices forwarded to your company’s BusiKM address.',
+              'From a fuel card - the collective invoice split into fill-ups.',
+              'Added in the office - in Costs → Add cost (Dodaj koszt) you upload files or enter a cost without a file.',
             ],
           },
           {
@@ -94,7 +94,7 @@ export const artykulyKosztyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'The Month button (Miesiąc) above the list takes you to the month summary. You can close it once nothing is left to complete – refunds to drivers don’t block it. After closing, the month’s costs are read-only, and a document that arrives later goes on the After closing list (Po zamknięciu).',
+              'The Month button (Miesiąc) above the list takes you to the month summary. You can close it once nothing is left to complete - refunds to drivers don’t block it. After closing, the month’s costs are read-only, and a document that arrives later goes on the After closing list (Po zamknięciu).',
           },
           {
             typ: 'akapit',
@@ -111,7 +111,7 @@ export const artykulyKosztyEn: Artykul[] = [
     slug: 'dokumenty-i-terminy',
     kategoria: 'koszty',
     tytul: 'Documents and deadlines',
-    lead: 'Insurance, roadworthiness tests, driver medicals and driver cards in one place – with a reminder before they expire.',
+    lead: 'Insurance, roadworthiness tests, driver medicals and driver cards in one place - with a reminder before they expire.',
     role: ['wlasciciel', 'dyspozytor'],
     gdzie: 'Documents (Dokumenty)',
     czas: 'An hour once, then it keeps watch on its own',
@@ -132,7 +132,7 @@ export const artykulyKosztyEn: Artykul[] = [
               },
               {
                 tytul: 'Check the Valid until field (Ważny do)',
-                opis: 'That’s the key part – without a date the document just sits there and nobody gets reminded.',
+                opis: 'That’s the key part - without a date the document just sits there and nobody gets reminded.',
               },
               { tytul: 'Click Save document (Zapisz dokument)' },
             ],
@@ -140,7 +140,7 @@ export const artykulyKosztyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'After renewing a policy, open the document and click Add new version (Dodaj nową wersję) – the previous one stays in the history.',
+              'After renewing a policy, open the document and click Add new version (Dodaj nową wersję) - the previous one stays in the history.',
           },
         ],
       },
@@ -165,17 +165,17 @@ export const artykulyKosztyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'The Documents screen shows what’s overdue, what’s missing and what expires within 30 days – separately for the company, vehicles and drivers. Download set (Pobierz komplet) prepares a pack for a client or for a vehicle check.',
+              'The Documents screen shows what’s overdue, what’s missing and what expires within 30 days - separately for the company, vehicles and drivers. Download set (Pobierz komplet) prepares a pack for a client or for a vehicle check.',
           },
           {
             typ: 'akapit',
             tresc:
-              'We send reminders 60, 30, 14 and 3 days before the deadline – in the app and by email. The owner and the dispatcher hear about vehicle and driver documents, the owner and the accountant about company documents. The email comes once a day in the morning, only when something has changed. You choose the channels in Settings → Notifications (Powiadomienia).',
+              'We send reminders 60, 30, 14 and 3 days before the deadline - in the app and by email. The owner and the dispatcher hear about vehicle and driver documents, the owner and the accountant about company documents. The email comes once a day in the morning, only when something has changed. You choose the channels in Settings → Notifications (Powiadomienia).',
           },
           {
             typ: 'uwaga',
             tresc:
-              'The most expensive date in a transport company is the one nobody knew about. Upload the documents once – after that it’s just a new version when a policy is renewed.',
+              'The most expensive date in a transport company is the one nobody knew about. Upload the documents once - after that it’s just a new version when a policy is renewed.',
           },
         ],
       },

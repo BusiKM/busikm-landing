@@ -13,7 +13,7 @@ const TEKSTY: Tlumaczenia<{
   tytul1: string;
   tytul2: string;
   lead: string;
-  proba: string;
+  zapis: string;
   demo: string;
   nota: string;
   label: string;
@@ -23,30 +23,30 @@ const TEKSTY: Tlumaczenia<{
   zamknij: string;
 }> = {
   pl: {
-    eyebrow: 'Busy 2,5–3,5 t · Transport krajowy i międzynarodowy',
+    eyebrow: 'Busy 2,5-3,5 t, transport krajowy i międzynarodowy',
     tytul1: 'Kierowca jedzie.',
     tytul2: 'Reszta dzieje się sama.',
-    lead: 'Zlecenia, trasy, koszty, faktury i komplet dla księgowej – w jednym miejscu. Kierowca ma telefon w kieszeni, Ty masz robotę zrobioną.',
-    proba: 'Wypróbuj 14 dni',
+    lead: 'Zlecenia, trasy, koszty, faktury i komplet dla księgowej - w jednym miejscu. Kierowca ma telefon w kieszeni, Ty masz robotę zrobioną.',
+    zapis: 'Zapisz się na start',
     demo: 'Zobacz demo',
-    nota: 'Przez pierwsze 14 dni nie płacisz. Rezygnujesz jednym kliknięciem.',
-    label: 'Ekran właściciela · desktop 1440',
-    opis: 'Pulpit po zalogowaniu: po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” – kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
-    telefon: 'Aplikacja kierowcy: ekran „Dziś” z kursem Wrocław → Milano i przyciskami Nawiguj, Zadzwoń, Czat.',
+    nota: 'Demo działa bez konta. Konta otwieramy wkrótce, pierwsze 14 dni bez opłat.',
+    label: 'Ekran właściciela (desktop 1440)',
+    opis: 'Pulpit po zalogowaniu: po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” - kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
+    telefon: 'Aplikacja kierowcy: ekran „Dziś” z kursem Kraków → Antwerpen i przyciskami Nawiguj, Zadzwoń, Czat.',
     powieksz: 'Powiększ',
     zamknij: 'Zamknij',
   },
   en: {
-    eyebrow: 'Vans 2.5–3.5 t · Domestic and international transport',
+    eyebrow: 'Vans 2.5-3.5 t, domestic and international transport',
     tytul1: 'The driver drives.',
     tytul2: 'Everything else just happens.',
-    lead: 'Orders, routes, costs, invoices and everything your accountant needs – in one place. Your driver keeps a phone in their pocket. You get the work done.',
-    proba: 'Try 14 days free',
+    lead: 'Orders, routes, costs, invoices and everything your accountant needs - in one place. Your driver keeps a phone in their pocket. You get the work done.',
+    zapis: 'Sign up for launch',
     demo: 'See the demo',
-    nota: 'You pay nothing for the first 14 days. Cancel with one click.',
-    label: 'Owner’s screen · desktop 1440',
-    opis: 'Dashboard after signing in: “To do” on the left with what’s waiting for your decision, “Today” on the right – runs on the road, loadings, deliveries and who is driving right now.',
-    telefon: 'Driver app: the “Today” screen with the Wrocław → Milano run and Navigate, Call and Chat buttons.',
+    nota: 'The demo needs no account. Accounts open soon, with the first 14 days free.',
+    label: 'Owner’s screen (desktop 1440)',
+    opis: 'Dashboard after signing in: “To do” on the left with what’s waiting for your decision, “Today” on the right - runs on the road, loadings, deliveries and who is driving right now.',
+    telefon: 'Driver app: the “Today” screen with the Kraków → Antwerp run and Navigate, Call and Chat buttons.',
     powieksz: 'Enlarge',
     zamknij: 'Close',
   },
@@ -56,7 +56,7 @@ const TEKSTY: Tlumaczenia<{
 export function Hero() {
   const t = TEKSTY[biezacyJezyk()];
   return (
-    <section className="relative overflow-hidden bg-paper px-6 pt-24 lg:px-12 lg:pt-40">
+    <section id="hero" className="relative overflow-hidden bg-paper px-6 pt-24 lg:px-12 lg:pt-40">
       <div
         aria-hidden
         className="absolute inset-0 bg-[linear-gradient(rgba(10,10,11,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,11,.035)_1px,transparent_1px)] bg-size-[80px_80px] lg:bg-size-[120px_120px]"
@@ -107,11 +107,13 @@ export function Hero() {
 
         <div data-reveal className="flex flex-col gap-2.5 lg:mt-2 lg:items-center lg:gap-4">
           <div className="flex flex-col gap-2.5 lg:flex-row lg:gap-3">
-            <Button href={appLinks.trial} fullWidth className="lg:w-auto">
-              {t.proba}
-            </Button>
-            <Button href={appLinks.demo} variant="secondary" fullWidth className="lg:w-auto">
+            {/* Dopóki rejestracja jest zamknięta, głównym wejściem jest demo.
+                Drugi przycisk zapisuje na listę otwarcia kont. */}
+            <Button href={appLinks.demo} fullWidth className="lg:w-auto">
               {t.demo}
+            </Button>
+            <Button href={appLinks.zapis} variant="secondary" fullWidth className="lg:w-auto">
+              {t.zapis}
             </Button>
           </div>
           <p className="text-center text-[13px] text-muted lg:text-caption">

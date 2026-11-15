@@ -32,17 +32,17 @@ const TEKSTY: Tlumaczenia<{
       tresc: 'System sam widzi, gdzie kierowca był i jak długo. Nikt tego nie zgłasza ręcznie.',
     },
     nazwy: ['Polska', 'Czechy', 'Niemcy', 'Austria', 'Włochy'],
-    kurs: 'Marek W. · Warszawa → Mediolan',
-    daty: '2–3.09',
+    kurs: 'Marek W., Warszawa → Mediolan',
+    daty: '2-3.09',
     przejazd: {
       tytul: 'Przejazd bez zlecenia też się liczy',
       tresc: 'Dojazd do bazy, wyjazd do serwisu, przeprowadzka pojazdu. Kilometry nie giną.',
     },
     bezZlecenia: 'Przejazd bez zlecenia',
-    kiedy: '31.08 · 16:40',
+    kiedy: '31.08, 16:40',
     trasa: 'Mediolan → serwis, Bergamo',
     powod: 'Powód',
-    powodWartosc: 'Serwis · WZ 4821K',
+    powodWartosc: 'Serwis, WZ 4821K',
     przyciski: ['Start', 'Stop', 'Potwierdź'],
   },
   en: {
@@ -51,17 +51,17 @@ const TEKSTY: Tlumaczenia<{
       tresc: 'The system sees for itself where the driver was and for how long. Nobody reports it by hand.',
     },
     nazwy: ['Poland', 'Czechia', 'Germany', 'Austria', 'Italy'],
-    kurs: 'Marek W. · Warsaw → Milan',
-    daty: '2–3 Sep',
+    kurs: 'Marek W., Warsaw → Milan',
+    daty: '2-3 Sep',
     przejazd: {
       tytul: 'Trips without an order count too',
       tresc: 'Driving to the depot, over to the garage, moving a vehicle. No kilometre goes missing.',
     },
     bezZlecenia: 'Trip without an order',
-    kiedy: '31 Aug · 16:40',
+    kiedy: '31 Aug, 16:40',
     trasa: 'Milan → garage, Bergamo',
     powod: 'Reason',
-    powodWartosc: 'Service · WZ 4821K',
+    powodWartosc: 'Service, WZ 4821K',
     przyciski: ['Start', 'Stop', 'Confirm'],
   },
 };
@@ -108,7 +108,7 @@ export function KrajeIPrzejazd() {
             </div>
             <div className="flex justify-between gap-3">
               <span className="truncate">{t.trasa}</span>
-              <b className="flex-none">48 km · 0:55</b>
+              <b className="flex-none">48 km, 0:55</b>
             </div>
             <div className="flex justify-between gap-3 text-ink-muted">
               <span>{t.powod}</span>

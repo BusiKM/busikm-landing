@@ -15,6 +15,7 @@ import { StatusEkran } from '@/components/pages/dokumenty/StatusEkran';
 import { WydrukIKolor } from '@/components/pages/dokumenty/WydrukIKolor';
 import { UstawPrzypomnienie } from '@/components/mockups/dokumenty/UstawPrzypomnienie';
 import { TelefonKierowcy } from '@/components/mockups/dokumenty/TelefonKierowcy';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/dokumenty-i-terminy');
 
@@ -34,11 +35,11 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     pytania: [
       [
         'Skąd system zna daty?',
-        'Wpisujesz je raz przy dokumencie. Po odnowieniu przesuwasz termin jednym kliknięciem.',
+        'Wpisujesz je raz przy dokumencie albo AI odczyta je ze zdjęcia lub PDF, a Ty sprawdzasz i zapisujesz. Po odnowieniu przesuwasz termin jednym kliknięciem.',
       ],
       [
         'Czy przypomnienie przyjdzie mailem?',
-        'Tak, mailem i w aplikacji – Tobie i dyspozytorowi, a o dokumentach firmy Tobie i księgowej. Kierowca widzi swoje terminy w aplikacji: na ekranie „Dziś” i w „Moich dokumentach”.',
+        'Tak, mailem i w aplikacji - Tobie i dyspozytorowi, a o dokumentach firmy Tobie i księgowej. Kierowca widzi swoje terminy w aplikacji: na ekranie „Dziś” i w „Moich dokumentach”.',
       ],
       [
         'Co, gdy dokument dotyczy tylko jednego pojazdu?',
@@ -52,6 +53,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       'Historia poprzednich polis i przeglądów',
       'Dokumenty zlecenia (CMR, WZ) pod ręką kierowcy w trasie',
       'Przypomnienie o zgraniu karty kierowcy co 28 dni i tachografu co 90',
+      'Licencja i wypisy przypisane do aut, z przypomnieniem o zgłoszeniu zmiany do GITD w 28 dni',
+      'AI odczyta daty z polisy i przeglądu, a z prawa jazdy kategorie i ich ważność',
     ],
     przypomnienie: {
       tytul: 'Przypomnienie z wyprzedzeniem',
@@ -61,7 +64,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'Kierowca też widzi swoje',
       tresc:
         'W „Moich dokumentach” ma prawo jazdy, świadectwo kwalifikacji, badania lekarskie i psychologiczne oraz kartę kierowcy, każdy z datą ważności. Gdy termin się zbliża, widzi komunikat na ekranie „Dziś”.',
-      label: 'Moje dokumenty · telefon, tryb nocny',
+      label: 'Moje dokumenty (telefon, tryb nocny)',
       note: 'Ekran „Moje dokumenty” z kompletem ważnych dokumentów: badania lekarskie, kwalifikacja zawodowa, karta kierowcy, badania psychotechniczne i prawo jazdy, każdy z datą „Ważny do”.',
     },
     ktoUzywa: 'Kto tego używa:',
@@ -73,11 +76,11 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     pytania: [
       [
         'Where do the dates come from?',
-        'You enter them once, with the document. After a renewal, you move the deadline with one click.',
+        'You enter them once, with the document, or AI reads them from a photo or PDF and you check and save. After a renewal, you move the deadline with one click.',
       ],
       [
         'Will the reminder come by email?',
-        'Yes, by email and in the app – to you and the dispatcher, and for company documents to you and your accountant. Drivers see their own deadlines in the app: on the “Today” screen and in “My documents”.',
+        'Yes, by email and in the app - to you and the dispatcher, and for company documents to you and your accountant. Drivers see their own deadlines in the app: on the “Today” screen and in “My documents”.',
       ],
       [
         'What if a document only applies to one vehicle?',
@@ -91,6 +94,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       'History of past policies and inspections',
       'Order documents (CMR, delivery notes) to hand for the driver on the road',
       'Reminders to download the driver card every 28 days and the tachograph every 90',
+      'The transport licence and its certified copies assigned to vans, with a reminder to report a change to the GITD inspectorate within 28 days',
+      'AI reads the dates from an insurance policy or inspection, and the categories and their expiry from a driving licence',
     ],
     przypomnienie: {
       tytul: 'Reminders well ahead',
@@ -100,7 +105,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'The driver sees theirs too',
       tresc:
         'In “My documents” they keep their driving licence, driver CPC, medical and psychological checks and tachograph card, each with its expiry date. When a deadline gets close, they see a message on the “Today” screen.',
-      label: 'My documents · phone, dark mode',
+      label: 'My documents (phone, dark mode)',
       note: 'The “My documents” screen with a full set of valid documents: medical check, professional qualification, tachograph card, psychological assessment and driving licence, each with a “Valid until” date.',
     },
     ktoUzywa: 'Who uses it:',
@@ -172,7 +177,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/wlasciciel">
                 {t.wlascicielLink}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/kierowca">
                 {t.kierowcaLink}
               </Link>

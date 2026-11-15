@@ -31,14 +31,14 @@ const ROWS: Record<Jezyk, Row[]> = {
 
 const TEKSTY: Tlumaczenia<{ tytul: string; sortowanie: string; przypomnienie: string }> = {
   pl: {
-    tytul: 'Dokumenty · wrzesień',
+    tytul: 'Dokumenty, wrzesień',
     sortowanie: 'posortowane po terminie',
-    przypomnienie: 'Przypomnienie wysłane: Tobie i Tomaszowi L. · 30 dni wcześniej',
+    przypomnienie: 'Przypomnienie wysłane: Tobie i Tomaszowi L., 30 dni wcześniej',
   },
   en: {
-    tytul: 'Documents · September',
+    tytul: 'Documents, September',
     sortowanie: 'sorted by due date',
-    przypomnienie: 'Reminder sent to you and Tomasz L. · 30 days ahead',
+    przypomnienie: 'Reminder sent to you and Tomasz L., 30 days ahead',
   },
 };
 

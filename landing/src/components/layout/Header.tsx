@@ -44,22 +44,22 @@ const TEKSTY: Tlumaczenia<{
   kafle: [string, string, string];
 }> = {
   pl: {
-    domu: 'BusiKM – strona główna',
+    domu: 'BusiKM - strona główna',
     glowna: 'Główna',
-    zaloguj: 'Zaloguj się',
+    zaloguj: 'Zapisz się',
     demo: 'Zobacz demo',
-    zapiszDemo: 'Zapisz się po demo →',
+    zapiszDemo: 'Wejdź do demo →',
     zamknij: 'Zamknij menu',
     menu: 'Menu',
     pulpit: 'Pulpit',
     kafle: ['Przychód', 'Koszty', 'Zysk'],
   },
   en: {
-    domu: 'BusiKM – home',
+    domu: 'BusiKM - home',
     glowna: 'Main',
-    zaloguj: 'Sign in',
+    zaloguj: 'Sign up',
     demo: 'See the demo',
-    zapiszDemo: 'Join the demo list →',
+    zapiszDemo: 'Open the demo →',
     zamknij: 'Close menu',
     menu: 'Menu',
     pulpit: 'Dashboard',
@@ -95,7 +95,7 @@ function DemoPreview({ jezyk }: { jezyk: Jezyk }) {
   const t = TEKSTY[jezyk];
   return (
     <div className="flex h-[110px] flex-col gap-2 rounded-btn border border-line bg-white p-3.5 text-[11px]">
-      <div className="text-muted">{t.pulpit} · Trans-Bus Kowalski</div>
+      <div className="text-muted">{t.pulpit}, Trans-Bus Kowalski</div>
       <div className="grid grid-cols-3 gap-1.5">
         {[
           [t.kafle[0], '184 320', false],

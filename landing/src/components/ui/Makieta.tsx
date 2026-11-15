@@ -50,7 +50,10 @@ export function Makieta({
         type="button"
         onClick={otworz}
         aria-label={`${etykietaPowieksz}: ${alt}`}
-        className="group absolute inset-0 block cursor-zoom-in"
+        // Najechanie kursorem lekko przybliża makietę (2%), żeby było widać,
+        // że da się ją powiększyć. Tailwind 4 włącza `hover:` tylko przy
+        // myszce, więc na telefonie makieta stoi w miejscu.
+        className="group absolute inset-0 block cursor-zoom-in transition-transform duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
         style={{ containerType: 'size' }}
       >
         <Image src={src} alt={alt} fill sizes={sizes} className={imgClassName} style={imgStyle} unoptimized={unoptimized} />
@@ -102,7 +105,7 @@ function Lupa({ className }: { className: string }) {
   return (
     <span
       aria-hidden
-      className={`pointer-events-none absolute flex size-8 items-center justify-center rounded-full bg-ink/70 text-paper opacity-80 shadow-card backdrop-blur transition-opacity group-hover:opacity-100 lg:size-9 ${className}`}
+      className={`pointer-events-none absolute flex size-8 items-center justify-center rounded-full bg-ink/70 text-paper opacity-80 shadow-card backdrop-blur transition-[opacity,scale] duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 group-hover:opacity-100 motion-reduce:group-hover:scale-100 lg:size-9 ${className}`}
     >
       <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <circle cx="11" cy="11" r="7" />

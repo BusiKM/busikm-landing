@@ -25,8 +25,8 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Cztery role',
     tytul1: 'Cztery osoby. Jeden system.',
     tytul2: 'Każdy widzi swoje.',
-    label: 'Cztery kadry · 3× przeglądarka + 1× telefon',
-    note: 'Właściciel: pulpit z zyskiem i marżą. Dyspozytor: kolejka i mapa floty. Księgowa: komplet za miesiąc. Kierowca: ekran „Dziś” z kursem Wrocław → Milano i wyborem nawigacji.',
+    label: 'Cztery kadry (3× przeglądarka + 1× telefon)',
+    note: 'Właściciel: pulpit z zyskiem i marżą. Dyspozytor: kolejka i mapa floty. Księgowa: komplet za miesiąc. Kierowca: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem nawigacji.',
     role: [
       {
         name: 'Właściciel',
@@ -58,8 +58,8 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Four roles',
     tytul1: 'Four people. One system.',
     tytul2: 'Each sees what’s theirs.',
-    label: 'Four frames · 3× browser + 1× phone',
-    note: 'Owner: dashboard with profit and margin. Dispatcher: the queue and the fleet map. Accountant: the month’s full set. Driver: the “Today” screen with the Wrocław → Milan job and the navigation picker.',
+    label: 'Four frames (3× browser + 1× phone)',
+    note: 'Owner: dashboard with profit and margin. Dispatcher: the queue and the fleet map. Accountant: the month’s full set. Driver: the “Today” screen with the Kraków → Antwerp job and the navigation picker.',
     role: [
       {
         name: 'Owner',

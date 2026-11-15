@@ -63,9 +63,9 @@ const TEKSTY: Tlumaczenia<{
     pulapka: 'Nie wypełniaj tego pola',
     wysylam: 'Wysyłam…',
     wyslij: 'Wyślij wiadomość',
-    blad: ['Nie udało się wysłać. Napisz wprost na', '– ta droga działa zawsze.'],
+    blad: ['Nie udało się wysłać. Napisz wprost na', '- ta droga działa zawsze.'],
     daneTylko:
-      'Odpowiadamy na podany adres. Twoje dane wykorzystujemy wyłącznie do odpowiedzi na tę wiadomość –',
+      'Odpowiadamy na podany adres. Twoje dane wykorzystujemy wyłącznie do odpowiedzi na tę wiadomość -',
     prywatnosc: 'polityka prywatności',
     pocztowy:
       'Otworzy się Twój program pocztowy z gotową wiadomością. Odpowiadamy na ten sam adres, z którego piszesz.',
@@ -94,9 +94,9 @@ const TEKSTY: Tlumaczenia<{
     pulapka: 'Do not fill in this field',
     wysylam: 'Sending…',
     wyslij: 'Send message',
-    blad: ['That didn’t send. Write to us directly at', '– that always works.'],
+    blad: ['That didn’t send. Write to us directly at', '- that always works.'],
     daneTylko:
-      'We reply to the address you gave. We use your details only to answer this message –',
+      'We reply to the address you gave. We use your details only to answer this message -',
     prywatnosc: 'privacy policy',
     pocztowy:
       'Your email app will open with the message ready. We reply to the address you write from.',
@@ -130,10 +130,10 @@ export function Formularz() {
   const kompletne = imie.trim() && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail) && tresc.trim();
 
   const linkPocztowy = () => {
-    const podpis = [imie && `– ${imie}`, mail].filter(Boolean).join('\n');
+    const podpis = [imie && `- ${imie}`, mail].filter(Boolean).join('\n');
     const body = [tresc, podpis].filter(Boolean).join('\n\n');
     return `mailto:${firma.email}?subject=${encodeURIComponent(
-      `BusiKM · ${t.tematy[tematy[temat]]}`,
+      `BusiKM: ${t.tematy[tematy[temat]]}`,
     )}&body=${encodeURIComponent(body)}`;
   };
 

@@ -15,18 +15,18 @@ const TEKSTY: Tlumaczenia<{
     zaladunek: 'załadunek',
     naBazie: 'na bazie',
     naZywo: 'na żywo',
-    trasa: 'Marek W. · Warszawa → Mediolan',
+    trasa: 'Marek W., Warszawa → Mediolan',
     naMiejscu: 'Na miejscu',
-    doRozladunku: ' · 214 km do rozładunku',
+    doRozladunku: ', 214 km do rozładunku',
   },
   en: {
     wTrasie: 'on the road',
     zaladunek: 'loading',
     naBazie: 'at base',
     naZywo: 'live',
-    trasa: 'Marek W. · Warsaw → Milan',
+    trasa: 'Marek W., Warsaw → Milan',
     naMiejscu: 'Arrives',
-    doRozladunku: ' · 214 km to unloading',
+    doRozladunku: ', 214 km to unloading',
   },
 };
 

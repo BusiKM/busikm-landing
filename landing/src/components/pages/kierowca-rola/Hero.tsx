@@ -17,7 +17,7 @@ const TEKSTY: Tlumaczenia<{
   note: string;
 }> = {
   pl: {
-    nadtytul: 'Dla kierowcy',
+    nadtytul: 'Aplikacja dla kierowcy busa',
     tytul: (
       <>
         Rusz. <br />
@@ -25,13 +25,13 @@ const TEKSTY: Tlumaczenia<{
       </>
     ),
     lead: 'Jedna aplikacja na cały dzień. Nawigacja jednym dotknięciem, paragon zdjęciem, przerwa z wyprzedzeniem.',
-    proba: 'Wypróbuj 14 dni',
+    proba: 'Zapisz się na start',
     demo: 'Zobacz demo',
-    label: 'Dwa telefony pod kątem · tryb nocny',
-    note: 'Lewy: ekran „Dziś” z kursem Wrocław → Milano i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: „Czas pracy” przy przewozie międzynarodowym – trzy wskaźniki i przyciski „Przerwa” i „Odpoczynek”.',
+    label: 'Dwa telefony pod kątem (tryb nocny)',
+    note: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: „Czas pracy” przy przewozie międzynarodowym, z bieżącym stanem, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
-    nadtytul: 'For drivers',
+    nadtytul: 'App for van drivers',
     tytul: (
       <>
         Go. <br />
@@ -39,10 +39,10 @@ const TEKSTY: Tlumaczenia<{
       </>
     ),
     lead: 'One app for the whole day. Navigation in one tap, receipts by photo, breaks flagged in advance.',
-    proba: 'Try 14 days free',
+    proba: 'Sign up for launch',
     demo: 'See the demo',
-    label: 'Two phones at an angle · dark mode',
-    note: 'Left: the “Today” screen with the Wrocław → Milan job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: “Working time” for international transport – three gauges and the “Break” and “Rest” buttons.',
+    label: 'Two phones at an angle (dark mode)',
+    note: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: “Working time” for international transport, with the current state, the day bar and the “Break” and “Rest” buttons.',
   },
 };
 
@@ -56,22 +56,22 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink px-6 pt-24 text-paper lg:px-12 lg:pt-40">
       <Container className="relative flex flex-col gap-6 lg:gap-8">
-        <Eyebrow dark>{t.nadtytul}</Eyebrow>
-        <h1
+        <Eyebrow as="h1" dark>{t.nadtytul}</Eyebrow>
+        <p
           data-reveal
           className="text-[46px] leading-[1.02] font-bold tracking-[-0.03em] text-balance lg:text-[96px] lg:leading-[1.05]"
         >
           {t.tytul}
-        </h1>
+        </p>
         <p data-reveal className="max-w-[640px] text-lead-m text-pretty text-ink-muted lg:text-lead">
           {t.lead}
         </p>
         <div data-reveal className="mt-2 flex flex-col gap-2.5 lg:flex-row lg:gap-3">
-          <Button href={appLinks.trial} fullWidth className="lg:w-auto">
-            {t.proba}
-          </Button>
-          <Button href={appLinks.demo} variant="secondaryDark" fullWidth className="lg:w-auto">
+          <Button href={appLinks.demo} fullWidth className="lg:w-auto">
             {t.demo}
+          </Button>
+          <Button href={appLinks.zapis} variant="secondaryDark" fullWidth className="lg:w-auto">
+            {t.proba}
           </Button>
         </div>
       </Container>

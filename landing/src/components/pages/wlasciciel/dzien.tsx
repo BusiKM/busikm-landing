@@ -26,13 +26,13 @@ export const dzienWlasciciela: Tlumaczenia<PunktDnia[]> = {
     {
       godzina: '16:20',
       pora: 'po południu',
-      tresc: 'Kierowca zamknął kurs. Sprawdzasz kwotę i klikasz „Wystaw i wyślij do KSeF”. Wysyłkę do klienta zlecasz od razu – wyjdzie, gdy KSeF nada numer.',
+      tresc: 'Kierowca zamknął kurs. Sprawdzasz kwotę i klikasz „Wystaw i wyślij do KSeF”. Wysyłkę do klienta zlecasz od razu - wyjdzie, gdy KSeF nada numer.',
       karta: <KartaFaktura />,
     },
     {
       godzina: 'koniec',
       pora: 'miesiąca',
-      tresc: 'Jeden przycisk i księgowa ma komplet. Nie dzwoni z pytaniami.',
+      tresc: 'W planie Firma jeden przycisk i księgowa ma komplet. Nie dzwoni z pytaniami.',
       karta: <KartaEksport />,
     },
   ],
@@ -53,13 +53,13 @@ export const dzienWlasciciela: Tlumaczenia<PunktDnia[]> = {
     {
       godzina: '16:20',
       pora: 'afternoon',
-      tresc: 'The driver has closed the job. You check the amount and click “Issue and send to KSeF”. Schedule the email to the client – it goes out once KSeF assigns a number.',
+      tresc: 'The driver has closed the job. You check the amount and click “Issue and send to KSeF”. Schedule the email to the client - it goes out once KSeF assigns a number.',
       karta: <KartaFaktura />,
     },
     {
       godzina: 'end',
       pora: 'of the month',
-      tresc: 'One button and your accountant has everything. No calls with questions.',
+      tresc: 'In the Business plan, one button and your accountant has everything. No calls with questions.',
       karta: <KartaEksport />,
     },
   ],

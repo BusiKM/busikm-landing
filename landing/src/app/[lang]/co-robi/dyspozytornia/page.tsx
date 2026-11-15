@@ -65,6 +65,9 @@ const TEKSTY: Tlumaczenia<{
       'Oddajesz kurs podwykonawcy - widzisz marżę i czy ma ważne OCP',
       'Link śledzenia dla klienta',
       'Doładunek po drodze',
+      'Punkt postoju zaznaczony na mapie i ostrzeżenie przy niedokładnym adresie',
+      'Kierowca odrzuca kurs z powodem. Bez odpowiedzi przez 4 h kurs wraca do przydziału',
+      'Czas dojazdu co minutę z pozycji auta, a przy spóźnieniu „Napisz do kierowcy”',
     ],
     statusy: ['przyjęte', 'przypisane', 'w trasie', 'dostarczone'],
     zlecenie: {
@@ -115,6 +118,9 @@ const TEKSTY: Tlumaczenia<{
       'You hand a run to a subcontractor - you see the margin and whether their carrier’s insurance (OCP) is valid',
       'A tracking link for the client',
       'An extra pickup on the way',
+      'Stops pinned on the map, with a warning when the address is imprecise',
+      'The driver turns a run down with a reason. No answer within 4 h and the run goes back to be reassigned',
+      'Arrival time updated every minute from the van’s position, with “Message driver” when it’s running late',
     ],
     statusy: ['accepted', 'assigned', 'on the road', 'delivered'],
     zlecenie: {

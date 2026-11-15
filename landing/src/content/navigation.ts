@@ -79,6 +79,11 @@ const TEKSTY: Tlumaczenia<Teksty> = {
             label: 'Czas pracy i przerwy',
             benefit: 'Wiesz, kiedy kierowca musi stanąć',
           },
+          {
+            href: '/co-robi/ewidencja-przebiegu',
+            label: 'Ewidencja przebiegu',
+            benefit: 'Kilometry z trasy, bez przepisywania licznika',
+          },
         ],
       },
       {
@@ -112,12 +117,17 @@ const TEKSTY: Tlumaczenia<Teksty> = {
           {
             href: '/co-robi/dane-dla-ksiegowej',
             label: 'Dane dla księgowej',
-            benefit: 'Komplet dokumentów jednym przyciskiem',
+            benefit: 'Komplet dokumentów jednym przyciskiem (plan Firma)',
           },
           {
             href: '/co-robi/dokumenty-i-terminy',
             label: 'Dokumenty i terminy',
             benefit: 'Nic nie wygaśnie po cichu',
+          },
+          {
+            href: '/co-robi/diety-i-delegacje',
+            label: 'Diety i delegacje',
+            benefit: 'Dni w każdym kraju liczone z trasy',
           },
         ],
       },
@@ -141,7 +151,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
           {
             href: '/dla-kogo/ksiegowa',
             label: 'Księgowa',
-            benefit: 'Komplet dokumentów jednym przyciskiem',
+            benefit: 'Komplet dokumentów jednym przyciskiem (plan Firma)',
             device: 'Przeglądarka',
           },
           {
@@ -170,6 +180,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       firma: 'Firma',
       prawne: 'Prawne',
       items: [
+        { href: '/program-tms-dla-busow', label: 'Program TMS dla busów', benefit: '' },
         { href: '/cennik', label: 'Cennik', benefit: '' },
         { href: '/rolki', label: 'Rolki', benefit: '' },
         { href: '/demo', label: 'Demo', benefit: '' },
@@ -195,7 +206,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
         label: 'Zobacz demo',
         benefit: 'Bez konta, tylko do odczytu - właściciel, dyspozytor albo księgowa',
       },
-      login: { href: '/zaloguj', label: 'Zaloguj się', benefit: 'Konta otwieramy wkrótce' },
+      login: { href: '/zaloguj', label: 'Zapisz się', benefit: 'Konta otwieramy wkrótce' },
     },
   },
   en: {
@@ -217,6 +228,11 @@ const TEKSTY: Tlumaczenia<Teksty> = {
             href: '/co-robi/czas-pracy',
             label: 'Working time and breaks',
             benefit: 'Know when a driver has to stop',
+          },
+          {
+            href: '/co-robi/ewidencja-przebiegu',
+            label: 'Mileage log',
+            benefit: 'Kilometres from the route, no odometer copying',
           },
         ],
       },
@@ -251,12 +267,17 @@ const TEKSTY: Tlumaczenia<Teksty> = {
           {
             href: '/co-robi/dane-dla-ksiegowej',
             label: 'Data for your accountant',
-            benefit: 'The full document pack in one click',
+            benefit: 'The full document pack in one click (Business plan)',
           },
           {
             href: '/co-robi/dokumenty-i-terminy',
             label: 'Documents and deadlines',
             benefit: 'Nothing expires without you knowing',
+          },
+          {
+            href: '/co-robi/diety-i-delegacje',
+            label: 'Per diems and business trips',
+            benefit: 'Days in each country counted from the route',
           },
         ],
       },
@@ -280,7 +301,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
           {
             href: '/dla-kogo/ksiegowa',
             label: 'Accountant',
-            benefit: 'The full document pack in one click',
+            benefit: 'The full document pack in one click (Business plan)',
             device: 'Browser',
           },
           {
@@ -309,6 +330,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       firma: 'Company',
       prawne: 'Legal',
       items: [
+        { href: '/program-tms-dla-busow', label: 'Van TMS', benefit: '' },
         { href: '/cennik', label: 'Pricing', benefit: '' },
         { href: '/rolki', label: 'Reels', benefit: '' },
         { href: '/demo', label: 'Demo', benefit: '' },
@@ -334,7 +356,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
         label: 'See the demo',
         benefit: 'No account, read-only - owner, dispatcher or accountant',
       },
-      login: { href: '/zaloguj', label: 'Sign in', benefit: 'Accounts open soon' },
+      login: { href: '/zaloguj', label: 'Sign up', benefit: 'Accounts open soon' },
     },
   },
 };
@@ -364,11 +386,17 @@ export const DEMO_URL = process.env.NEXT_PUBLIC_DEMO_URL || 'https://staging.bus
  * osobom, które konto testowe już mają.
  *
  * `trial` prowadzi na cennik z tego samego powodu.
+ *
+ * `zapis` to drugi przycisk obok „Zobacz demo”, dopóki rejestracja jest
+ * zamknięta („Zapisz się na start”). Ta sama strona co `login`, ale osobna
+ * nazwa: po otwarciu kont zapis zamieni się w rejestrację, a logowanie
+ * zostanie logowaniem.
  */
 export const appLinks = {
   trial: '/cennik',
   demo: DEMO_URL,
   login: '/zaloguj',
+  zapis: '/zaloguj',
 } as const;
 
 

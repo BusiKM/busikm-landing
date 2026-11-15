@@ -103,7 +103,7 @@ export const artykulyZlecenia: Artykul[] = [
           },
           {
             typ: 'uwaga',
-            tresc: 'Mapa floty na żywo jest w planie Firma.',
+            tresc: 'Mapa floty na żywo jest w obu planach, także w Start.',
           },
         ],
       },

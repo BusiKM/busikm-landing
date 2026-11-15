@@ -18,7 +18,7 @@ const TEKSTY: Tlumaczenia<{
       [
         '03',
         'Miesiąc się zamyka',
-        'Faktury dla klientów, koszty, przebieg i komplet dla księgowej. Jednym przyciskiem.',
+        'Faktury dla klientów, koszty i przebieg. W planie Firma także komplet dla księgowej jednym przyciskiem.',
       ],
     ],
   },
@@ -34,7 +34,7 @@ const TEKSTY: Tlumaczenia<{
       [
         '03',
         'The month closes',
-        'Client invoices, costs, mileage and the full set for your accountant. With one button.',
+        'Client invoices, costs and mileage. In the Business plan, the full set for your accountant in one click too.',
       ],
     ],
   },

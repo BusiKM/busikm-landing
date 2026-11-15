@@ -55,6 +55,7 @@ const TEKSTY: Tlumaczenia<{
       'CMR wypełnia się sam z danych zlecenia',
       'PDF z kodem QR z KSeF',
       'PDF wyślesz ponownie jednym kliknięciem',
+      'Proforma do przedpłaty i alert na pulpicie, gdy wpłaty nie ma, a załadunek jest jutro',
     ],
     wysylka: {
       tytul: 'Jednym przyciskiem do KSeF',
@@ -101,6 +102,7 @@ const TEKSTY: Tlumaczenia<{
       'The CMR fills itself in from the order details',
       'PDF with the KSeF QR code',
       'Resend the PDF in one click',
+      'Pro forma for prepayment, with a dashboard alert when nothing’s been paid and loading is tomorrow',
     ],
     wysylka: {
       tytul: 'One button to KSeF',

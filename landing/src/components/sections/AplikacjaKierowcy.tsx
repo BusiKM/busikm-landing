@@ -2,6 +2,7 @@ import { Section, Eyebrow } from '@/components/ui/Section';
 import { MockupSlot } from '@/components/ui/MockupSlot';
 import { TelefonyKierowcy } from '@/components/mockups/TelefonyKierowcy';
 import { StoreBadges } from '@/components/ui/StoreBadges';
+import { Dolaczone, type OdnosnikWiecej, type PunktDolaczony } from '@/components/sections/Dolaczone';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
@@ -24,6 +25,26 @@ const PUNKTY: Tlumaczenia<readonly Punkt[]> = {
     ['Works with CarPlay and Android Auto', 'The route on the dashboard screen, while BusiKM logs the trip in the background'],
     ['Night mode', 'At three in the morning the screen doesn’t dazzle'],
   ],
+};
+
+/** Z dawnej sekcji „Czas pracy” – najmocniejsze trzy zdania i odnośnik. */
+const CZAS_PRACY: Tlumaczenia<{ punkty: readonly PunktDolaczony[]; wiecej: OdnosnikWiecej }> = {
+  pl: {
+    punkty: [
+      ['Wiesz, kiedy kierowca musi stanąć', 'Kierowca dostaje przypomnienie 15 minut przed przerwą, nie po fakcie. Ty widzisz to samo ze swojego biura.'],
+      ['Przerwa jednym przyciskiem', 'Jazda i praca liczą się same. Przerwę zapisze bez zasięgu, dojdzie, gdy wróci sygnał.'],
+      ['Tachograf zapisuje. BusiKM pokazuje.', 'BusiKM nie zastępuje tachografu. Pokazuje na ekranie, ile jeszcze można jechać i kiedy trzeba stanąć.'],
+    ],
+    wiecej: { href: '/co-robi/czas-pracy', label: 'Więcej: czas pracy i przerwy' },
+  },
+  en: {
+    punkty: [
+      ['You know when the driver has to stop', 'The driver gets a reminder 15 minutes before a break is due, not after the fact. You see the same from your office.'],
+      ['A break in one tap', 'Driving and work time count themselves. Breaks are logged with no signal and go through once it’s back.'],
+      ['The tachograph records. BusiKM shows.', 'BusiKM doesn’t replace the tachograph. It shows on screen how much longer the driver can drive and when they have to stop.'],
+    ],
+    wiecej: { href: '/co-robi/czas-pracy', label: 'More: working time and breaks' },
+  },
 };
 
 const TEKSTY: Tlumaczenia<{
@@ -139,6 +160,10 @@ export function AplikacjaKierowcy() {
             <TelefonyKierowcy />
           </MockupSlot>
         </div>
+      </div>
+
+      <div className="relative mt-16 lg:mt-24">
+        <Dolaczone dark punkty={CZAS_PRACY[jezyk].punkty} wiecej={[CZAS_PRACY[jezyk].wiecej]} />
       </div>
     </Section>
   );

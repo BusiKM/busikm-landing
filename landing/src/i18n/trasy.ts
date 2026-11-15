@@ -32,6 +32,12 @@ const STRONY: Record<string, string> = {
   '/co-robi/rentownosc': '/features/profitability',
   '/co-robi/dane-dla-ksiegowej': '/features/accounting-export',
   '/co-robi/dokumenty-i-terminy': '/features/documents-and-deadlines',
+  '/co-robi/ewidencja-przebiegu': '/features/mileage-log',
+  '/co-robi/diety-i-delegacje': '/features/per-diems-and-business-trips',
+
+  // Strona zbiorcza pod zapytania ogólne („program TMS dla busów",
+  // „program dla firmy transportowej").
+  '/program-tms-dla-busow': '/van-tms',
 
   '/dla-kogo': '/for',
   '/dla-kogo/wlasciciel': '/for/owners',
@@ -71,6 +77,8 @@ export const SLUGI_ARTYKULOW: Record<string, string> = {
   'zespol-i-role': 'team-and-roles',
   'bezpieczenstwo-konta': 'account-security',
   'plan-i-rezygnacja': 'plan-and-cancellation',
+  'ksef-dla-przewoznika-2027': 'ksef-for-carriers-2027',
+  'tachograf-w-busie-od-lipca-2026': 'tachograph-in-vans-from-july-2026',
 };
 
 const PL_NA_EN: Record<string, string> = {

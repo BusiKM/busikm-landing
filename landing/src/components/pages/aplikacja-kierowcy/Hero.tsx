@@ -37,7 +37,7 @@ const TEKSTY: Tlumaczenia<{
     dodajKoszt: 'Dodaj paragon',
     kwota: 'Kwota',
     kwotaWartosc: '612,40 zł',
-    eyebrow: 'BusiKM Kierowca na iPhone i Androida',
+    eyebrow: 'Aplikacja BusiKM Kierowca dla kierowcy busa',
     naglowek1: 'Cały dzień pracy w jednej aplikacji.',
     naglowek2: 'Prawie bez wpisywania w trasie.',
     lead: 'Kierowca dostaje kod mailem, ustawia hasło i jest w środku. Dalej prowadzi go jeden przycisk na każdy etap dnia.',
@@ -63,7 +63,7 @@ const TEKSTY: Tlumaczenia<{
     dodajKoszt: 'Add receipt',
     kwota: 'Amount',
     kwotaWartosc: 'PLN 612.40',
-    eyebrow: 'BusiKM Driver for iPhone and Android',
+    eyebrow: 'BusiKM Kierowca van driver app',
     naglowek1: 'A whole working day in one app.',
     naglowek2: 'Hardly any typing on the road.',
     lead: 'The driver gets a code by email, sets a password and they’re in. From then on, one button takes them through each stage of the day.',
@@ -216,14 +216,14 @@ export function Hero() {
       </svg>
 
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow dark>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1" dark>{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="max-w-[1040px] text-display-m font-bold text-balance lg:text-display"
         >
           {t.naglowek1} <br className="hidden lg:inline" />
           {t.naglowek2}
-        </h1>
+        </p>
         <p
           data-reveal
           className="max-w-[640px] text-lead-m text-pretty text-ink-muted lg:text-lead"

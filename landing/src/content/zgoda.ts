@@ -25,6 +25,10 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
  * zamiast długiego myślnika. Sens zgody się nie zmienił, ale treść tak,
  * więc numer też.
  *
+ * Wersja 4 usunęła zapowiedź „uruchomienia demo”, bo demo już działa.
+ * Zostało otwarcie zapisów i nowości w BusiKM. Zapisy z wersji 1-3 wskazują
+ * na swoje brzmienie zapisane w bazie razem z numerem.
+ *
  * ## Podstawa prawna
  *
  * Art. 6 ust. 1 lit. a RODO (zgoda) oraz **art. 398 Prawa komunikacji
@@ -42,7 +46,7 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
  * więc tam zgoda musi być nieobowiązkowa.
  */
 
-export const WERSJA_ZGODY = 3;
+export const WERSJA_ZGODY = 4;
 
 /**
  * Brzmienie w obu językach serwisu.
@@ -56,11 +60,11 @@ export const WERSJA_ZGODY = 3;
 export const TRESC_ZGODY: Tlumaczenia<string> = {
   pl:
     `Zgadzam się na otrzymywanie od ${firma.nazwa} informacji o BusiKM na podany adres ` +
-    'e-mail, w tym o uruchomieniu demo i otwarciu zapisów. Zgodę wycofam odnośnikiem ' +
+    'e-mail, w tym o otwarciu zapisów i nowościach w BusiKM. Zgodę wycofam odnośnikiem ' +
     `w każdej wiadomości albo pisząc na ${firma.email}.`,
   en:
     `I agree to receive information about BusiKM from ${firma.nazwa} at the email ` +
-    'address I have given, including news of the demo launch and of sign-ups opening. ' +
+    'address I have given, including news of sign-ups opening and what is new in BusiKM. ' +
     `I can withdraw my consent via the link in any message or by writing to ${firma.email}.`,
 };
 

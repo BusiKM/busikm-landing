@@ -175,7 +175,7 @@ export function MockupSlot({
       >
         <Makieta
           src={src}
-          alt={`${label} - ${note}`}
+          alt={note}
           sizes="(max-width: 1024px) 100vw, 1120px"
           etykietaPowieksz={pl ? 'Powiększ' : 'Enlarge'}
           etykietaZamknij={pl ? 'Zamknij' : 'Close'}

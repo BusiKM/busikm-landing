@@ -42,8 +42,8 @@ const TEKSTY: Tlumaczenia<{
     kwota: (n) => `${n} zł`,
     dopisek: (ponad) => `299 + ${ponad} × 29 zł`,
     puenta: 'Tyle samo, ilu byś nie miał kierowców.',
-    wezwanie: 'Wypróbuj 14 dni',
-    drobne: 'Przez pierwsze 14 dni nie płacisz. Rezygnujesz jednym kliknięciem.',
+    wezwanie: 'Zapisz się na start',
+    drobne: 'Od otwarcia kont pierwsze 14 dni bez opłat. Rezygnujesz jednym kliknięciem.',
   },
   en: {
     pytanie: 'How many vehicles do you have?',
@@ -54,8 +54,8 @@ const TEKSTY: Tlumaczenia<{
     kwota: (n) => `PLN ${n}`,
     dopisek: (ponad) => `PLN 299 + ${ponad} × PLN 29`,
     puenta: 'The same, however many drivers you have.',
-    wezwanie: 'Try 14 days free',
-    drobne: 'You pay nothing for the first 14 days. Cancel in one click.',
+    wezwanie: 'Sign up for launch',
+    drobne: 'Once accounts open, the first 14 days are free. Cancel in one click.',
   },
 };
 

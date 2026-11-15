@@ -12,7 +12,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
       ],
       [
         'Czy moja księgowa będzie musiała się przestawiać?',
-        'Nie. Pobiera plik i wczytuje do programu, którego już używa.',
+        'Nie. W planie Firma pobiera gotowy plik i wczytuje go do programu, którego już używa. W planie Start ma dostęp do panelu i ewidencji przebiegu.',
       ],
       [
         'Mam już lokalizator w busach.',
@@ -35,6 +35,10 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
         'Nie musi. Pieniądze widzi właściciel i osoba od rozliczeń.',
       ],
       ['Czy przyczepa liczy się jako pojazd?', 'Nie. Płacisz tylko za pojazdy napędzane.'],
+      [
+        'Gdzie są moje dane i kto je widzi?',
+        'Na serwerach w Europie (Frankfurt). Kopia powstaje codziennie, zaszyfrowana, u drugiego dostawcy. W aplikacji widać, kto co zmienił i kiedy. Wyjątki, czyli odczyt dokumentów przez AI i powiadomienia w telefonie, opisujemy w rejestrze podprocesorów w dokumentach usługi.',
+      ],
       ['Co z danymi, gdy zrezygnuję?', 'Zostają Twoje. Konto zostaje do odczytu - pobierasz faktury, ewidencje i eksporty.'],
     ],
   },
@@ -47,7 +51,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
       ],
       [
         'Will my accountant have to change how they work?',
-        'No. They download a file and load it into the software they already use.',
+        'No. In the Business plan they download a ready file and load it into the software they already use. In the Start plan they have access to the panel and mileage logs.',
       ],
       [
         'I already have trackers in my vans.',
@@ -70,6 +74,10 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
         'They don’t need to. The money is visible to the owner and whoever handles the accounts.',
       ],
       ['Does a trailer count as a vehicle?', 'No. You only pay for powered vehicles.'],
+      [
+        'Where is my data and who can see it?',
+        'On servers in Europe (Frankfurt). A backup is made every day, encrypted, with a second provider. In the app you can see who changed what, and when. The exceptions, AI reading of documents and phone notifications, are described in the list of subprocessors in the service documents.',
+      ],
       ['What happens to my data if I cancel?', 'It stays yours. The account stays read-only - you download invoices, logs and exports.'],
     ],
   },

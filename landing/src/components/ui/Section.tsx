@@ -43,21 +43,27 @@ export function Eyebrow({
   children,
   dark = false,
   className = '',
+  as: Tag = 'div',
   ...rest
 }: {
   children: React.ReactNode;
   dark?: boolean;
   className?: string;
-} & React.HTMLAttributes<HTMLDivElement>) {
+  /**
+   * `h1` na podstronach „Co robi” i stronach ról: nagłówkiem strony jest
+   * nadtytuł z frazą, a slogan pod nim zostaje dużym tekstem (jak w HeroRoli).
+   */
+  as?: 'div' | 'h1';
+} & React.HTMLAttributes<HTMLElement>) {
   return (
-    <div
+    <Tag
       {...rest}
       className={`text-[12px] font-medium tracking-[0.1em] uppercase lg:text-caption ${
         dark ? 'text-ink-muted' : 'text-muted'
       } ${className}`}
     >
       {children}
-    </div>
+    </Tag>
   );
 }
 

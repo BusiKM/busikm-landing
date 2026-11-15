@@ -51,6 +51,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       'Koszt na kilometr na karcie pojazdu',
       'Eksport do arkusza',
       'Podgląd bez zamykania miesiąca',
+      'Raport klientów: ranking, udział w przychodzie i jak płacą',
+      'Cele na miesiąc: przychód, koszty, zysk i próg marży, a postęp na pulpicie',
     ],
     koszty: {
       tytul: 'Wszystkie koszty w środku',
@@ -88,6 +90,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       'Cost per kilometre on the vehicle card',
       'Export to a spreadsheet',
       'Preview without closing the month',
+      'Client report: ranking, share of revenue and how they pay',
+      'Monthly goals: revenue, costs, profit and a margin threshold, with progress on the dashboard',
     ],
     koszty: {
       tytul: 'Every cost counted',

@@ -135,6 +135,15 @@ const nextConfig: NextConfig = {
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
         ],
       },
+      // Pliki z `public/` do przesyłania ręcznie (pitch deck, podpisy
+      // e-mail), nie do wyszukiwarki. Plik nie ma `<meta name="robots">`,
+      // więc noindex idzie nagłówkiem.
+      ...['/busikm-pitch-deck-2026.pdf', '/podpis-lukasz.html', '/podpis-swietlana.html'].map(
+        (source) => ({
+          source,
+          headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+        }),
+      ),
     ];
   },
 };

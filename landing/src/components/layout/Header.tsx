@@ -46,9 +46,9 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     domu: 'BusiKM - strona główna',
     glowna: 'Główna',
-    zaloguj: 'Zaloguj się',
+    zaloguj: 'Zapisz się',
     demo: 'Zobacz demo',
-    zapiszDemo: 'Zapisz się po demo →',
+    zapiszDemo: 'Wejdź do demo →',
     zamknij: 'Zamknij menu',
     menu: 'Menu',
     pulpit: 'Pulpit',
@@ -57,9 +57,9 @@ const TEKSTY: Tlumaczenia<{
   en: {
     domu: 'BusiKM - home',
     glowna: 'Main',
-    zaloguj: 'Sign in',
+    zaloguj: 'Sign up',
     demo: 'See the demo',
-    zapiszDemo: 'Join the demo list →',
+    zapiszDemo: 'Open the demo →',
     zamknij: 'Close menu',
     menu: 'Menu',
     pulpit: 'Dashboard',

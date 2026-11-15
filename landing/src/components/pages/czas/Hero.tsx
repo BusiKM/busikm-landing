@@ -14,7 +14,7 @@ const TEKSTY: Tlumaczenia<{
   note: string;
 }> = {
   pl: {
-    eyebrow: 'Czas pracy i przerwy',
+    eyebrow: 'Czas pracy kierowcy busa i AETR',
     naglowek1: 'Wiesz, kiedy kierowca musi stanąć.',
     naglowek2: 'Zanim stanie za późno.',
     lead: 'Jazda i praca liczą się same, przerwę kierowca włącza jednym przyciskiem. Kierowca widzi to na telefonie, Ty na jednym ekranie.',
@@ -22,7 +22,7 @@ const TEKSTY: Tlumaczenia<{
     note: 'Lista kierowców z kolumnami: teraz, jazda dziś, do przerwy, tydzień, dwa tygodnie, powrót do domu i stan „W normie”. Ten sam ekran co na stronie głównej.',
   },
   en: {
-    eyebrow: 'Working time and breaks',
+    eyebrow: 'Van driver working time and AETR',
     naglowek1: 'You know when a driver has to stop.',
     naglowek2: 'Before it’s too late.',
     lead: 'Driving and work time count themselves; the driver starts a break with one tap. The driver sees it on the phone, you see it on one screen.',
@@ -40,14 +40,14 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink px-6 pt-24 text-paper lg:px-12 lg:pt-40">
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow dark>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1" dark>{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="text-display-m font-bold text-balance lg:text-[76px] lg:leading-[1.05] lg:tracking-[-0.03em]"
         >
           {t.naglowek1} <br className="hidden lg:inline" />
           {t.naglowek2}
-        </h1>
+        </p>
         <p
           data-reveal
           className="max-w-[640px] text-lead-m text-pretty text-ink-muted lg:text-lead"

@@ -35,7 +35,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     pytania: [
       [
         'Czy moja księgowa będzie musiała się przestawiać?',
-        'Nie. Pobiera plik i wczytuje do programu, którego już używa.',
+        'Nie. W planie Firma pobiera gotowy plik i wczytuje go do programu, którego już używa. W planie Start ma dostęp do panelu i ewidencji przebiegu.',
       ],
       [
         'A jeśli mam biuro rachunkowe, nie księgową na etacie?',
@@ -49,7 +49,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     drobiazgi: [
       'Kurs waluty zapisany przy dokumencie',
       'Zdjęcie paragonu zostaje dowodem',
-      'Paczka robocza przed zamknięciem miesiąca',
+      'Paczka robocza przed zamknięciem miesiąca (plan Firma)',
       'Ewidencja przebiegu w PDF na każdy pojazd',
       'Podgląd przed pobraniem',
       'Zlecenia i mapa do wglądu',
@@ -78,7 +78,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     pytania: [
       [
         'Will my accountant have to change how they work?',
-        'No. They download the file and import it into the software they already use.',
+        'No. In the Business plan they download a ready file and import it into the software they already use. In the Start plan they have access to the panel and mileage logs.',
       ],
       [
         'What if I use an accounting office rather than an in-house accountant?',
@@ -92,7 +92,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     drobiazgi: [
       'Exchange rate saved with the document',
       'The receipt photo stays as proof',
-      'A draft package before the month is closed',
+      'A draft package before the month is closed (Business plan)',
       'Mileage log as a PDF for each vehicle',
       'Preview before you download',
       'Orders and map to look at',

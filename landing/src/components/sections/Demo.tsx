@@ -26,7 +26,9 @@ const TEKSTY: Tlumaczenia<{
 export function Demo() {
   const t = TEKSTY[biezacyJezyk()];
   return (
-    <Section>
+    // `id` czyta przyklejony przycisk „Zobacz demo” na telefonie – chowa się,
+    // gdy ta sekcja jest na ekranie.
+    <Section id="demo">
       <div className="flex flex-col gap-8 lg:gap-18">
         <div className="grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-16">
           <h2 data-reveal className="text-h2-m font-bold text-balance lg:text-h1">

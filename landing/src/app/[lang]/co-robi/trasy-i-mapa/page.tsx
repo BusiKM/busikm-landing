@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     pytania: [
       [
         'Czy kierowca musi coś włączać?',
-        'Nie. Trasa zapisuje się od „Zacznij dzień” do licznika końcowego przy „Zakończ dzień”. Telefon może zostać w kieszeni.',
+        'Nie. Trasa zapisuje się od „Zacznij dzień” do licznika końcowego przy „Zakończ trasę”. Telefon może zostać w kieszeni.',
       ],
       [
         'Co, gdy telefon straci zasięg?',
@@ -40,7 +40,7 @@ const TEKSTY: Tlumaczenia<{
       ],
       [
         'Czy to śledzenie kierowcy po godzinach?',
-        'Nie. Zapis trwa od „Zacznij dzień” do „Zakończ dzień”, a na prywatną przerwę kierowca może go wstrzymać. Po zakończeniu dnia pozycja nie jest zbierana.',
+        'Nie. Zapis trwa od „Zacznij dzień” do „Zakończ trasę”, a na prywatną przerwę kierowca może go wstrzymać. Po zakończeniu dnia pozycja nie jest zbierana.',
       ],
     ],
     naglowekPytan: 'Trzy pytania',
@@ -73,7 +73,7 @@ const TEKSTY: Tlumaczenia<{
     pytania: [
       [
         'Does the driver have to switch anything on?',
-        'No. The route records from “Start the day” to the final odometer reading at “End the day”. The phone can stay in their pocket.',
+        'No. The route records from “Start the day” to the final odometer reading at “End trip”. The phone can stay in their pocket.',
       ],
       [
         'What if the phone loses signal?',
@@ -81,7 +81,7 @@ const TEKSTY: Tlumaczenia<{
       ],
       [
         'Is this tracking the driver after hours?',
-        'No. Recording runs from “Start the day” to “End the day”, and the driver can pause it for a private break. Once the day is over, no position is collected.',
+        'No. Recording runs from “Start the day” to “End trip”, and the driver can pause it for a private break. Once the day is over, no position is collected.',
       ],
     ],
     naglowekPytan: 'Three questions',

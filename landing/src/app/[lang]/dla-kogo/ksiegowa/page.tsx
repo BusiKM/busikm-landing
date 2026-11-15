@@ -27,9 +27,9 @@ type Tresc = {
 
 const TEKSTY: Tlumaczenia<Tresc> = {
   pl: {
-    nadtytul: 'Dla księgowej',
+    nadtytul: 'Dokumenty dla księgowej firmy transportowej',
     tytul: 'Koniec miesiąca w jednym kliknięciu.',
-    lead: 'Dane wpadają przez cały miesiąc. Ty wybierasz miesiąc, klikasz „Pobierz paczkę dla biura” i masz komplet w formacie swojego programu.',
+    lead: 'Dane wpadają przez cały miesiąc. Ty wybierasz miesiąc, klikasz „Pobierz paczkę dla biura” i masz komplet w formacie swojego programu (plan Firma).',
     osNaglowek: 'Twój miesiąc z BusiKM.',
     nieRobisz: [
       'prosisz o brakujące paragony',
@@ -53,13 +53,13 @@ const TEKSTY: Tlumaczenia<Tresc> = {
           przygaszona: true,
         },
       ],
-      nota: 'Pracujesz w firmie albo obsługujesz ją z zewnątrz - dostajesz zaproszenie mailem i własny dostęp. Każda firma zaprasza Cię osobno.',
+      nota: 'Pracujesz w firmie albo obsługujesz ją z zewnątrz - dostajesz zaproszenie mailem i własny dostęp. Każda firma zaprasza Cię osobno. Paczka dla biura, dekrety FK, rejestry VAT, JPK_V7M i lista płac są w planie Firma. W planie Start masz dostęp do panelu i ewidencji przebiegu, a pliki do programu przygotowujesz sama. Plan Firma firma wybierze przy dowolnej liczbie busów.',
     },
     pytaniaNaglowek: 'Trzy pytania',
     pytania: [
       [
         'Czy będę musiała się przestawiać?',
-        'Nie. Pobierasz plik i wczytujesz do programu, którego już używasz.',
+        'Nie. W planie Firma pobierasz gotowy plik i wczytujesz go do programu, którego już używasz.',
       ],
       [
         'Obsługuję dziewięć firm. Jak to wygląda?',
@@ -72,9 +72,9 @@ const TEKSTY: Tlumaczenia<Tresc> = {
     ],
   },
   en: {
-    nadtytul: 'For accountants',
+    nadtytul: 'Documents for a transport company’s accountant',
     tytul: 'Month-end in one click.',
-    lead: 'Data comes in all month. You pick the month, click “Download the package for the office” and have everything in your accounting software’s format.',
+    lead: 'Data comes in all month. You pick the month, click “Download the package for the office” and have everything in your accounting software’s format (Business plan).',
     osNaglowek: 'Your month with BusiKM.',
     nieRobisz: [
       'chase missing receipts',
@@ -98,13 +98,13 @@ const TEKSTY: Tlumaczenia<Tresc> = {
           przygaszona: true,
         },
       ],
-      nota: 'Whether you work in the company or look after it from outside, you get an email invitation and your own access. Each company invites you separately.',
+      nota: 'Whether you work in the company or look after it from outside, you get an email invitation and your own access. Each company invites you separately. The office pack, journal entries, VAT registers, JPK_V7M and the payroll list are in the Business plan. In the Start plan you have access to the panel and mileage logs, and prepare the files for your software yourself. A company can choose the Business plan for any fleet size.',
     },
     pytaniaNaglowek: 'Three questions',
     pytania: [
       [
         'Will I have to change how I work?',
-        'No. You download a file and import it into the software you already use.',
+        'No. In the Business plan you download a ready file and import it into the software you already use.',
       ],
       [
         'I look after nine companies. How does that work?',

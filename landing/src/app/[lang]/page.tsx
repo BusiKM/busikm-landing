@@ -3,31 +3,29 @@ import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { FilmWlasciciela } from '@/components/sections/FilmWlasciciela';
 import { CzteryRzeczy } from '@/components/sections/CzteryRzeczy';
-import { CzteryOsoby } from '@/components/sections/CzteryOsoby';
 import { TrzyRuchy } from '@/components/sections/TrzyRuchy';
+import { IleZostaje } from '@/components/sections/IleZostaje';
 import { Dyspozytornia } from '@/components/sections/Dyspozytornia';
 import { AplikacjaKierowcy } from '@/components/sections/AplikacjaKierowcy';
 import { ZlecenieFaktura } from '@/components/sections/ZlecenieFaktura';
-import { IleZostaje } from '@/components/sections/IleZostaje';
-import { MapaITrasa } from '@/components/sections/MapaITrasa';
-import { CzasPracy } from '@/components/sections/CzasPracy';
-import { KosztyIParagony } from '@/components/sections/KosztyIParagony';
-import { KoniecMiesiaca } from '@/components/sections/KoniecMiesiaca';
-import { DokumentyITerminy } from '@/components/sections/DokumentyITerminy';
-import { RzeczyWRobocie } from '@/components/sections/RzeczyWRobocie';
 import { Demo } from '@/components/sections/Demo';
-import { PierwszyDzien } from '@/components/sections/PierwszyDzien';
-import { JednaFaktura } from '@/components/sections/JednaFaktura';
+import { Integracje } from '@/components/sections/Integracje';
+import { KtoRobi } from '@/components/sections/KtoRobi';
 import { Cennik } from '@/components/sections/Cennik';
-import { TwojeDane } from '@/components/sections/TwojeDane';
-import { Rolki } from '@/components/sections/Rolki';
 import { Pytania } from '@/components/sections/Pytania';
 import { FinalCta } from '@/components/sections/FinalCta';
+import { PrzyklejoneDemo } from '@/components/ui/PrzyklejoneDemo';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
 
 /**
- * Strona główna – 22 sekcje wg projektu (plus film właściciela pod hero) „BusiKM Desktop 1440" / „BusiKM Telefon 390"
- * z Claude Design. Treść i kolejność: docs/landing/04-homepage.md.
+ * Strona główna – 13 sekcji i finał.
+ *
+ * Krótsza niż pierwsza wersja z projektu (22 sekcje): mapa i trasa weszły
+ * do dyspozytorni, czas pracy do aplikacji kierowcy, koszty i komplet dla
+ * księgowej do sekcji o fakturach, a każda z nich prowadzi do swojej
+ * podstrony w „Co robi”. Pierwszy dzień i „jedna faktura” stoją zdaniem
+ * w cenniku, dane i bezpieczeństwo pytaniem w „Pytaniach”.
+ * Treść pierwotna: docs/landing/04-homepage.md.
  */
 export default async function Home({ params }: ParametryJezyka) {
   await jezykZParametrow(params);
@@ -38,28 +36,20 @@ export default async function Home({ params }: ParametryJezyka) {
         <Hero />
         <FilmWlasciciela />
         <CzteryRzeczy />
-        <CzteryOsoby />
         <TrzyRuchy />
+        <IleZostaje />
         <Dyspozytornia />
         <AplikacjaKierowcy />
         <ZlecenieFaktura />
-        <IleZostaje />
-        <MapaITrasa />
-        <CzasPracy />
-        <KosztyIParagony />
-        <KoniecMiesiaca />
-        <DokumentyITerminy />
-        <RzeczyWRobocie />
         <Demo />
-        <PierwszyDzien />
-        <JednaFaktura />
+        <Integracje />
+        <KtoRobi />
         <Cennik />
-        <TwojeDane />
-        <Rolki />
         <Pytania />
       </main>
       <FinalCta />
       <Footer />
+      <PrzyklejoneDemo />
     </>
   );
 }

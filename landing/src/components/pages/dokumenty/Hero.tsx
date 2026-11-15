@@ -13,14 +13,14 @@ const TEKSTY: Tlumaczenia<{
   note: string;
 }> = {
   pl: {
-    eyebrow: 'Dokumenty i terminy',
+    eyebrow: 'Terminy dokumentów busów i kierowców',
     tytul: 'Nic nie wygaśnie po cichu.',
     lead: 'Ubezpieczenie, przegląd, licencja, prawo jazdy, badania. System pilnuje dat i przypomina wcześniej - Tobie i dyspozytorowi. Kierowca widzi swoje terminy w aplikacji.',
     label: 'Dokumenty i terminy (desktop)',
     note: 'Lista dokumentów posortowana po dniach do końca ważności, paski w trzech kolorach, jeden wiersz w kolorze ostrzegawczym. Ten sam ekran co na stronie głównej.',
   },
   en: {
-    eyebrow: 'Documents and deadlines',
+    eyebrow: 'Van and driver document deadlines',
     tytul: 'Nothing expires quietly.',
     lead: 'Insurance, roadworthiness test, operator licence, driving licence, medical checks. BusiKM watches the dates and reminds you early - you and the dispatcher. Drivers see their own deadlines in the app.',
     label: 'Documents and deadlines (desktop)',
@@ -34,13 +34,13 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-paper px-6 pt-24 lg:px-12 lg:pt-40">
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1">{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="max-w-[1120px] text-display-m font-bold text-balance lg:text-display"
         >
           {t.tytul}
-        </h1>
+        </p>
         <p
           data-reveal
           className="max-w-[680px] text-lead-m text-pretty text-muted lg:text-lead"

@@ -104,7 +104,7 @@ Nazwa w sklepach: **BusiKM Kierowca**. Nie zakłada konta — dostaje kod.
 - **Ekran „Do wysłania”** — kierowca widzi, co jeszcze czeka na zasięg
 - Własne dokumenty w telefonie z przypomnieniem o terminach
 - Powiadomienia: nowe zlecenie, zmiana terminu, przerwa, dokumenty
-- **Interfejs w sześciu językach** — polski, angielski, niemiecki, włoski, francuski, hiszpański
+- **Interfejs po polsku** - aplikacja kierowcy nie ma innych wersji językowych (sprawdzone w kodzie 15.11.2026)
 - **Tryb nocny**
 
 ---
@@ -173,7 +173,7 @@ uzupełniania danych · kreator z dodaniem pierwszego kontrahenta · sekwencja
 14 maili przez okres próbny · centrum pomocy · okienko wsparcia w aplikacji.
 
 ### Rzeczy wspólne, drobne, a ważne
-**Tryb nocny w aplikacji kierowcy i w przeglądarce** · sześć języków w aplikacji kierowcy ·
+**Tryb nocny w aplikacji kierowcy i w przeglądarce** · aplikacja kierowcy po polsku ·
 praca bez zasięgu · powiadomienia push i mail · dane na serwerach w Unii ·
 codzienna kopia zapasowa · szyfrowanie · dziennik zdarzeń · brak instalacji dla biura.
 
@@ -199,7 +199,7 @@ Legenda:
 | Nawigacja wbudowana w aplikację kierowcy | **[U]** | Do potwierdzenia zrzutem ekranu przed publikacją |
 | Dodanie kosztu w trasie jednym przyciskiem | **[U] [I]** | Zdjęcie paragonu — funkcja istnieje |
 | Odczyt paragonu (kwota, data, sprzedawca, NIP) | **[I]** | Poprzednio opisywany jako odczyt w sześciu językach |
-| Sześć języków w aplikacji kierowcy | **[I]** | Do potwierdzenia, czy nadal wszystkie sześć |
+| Języki aplikacji kierowcy | **USUNIĘTE** | Aplikacja jest tylko po polsku (kod busikm-mobile, 15.11.2026). **Nie piszemy o innych językach** |
 | Tryb nocny w aplikacji i w przeglądarce | **[U]** | Do potwierdzenia zrzutem ekranu |
 | Zlecenie połączone z fakturą | **[P]** | Faktury sprzedaży, typy transakcji, korekty — etap 4A |
 | Wysyłka faktury do klienta: PDF i KSeF jednym kliknięciem | **[U]** ✅ | **Potwierdzone przez właściciela produktu — KSeF działa.** Piszemy w czasie teraźniejszym |
@@ -231,7 +231,7 @@ Legenda:
 | Biuro rachunkowe, panel multi-tenant | **USUNIĘTE** | **Nie wolno pisać** |
 | Pilotaż, dożywotnio gratis | **USUNIĘTE** | **Nie wolno pisać** |
 | Aplikacja mobilna dla właściciela | **USUNIĘTE** | Właściciel pracuje w przeglądarce, także na telefonie |
-| VAT-REF, zwrot podatku z Unii | **[I] [?]** | Nie ma w v2. Domyślnie **nie piszemy** |
+| VAT-REF, zwrot podatku z Unii | **[P]** ✅ | Jest: zestawienie do wniosku w eksportach dla księgowej i przypomnienie właścicielowi o terminie 30.09 (backend `apps/orders/tasks.py`). Strona już to pokazuje: sekcja Integracje i pomoc dla księgowej |
 | Kabotaż, mapa parkingów, plan wymiany tachografów | **[I] [?]** | Nie ma w v2. Domyślnie **nie piszemy** |
 
 ### Rozstrzygnięcia właściciela produktu (2 września 2026)

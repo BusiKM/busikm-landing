@@ -32,7 +32,7 @@ export const dzienWlasciciela: Tlumaczenia<PunktDnia[]> = {
     {
       godzina: 'koniec',
       pora: 'miesiąca',
-      tresc: 'Jeden przycisk i księgowa ma komplet. Nie dzwoni z pytaniami.',
+      tresc: 'W planie Firma jeden przycisk i księgowa ma komplet. Nie dzwoni z pytaniami.',
       karta: <KartaEksport />,
     },
   ],
@@ -59,7 +59,7 @@ export const dzienWlasciciela: Tlumaczenia<PunktDnia[]> = {
     {
       godzina: 'end',
       pora: 'of the month',
-      tresc: 'One button and your accountant has everything. No calls with questions.',
+      tresc: 'In the Business plan, one button and your accountant has everything. No calls with questions.',
       karta: <KartaEksport />,
     },
   ],

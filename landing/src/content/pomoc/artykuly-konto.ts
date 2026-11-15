@@ -110,7 +110,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'kroki',
             kroki: [
-              { tytul: 'W sekcji Kod z telefonu przy logowaniu włącz ochronę' },
+              { tytul: 'W sekcji Kod z telefonu przy logowaniu kliknij Włącz kod' },
               {
                 tytul: 'Połącz konto z aplikacją uwierzytelniającą',
                 opis: 'Google Authenticator, 1Password, Authy - dowolna, która generuje sześciocyfrowe kody.',
@@ -120,6 +120,11 @@ export const artykulyKonto: Artykul[] = [
                 opis: 'Od tej chwili przy logowaniu po haśle wpisujesz 6 cyfr z aplikacji na telefonie.',
               },
             ],
+          },
+          {
+            typ: 'akapit',
+            tresc:
+              'Po każdej zmianie zabezpieczeń (włączenie lub wyłączenie kodu, wymiana telefonu, nowe kody zapasowe) wylogujemy Cię na wszystkich urządzeniach, także na tym. Zalogujesz się od nowa, a na Twój adres przyjdzie mail o zmianie.',
           },
           {
             typ: 'uwaga',
@@ -161,13 +166,13 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'W Ustawienia → Plan i płatności widzisz plan firmy, do kiedy jest ważny i jego stan: okres próbny, aktywny albo wygasły. Plan zależy od liczby pojazdów - kierowcy i osoby z biura są bez limitu.',
+              'W Ustawienia → Plan i płatności widzisz plan firmy, do kiedy jest ważny i jego stan: okres próbny, aktywny albo wygasły. Cena zależy od liczby pojazdów - kierowcy i osoby z biura są bez limitu.',
           },
           {
             typ: 'lista',
             punkty: [
-              'Start - do 3 pojazdów.',
-              'Firma - 10 pojazdów w cenie, +29 zł/mies. za każdy kolejny, do 50. Większa flota - napisz do nas.',
+              'Start - do 3 pojazdów. Cała firma w jednym miejscu: zlecenia, trasy, kierowcy, faktury i koszty, mapa floty na żywo i raporty kosztów. Księgowa ma dostęp do panelu i ewidencji przebiegu.',
+              'Firma - 10 pojazdów w cenie, +29 zł/mies. za każdy kolejny, do 50. Wszystko ze Start, a do tego pliki do programu księgowej: paczka dla biura, dekrety FK, rejestry VAT, JPK_V7M i lista płac. Wybierzesz go przy dowolnej liczbie pojazdów. Większa flota - napisz do nas.',
             ],
           },
           {
@@ -202,15 +207,41 @@ export const artykulyKonto: Artykul[] = [
         ],
       },
       {
-        tytul: 'Zmiana planu, karty i pobranie faktur',
+        tytul: 'Zmiana planu',
         bloki: [
           {
             typ: 'kroki',
             kroki: [
               { tytul: 'Wejdź w Ustawienia → Plan i płatności' },
               {
-                tytul: 'Kliknij Otwórz panel płatności',
-                opis: 'Otworzy się panel Stripe. Zmienisz w nim plan i kartę, a faktury za BusiKM pobierzesz w PDF.',
+                tytul: 'W karcie Zmień plan kliknij Wybierz przy planie i okresie rozliczenia',
+                opis: 'Przy każdej opcji widzisz cenę i dzień, od którego zmiana zadziała.',
+              },
+              { tytul: 'Potwierdź przyciskiem Zmieniam plan' },
+            ],
+          },
+          {
+            typ: 'akapit',
+            tresc:
+              'Wyższy plan działa od razu, a dopłatę za resztę opłaconego okresu pobierzemy z karty. Niższy plan i zmiana okresu rozliczenia wchodzą z końcem opłaconego okresu. Do tego dnia korzystasz z obecnego planu, a zaplanowaną zmianę odwołasz przyciskiem Odwołaj zmianę.',
+          },
+          {
+            typ: 'akapit',
+            tresc:
+              'W okresie próbnym każda zmiana działa od razu i bez dopłaty. Gdy przechodzisz na plan Start i masz więcej aut, niż obejmuje, wybierasz, które zostają aktywne.',
+          },
+        ],
+      },
+      {
+        tytul: 'Karta i faktury za BusiKM',
+        bloki: [
+          {
+            typ: 'kroki',
+            kroki: [
+              { tytul: 'Wejdź w Ustawienia → Plan i płatności' },
+              {
+                tytul: 'W karcie Karta i faktury za BusiKM kliknij Otwórz panel płatności',
+                opis: 'Otworzy się panel Stripe. Zmienisz w nim kartę, pobierzesz faktury za BusiKM w PDF albo zakończysz subskrypcję.',
               },
             ],
           },

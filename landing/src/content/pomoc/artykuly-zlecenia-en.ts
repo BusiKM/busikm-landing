@@ -103,7 +103,7 @@ export const artykulyZleceniaEn: Artykul[] = [
           },
           {
             typ: 'uwaga',
-            tresc: 'The live fleet map is part of the Business plan.',
+            tresc: 'The live fleet map is in both plans, Start included.',
           },
         ],
       },

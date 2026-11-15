@@ -7,19 +7,19 @@ import { biezacyJezyk } from '@/i18n/serwer';
 const TEKSTY: Tlumaczenia<{
   naglowek: string;
   lead: string;
-  proba: string;
+  zapis: string;
   demo: string;
 }> = {
   pl: {
     naglowek: 'Zacznij od jednej trasy.',
-    lead: '14 dni bez opłat. Bez umowy. Bez dzwonienia do handlowca.',
-    proba: 'Wypróbuj 14 dni',
+    lead: '14 dni bez opłat od otwarcia kont. Bez umowy. Bez dzwonienia do handlowca.',
+    zapis: 'Zapisz się na start',
     demo: 'Zobacz demo',
   },
   en: {
     naglowek: 'Start with one route.',
-    lead: '14 days free. No contract. No calls with a salesperson.',
-    proba: 'Try 14 days free',
+    lead: '14 days free once accounts open. No contract. No calls with a salesperson.',
+    zapis: 'Sign up for launch',
     demo: 'See the demo',
   },
 };
@@ -47,11 +47,13 @@ export function FinalCta({ nota }: { nota?: string } = {}) {
           {t.lead}
         </p>
         <div data-reveal className="mt-2 flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3">
-          <Button href={appLinks.trial} fullWidth className="lg:w-auto">
-            {t.proba}
-          </Button>
-          <Button href={appLinks.demo} variant="secondaryDark" fullWidth className="lg:w-auto">
+          {/* Dopóki rejestracja jest zamknięta: demo jako główne wejście,
+              zapis na otwarcie kont obok. */}
+          <Button href={appLinks.demo} fullWidth className="lg:w-auto">
             {t.demo}
+          </Button>
+          <Button href={appLinks.zapis} variant="secondaryDark" fullWidth className="lg:w-auto">
+            {t.zapis}
           </Button>
         </div>
 

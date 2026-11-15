@@ -35,7 +35,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     pytania: [
       [
         'Skąd system zna daty?',
-        'Wpisujesz je raz przy dokumencie. Po odnowieniu przesuwasz termin jednym kliknięciem.',
+        'Wpisujesz je raz przy dokumencie albo AI odczyta je ze zdjęcia lub PDF, a Ty sprawdzasz i zapisujesz. Po odnowieniu przesuwasz termin jednym kliknięciem.',
       ],
       [
         'Czy przypomnienie przyjdzie mailem?',
@@ -53,6 +53,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       'Historia poprzednich polis i przeglądów',
       'Dokumenty zlecenia (CMR, WZ) pod ręką kierowcy w trasie',
       'Przypomnienie o zgraniu karty kierowcy co 28 dni i tachografu co 90',
+      'Licencja i wypisy przypisane do aut, z przypomnieniem o zgłoszeniu zmiany do GITD w 28 dni',
+      'AI odczyta daty z polisy i przeglądu, a z prawa jazdy kategorie i ich ważność',
     ],
     przypomnienie: {
       tytul: 'Przypomnienie z wyprzedzeniem',
@@ -74,7 +76,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     pytania: [
       [
         'Where do the dates come from?',
-        'You enter them once, with the document. After a renewal, you move the deadline with one click.',
+        'You enter them once, with the document, or AI reads them from a photo or PDF and you check and save. After a renewal, you move the deadline with one click.',
       ],
       [
         'Will the reminder come by email?',
@@ -92,6 +94,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       'History of past policies and inspections',
       'Order documents (CMR, delivery notes) to hand for the driver on the road',
       'Reminders to download the driver card every 28 days and the tachograph every 90',
+      'The transport licence and its certified copies assigned to vans, with a reminder to report a change to the GITD inspectorate within 28 days',
+      'AI reads the dates from an insurance policy or inspection, and the categories and their expiry from a driving licence',
     ],
     przypomnienie: {
       tytul: 'Reminders well ahead',

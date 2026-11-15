@@ -144,6 +144,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
     gdzie: 'Settlements → Exports (Rozliczenia → Eksporty)',
     czas: 'Two minutes',
     zanim: [
+      'The Business plan - exports for accounting software are only in it',
       'Accounting software set in Settings → Accounting software (Program księgowy)',
       'A closed month - if the files are to be final',
     ],
@@ -155,6 +156,11 @@ export const artykulyKsiegowoscEn: Artykul[] = [
             typ: 'akapit',
             tresc:
               'The owner and the accountant see the exports. The dispatcher doesn’t have Settlements in their menu.',
+          },
+          {
+            typ: 'uwaga',
+            tresc:
+              'The office pack, journal entries for accounting software, VAT registers in Excel, JPK_V7M and the payroll list are in the Business plan. In the Start plan your accountant has access to the panel and mileage logs, and prepares the files for their software themselves. You can choose the Business plan for any fleet size.',
           },
         ],
       },

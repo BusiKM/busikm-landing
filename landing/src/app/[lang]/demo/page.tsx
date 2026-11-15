@@ -42,7 +42,7 @@ const TEKSTY: Tlumaczenia<{
       ['Pulpit właściciela', '„Do zrobienia”, „Dziś” i wynik miesiąca'],
       ['Dyspozytornia', 'kolejka zleceń i mapa floty obok siebie'],
       ['Zlecenie z fakturą', 'jak jedno robi się drugim'],
-      ['Komplet dla księgowej', 'eksporty i paczka dla biura jednym przyciskiem'],
+      ['Komplet dla księgowej', 'eksporty i paczka dla biura jednym przyciskiem (plan Firma)'],
     ],
     mockupLabel: 'Demo, pulpit właściciela (desktop, tryb nocny)',
     mockupNota:
@@ -67,7 +67,7 @@ const TEKSTY: Tlumaczenia<{
       ['Owner’s dashboard', '“To do”, “Today” and the month’s result'],
       ['Dispatch', 'the order queue and fleet map side by side'],
       ['Order to invoice', 'how one turns into the other'],
-      ['Full pack for your accountant', 'exports and the package for the office in one click'],
+      ['Full pack for your accountant', 'exports and the package for the office in one click (Business plan)'],
     ],
     mockupLabel: 'Demo, owner’s dashboard (desktop, night mode)',
     mockupNota:

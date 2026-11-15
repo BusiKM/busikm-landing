@@ -1,6 +1,7 @@
 import { Section, Eyebrow, Bullets } from '@/components/ui/Section';
 import { MockupSlot } from '@/components/ui/MockupSlot';
 import { KartaZysku } from '@/components/mockups/KartaZysku';
+import { KalkulatorKursu } from '@/components/sections/KalkulatorKursu';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
@@ -47,7 +48,7 @@ const TEKSTY: Tlumaczenia<{
   },
 };
 
-/** 6.8 – ile zostaje. Liczba zysku stoi obok karty, nie w niej. */
+/** 6.8 – ile zostaje. Liczba zysku stoi obok karty, nie w niej, a pod spodem kalkulator kursu. */
 export function IleZostaje() {
   const t = TEKSTY[biezacyJezyk()];
   return (
@@ -96,6 +97,8 @@ export function IleZostaje() {
             </div>
           </div>
         </div>
+
+        <KalkulatorKursu />
       </div>
     </Section>
   );

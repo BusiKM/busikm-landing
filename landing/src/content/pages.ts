@@ -51,6 +51,7 @@ const strony = {
     heading: 'Dziewięć rzeczy,\nktóre robią się bez Ciebie.',
     lead: 'Od trasy kierowcy po komplet dokumentów dla księgowej. Wybierz obszar, który Cię interesuje.',
     title: 'Co robi BusiKM',
+    seoTitle: 'Funkcje programu dla firmy transportowej',
     description:
       'Zlecenia, trasy, czas pracy, koszty, faktury i dane dla księgowej - dziewięć obszarów w jednym systemie.',
   },
@@ -80,9 +81,9 @@ const strony = {
     heading: 'Cały dzień pracy\nna jednym ekranie.',
     lead: 'Kolejka zleceń i mapa floty obok siebie. Do kierowcy piszesz jednym kliknięciem.',
     title: 'Dyspozytornia',
-    seoTitle: 'Program dla dyspozytora transportu i mapa floty | BusiKM',
+    seoTitle: 'Program TMS dla dyspozytora busów',
     description:
-      'Kolejka zleceń i mapa floty na jednym ekranie. System ustawia kolejność postojów i liczy czas, a zmiana trafia do kierowcy od razu.',
+      'Program TMS dla dyspozytora busów: kolejka zleceń i mapa floty na jednym ekranie, kolejność postojów z systemu, zmiana trasy od razu u kierowcy.',
     outline: [
       'Jeden ekran zamiast czterech okien',
       'Zlecenie od przyjęcia po rozliczenie',
@@ -99,9 +100,9 @@ const strony = {
     heading: 'Widzisz, gdzie jest każdy bus.\nBez dzwonienia.',
     lead: 'Pozycje na żywo, historia tras i przejazdy, które liczą się nawet bez zlecenia.',
     title: 'Trasy i mapa floty',
-    seoTitle: 'Mapa floty i trasy busów na żywo | BusiKM',
+    seoTitle: 'Lokalizacja GPS busów z telefonu kierowcy',
     description:
-      'Widzisz, gdzie jest każdy bus, bez dzwonienia. Trasa zapisuje się sama i zamienia w gotową ewidencję przebiegu pojazdu.',
+      'GPS busa bez montowania lokalizatora: pozycja z telefonu kierowcy, mapa floty na żywo i historia tras, z których składa się ewidencja przebiegu.',
     outline: [
       'Mapa na żywo',
       'Klient pyta, Ty odpowiadasz',
@@ -117,9 +118,9 @@ const strony = {
     heading: 'Wiesz, kiedy kierowca musi stanąć.\nZanim stanie za późno.',
     lead: 'Czas jazdy i przerwy liczą się same. Kierowca dostaje przypomnienie 15 minut wcześniej, a przerwę zapisze też bez zasięgu.',
     title: 'Czas pracy i przerwy',
-    seoTitle: 'Ewidencja czasu pracy kierowcy - program | BusiKM',
+    seoTitle: 'Czas pracy kierowcy busa, AETR i tachograf',
     description:
-      'Czas jazdy, przerwy i odpoczynki liczone same z trasy. Kierowca wie, kiedy musi stanąć, a Ty masz gotowe zestawienie za miesiąc.',
+      'Czas pracy kierowcy busa liczony z trasy: jazda ciągła, dzienna i tygodniowa według AETR, przypomnienie o przerwie i karta miesięczna w PDF.',
     outline: [
       'Liczniki idą same',
       'Kierowca dostaje przypomnienie 15 minut wcześniej',
@@ -136,9 +137,9 @@ const strony = {
     heading: 'Ze zlecenia robi się faktura.\nKlient ma ją, zanim wrócisz do biura.',
     lead: 'Faktura powstaje z danych zlecenia i jednym przyciskiem idzie do KSeF. Wysyłkę do klienta zlecasz od razu - PDF z kodem QR wyjdzie, gdy KSeF nada numer.',
     title: 'Zlecenia i faktury',
-    seoTitle: 'Zlecenia transportowe i faktury - program | BusiKM',
+    seoTitle: 'Faktury KSeF i zlecenia transportowe',
     description:
-      'Ze zlecenia robi się faktura. Jednym przyciskiem idzie do KSeF, klient dostaje PDF mailem, a Ty widzisz, kto jeszcze nie zapłacił.',
+      'Faktura KSeF dla przewoźnika prosto ze zlecenia transportowego. Jednym przyciskiem do KSeF, klient dostaje PDF z kodem QR, a Ty widzisz, kto nie zapłacił.',
     outline: [
       'Zlecenie i faktura to jedno',
       'Do KSeF jednym przyciskiem',
@@ -192,7 +193,7 @@ const strony = {
     title: 'Dane dla księgowej',
     seoTitle: 'Dokumenty dla księgowej z firmy transportowej | BusiKM',
     description:
-      'Paczka dla biura jednym przyciskiem: dekrety FK, rejestry VAT, płace, delegacje i ewidencje przebiegu - dla Insert GT, Optimy albo Symfonii.',
+      'W planie Firma paczka dla biura jednym przyciskiem: dekrety FK, rejestry VAT, JPK_V7M, płace i delegacje dla Insert GT, Optimy albo Symfonii.',
     outline: [
       'Wybiera miesiąc i klika raz',
       'W formacie jej programu',
@@ -220,6 +221,36 @@ const strony = {
       'Jeden ekran statusu',
       'Pobierz komplet',
     ],
+  },
+
+  'co-robi/ewidencja-przebiegu': {
+    eyebrow: 'Ewidencja przebiegu pojazdu z trasy kierowcy',
+    heading: 'Kilometry zapisują się same.\nZeszyt zostaje w szufladzie.',
+    lead: 'Trasa z telefonu kierowcy, typ i cel przejazdu, potwierdzenie kierowcy i zatwierdzenie w biurze. Na koniec miesiąca ewidencja jest gotowa do pobrania.',
+    title: 'Ewidencja przebiegu',
+    seoTitle: 'Ewidencja przebiegu pojazdu: program dla busów',
+    description:
+      'Program do ewidencji przebiegu pojazdu: trasa z telefonu kierowcy, cel przejazdu, potwierdzenie i zatwierdzenie, gotowy PDF do VAT. Bez przepisywania.',
+  },
+
+  'co-robi/diety-i-delegacje': {
+    eyebrow: 'Diety kierowcy za granicą, noclegi i delegacje',
+    heading: 'Dni za granicą liczą się z trasy.\nDiety też.',
+    lead: 'BusiKM wie, ile godzin kierowca spędził w każdym kraju, i liczy z tego diety i noclegi. W planie Firma księgowa dostaje listę płac i delegacje w pliku.',
+    title: 'Diety i delegacje',
+    seoTitle: 'Diety kierowcy za granicą i ryczałt za nocleg',
+    description:
+      'Diety kierowcy za granicą i w kraju, ryczałt za nocleg w kabinie, delegacje i lista płac w Excelu albo CSV. Dni w każdym kraju liczone z trasy busa.',
+  },
+
+  'program-tms-dla-busow': {
+    eyebrow: 'Program TMS dla busów 2,5-3,5 t',
+    heading: 'Cała firma z busami\nw jednym programie.',
+    lead: 'Zlecenia, trasy, czas pracy, faktury KSeF, koszty i diety, a w planie Firma paczka dla księgowej. Zrobione pod busy, nie przycięte z systemu dla tirów.',
+    title: 'Program TMS dla busów',
+    seoTitle: 'Program TMS dla busów 2,5-3,5 t',
+    description:
+      'Program dla firmy transportowej z busami 2,5-3,5 t: zlecenia, GPS z telefonu, czas pracy, faktury KSeF, diety i ewidencja przebiegu. Od 149 zł.',
   },
 
   'dla-kogo': {
@@ -254,11 +285,11 @@ const strony = {
   'dla-kogo/ksiegowa': {
     eyebrow: 'Księgowa w przeglądarce',
     heading: 'Koniec miesiąca\nw jednym kliknięciu.',
-    lead: 'Komplet dokumentów w formacie Twojego programu. Zamykasz miesiąc i nikt nie zmienia danych wstecz.',
+    lead: 'Komplet dokumentów w formacie Twojego programu (plan Firma). Zamykasz miesiąc i nikt nie zmienia danych wstecz.',
     title: 'BusiKM dla księgowej',
     seoTitle: 'BusiKM dla księgowej firmy transportowej',
     description:
-      'Komplet dokumentów za miesiąc jednym przyciskiem, w formacie do wczytania. Bez dopytywania o brakujące paragony i faktury.',
+      'Dostęp do panelu i ewidencji przebiegu w każdym planie, a w planie Firma komplet plików za miesiąc w formacie do wczytania. Bez dopytywania o paragony.',
   },
 
   'dla-kogo/kierowca': {
@@ -276,11 +307,11 @@ const strony = {
     heading: 'Płacisz za pojazdy.\nNie za ludzi.',
     lead: 'Kierowcy i pracownicy biura bez limitu. Przyczepy i naczepy nie liczą się do abonamentu.',
     title: 'Cennik',
-    seoTitle: 'Cennik - od 149 zł miesięcznie | BusiKM',
+    seoTitle: 'Cennik programu TMS dla busów od 149 zł',
     description:
-      'Start 149 zł i Firma 299 zł miesięcznie, ceny końcowe bez VAT. Płacisz za pojazdy, kierowcy i biuro bez limitu. 14 dni za darmo.',
+      'Start 149 zł prowadzi całą firmę, Firma 299 zł dokłada flotę do 50 aut i pliki dla księgowej. Ceny końcowe bez VAT, kierowcy i biuro bez limitu.',
     opisOg:
-      'Start 149 zł, Firma 299 zł miesięcznie, bez VAT. Płacisz za pojazdy - kierowcy i biuro bez limitu. 14 dni za darmo.',
+      'Start 149 zł: cała firma w jednym miejscu. Firma 299 zł: większa flota i księgowość bez przepisywania. Kierowcy i biuro bez limitu.',
   },
 
   demo: {
@@ -410,9 +441,9 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'A whole working day\non one screen.',
     lead: 'The order queue and the fleet map side by side. Message a driver in one click.',
     title: 'Dispatch',
-    seoTitle: 'Transport dispatch software and fleet map | BusiKM',
+    seoTitle: 'TMS software for van dispatchers',
     description:
-      'The order queue and fleet map on one screen. The system orders the stops and works out the time, and a change reaches the driver straight away.',
+      'TMS software for van dispatchers: the order queue and fleet map on one screen, stop order set by the system, route changes straight to the driver.',
     outline: [
       'One screen instead of four windows',
       'An order from booking to billing',
@@ -429,9 +460,9 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You see where every van is.\nWithout calling.',
     lead: 'Live positions, route history and trips that count even without an order.',
     title: 'Routes and fleet map',
-    seoTitle: 'Live van fleet map and route tracking | BusiKM',
+    seoTitle: 'Van GPS tracking from the driver’s phone',
     description:
-      'See where every van is without picking up the phone. Routes record themselves and turn into a ready-made vehicle mileage log.',
+      'Van GPS tracking with no tracker to fit: position from the driver’s phone, a live fleet map and route history that builds the mileage log.',
     outline: [
       'Live map',
       'The client asks, you answer',
@@ -447,9 +478,9 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You know when the driver has to stop.\nBefore it’s too late.',
     lead: 'Driving time and breaks count themselves. The driver gets a reminder 15 minutes ahead and can log a break without signal too.',
     title: 'Working time and breaks',
-    seoTitle: 'Driver working time and break tracking | BusiKM',
+    seoTitle: 'Van driver working time, AETR and tachograph',
     description:
-      'Driving time, breaks and rest periods counted from the route. The driver knows when to stop, and you get a ready monthly summary.',
+      'Van driver working time counted from the route: continuous, daily and weekly driving under AETR, a break reminder and a monthly PDF record.',
     outline: [
       'The counters run on their own',
       'The driver gets a reminder 15 minutes ahead',
@@ -466,9 +497,9 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'The order becomes the invoice.\nYour client has it before you’re back in the office.',
     lead: 'The invoice is built from the order data and one button sends it to KSeF, Poland’s national e-invoicing system. You send it to the client straight away - the PDF with a QR code goes out once KSeF assigns the number.',
     title: 'Orders and invoices',
-    seoTitle: 'Transport order and invoicing software | BusiKM',
+    seoTitle: 'KSeF invoices and transport orders',
     description:
-      'An order turns into an invoice. One button sends it to KSeF, the client gets the PDF by email, and you see who still hasn’t paid.',
+      'KSeF invoices for carriers straight from the transport order. One button sends it to KSeF, the client gets a PDF with a QR code, you see who hasn’t paid.',
     outline: [
       'The order and the invoice are one',
       'To KSeF in one click',
@@ -522,7 +553,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     title: 'Data for your accountant',
     seoTitle: 'Accounting export for transport companies | BusiKM',
     description:
-      'The office pack in one click: accounting entries, VAT registers, payroll, business trips and mileage logs - for Insert GT, Optima or Symfonia.',
+      'In the Business plan, the office pack in one click: journal entries, VAT registers, JPK_V7M, payroll and business trips for Insert GT, Optima or Symfonia.',
     outline: [
       'Pick the month and click once',
       'In the format of their software',
@@ -550,6 +581,36 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
       'One status screen',
       'Download the full set',
     ],
+  },
+
+  'co-robi/ewidencja-przebiegu': {
+    eyebrow: 'Vehicle mileage log from the driver’s route',
+    heading: 'The kilometres record themselves.\nThe logbook stays in the drawer.',
+    lead: 'The route from the driver’s phone, trip type and purpose, the driver’s confirmation and the office’s approval. At month end the log is ready to download.',
+    title: 'Mileage log',
+    seoTitle: 'Vehicle mileage log software for vans',
+    description:
+      'Vehicle mileage log software: the route from the driver’s phone, trip purpose, confirmation and approval, and a ready PDF for VAT. No copying out.',
+  },
+
+  'co-robi/diety-i-delegacje': {
+    eyebrow: 'Driver per diems abroad, overnight allowances and business trips',
+    heading: 'Days abroad count from the route.\nSo do per diems.',
+    lead: 'BusiKM knows how many hours the driver spent in each country and works out per diems and overnight allowances from that. In the Business plan, your accountant gets the payroll and business trips as files.',
+    title: 'Per diems and business trips',
+    seoTitle: 'Driver per diems abroad and overnight allowance',
+    description:
+      'Driver per diems abroad and at home, the cab overnight allowance, business trips and payroll in Excel or CSV. Days in each country counted from the route.',
+  },
+
+  'program-tms-dla-busow': {
+    eyebrow: 'TMS software for 2.5-3.5 t vans',
+    heading: 'Your whole van company\nin one app.',
+    lead: 'Orders, routes, working time, KSeF invoices, costs and per diems, plus the accountant’s pack in the Business plan. Built for vans, not cut down from a lorry system.',
+    title: 'Van TMS',
+    seoTitle: 'TMS software for 2.5-3.5 t vans',
+    description:
+      'Software for transport companies running 2.5-3.5 t vans: orders, GPS from the phone, working time, KSeF invoices, per diems and mileage log. From PLN 149.',
   },
 
   'dla-kogo': {
@@ -585,11 +646,11 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
   'dla-kogo/ksiegowa': {
     eyebrow: 'Accountant in the browser',
     heading: 'Month-end\nin one click.',
-    lead: 'Every document in your accounting software’s format. You close the month and nobody changes the data after the fact.',
+    lead: 'Every document in your accounting software’s format (Business plan). You close the month and nobody changes the data after the fact.',
     title: 'BusiKM for accountants',
     seoTitle: 'BusiKM for accountants of transport companies',
     description:
-      'Every document for the month in one click, in a format ready to import. No chasing missing receipts and invoices.',
+      'Access to the panel and mileage logs in every plan, and in the Business plan the month’s files ready to import. No chasing missing receipts.',
   },
 
   'dla-kogo/kierowca': {
@@ -607,11 +668,11 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You pay for vehicles.\nNot for people.',
     lead: 'Unlimited drivers and office staff. Trailers and semi-trailers don’t count towards the subscription.',
     title: 'Pricing',
-    seoTitle: 'Pricing - from PLN 149 a month | BusiKM',
+    seoTitle: 'Van TMS pricing from PLN 149 a month',
     description:
-      'Start PLN 149 and Business PLN 299 a month, final prices with no VAT on top. You pay per vehicle; drivers and office are unlimited. 14 days free.',
+      'Start PLN 149 runs the whole company, Business PLN 299 adds up to 50 vehicles and files for your accountant. Final prices, no VAT on top, unlimited drivers.',
     opisOg:
-      'Start PLN 149, Business PLN 299 a month, no VAT on top. You pay per vehicle - drivers and office unlimited. 14 days free.',
+      'Start PLN 149: your whole company in one place. Business PLN 299: a bigger fleet and accounting without retyping. Unlimited drivers and office staff.',
   },
 
   demo: {

@@ -146,6 +146,7 @@ export const artykulyKsiegowosc: Artykul[] = [
     gdzie: 'Rozliczenia → Eksporty',
     czas: 'Dwie minuty',
     zanim: [
+      'Plan Firma - eksporty do programu księgowego są tylko w nim',
       'Program księgowy ustawiony w Ustawienia → Program księgowy',
       'Zamknięty miesiąc - jeśli pliki mają być ostateczne',
     ],
@@ -157,6 +158,11 @@ export const artykulyKsiegowosc: Artykul[] = [
             typ: 'akapit',
             tresc:
               'Eksporty widzą właściciel i księgowa. Dyspozytor nie ma Rozliczeń w menu.',
+          },
+          {
+            typ: 'uwaga',
+            tresc:
+              'Paczka dla biura, dekrety do programu FK, rejestry VAT w Excelu, JPK_V7M i lista płac są w planie Firma. W planie Start księgowa ma dostęp do panelu i ewidencji przebiegu, a pliki do swojego programu przygotowuje sama. Plan Firma wybierzesz przy dowolnej liczbie busów.',
           },
         ],
       },

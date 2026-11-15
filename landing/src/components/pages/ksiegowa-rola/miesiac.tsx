@@ -47,7 +47,7 @@ export const miesiacKsiegowej: Tlumaczenia<PunktDnia[]> = {
         </>
       ),
       pora: '1.',
-      tresc: 'Wybierasz miesiąc i klikasz „Pobierz paczkę dla biura”. Przed zamknięciem dostajesz wersję roboczą.',
+      tresc: 'Wybierasz miesiąc i klikasz „Pobierz paczkę dla biura” (plan Firma). Przed zamknięciem dostajesz wersję roboczą.',
       karta: <KartaPobierz />,
     },
     {
@@ -102,7 +102,7 @@ export const miesiacKsiegowej: Tlumaczenia<PunktDnia[]> = {
         </>
       ),
       pora: '1st',
-      tresc: 'You pick the month and click “Download the package for the office”. Before closing, you get a draft version.',
+      tresc: 'You pick the month and click “Download the package for the office” (Business plan). Before closing, you get a draft version.',
       karta: <KartaPobierz />,
     },
     {

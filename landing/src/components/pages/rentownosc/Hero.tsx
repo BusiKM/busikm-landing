@@ -16,7 +16,7 @@ const TEKSTY: Tlumaczenia<{
   opis: string;
 }> = {
   pl: {
-    eyebrow: 'Ile zostaje',
+    eyebrow: 'Rentowność każdego kursu busa',
     tytul: ['Wiesz, ile zostaje.', 'Na tym kursie. Dziś.'],
     lead: 'Fracht po kursie NBP minus paliwo, opłaty drogowe, nocleg, parking i diety kierowcy. Kierowca dodaje paragon w trasie - gdy paragon ma komplet danych, wynik przelicza się sam.',
     label: 'Karta zysku (desktop)',
@@ -26,7 +26,7 @@ const TEKSTY: Tlumaczenia<{
     opis: 'z 1 110 € frachtu. Liczba zmieni się, gdy Krzysztof doda kolejny paragon.',
   },
   en: {
-    eyebrow: 'What you keep',
+    eyebrow: 'Profitability of every van job',
     tytul: ['You know what you keep.', 'On this job. Today.'],
     lead: 'Freight at the NBP rate minus fuel, tolls, the overnight stay, parking and the driver’s allowances. The driver adds a receipt on the road - once it has all its details, the result updates by itself.',
     label: 'Profit card (desktop)',
@@ -46,14 +46,14 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink px-6 pt-24 text-paper lg:px-12 lg:pt-40">
       <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow dark>{t.eyebrow}</Eyebrow>
-        <h1
+        <Eyebrow as="h1" dark>{t.eyebrow}</Eyebrow>
+        <p
           data-reveal
           className="max-w-[980px] text-display-m font-bold text-balance lg:text-display"
         >
           {t.tytul[0]} <br className="hidden lg:inline" />
           {t.tytul[1]}
-        </h1>
+        </p>
         <p
           data-reveal
           className="max-w-[680px] text-lead-m text-pretty text-ink-muted lg:text-lead"

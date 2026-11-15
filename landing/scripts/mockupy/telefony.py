@@ -130,6 +130,7 @@ PLAN = {
     'mockup-kierowca-nawigacja-phone.png': (pojedynczy, ['nawigacja']),
     'mockup-kierowca-koszt-phone.png': (pojedynczy, ['paragony']),
     'mockup-kierowca-czas-phone.png': (pojedynczy, ['czas']),
+    'mockup-kierowca-przerwa-phone.png': (pojedynczy, ['przerwa']),
     'mockup-kierowca-wysylka-phone.png': (pojedynczy, ['wysylka']),
     'mockup-dokumenty-kierowca-phone.png': (pojedynczy, ['dokumenty']),
     'mockup-kierowca-hero-phone.png': (hero, ['start']),

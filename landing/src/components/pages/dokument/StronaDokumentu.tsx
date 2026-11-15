@@ -2,6 +2,7 @@ import Link from '@/i18n/Link';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Container } from '@/components/ui/Container';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 import { Eyebrow } from '@/components/ui/Section';
 import { SpisTresci } from '@/components/pages/dokument/SpisTresci';
 import { OdnosnikPolski } from '@/components/pages/dokument/OdnosnikPolski';
@@ -24,7 +25,7 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     etykieta: 'Dokument',
-    obowiazuje: (od, wersja) => `Obowiązuje od ${od} · wersja ${wersja}`,
+    obowiazuje: (od, wersja) => `Obowiązuje od ${od}, wersja ${wersja}`,
     wSkrocie: 'W skrócie',
     zastrzezenie:
       'To streszczenie ułatwia czytanie, ale nie zastępuje dokumentu. Wiążąca jest treść poniżej.',
@@ -34,10 +35,10 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     etykieta: 'Document',
-    obowiazuje: (od, wersja) => `In force from ${od} · version ${wersja}`,
+    obowiazuje: (od, wersja) => `In force from ${od}, version ${wersja}`,
     wSkrocie: 'In short',
     zastrzezenie:
-      'This summary makes the document easier to read but does not replace it. The full document is binding – in its Polish version.',
+      'This summary makes the document easier to read but does not replace it. The full document is binding - in its Polish version.',
     ostatniaZmiana: 'Last updated:',
     pozostale: 'Other documents:',
     pytanie: 'Have a question about this document? Write to:',
@@ -97,7 +98,7 @@ function Tresc({ blok }: { blok: Blok }) {
           {blok.pozycje.map((d) => (
             <div key={d.termin} className="text-pretty">
               <dt className="inline font-semibold">{d.termin}</dt>{' '}
-              <dd className="inline">– {d.opis}</dd>
+              <dd className="inline">- {d.opis}</dd>
             </div>
           ))}
         </dl>
@@ -242,7 +243,7 @@ export function StronaDokumentu({
                       <Link href={d.href} className="text-blue">
                         {d.tytul}
                       </Link>
-                      {i < pozostale.length - 1 && <span aria-hidden>·</span>}
+                      {i < pozostale.length - 1 && <Rozdzielacz className="mx-0" />}
                     </span>
                   ))}
                 </p>

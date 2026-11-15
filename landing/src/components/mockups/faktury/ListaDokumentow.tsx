@@ -19,7 +19,7 @@ const dokumenty: Dokument[] = [
     krotki: 'FV 09/041',
     kontrahent: 'Alpina Logistics',
     kwota: '3 900 €',
-    wyslano: '3.09 · 08:14',
+    wyslano: '3.09, 08:14',
     status: 'dostarczone',
     zamkniete: true,
   },
@@ -28,7 +28,7 @@ const dokumenty: Dokument[] = [
     krotki: 'FV 09/040',
     kontrahent: 'Nordhaven B.V.',
     kwota: '2 650 €',
-    wyslano: '2.09 · 17:02',
+    wyslano: '2.09, 17:02',
     status: 'zapłacone',
     zamkniete: true,
   },
@@ -37,7 +37,7 @@ const dokumenty: Dokument[] = [
     krotki: 'FK 09/003',
     kontrahent: 'Hansa Spedition',
     kwota: '− 120 €',
-    wyslano: '1.09 · 10:40',
+    wyslano: '1.09, 10:40',
     status: 'dostarczone',
     zamkniete: true,
   },
@@ -46,7 +46,7 @@ const dokumenty: Dokument[] = [
     krotki: 'FV 09/039',
     kontrahent: 'Hansa Spedition',
     kwota: '1 800 €',
-    wyslano: '1.09 · 09:15',
+    wyslano: '1.09, 09:15',
     status: 'termin 1.10',
   },
   {
@@ -54,7 +54,7 @@ const dokumenty: Dokument[] = [
     krotki: 'FZ 08/017',
     kontrahent: 'Alpina Logistics',
     kwota: '1 000 €',
-    wyslano: '28.08 · 12:30',
+    wyslano: '28.08, 12:30',
     status: 'zapłacone',
     zamkniete: true,
     tylkoDesktop: true,
@@ -63,11 +63,11 @@ const dokumenty: Dokument[] = [
 
 /** Kwota, godzina wysyłki i status po angielsku – kolejność jak w `dokumenty`. */
 const DOKUMENTY_EN: readonly Pick<Dokument, 'kwota' | 'wyslano' | 'status'>[] = [
-  { kwota: '€3,900', wyslano: '3 Sep · 08:14', status: 'delivered' },
-  { kwota: '€2,650', wyslano: '2 Sep · 17:02', status: 'paid' },
-  { kwota: '− €120', wyslano: '1 Sep · 10:40', status: 'delivered' },
-  { kwota: '€1,800', wyslano: '1 Sep · 09:15', status: 'due 1 Oct' },
-  { kwota: '€1,000', wyslano: '28 Aug · 12:30', status: 'paid' },
+  { kwota: '€3,900', wyslano: '3 Sep, 08:14', status: 'delivered' },
+  { kwota: '€2,650', wyslano: '2 Sep, 17:02', status: 'paid' },
+  { kwota: '− €120', wyslano: '1 Sep, 10:40', status: 'delivered' },
+  { kwota: '€1,800', wyslano: '1 Sep, 09:15', status: 'due 1 Oct' },
+  { kwota: '€1,000', wyslano: '28 Aug, 12:30', status: 'paid' },
 ];
 
 const TEKSTY: Tlumaczenia<{
@@ -81,20 +81,20 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     dokumenty,
-    naglowek: 'Wystawione · wrzesień',
+    naglowek: 'Wystawione, wrzesień',
     ile: '12 dokumentów',
     kolumny: ['Numer', 'Kontrahent', 'Kwota', 'Status'],
-    akcje: 'Każdy wiersz: podgląd · pobierz ponownie · duplikat',
-    akcjeKrotko: 'Podgląd · duplikat',
+    akcje: 'Każdy wiersz: podgląd, pobierz ponownie, duplikat',
+    akcjeKrotko: 'Podgląd, duplikat',
     razem: 'razem 9 230 €',
   },
   en: {
     dokumenty: dokumenty.map((d, i) => ({ ...d, ...DOKUMENTY_EN[i] })),
-    naglowek: 'Issued · September',
+    naglowek: 'Issued, September',
     ile: '12 documents',
     kolumny: ['Number', 'Client', 'Amount', 'Status'],
-    akcje: 'Every row: preview · download again · duplicate',
-    akcjeKrotko: 'Preview · duplicate',
+    akcje: 'Every row: preview, download again, duplicate',
+    akcjeKrotko: 'Preview, duplicate',
     razem: 'total €9,230',
   },
 };

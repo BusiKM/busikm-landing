@@ -6,7 +6,7 @@ type Teksty = {
   kpi: { label: string; value: string; short: string; strong: boolean }[];
   orders: { route: string; who: string; status: string; tone: 'blue' | 'mist' | 'green' }[];
   menu: string[];
-  okno: string;
+  okno: readonly string[];
   naglowek: string;
   trasa: string;
   zleceniaDzis: string;
@@ -15,35 +15,35 @@ type Teksty = {
 const TEKSTY: Tlumaczenia<Teksty> = {
   pl: {
     kpi: [
-      { label: 'Przychód · wrzesień', value: '184 320 zł', short: '184 320', strong: false },
+      { label: 'Przychód, wrzesień', value: '184 320 zł', short: '184 320', strong: false },
       { label: 'Koszty', value: '121 840 zł', short: '121 840', strong: false },
       { label: 'Zysk', value: '62 480 zł', short: '62 480', strong: true },
     ],
     orders: [
-      { route: 'Warszawa → Mediolan', who: 'WZ 4821K · Marek W.', status: 'W trasie', tone: 'blue' },
-      { route: 'Poznań → Rotterdam', who: 'PO 2093J · Tomasz L.', status: 'Załadunek', tone: 'mist' },
-      { route: 'Gdańsk → Hamburg', who: 'GD 7710R · Piotr K.', status: 'Rozliczone', tone: 'green' },
+      { route: 'Warszawa → Mediolan', who: 'WZ 4821K, Marek W.', status: 'W trasie', tone: 'blue' },
+      { route: 'Poznań → Rotterdam', who: 'PO 2093J, Tomasz L.', status: 'Załadunek', tone: 'mist' },
+      { route: 'Gdańsk → Hamburg', who: 'GD 7710R, Piotr K.', status: 'Rozliczone', tone: 'green' },
     ],
     menu: ['Pulpit', 'Zlecenia', 'Mapa', 'Kierowcy', 'Pojazdy', 'Koszty', 'Faktury', 'Księgowa'],
-    okno: 'app.busikm.pl · Pulpit · wrzesień 2026',
-    naglowek: 'Pulpit · wrzesień 2026',
+    okno: ['app.busikm.pl', 'Pulpit', 'wrzesień 2026'],
+    naglowek: 'Pulpit, wrzesień 2026',
     trasa: 'Warszawa → Mediolan',
     zleceniaDzis: 'Zlecenia dziś',
   },
   en: {
     kpi: [
-      { label: 'Revenue · September', value: 'PLN 184,320', short: '184,320', strong: false },
+      { label: 'Revenue, September', value: 'PLN 184,320', short: '184,320', strong: false },
       { label: 'Costs', value: 'PLN 121,840', short: '121,840', strong: false },
       { label: 'Profit', value: 'PLN 62,480', short: '62,480', strong: true },
     ],
     orders: [
-      { route: 'Warsaw → Milan', who: 'WZ 4821K · Marek W.', status: 'En route', tone: 'blue' },
-      { route: 'Poznań → Rotterdam', who: 'PO 2093J · Tomasz L.', status: 'Loading', tone: 'mist' },
-      { route: 'Gdańsk → Hamburg', who: 'GD 7710R · Piotr K.', status: 'Settled', tone: 'green' },
+      { route: 'Warsaw → Milan', who: 'WZ 4821K, Marek W.', status: 'En route', tone: 'blue' },
+      { route: 'Poznań → Rotterdam', who: 'PO 2093J, Tomasz L.', status: 'Loading', tone: 'mist' },
+      { route: 'Gdańsk → Hamburg', who: 'GD 7710R, Piotr K.', status: 'Settled', tone: 'green' },
     ],
     menu: ['Dashboard', 'Orders', 'Map', 'Drivers', 'Vehicles', 'Costs', 'Invoices', 'Accountant'],
-    okno: 'app.busikm.pl · Dashboard · September 2026',
-    naglowek: 'Dashboard · September 2026',
+    okno: ['app.busikm.pl', 'Dashboard', 'September 2026'],
+    naglowek: 'Dashboard, September 2026',
     trasa: 'Warsaw → Milan',
     zleceniaDzis: 'Today’s orders',
   },
@@ -126,7 +126,7 @@ export function PulpitMockup() {
                 {t.trasa}
               </div>
               <div className="absolute top-[44%] left-[48%] hidden rounded-lg border border-line bg-white px-2.5 py-1.5 text-[12px] lg:block">
-                <b>WZ 4821K</b> · Marek W. · 14:20
+                <b>WZ 4821K</b>, Marek W., 14:20
               </div>
             </div>
 

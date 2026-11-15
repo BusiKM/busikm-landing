@@ -14,16 +14,16 @@ const TEKSTY: Tlumaczenia<{
     dojazd: 'Dojazd',
     korek: 'korek 14 km pod Bolzano',
     nowa: 'Nowa trasa',
-    przez: 'przez Brixen · SS12',
-    zysk: '− 35 min · kierowca ma nową wersję',
+    przez: 'przez Brixen, SS12',
+    zysk: '− 35 min, kierowca ma nową wersję',
   },
   en: {
     stara: 'Old route',
     dojazd: 'Arrival',
     korek: '14 km jam near Bolzano',
     nowa: 'New route',
-    przez: 'via Brixen · SS12',
-    zysk: '− 35 min · driver has the new version',
+    przez: 'via Brixen, SS12',
+    zysk: '− 35 min, driver has the new version',
   },
 };
 
@@ -53,7 +53,7 @@ export function PrzeliczonaTrasa() {
         </svg>
         <div className="relative flex flex-col gap-0.5 p-3.5">
           <span className="text-muted">{t.stara}</span>
-          <b>A22 · Brenner</b>
+          <b>A22, Brenner</b>
         </div>
         <div className="relative mt-auto flex flex-col gap-0.5 bg-linear-to-t from-mist from-60% to-transparent p-3.5 pt-8">
           <span className="text-muted">{t.dojazd}</span>

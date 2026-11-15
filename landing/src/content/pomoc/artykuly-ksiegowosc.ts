@@ -23,7 +23,7 @@ export const artykulyKsiegowosc: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Aplikacja kierowcy zapisuje trasę od „Zacznij dzień” do licznika końcowego. Nikt nie przepisuje kilometrów z licznika do zeszytu – trasa pojawia się sama, z datą i przebiegiem.',
+              'Aplikacja kierowcy zapisuje trasę od „Zacznij dzień” do licznika końcowego. Nikt nie przepisuje kilometrów z licznika do zeszytu - trasa pojawia się sama, z datą i przebiegiem.',
           },
           {
             typ: 'akapit',
@@ -44,7 +44,7 @@ export const artykulyKsiegowosc: Artykul[] = [
               },
               {
                 tytul: 'Sprawdź Typ trasy i Cel trasy',
-                opis: 'Służbowa albo Prywatna. Cel: Dostawa towaru, Przejazd bez ładunku, Serwis pojazdu, Przejazd techniczny albo Inne. Złą klasyfikację zmienisz przyciskiem Zmień klasyfikację – do czasu eksportu do FK.',
+                opis: 'Służbowa albo Prywatna. Cel: Dostawa towaru, Przejazd bez ładunku, Serwis pojazdu, Przejazd techniczny albo Inne. Złą klasyfikację zmienisz przyciskiem Zmień klasyfikację - do czasu eksportu do FK.',
               },
               {
                 tytul: 'Właściciel potwierdza albo odrzuca trasę',
@@ -69,7 +69,7 @@ export const artykulyKsiegowosc: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Kilometrówkę, diety i kursy NBP zobaczysz w Ustawienia → Stawki z przepisów. Są tylko do podglądu – bierzemy je z przepisów.',
+              'Kilometrówkę, diety i kursy NBP zobaczysz w Ustawienia → Stawki z przepisów. Są tylko do podglądu - bierzemy je z przepisów.',
           },
         ],
       },
@@ -93,7 +93,7 @@ export const artykulyKsiegowosc: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Licznik pokazuje, ile kroków jest gotowych. Możesz robić je w dowolnej kolejności – każdy prowadzi tam, gdzie go załatwisz.',
+              'Licznik pokazuje, ile kroków jest gotowych. Możesz robić je w dowolnej kolejności - każdy prowadzi tam, gdzie go załatwisz.',
           },
           {
             typ: 'kroki',
@@ -114,7 +114,7 @@ export const artykulyKsiegowosc: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Miesiąca nie zamkniesz, dopóki płace i ewidencja przebiegu nie są zatwierdzone. Koszty bez dokumentu nie blokują – zostają na liście braków.',
+              'Miesiąca nie zamkniesz, dopóki płace i ewidencja przebiegu nie są zatwierdzone. Koszty bez dokumentu nie blokują - zostają na liście braków.',
           },
           {
             typ: 'akapit',
@@ -147,7 +147,7 @@ export const artykulyKsiegowosc: Artykul[] = [
     czas: 'Dwie minuty',
     zanim: [
       'Program księgowy ustawiony w Ustawienia → Program księgowy',
-      'Zamknięty miesiąc – jeśli pliki mają być ostateczne',
+      'Zamknięty miesiąc - jeśli pliki mają być ostateczne',
     ],
     rozdzialy: [
       {
@@ -173,7 +173,7 @@ export const artykulyKsiegowosc: Artykul[] = [
               },
               {
                 tytul: 'Sprawdź, czy wersja jest ostateczna',
-                opis: 'Przed zamknięciem miesiąca paczka jest robocza. Po zamknięciu jest ostateczna i ma też JPK_V7M – o ile firma jest czynnym podatnikiem VAT.',
+                opis: 'Przed zamknięciem miesiąca paczka jest robocza. Po zamknięciu jest ostateczna i ma też JPK_V7M - o ile firma jest czynnym podatnikiem VAT.',
               },
             ],
           },
@@ -200,12 +200,12 @@ export const artykulyKsiegowosc: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Gdy biuro pracuje w innym programie, wybierz w Ustawienia → Program księgowy „Inny program” – dostaniesz plik CSV.',
+              'Gdy biuro pracuje w innym programie, wybierz w Ustawienia → Program księgowy „Inny program” - dostaniesz plik CSV.',
           },
           {
             typ: 'uwaga',
             tresc:
-              'Dekrety do FK wygenerujesz najwyżej trzy razy w miesiącu dla każdego programu – wystarcza na wersję właściwą i dwie poprawki. Paczki dla biura ten limit nie dotyczy. Dekrety są za miesiące zakończone, nie za bieżący.',
+              'Dekrety do FK wygenerujesz najwyżej trzy razy w miesiącu dla każdego programu - wystarcza na wersję właściwą i dwie poprawki. Paczki dla biura ten limit nie dotyczy. Dekrety są za miesiące zakończone, nie za bieżący.',
           },
           {
             typ: 'akapit',
@@ -237,7 +237,7 @@ export const artykulyKsiegowosc: Artykul[] = [
               ['Klienci', 'Na których klientach zarabiasz'],
               ['Zlecenia i trasy', 'Które zlecenia dają zysk, a które tylko obrót'],
               ['Flota', 'Ile kosztuje każde auto'],
-              ['Kierowcy', 'Praca kierowców – tę zakładkę widzi tylko właściciel'],
+              ['Kierowcy', 'Praca kierowców - tę zakładkę widzi tylko właściciel'],
               ['Koszty', 'Gdzie uciekają pieniądze'],
               ['Należności', 'Kto jeszcze nie zapłacił'],
             ],
@@ -260,7 +260,7 @@ export const artykulyKsiegowosc: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Pod przyciskiem Pobierz: PDF do druku, Excel (XLSX) albo CSV z bieżącej zakładki, a także Raport miesięczny (PDF) – wszystkie zakładki za miesiąc w jednym pliku.',
+              'Pod przyciskiem Pobierz: PDF do druku, Excel (XLSX) albo CSV z bieżącej zakładki, a także Raport miesięczny (PDF) - wszystkie zakładki za miesiąc w jednym pliku.',
           },
           {
             typ: 'akapit',

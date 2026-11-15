@@ -16,14 +16,14 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Dyspozytornia',
     naglowek: 'Cały dzień pracy na jednym ekranie.',
     lead: 'Kolejka zleceń i mapa floty obok siebie, pod spodem plan floty. Do kierowcy piszesz jednym kliknięciem.',
-    label: 'Ekran dyspozytora · desktop 1440',
+    label: 'Ekran dyspozytora (desktop 1440)',
     note: 'Dyspozytornia: u góry liczniki dnia, po lewej kolejka z zakładkami „Wymaga reakcji”, „Do przypisania” i „W trasie”, po prawej mapa floty z filtrami, niżej plan floty.',
   },
   en: {
     eyebrow: 'Dispatch',
     naglowek: 'A whole working day on one screen.',
     lead: 'The order queue and the fleet map side by side, with the fleet plan underneath. You message a driver in one click.',
-    label: 'Dispatcher screen · desktop 1440',
+    label: 'Dispatcher screen (desktop 1440)',
     note: 'Dispatch: the day’s counters at the top, the queue on the left with “Needs action”, “To assign” and “On the road” tabs, the fleet map with filters on the right, the fleet plan below.',
   },
 };

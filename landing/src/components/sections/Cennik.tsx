@@ -33,7 +33,7 @@ const TEKSTY: Tlumaczenia<{
     wyroznienie: 'Najczęściej wybierany',
     wezwanie: 'Wypróbuj 14 dni',
     stopka:
-      'Ceny końcowe, bez VAT – MOVGRANTO jest zwolniona z VAT, na fakturze stawka „zw.”. Więcej niż 50 pojazdów – napisz. Bez umowy na czas określony. Po rezygnacji konto zostaje do odczytu: pobierzesz faktury, ewidencje i eksporty.',
+      'Ceny końcowe, bez VAT - MOVGRANTO jest zwolniona z VAT, na fakturze stawka „zw.”. Więcej niż 50 pojazdów - napisz. Bez umowy na czas określony. Po rezygnacji konto zostaje do odczytu: pobierzesz faktury, ewidencje i eksporty.',
   },
   en: {
     naglowek: ['You pay for vehicles.', 'Not for people.'],
@@ -46,7 +46,7 @@ const TEKSTY: Tlumaczenia<{
     wyroznienie: 'Most popular',
     wezwanie: 'Try 14 days free',
     stopka:
-      'Final prices, no VAT on top – MOVGRANTO is VAT-exempt, so the invoice shows the “zw.” (exempt) rate. More than 50 vehicles – get in touch. No fixed-term contract. After you cancel, your account stays read-only: you can still download invoices, mileage logs and exports.',
+      'Final prices, no VAT on top - MOVGRANTO is VAT-exempt, so the invoice shows the “zw.” (exempt) rate. More than 50 vehicles - get in touch. No fixed-term contract. After you cancel, your account stays read-only: you can still download invoices, mileage logs and exports.',
   },
 };
 

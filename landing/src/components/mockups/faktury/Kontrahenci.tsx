@@ -4,12 +4,12 @@ import { biezacyJezyk } from '@/i18n/serwer';
 const podpowiedzi = [
   {
     nazwa: 'Alpina Logistics S.r.l.',
-    adres: 'Via Tortona 12, Milano · IT 08765432109',
+    adres: 'Via Tortona 12, Milano, IT 08765432109',
     wybrana: true,
   },
   {
     nazwa: 'Alpen Cargo GmbH',
-    adres: 'Innsbruck · AT U12345678',
+    adres: 'Innsbruck, AT U12345678',
     wybrana: false,
   },
 ] as const;
@@ -22,13 +22,13 @@ const TEKSTY: Tlumaczenia<{
   stopka: string;
 }> = {
   pl: {
-    naglowek: 'Nowe zlecenie · kontrahent',
+    naglowek: 'Nowe zlecenie: kontrahent',
     podpowiedzi: 'podpowiedzi',
     ile: ['12 zleceń', '3 zlecenia'],
     stopka: 'Adres, numer i termin płatności wchodzą same.',
   },
   en: {
-    naglowek: 'New order · client',
+    naglowek: 'New order: client',
     podpowiedzi: 'suggestions',
     ile: ['12 orders', '3 orders'],
     stopka: 'Address, tax number and payment term fill in by themselves.',

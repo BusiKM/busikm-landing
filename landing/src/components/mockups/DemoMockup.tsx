@@ -68,7 +68,7 @@ export function DemoMockup() {
   const t = TEKSTY[biezacyJezyk()];
   return (
     <div className="flex flex-col overflow-hidden rounded-card border border-line bg-white text-[11px] shadow-card lg:aspect-16/10 lg:rounded-panel">
-      <Chrome label="demo.busikm.pl · Trans-Bus Kowalski" />
+      <Chrome label={['demo.busikm.pl', 'Trans-Bus Kowalski']} />
 
       <div className="flex items-center justify-between gap-3 bg-blue-soft px-3.5 py-1.5 font-medium text-blue">
         <span className="truncate">

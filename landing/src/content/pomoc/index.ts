@@ -100,7 +100,7 @@ export function grupyWyszukiwarki(jezyk: Jezyk): GrupaWyszukiwarki[] {
       slug: a.slug,
       tytul: a.tytul,
       lead: a.lead,
-      role: a.role.map((r) => NAZWY_ROL[jezyk][r]).join(' · '),
+      role: a.role.map((r) => NAZWY_ROL[jezyk][r]).join(', '),
       indeks: indeksArtykulu(a, jezyk),
     })),
   }));

@@ -21,6 +21,10 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
  * a odnośnik w wiadomości nie wystarcza komuś, do kogo pierwsza wiadomość
  * pójdzie dopiero za kilka miesięcy. Stąd druga droga, przez adres.
  *
+ * Wersja 3 zmieniła wyłącznie typografię polskiego brzmienia: przecinek
+ * zamiast długiego myślnika. Sens zgody się nie zmienił, ale treść tak,
+ * więc numer też.
+ *
  * ## Podstawa prawna
  *
  * Art. 6 ust. 1 lit. a RODO (zgoda) oraz **art. 398 Prawa komunikacji
@@ -38,7 +42,7 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
  * więc tam zgoda musi być nieobowiązkowa.
  */
 
-export const WERSJA_ZGODY = 2;
+export const WERSJA_ZGODY = 3;
 
 /**
  * Brzmienie w obu językach serwisu.
@@ -52,7 +56,7 @@ export const WERSJA_ZGODY = 2;
 export const TRESC_ZGODY: Tlumaczenia<string> = {
   pl:
     `Zgadzam się na otrzymywanie od ${firma.nazwa} informacji o BusiKM na podany adres ` +
-    'e-mail – w tym o uruchomieniu demo i otwarciu zapisów. Zgodę wycofam odnośnikiem ' +
+    'e-mail, w tym o uruchomieniu demo i otwarciu zapisów. Zgodę wycofam odnośnikiem ' +
     `w każdej wiadomości albo pisząc na ${firma.email}.`,
   en:
     `I agree to receive information about BusiKM from ${firma.nazwa} at the email ` +

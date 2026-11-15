@@ -18,7 +18,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek1: 'Wiesz, kiedy kierowca musi stanąć.',
     naglowek2: 'Zanim stanie za późno.',
     lead: 'Jazda i praca liczą się same, przerwę kierowca włącza jednym przyciskiem. Kierowca widzi to na telefonie, Ty na jednym ekranie.',
-    label: 'Kierowcy, zakładka „Czas pracy” · desktop',
+    label: 'Kierowcy, zakładka „Czas pracy” (desktop)',
     note: 'Lista kierowców z kolumnami: teraz, jazda dziś, do przerwy, tydzień, dwa tygodnie, powrót do domu i stan „W normie”. Ten sam ekran co na stronie głównej.',
   },
   en: {
@@ -26,7 +26,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek1: 'You know when a driver has to stop.',
     naglowek2: 'Before it’s too late.',
     lead: 'Driving and work time count themselves; the driver starts a break with one tap. The driver sees it on the phone, you see it on one screen.',
-    label: 'Drivers, “Working time” tab · desktop',
+    label: 'Drivers, “Working time” tab (desktop)',
     note: 'A list of drivers with columns for now, driving today, time to break, week, two weeks, home time and a “Within limits” status. The same screen as on the home page.',
   },
 };

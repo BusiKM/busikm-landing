@@ -42,9 +42,9 @@ const TEKSTY: Tlumaczenia<{
   odpowiedz: string;
 }> = {
   pl: {
-    domu: 'BusiKM – strona główna',
+    domu: 'BusiKM - strona główna',
     drobnyDruk: [
-      'Ceny w cenniku są końcowe – sprzedawca jest zwolniony z VAT, na fakturze stawka „zw.”.',
+      'Ceny w cenniku są końcowe - sprzedawca jest zwolniony z VAT, na fakturze stawka „zw.”.',
       'BusiKM nie zastępuje tachografu. Tachograf zapisuje, BusiKM pokazuje.',
       'Serwery i bazy stoją w UE (Frankfurt), kopia zaszyfrowana u drugiego dostawcy.',
     ],
@@ -53,9 +53,9 @@ const TEKSTY: Tlumaczenia<{
     odpowiedz: 'Odpisujemy tego samego dnia roboczego',
   },
   en: {
-    domu: 'BusiKM – home',
+    domu: 'BusiKM - home',
     drobnyDruk: [
-      'Prices are final – the seller is VAT-exempt, so the invoice shows no VAT.',
+      'Prices are final - the seller is VAT-exempt, so the invoice shows no VAT.',
       'BusiKM does not replace the tachograph. The tachograph records, BusiKM shows.',
       'Servers and databases are in the EU (Frankfurt), with an encrypted backup at a second provider.',
     ],

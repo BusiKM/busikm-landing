@@ -59,8 +59,8 @@ bez tego strona przewijałaby się w poziomie na iPhone SE (320px):
   poniżej 390px (przy 390 zostaje dokładnie 88px z projektu);
 - `Pricing` — etykieta „2 miesiące gratis" schodzi pod przełącznik poniżej 360px.
 
-Sprawdzone bez przewijania poziomego: 320 · 360 · 375 · 390 · 414 · 428 · 640 ·
-768 · 834 · 1024 · 1280 · 1440 · 1920.
+Sprawdzone bez przewijania poziomego: 320, 360, 375, 390, 414, 428, 640,
+768, 834, 1024, 1280, 1440, 1920.
 
 ## Nawigacja
 
@@ -75,7 +75,7 @@ Sprawdzone bez przewijania poziomego: 320 · 360 · 375 · 390 · 414 · 428 · 
 | hover pozycji | `text-ink` |
 | pozycja aktywna | pigułka `bg-blue-soft` + `text-ink`, waga 600 |
 | hover przycisku | `#0A46C0` (`blue-dark`) |
-| mobile zamknięte | logo · pigułka „Demo" · hamburger |
+| mobile zamknięte | logo, pigułka „Demo", hamburger |
 | mobile otwarte | nakładka `paper`, pozycje 28 px, aktywna na niebiesko, dwa przyciski |
 
 Aktywna pozycja wynika z pozycji przewinięcia — nasłuch `scroll` sprawdza, która

@@ -13,7 +13,7 @@ const TEKSTY: Tlumaczenia<{
       [
         '02',
         'Dane same lecą',
-        'Trasa, kilometry, czas pracy, paragony. Wszystko ląduje u Ciebie – nawet wtedy, gdy kierowca nie ma zasięgu.',
+        'Trasa, kilometry, czas pracy, paragony. Wszystko ląduje u Ciebie - nawet wtedy, gdy kierowca nie ma zasięgu.',
       ],
       [
         '03',
@@ -29,7 +29,7 @@ const TEKSTY: Tlumaczenia<{
       [
         '02',
         'The data sends itself',
-        'Route, kilometres, working time, receipts. It all lands with you – even when the driver has no signal.',
+        'Route, kilometres, working time, receipts. It all lands with you - even when the driver has no signal.',
       ],
       [
         '03',

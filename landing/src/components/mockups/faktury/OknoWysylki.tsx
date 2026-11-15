@@ -15,8 +15,8 @@ const TEKSTY: Tlumaczenia<{
     do: 'Do',
     kopia: 'Kopia',
     eFaktura: 'Zgłoś też do systemu e-faktur',
-    mail: 'mail dostarczony · 08:14',
-    przyjeta: 'e-faktura przyjęta · 08:14',
+    mail: 'mail dostarczony, 08:14',
+    przyjeta: 'e-faktura przyjęta, 08:14',
     wyslano: 'Wysłano',
   },
   en: {
@@ -24,8 +24,8 @@ const TEKSTY: Tlumaczenia<{
     do: 'To',
     kopia: 'Cc',
     eFaktura: 'Also submit to the e-invoicing system',
-    mail: 'email delivered · 08:14',
-    przyjeta: 'e-invoice accepted · 08:14',
+    mail: 'email delivered, 08:14',
+    przyjeta: 'e-invoice accepted, 08:14',
     wyslano: 'Sent',
   },
 };

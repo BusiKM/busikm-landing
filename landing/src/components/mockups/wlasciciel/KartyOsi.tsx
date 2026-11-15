@@ -98,7 +98,7 @@ export function KartaMapa() {
         <circle cx="150" cy="86" r="6" fill="#fff" stroke="#0B5FFF" strokeWidth="3" />
       </svg>
       <div className="absolute top-3 left-3.5 rounded-lg bg-surface-2 px-2.5 py-2 text-[11px]">
-        <b>WZ 4821K</b> · Bolzano
+        <b>WZ 4821K</b>, Bolzano
         <div className="text-ink-muted">{t.mapaDojazd}</div>
       </div>
     </div>

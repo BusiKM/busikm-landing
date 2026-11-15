@@ -12,7 +12,7 @@ type Wiersz = {
 
 const TEKSTY: Tlumaczenia<{
   zlecenie: Wiersz[];
-  okno: string;
+  okno: readonly string[];
   numer: string;
   trasa: string;
   zakonczony: string;
@@ -34,25 +34,25 @@ const TEKSTY: Tlumaczenia<{
     zlecenie: [
       { label: 'Kontrahent', value: 'Alpina Logistics S.r.l.', krotki: 'Alpina Logistics' },
       { label: 'Fracht', value: '3 900 €', mocny: true },
-      { label: 'Załadunek', value: '2.09 · 06:00 · Warszawa', krotki: '2.09 · 06:00' },
-      { label: 'Rozładunek', value: '3.09 · 07:52 · Mediolan', krotki: '3.09 · 07:52' },
+      { label: 'Załadunek', value: '2.09, 06:00, Warszawa', krotki: '2.09, 06:00' },
+      { label: 'Rozładunek', value: '3.09, 07:52, Mediolan', krotki: '3.09, 07:52' },
       { label: 'Termin płatności', value: '30 dni' },
-      { label: 'Kierowca · pojazd', value: 'Marek W. · WZ 4821K', krotki: 'Marek W.' },
+      { label: 'Kierowca i pojazd', value: 'Marek W., WZ 4821K', krotki: 'Marek W.' },
     ],
-    okno: 'app.busikm.pl · Zlecenie 2026/09/041 · Faktura',
-    numer: 'Zlecenie · 2026/09/041',
+    okno: ['app.busikm.pl', 'Zlecenie 2026/09/041', 'Faktura'],
+    numer: 'Zlecenie 2026/09/041',
     trasa: 'Warszawa → Mediolan',
-    zakonczony: 'Kurs zakończony · 07:52',
+    zakonczony: 'Kurs zakończony, 07:52',
     wystaw: 'Wystaw i wyślij',
     nicDoPrzepisania: 'nic do przepisania',
     faktura: 'Faktura VAT',
     usluga: 'Usługa transportowa',
     uslugaTrasa: 'Usługa transportowa Warszawa → Mediolan',
     kwota: '3 900,00 €',
-    vat: 'VAT · 0% (np)',
+    vat: 'VAT 0% (np)',
     vatKwota: '0,00 €',
     razem: 'Razem',
-    razemKwota: '3 900,00 € · 16 692 zł',
+    razemKwota: '3 900,00 € (16 692 zł)',
     kurs: 'Kurs 4,2800 z 3.09.2026',
     platnosc: 'Płatność do 3.10',
     kanaly: ['mail', 'e-faktura', 'księgowa'],
@@ -61,25 +61,25 @@ const TEKSTY: Tlumaczenia<{
     zlecenie: [
       { label: 'Client', value: 'Alpina Logistics S.r.l.', krotki: 'Alpina Logistics' },
       { label: 'Freight', value: '€3,900', mocny: true },
-      { label: 'Loading', value: '2 Sep · 06:00 · Warsaw', krotki: '2 Sep · 06:00' },
-      { label: 'Unloading', value: '3 Sep · 07:52 · Milan', krotki: '3 Sep · 07:52' },
+      { label: 'Loading', value: '2 Sep, 06:00, Warsaw', krotki: '2 Sep, 06:00' },
+      { label: 'Unloading', value: '3 Sep, 07:52, Milan', krotki: '3 Sep, 07:52' },
       { label: 'Payment term', value: '30 days' },
-      { label: 'Driver · vehicle', value: 'Marek W. · WZ 4821K', krotki: 'Marek W.' },
+      { label: 'Driver and vehicle', value: 'Marek W., WZ 4821K', krotki: 'Marek W.' },
     ],
-    okno: 'app.busikm.pl · Order 2026/09/041 · Invoice',
-    numer: 'Order · 2026/09/041',
+    okno: ['app.busikm.pl', 'Order 2026/09/041', 'Invoice'],
+    numer: 'Order 2026/09/041',
     trasa: 'Warsaw → Milan',
-    zakonczony: 'Job finished · 07:52',
+    zakonczony: 'Job finished, 07:52',
     wystaw: 'Issue and send',
     nicDoPrzepisania: 'nothing to retype',
     faktura: 'VAT invoice',
     usluga: 'Transport service',
     uslugaTrasa: 'Transport service Warsaw → Milan',
     kwota: '€3,900.00',
-    vat: 'VAT · 0% (out of scope)',
+    vat: 'VAT 0% (out of scope)',
     vatKwota: '€0.00',
     razem: 'Total',
-    razemKwota: '€3,900.00 · PLN 16,692',
+    razemKwota: '€3,900.00 (PLN 16,692)',
     kurs: 'Rate 4.2800 of 3 Sep 2026',
     platnosc: 'Due by 3 Oct',
     kanaly: ['email', 'e-invoice', 'accountant'],
@@ -136,7 +136,7 @@ export function ZlecenieIFaktura() {
             <span className="flex-none">FV/2026/09/041</span>
           </div>
           <b className="text-[16px] tracking-[-0.01em] lg:text-[22px]">Alpina Logistics S.r.l.</b>
-          <div className="text-muted">Via Tortona 12, 20144 Milano · IT 08765432109</div>
+          <div className="text-muted">Via Tortona 12, 20144 Milano, IT 08765432109</div>
 
           <div className="flex justify-between gap-3 border-t border-line py-1.5 lg:py-2.5">
             <span>

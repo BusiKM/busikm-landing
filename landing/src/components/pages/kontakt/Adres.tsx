@@ -113,7 +113,7 @@ export function Adres() {
           <br />
           {firma.miasto}
           <br />
-          NIP {firma.nip} · REGON {firma.regon}
+          NIP {firma.nip}, REGON {firma.regon}
           <br />
           KRS {firma.krs}
         </div>

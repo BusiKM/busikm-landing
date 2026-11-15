@@ -6,7 +6,7 @@ export const artykulyKontoEn: Artykul[] = [
     slug: 'zespol-i-role',
     kategoria: 'konto',
     tytul: 'Team and permissions',
-    lead: 'Who sees what and how people get into the system – you invite office staff from settings and add drivers in the Drivers module.',
+    lead: 'Who sees what and how people get into the system - you invite office staff from settings and add drivers in the Drivers module.',
     role: ['wlasciciel'],
     gdzie: 'Settings → Team and access (Ustawienia → Zespół i dostęp)',
     rozdzialy: [
@@ -26,7 +26,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Each person has one role. In a small company the owner is usually the dispatcher too – the owner’s account has access to everything, so there’s no need for a second one.',
+              'Each person has one role. In a small company the owner is usually the dispatcher too - the owner’s account has access to everything, so there’s no need for a second one.',
           },
           {
             typ: 'uwaga',
@@ -51,7 +51,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Invitations nobody has accepted yet are listed on the same page, under Invitations waiting to be accepted. Drivers aren’t here – you add them in the Drivers module, and the app invitation goes out at the end of the wizard.',
+              'Invitations nobody has accepted yet are listed on the same page, under Invitations waiting to be accepted. Drivers aren’t here - you add them in the Drivers module, and the app invitation goes out at the end of the wizard.',
           },
         ],
       },
@@ -69,7 +69,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Removing access doesn’t delete history. Changes made by that person stay – as they should, because they concern company documents.',
+              'Removing access doesn’t delete history. Changes made by that person stay - as they should, because they concern company documents.',
           },
         ],
       },
@@ -100,7 +100,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'After the change we sign you out on your other devices. That’s deliberate – if you’re changing your password because something worried you, a phone in someone else’s pocket should lose access straight away.',
+              'After the change we sign you out on your other devices. That’s deliberate - if you’re changing your password because something worried you, a phone in someone else’s pocket should lose access straight away.',
           },
         ],
       },
@@ -113,7 +113,7 @@ export const artykulyKontoEn: Artykul[] = [
               { tytul: 'In the Phone code at sign-in section (Kod z telefonu przy logowaniu), turn the protection on' },
               {
                 tytul: 'Connect your account to an authenticator app',
-                opis: 'Google Authenticator, 1Password, Authy – any app that generates six-digit codes.',
+                opis: 'Google Authenticator, 1Password, Authy - any app that generates six-digit codes.',
               },
               {
                 tytul: 'Type in the code from the app to confirm',
@@ -124,7 +124,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'The owner’s account has access to invoices, clients and driver data. The phone code takes five minutes, once – and it’s the difference between a stolen password and a stolen company.',
+              'The owner’s account has access to invoices, clients and driver data. The phone code takes five minutes, once - and it’s the difference between a stolen password and a stolen company.',
           },
         ],
       },
@@ -151,7 +151,7 @@ export const artykulyKontoEn: Artykul[] = [
     slug: 'plan-i-rezygnacja',
     kategoria: 'konto',
     tytul: 'Plan, payment, BusiKM invoices and cancelling',
-    lead: 'You handle the plan, card, invoices and cancelling yourself, in settings – no need to write to us.',
+    lead: 'You handle the plan, card, invoices and cancelling yourself, in settings - no need to write to us.',
     role: ['wlasciciel'],
     gdzie: 'Settings → Plan and payments (Ustawienia → Plan i płatności)',
     rozdzialy: [
@@ -161,13 +161,13 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'In Settings → Plan and payments (Ustawienia → Plan i płatności) you see the company’s plan, how long it’s valid for and its status: trial, active or expired. The plan depends on the number of vehicles – drivers and office staff are unlimited.',
+              'In Settings → Plan and payments (Ustawienia → Plan i płatności) you see the company’s plan, how long it’s valid for and its status: trial, active or expired. The plan depends on the number of vehicles - drivers and office staff are unlimited.',
           },
           {
             typ: 'lista',
             punkty: [
-              'Start – up to 3 vehicles.',
-              'Business (Firma) – 10 vehicles included, +PLN 29/month for each extra one, up to 50. Larger fleet – write to us.',
+              'Start - up to 3 vehicles.',
+              'Business (Firma) - 10 vehicles included, +PLN 29/month for each extra one, up to 50. Larger fleet - write to us.',
             ],
           },
           {
@@ -197,7 +197,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'You get an invoice by email for every payment, at the “zw.” (VAT-exempt) rate – MOVGRANTO is exempt from VAT, so the price on the pricing page is the final price.',
+              'You get an invoice by email for every payment, at the “zw.” (VAT-exempt) rate - MOVGRANTO is exempt from VAT, so the price on the pricing page is the final price.',
           },
         ],
       },

@@ -20,7 +20,7 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     podpis:
       'Stan sprawdzamy i zmieniamy ręcznie. O przerwie piszemy tutaj, a klientom wysyłamy maila.',
-    historia: 'Historia przerw · ostatnie dwanaście miesięcy',
+    historia: 'Historia przerw z ostatnich dwunastu miesięcy',
     brakPrzerw: 'W ostatnich dwunastu miesiącach nie było przerw.',
     cosNieDziala: 'Coś nie działa, a tu świeci na zielono?',
     napisz: 'Napisz do nas.',
@@ -28,7 +28,7 @@ const TEKSTY: Tlumaczenia<{
   en: {
     podpis:
       'We check and update this page by hand. If there’s an outage, we post it here and email our customers.',
-    historia: 'Outage history · last twelve months',
+    historia: 'Outage history for the last twelve months',
     brakPrzerw: 'There have been no outages in the last twelve months.',
     cosNieDziala: 'Something’s not working, but it’s green here?',
     napisz: 'Let us know.',

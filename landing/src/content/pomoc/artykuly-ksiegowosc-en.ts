@@ -21,7 +21,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'The driver app records the route from “Start the day” (Zacznij dzień) to the final odometer reading. Nobody copies kilometres from the odometer into a notebook – the trip appears on its own, with the date and distance.',
+              'The driver app records the route from “Start the day” (Zacznij dzień) to the final odometer reading. Nobody copies kilometres from the odometer into a notebook - the trip appears on its own, with the date and distance.',
           },
           {
             typ: 'akapit',
@@ -42,7 +42,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
               },
               {
                 tytul: 'Check the trip type and purpose',
-                opis: 'Business (Służbowa) or Private (Prywatna). Purpose: delivery of goods, empty run, vehicle service, technical run or other. You fix a wrong classification with Change classification (Zmień klasyfikację) – until the FK export.',
+                opis: 'Business (Służbowa) or Private (Prywatna). Purpose: delivery of goods, empty run, vehicle service, technical run or other. You fix a wrong classification with Change classification (Zmień klasyfikację) - until the FK export.',
               },
               {
                 tytul: 'The owner confirms or rejects the trip',
@@ -67,7 +67,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Mileage rates, allowances and NBP exchange rates are in Settings → Statutory rates (Stawki z przepisów). They’re for reference only – we take them from the regulations.',
+              'Mileage rates, allowances and NBP exchange rates are in Settings → Statutory rates (Stawki z przepisów). They’re for reference only - we take them from the regulations.',
           },
         ],
       },
@@ -91,7 +91,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'The counter shows how many steps are done. You can do them in any order – each one takes you to where you sort it out.',
+              'The counter shows how many steps are done. You can do them in any order - each one takes you to where you sort it out.',
           },
           {
             typ: 'kroki',
@@ -112,7 +112,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'You can’t close the month until payroll and the mileage log are approved. Costs without a document don’t block it – they stay on the list of gaps.',
+              'You can’t close the month until payroll and the mileage log are approved. Costs without a document don’t block it - they stay on the list of gaps.',
           },
           {
             typ: 'akapit',
@@ -145,7 +145,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
     czas: 'Two minutes',
     zanim: [
       'Accounting software set in Settings → Accounting software (Program księgowy)',
-      'A closed month – if the files are to be final',
+      'A closed month - if the files are to be final',
     ],
     rozdzialy: [
       {
@@ -171,7 +171,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
               },
               {
                 tytul: 'Check whether the version is final',
-                opis: 'Before the month is closed, the pack is a working version. After closing it’s final and also includes JPK_V7M – provided the company is an active VAT payer.',
+                opis: 'Before the month is closed, the pack is a working version. After closing it’s final and also includes JPK_V7M - provided the company is an active VAT payer.',
               },
             ],
           },
@@ -198,12 +198,12 @@ export const artykulyKsiegowoscEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'If the accounting office uses a different program, choose “Other program” (Inny program) in Settings → Accounting software – you get a CSV file.',
+              'If the accounting office uses a different program, choose “Other program” (Inny program) in Settings → Accounting software - you get a CSV file.',
           },
           {
             typ: 'uwaga',
             tresc:
-              'You can generate FK entries at most three times a month per program – enough for the proper version and two corrections. The office pack isn’t subject to this limit. FK entries are for completed months, not the current one.',
+              'You can generate FK entries at most three times a month per program - enough for the proper version and two corrections. The office pack isn’t subject to this limit. FK entries are for completed months, not the current one.',
           },
           {
             typ: 'akapit',
@@ -235,7 +235,7 @@ export const artykulyKsiegowoscEn: Artykul[] = [
               ['Clients (Klienci)', 'Which clients you make money on'],
               ['Orders and routes (Zlecenia i trasy)', 'Which orders bring profit and which only turnover'],
               ['Fleet (Flota)', 'What each vehicle costs'],
-              ['Drivers (Kierowcy)', 'Drivers’ work – only the owner sees this tab'],
+              ['Drivers (Kierowcy)', 'Drivers’ work - only the owner sees this tab'],
               ['Costs (Koszty)', 'Where the money goes'],
               ['Receivables (Należności)', 'Who hasn’t paid yet'],
             ],

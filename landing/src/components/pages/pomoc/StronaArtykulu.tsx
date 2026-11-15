@@ -234,7 +234,7 @@ export function StronaArtykulu({ artykul }: { artykul: Artykul }) {
               <div className="flex flex-wrap gap-x-10 gap-y-5 border-y border-line py-5">
                 <Znacznik
                   etykieta={t.dlaKogo}
-                  wartosc={artykul.role.map((r) => NAZWY_ROL[jezyk][r]).join(' · ')}
+                  wartosc={artykul.role.map((r) => NAZWY_ROL[jezyk][r]).join(', ')}
                 />
                 {artykul.gdzie && <Znacznik etykieta={t.gdzie} wartosc={artykul.gdzie} />}
                 {artykul.czas && <Znacznik etykieta={t.ileZajmie} wartosc={artykul.czas} />}

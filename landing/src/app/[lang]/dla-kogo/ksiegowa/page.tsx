@@ -53,7 +53,7 @@ const TEKSTY: Tlumaczenia<Tresc> = {
           przygaszona: true,
         },
       ],
-      nota: 'Pracujesz w firmie albo obsługujesz ją z zewnątrz – dostajesz zaproszenie mailem i własny dostęp. Każda firma zaprasza Cię osobno.',
+      nota: 'Pracujesz w firmie albo obsługujesz ją z zewnątrz - dostajesz zaproszenie mailem i własny dostęp. Każda firma zaprasza Cię osobno.',
     },
     pytaniaNaglowek: 'Trzy pytania',
     pytania: [

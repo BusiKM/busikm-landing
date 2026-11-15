@@ -20,8 +20,8 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     zaliczka: [
-      { label: 'Zaliczka · ZAL/017/08/2026', value: '1 000 €' },
-      { label: 'Faktura końcowa · FV/041/09/2026', value: '3 900 €' },
+      { label: 'Zaliczka ZAL/017/08/2026', value: '1 000 €' },
+      { label: 'Faktura końcowa FV/041/09/2026', value: '3 900 €' },
       { label: 'Odliczona zaliczka', value: '− 1 000 €', przygaszony: true },
       { label: 'Do zapłaty', value: '2 900 €', mocny: true },
     ],
@@ -34,20 +34,20 @@ const TEKSTY: Tlumaczenia<{
     korekty: {
       tytul: 'Korekty i zaliczki',
       tresc:
-        'Korekta wie, do czego się odnosi – poprawiasz kwoty, pozycje albo dane nabywcy. Zaliczka odlicza się od faktury końcowej. Bez kombinowania w arkuszu.',
+        'Korekta wie, do czego się odnosi - poprawiasz kwoty, pozycje albo dane nabywcy. Zaliczka odlicza się od faktury końcowej. Bez kombinowania w arkuszu.',
       przypis: 'Korekta KFV/003/09/2026 → odnosi się do FV/041/09/2026',
     },
     waluty: {
       tytul: 'Waluty',
       tresc:
         'Kwota, kurs i data przeliczenia zostają na dokumencie. Nikt nie liczy tego w kalkulatorze trzy tygodnie później.',
-      przypis: 'Kurs NBP z dnia przed datą sprzedaży – zapisany przy dokumencie na stałe.',
+      przypis: 'Kurs NBP z dnia przed datą sprzedaży - zapisany przy dokumencie na stałe.',
     },
   },
   en: {
     zaliczka: [
-      { label: 'Advance · ZAL/017/08/2026', value: '€1,000' },
-      { label: 'Final invoice · FV/041/09/2026', value: '€3,900' },
+      { label: 'Advance ZAL/017/08/2026', value: '€1,000' },
+      { label: 'Final invoice FV/041/09/2026', value: '€3,900' },
       { label: 'Advance deducted', value: '− €1,000', przygaszony: true },
       { label: 'To pay', value: '€2,900', mocny: true },
     ],
@@ -60,14 +60,14 @@ const TEKSTY: Tlumaczenia<{
     korekty: {
       tytul: 'Corrections and advances',
       tresc:
-        'A correction knows what it refers to – you fix amounts, line items or buyer details. An advance is deducted from the final invoice. No juggling in a spreadsheet.',
+        'A correction knows what it refers to - you fix amounts, line items or buyer details. An advance is deducted from the final invoice. No juggling in a spreadsheet.',
       przypis: 'Correction KFV/003/09/2026 → refers to FV/041/09/2026',
     },
     waluty: {
       tytul: 'Currencies',
       tresc:
         'The amount, rate and conversion date stay on the document. Nobody works it out on a calculator three weeks later.',
-      przypis: 'NBP rate from the day before the date of sale – saved with the document for good.',
+      przypis: 'NBP rate from the day before the date of sale - saved with the document for good.',
     },
   },
 };

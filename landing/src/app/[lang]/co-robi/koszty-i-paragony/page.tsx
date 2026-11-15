@@ -15,6 +15,7 @@ import { Kategorie } from '@/components/pages/koszty/Kategorie';
 import { Dowod } from '@/components/pages/koszty/Dowod';
 import { KursWaluty } from '@/components/mockups/koszty/KursWaluty';
 import { KosztyFirmowe } from '@/components/mockups/koszty/KosztyFirmowe';
+import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
 export const generateMetadata = metadataPodstrony('co-robi/koszty-i-paragony');
 
@@ -54,7 +55,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'Obca waluta',
       tresc:
         'Przeliczona po kursie z dnia. Kurs zostaje przy dokumencie na stałe, nie trzeba go potem odtwarzać.',
-      label: 'Koszt w euro z kursem · desktop, tryb nocny',
+      label: 'Koszt w euro z kursem (desktop, tryb nocny)',
       note: 'Kwota w euro i w złotych, kurs, data przeliczenia, zapisane przy dokumencie.',
     },
     firmowe: {
@@ -90,7 +91,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'Foreign currency',
       tresc:
         'Converted at the day’s exchange rate. The rate stays with the document for good, so nobody has to dig it up later.',
-      label: 'Cost in euro with the exchange rate · desktop, dark mode',
+      label: 'Cost in euro with the exchange rate (desktop, dark mode)',
       note: 'Amount in euro and in złoty, the rate and the conversion date, saved with the document.',
     },
     firmowe: {
@@ -157,7 +158,7 @@ export default async function Page({ params }: ParametryJezyka) {
               <Link href="/dla-kogo/kierowca">
                 {t.kierowca}
               </Link>
-              <span className="mx-3">·</span>
+              <Rozdzielacz />
               <Link href="/dla-kogo/ksiegowa">
                 {t.ksiegowa}
               </Link>

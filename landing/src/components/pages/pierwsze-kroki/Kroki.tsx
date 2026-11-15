@@ -27,13 +27,13 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     odhacz: (nr, tytul) => `Odhacz krok ${nr}: ${tytul}`,
     stan: (zrobione, wszystkie) =>
-      `Odhaczone: ${zrobione} z ${wszystkie} · Po zalogowaniu pulpit prowadzi Cię przez pierwsze kroki, z przyciskiem do każdego.`,
+      `Odhaczone: ${zrobione} z ${wszystkie}. Po zalogowaniu pulpit prowadzi Cię przez pierwsze kroki, z przyciskiem do każdego.`,
     wyczysc: 'wyczyść',
   },
   en: {
     odhacz: (nr, tytul) => `Tick off step ${nr}: ${tytul}`,
     stan: (zrobione, wszystkie) =>
-      `Ticked off: ${zrobione} of ${wszystkie} · Once you sign in, the dashboard walks you through the first steps, with a button for each.`,
+      `Ticked off: ${zrobione} of ${wszystkie}. Once you sign in, the dashboard walks you through the first steps, with a button for each.`,
     wyczysc: 'clear',
   },
 };
@@ -43,14 +43,14 @@ const kroki: Tlumaczenia<Krok[]> = {
     {
       tytul: 'Załóż konto',
       tresc:
-        'Zaczynasz od NIP-u – nazwę i adres firmy pobierzemy z rejestru. Potem imię, e-mail i hasło. Konta otwieramy na razie osobom z listy – zapisz się, a damy znać.',
+        'Zaczynasz od NIP-u - nazwę i adres firmy pobierzemy z rejestru. Potem imię, e-mail i hasło. Konta otwieramy na razie osobom z listy - zapisz się, a damy znać.',
       czas: '2 minuty',
       akcja: { label: 'Zapisz się na listę', href: appLinks.login },
     },
     {
       tytul: 'Dodaj pierwszy pojazd',
       tresc:
-        'Zdjęcie dowodu rejestracyjnego – numer, marka, model i rok wpiszą się same. Możesz też przepisać je ręcznie. Polisę dodasz, kiedy będziesz miał ją pod ręką.',
+        'Zdjęcie dowodu rejestracyjnego - numer, marka, model i rok wpiszą się same. Możesz też przepisać je ręcznie. Polisę dodasz, kiedy będziesz miał ją pod ręką.',
       czas: '1 minuta',
     },
     {
@@ -79,7 +79,7 @@ const kroki: Tlumaczenia<Krok[]> = {
     {
       tytul: 'Wystaw fakturę',
       tresc:
-        'Ze zlecenia, jednym przyciskiem do KSeF. Wysyłkę do klienta zlecasz od razu – PDF z kodem QR pójdzie na jego mail, gdy KSeF nada numer.',
+        'Ze zlecenia, jednym przyciskiem do KSeF. Wysyłkę do klienta zlecasz od razu - PDF z kodem QR pójdzie na jego mail, gdy KSeF nada numer.',
       czas: 'minuta',
     },
   ],
@@ -87,14 +87,14 @@ const kroki: Tlumaczenia<Krok[]> = {
     {
       tytul: 'Create an account',
       tresc:
-        'You start with your tax ID (NIP) – we fetch the company name and address from the register. Then your name, email and password. For now we open accounts for people on the list – join it and we’ll let you know.',
+        'You start with your tax ID (NIP) - we fetch the company name and address from the register. Then your name, email and password. For now we open accounts for people on the list - join it and we’ll let you know.',
       czas: '2 minutes',
       akcja: { label: 'Join the list', href: appLinks.login },
     },
     {
       tytul: 'Add your first vehicle',
       tresc:
-        'A photo of the registration certificate – the number, make, model and year fill themselves in. You can also type them in. Add the insurance policy when you have it to hand.',
+        'A photo of the registration certificate - the number, make, model and year fill themselves in. You can also type them in. Add the insurance policy when you have it to hand.',
       czas: '1 minute',
     },
     {
@@ -123,7 +123,7 @@ const kroki: Tlumaczenia<Krok[]> = {
     {
       tytul: 'Issue the invoice',
       tresc:
-        'From the order, with one button to KSeF, Poland’s national e-invoicing system. You send it to the client straight away – the PDF with a QR code goes to their inbox once KSeF assigns the number.',
+        'From the order, with one button to KSeF, Poland’s national e-invoicing system. You send it to the client straight away - the PDF with a QR code goes to their inbox once KSeF assigns the number.',
       czas: '1 minute',
     },
   ],

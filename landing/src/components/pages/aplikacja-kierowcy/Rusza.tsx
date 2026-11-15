@@ -16,10 +16,10 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     naglowek: 'Zaczyna dzień jednym przyciskiem',
     tresc:
-      'Klika „Zacznij dzień” i robi zdjęcie licznika – stan odczyta się sam, wystarczy go potwierdzić. Potem jedzie. Dalej „Jestem na załadunku”, „Jestem na rozładunku” – część statusów zmienia się sama, gdy dojedzie na miejsce. Telefon może zostać w kieszeni, trasa zapisuje się sama. A gdy coś stanie na drodze, „Zgłoś problem” od razu pyta, czy da się jechać dalej, i daje znać biuru.',
+      'Klika „Zacznij dzień” i robi zdjęcie licznika - stan odczyta się sam, wystarczy go potwierdzić. Potem jedzie. Dalej „Jestem na załadunku”, „Jestem na rozładunku” - część statusów zmienia się sama, gdy dojedzie na miejsce. Telefon może zostać w kieszeni, trasa zapisuje się sama. A gdy coś stanie na drodze, „Zgłoś problem” od razu pyta, czy da się jechać dalej, i daje znać biuru.',
     licznikPrzedStartem: 'Licznik na start',
     licznik: '184 210 km',
-    zdjecie: 'zdjęcie licznika · stan odczytany',
+    zdjecie: 'zdjęcie licznika, stan odczytany',
     rozpocznij: 'Potwierdź i rozpocznij',
     pigulki: ['ekran wyłączony', 'telefon w kieszeni'],
     nagrywa: 'trasa zapisuje się',
@@ -27,10 +27,10 @@ const TEKSTY: Tlumaczenia<{
   en: {
     naglowek: 'The day starts with one button',
     tresc:
-      'They tap “Start the day” and snap the odometer – the reading fills itself in, they just confirm it. Then off they go. Next, “At loading”, “At unloading” – some statuses change by themselves when they arrive. The phone can stay in their pocket and the route records itself. And if something goes wrong on the road, “Report a problem” first asks whether they can carry on, then lets the office know.',
+      'They tap “Start the day” and snap the odometer - the reading fills itself in, they just confirm it. Then off they go. Next, “At loading”, “At unloading” - some statuses change by themselves when they arrive. The phone can stay in their pocket and the route records itself. And if something goes wrong on the road, “Report a problem” first asks whether they can carry on, then lets the office know.',
     licznikPrzedStartem: 'Odometer at start',
     licznik: '184,210 km',
-    zdjecie: 'odometer photo · reading filled in',
+    zdjecie: 'odometer photo, reading filled in',
     rozpocznij: 'Confirm and start',
     pigulki: ['screen off', 'phone in pocket'],
     nagrywa: 'route recording',

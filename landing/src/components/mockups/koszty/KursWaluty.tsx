@@ -12,7 +12,7 @@ const TEKSTY: Tlumaczenia<{
   stopka: string;
 }> = {
   pl: {
-    rodzaj: 'Koszt · paliwo',
+    rodzaj: 'Koszt: paliwo',
     data: '2.09.2026',
     wEuro: 'W euro',
     kwotaEuro: '151,50 €',
@@ -20,13 +20,13 @@ const TEKSTY: Tlumaczenia<{
     kwotaZlote: '648,42 zł',
     wiersze: [
       ['Kurs', '4,2800 zł', '4,2800 zł'],
-      ['Data przeliczenia', '1.09.2026 · dzień przed dokumentem', '1.09.2026'],
+      ['Data przeliczenia', '1.09.2026 (dzień przed dokumentem)', '1.09.2026'],
       ['Zapisane przy dokumencie', 'na stałe', 'na stałe'],
     ],
     stopka: 'Nikt nie odtwarza kursu z tabeli trzy tygodnie później.',
   },
   en: {
-    rodzaj: 'Cost · fuel',
+    rodzaj: 'Cost: fuel',
     data: '2 Sep 2026',
     wEuro: 'In euro',
     kwotaEuro: '€151.50',
@@ -34,7 +34,7 @@ const TEKSTY: Tlumaczenia<{
     kwotaZlote: 'PLN 648.42',
     wiersze: [
       ['Rate', 'PLN 4.2800', 'PLN 4.2800'],
-      ['Conversion date', '1 Sep 2026 · day before the document', '1 Sep 2026'],
+      ['Conversion date', '1 Sep 2026 (day before the document)', '1 Sep 2026'],
       ['Saved with the document', 'for good', 'for good'],
     ],
     stopka: 'Nobody digs the rate out of a table three weeks later.',
@@ -49,7 +49,7 @@ export function KursWaluty() {
       <div className="flex items-center justify-between gap-3">
         <div>
           <div className="text-[12px] text-ink-muted lg:text-[13px]">{t.rodzaj}</div>
-          <b className="text-[16px] lg:text-[18px]">Shell · Rotterdam</b>
+          <b className="text-[16px] lg:text-[18px]">Shell, Rotterdam</b>
         </div>
         <span className="flex-none text-ink-muted">{t.data}</span>
       </div>

@@ -13,18 +13,18 @@ const TEKSTY: Tlumaczenia<{
   pl: {
     dalej: 'Brenner, potem A22',
     dojazd: 'dojazd',
-    zaktualizowana: 'trasa zaktualizowana · 07:12',
+    zaktualizowana: 'trasa zaktualizowana, 07:12',
     trasa: 'Warszawa → Mediolan',
     wTrasie: 'w trasie',
-    rozladunek: 'Rozładunek: Via Tortona 12 · 08:00',
+    rozladunek: 'Rozładunek: Via Tortona 12, 08:00',
   },
   en: {
     dalej: 'Brenner, then A22',
     dojazd: 'arrival',
-    zaktualizowana: 'route updated · 07:12',
+    zaktualizowana: 'route updated, 07:12',
     trasa: 'Warsaw → Milan',
     wTrasie: 'en route',
-    rozladunek: 'Unloading: Via Tortona 12 · 08:00',
+    rozladunek: 'Unloading: Via Tortona 12, 08:00',
   },
 };
 
@@ -48,7 +48,7 @@ export function EkranNawigacja() {
 
         <div className="absolute inset-x-3 top-3 flex justify-between rounded-xl bg-surface-2 p-3">
           <div>
-            <div className="text-[16px] font-semibold lg:text-[18px]">A1 · 214 km</div>
+            <div className="text-[16px] font-semibold lg:text-[18px]">A1, 214 km</div>
             <div className="text-ink-muted">{t.dalej}</div>
           </div>
           <div className="text-right">

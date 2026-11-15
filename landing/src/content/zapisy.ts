@@ -50,7 +50,7 @@ const TEKSTY: Tlumaczenia<Record<Lista, TekstListy>> = {
       lead: [
         'Przykładowa firma transportowa z flotą, zleceniami i kosztami.',
         'Wejdziesz bez konta i wybierzesz rolę: właściciel, dyspozytor albo księgowa.',
-        'Demo działa tylko do odczytu. Zapisz się na listę – napiszemy w dniu uruchomienia',
+        'Demo działa tylko do odczytu. Zapisz się na listę - napiszemy w dniu uruchomienia',
         'i będziemy dzielić się tym, co nowego.',
       ],
       wezwanie: 'Zapisz się na listę',
@@ -62,7 +62,7 @@ const TEKSTY: Tlumaczenia<Record<Lista, TekstListy>> = {
       naglowek: 'Konta otwieramy wkrótce.',
       lead: [
         'Sprawdzamy BusiKM na prawdziwych trasach, w małej grupie firm.',
-        'Zapisz się na listę – napiszemy, gdy otworzymy zapisy.',
+        'Zapisz się na listę - napiszemy, gdy otworzymy zapisy.',
       ],
       wezwanie: 'Zapisz się na listę',
       obietnica: 'Pierwsza wiadomość, gdy otworzymy zapisy. Później rzadko i tylko o BusiKM.',
@@ -75,8 +75,8 @@ const TEKSTY: Tlumaczenia<Record<Lista, TekstListy>> = {
       naglowek: 'The demo is on its way.',
       lead: [
         'A sample transport company, with its fleet, orders and costs.',
-        'No account needed – you pick a role: owner, dispatcher or accountant.',
-        'The demo is read-only. Join the list – we’ll write on launch day',
+        'No account needed - you pick a role: owner, dispatcher or accountant.',
+        'The demo is read-only. Join the list - we’ll write on launch day',
         'and keep you posted on what’s new.',
       ],
       wezwanie: 'Join the list',
@@ -88,7 +88,7 @@ const TEKSTY: Tlumaczenia<Record<Lista, TekstListy>> = {
       naglowek: 'Accounts open soon.',
       lead: [
         'We’re testing BusiKM on real routes with a small group of companies.',
-        'Join the list – we’ll write when sign-ups open.',
+        'Join the list - we’ll write when sign-ups open.',
       ],
       wezwanie: 'Join the list',
       obietnica: 'First email when sign-ups open. After that, rarely and only about BusiKM.',

@@ -34,17 +34,17 @@ const TEKSTY: Tlumaczenia<{
   opis: string;
 }> = {
   pl: {
-    eyebrow: 'BusiKM Kierowca · iPhone i Android',
+    eyebrow: 'BusiKM Kierowca na iPhone i Androida',
     naglowek: 'Cały dzień pracy w jednej aplikacji.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku. Nie dzwoni do Ciebie z pytaniem, jak się zalogować.',
-    label: 'Aplikacja kierowcy · telefon, tryb nocny',
+    label: 'Aplikacja kierowcy (telefon, tryb nocny)',
     opis: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: ekran „Czas pracy” przy przewozie międzynarodowym z bieżącym stanem, przypomnieniem o przerwie, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
-    eyebrow: 'BusiKM Driver · iPhone and Android',
+    eyebrow: 'BusiKM Driver for iPhone and Android',
     naglowek: 'The whole working day in one app.',
     lead: 'The driver gets a code by email, types it into the app, sets a password and they’re in. No calling you to ask how to log in.',
-    label: 'Driver app · phone, night mode',
+    label: 'Driver app (phone, night mode)',
     opis: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: the “Working time” screen for international transport with the current state, a break reminder, the day bar and the “Break” and “Rest” buttons.',
   },
 };

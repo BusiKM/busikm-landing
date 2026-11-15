@@ -11,32 +11,32 @@ const TEKSTY: Tlumaczenia<{
   stopka: string;
 }> = {
   pl: {
-    naglowek: 'Koszty firmowe · PO 2093J',
-    miesiac: ' · wrzesień',
+    naglowek: 'Koszty firmowe PO 2093J',
+    miesiac: ', wrzesień',
     bezZdjecia: 'bez zdjęcia',
     pozycje: [
-      ['Leasing · rata 9/36', '2 890 zł'],
-      ['Ubezpieczenie OC/AC · 1/12', '640 zł'],
-      ['Serwis · wymiana oleju', '1 180 zł'],
+      ['Leasing, rata 9/36', '2 890 zł'],
+      ['Ubezpieczenie OC/AC, 1/12', '640 zł'],
+      ['Serwis, wymiana oleju', '1 180 zł'],
       ['Paliwo z karty flotowej', '4 312 zł'],
     ],
     razem: 'Razem',
     suma: '9 022 zł',
-    stopka: 'Wchodzą do kosztów auta i wyniku miesiąca – koszt na kilometr widzisz na karcie pojazdu.',
+    stopka: 'Wchodzą do kosztów auta i wyniku miesiąca - koszt na kilometr widzisz na karcie pojazdu.',
   },
   en: {
-    naglowek: 'Company costs · PO 2093J',
-    miesiac: ' · September',
+    naglowek: 'Company costs PO 2093J',
+    miesiac: ', September',
     bezZdjecia: 'no photo',
     pozycje: [
-      ['Lease · instalment 9/36', 'PLN 2,890'],
-      ['Third-party + comprehensive · 1/12', 'PLN 640'],
-      ['Service · oil change', 'PLN 1,180'],
+      ['Lease, instalment 9/36', 'PLN 2,890'],
+      ['Third-party + comprehensive, 1/12', 'PLN 640'],
+      ['Service, oil change', 'PLN 1,180'],
       ['Fuel on the fleet card', 'PLN 4,312'],
     ],
     razem: 'Total',
     suma: 'PLN 9,022',
-    stopka: 'Counted in the vehicle’s costs and the month’s result – the cost per kilometre is on the vehicle card.',
+    stopka: 'Counted in the vehicle’s costs and the month’s result - the cost per kilometre is on the vehicle card.',
   },
 };
 

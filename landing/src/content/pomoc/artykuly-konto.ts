@@ -6,7 +6,7 @@ export const artykulyKonto: Artykul[] = [
     slug: 'zespol-i-role',
     kategoria: 'konto',
     tytul: 'Zespół i uprawnienia',
-    lead: 'Kto co widzi i skąd się bierze w systemie – osoby z biura zapraszasz z ustawień, kierowcę dodajesz w module Kierowcy.',
+    lead: 'Kto co widzi i skąd się bierze w systemie - osoby z biura zapraszasz z ustawień, kierowcę dodajesz w module Kierowcy.',
     role: ['wlasciciel'],
     gdzie: 'Ustawienia → Zespół i dostęp',
     rozdzialy: [
@@ -26,7 +26,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Każda osoba ma jedną rolę. W małej firmie właściciel jest zwykle też dyspozytorem – jego konto ma dostęp do wszystkiego, więc nie potrzebuje drugiego.',
+              'Każda osoba ma jedną rolę. W małej firmie właściciel jest zwykle też dyspozytorem - jego konto ma dostęp do wszystkiego, więc nie potrzebuje drugiego.',
           },
           {
             typ: 'uwaga',
@@ -51,7 +51,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Zaproszenia, których nikt jeszcze nie przyjął, widzisz na tej samej stronie, w sekcji Zaproszenia czekające na przyjęcie. Kierowców tu nie ma – dodajesz ich w module Kierowcy, a zaproszenie do aplikacji wychodzi na końcu kreatora.',
+              'Zaproszenia, których nikt jeszcze nie przyjął, widzisz na tej samej stronie, w sekcji Zaproszenia czekające na przyjęcie. Kierowców tu nie ma - dodajesz ich w module Kierowcy, a zaproszenie do aplikacji wychodzi na końcu kreatora.',
           },
         ],
       },
@@ -69,7 +69,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Odebranie dostępu nie kasuje historii. Zmiany zrobione przez tę osobę zostają – tak jak powinny, bo dotyczą dokumentów firmy.',
+              'Odebranie dostępu nie kasuje historii. Zmiany zrobione przez tę osobę zostają - tak jak powinny, bo dotyczą dokumentów firmy.',
           },
         ],
       },
@@ -100,7 +100,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Po zmianie wylogujemy Cię na innych urządzeniach. To zamierzone – jeśli zmieniasz hasło dlatego, że coś Cię zaniepokoiło, telefon w cudzej kieszeni ma stracić dostęp od razu.',
+              'Po zmianie wylogujemy Cię na innych urządzeniach. To zamierzone - jeśli zmieniasz hasło dlatego, że coś Cię zaniepokoiło, telefon w cudzej kieszeni ma stracić dostęp od razu.',
           },
         ],
       },
@@ -113,7 +113,7 @@ export const artykulyKonto: Artykul[] = [
               { tytul: 'W sekcji Kod z telefonu przy logowaniu włącz ochronę' },
               {
                 tytul: 'Połącz konto z aplikacją uwierzytelniającą',
-                opis: 'Google Authenticator, 1Password, Authy – dowolna, która generuje sześciocyfrowe kody.',
+                opis: 'Google Authenticator, 1Password, Authy - dowolna, która generuje sześciocyfrowe kody.',
               },
               {
                 tytul: 'Przepisz kod z aplikacji, żeby potwierdzić',
@@ -124,7 +124,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'uwaga',
             tresc:
-              'Konto właściciela ma dostęp do faktur, kontrahentów i danych kierowców. Kod z telefonu kosztuje pięć minut raz – a jest różnicą między wykradzionym hasłem a wykradzioną firmą.',
+              'Konto właściciela ma dostęp do faktur, kontrahentów i danych kierowców. Kod z telefonu kosztuje pięć minut raz - a jest różnicą między wykradzionym hasłem a wykradzioną firmą.',
           },
         ],
       },
@@ -151,7 +151,7 @@ export const artykulyKonto: Artykul[] = [
     slug: 'plan-i-rezygnacja',
     kategoria: 'konto',
     tytul: 'Plan, płatność, faktury za BusiKM i rezygnacja',
-    lead: 'Plan, kartę, faktury i rezygnację załatwiasz sam, w ustawieniach – bez pisania do nas.',
+    lead: 'Plan, kartę, faktury i rezygnację załatwiasz sam, w ustawieniach - bez pisania do nas.',
     role: ['wlasciciel'],
     gdzie: 'Ustawienia → Plan i płatności',
     rozdzialy: [
@@ -161,13 +161,13 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'W Ustawienia → Plan i płatności widzisz plan firmy, do kiedy jest ważny i jego stan: okres próbny, aktywny albo wygasły. Plan zależy od liczby pojazdów – kierowcy i osoby z biura są bez limitu.',
+              'W Ustawienia → Plan i płatności widzisz plan firmy, do kiedy jest ważny i jego stan: okres próbny, aktywny albo wygasły. Plan zależy od liczby pojazdów - kierowcy i osoby z biura są bez limitu.',
           },
           {
             typ: 'lista',
             punkty: [
-              'Start – do 3 pojazdów.',
-              'Firma – 10 pojazdów w cenie, +29 zł/mies. za każdy kolejny, do 50. Większa flota – napisz do nas.',
+              'Start - do 3 pojazdów.',
+              'Firma - 10 pojazdów w cenie, +29 zł/mies. za każdy kolejny, do 50. Większa flota - napisz do nas.',
             ],
           },
           {
@@ -197,7 +197,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Fakturę za każdą opłatę dostajesz mailem, ze stawką VAT „zw.” – MOVGRANTO jest zwolniona z VAT, więc cena z cennika jest ceną końcową.',
+              'Fakturę za każdą opłatę dostajesz mailem, ze stawką VAT „zw.” - MOVGRANTO jest zwolniona z VAT, więc cena z cennika jest ceną końcową.',
           },
         ],
       },

@@ -20,7 +20,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
       ],
       [
         'Mam tachograf. Po co mi jeszcze to?',
-        'Tachograf zapisuje, bo musi. BusiKM pokazuje – kierowca widzi na ekranie, ile jeszcze może jechać i kiedy musi stanąć, a Ty widzisz to samo z biura. To nie to samo urządzenie i nie ta sama robota.',
+        'Tachograf zapisuje, bo musi. BusiKM pokazuje - kierowca widzi na ekranie, ile jeszcze może jechać i kiedy musi stanąć, a Ty widzisz to samo z biura. To nie to samo urządzenie i nie ta sama robota.',
       ],
       [
         'Co, gdy kierowca nie ma zasięgu?',
@@ -28,14 +28,14 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
       ],
       [
         'Ile trwa uruchomienie?',
-        'Dodajesz pojazd, zapraszasz kierowcę, kierowca instaluje aplikację. Pierwsza trasa pojawia się u Ciebie tego samego dnia. Klientów wczytasz z pliku CSV – nie przepisujesz kartoteki.',
+        'Dodajesz pojazd, zapraszasz kierowcę, kierowca instaluje aplikację. Pierwsza trasa pojawia się u Ciebie tego samego dnia. Klientów wczytasz z pliku CSV - nie przepisujesz kartoteki.',
       ],
       [
         'Czy dyspozytor widzi, ile zarabiam?',
         'Nie musi. Pieniądze widzi właściciel i osoba od rozliczeń.',
       ],
       ['Czy przyczepa liczy się jako pojazd?', 'Nie. Płacisz tylko za pojazdy napędzane.'],
-      ['Co z danymi, gdy zrezygnuję?', 'Zostają Twoje. Konto zostaje do odczytu – pobierasz faktury, ewidencje i eksporty.'],
+      ['Co z danymi, gdy zrezygnuję?', 'Zostają Twoje. Konto zostaje do odczytu - pobierasz faktury, ewidencje i eksporty.'],
     ],
   },
   en: {
@@ -55,7 +55,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
       ],
       [
         'I have a tachograph. Why do I need this as well?',
-        'The tachograph records because it has to. BusiKM shows – the driver sees on screen how much longer they can drive and when they have to stop, and you see the same from the office. It’s not the same device and not the same job.',
+        'The tachograph records because it has to. BusiKM shows - the driver sees on screen how much longer they can drive and when they have to stop, and you see the same from the office. It’s not the same device and not the same job.',
       ],
       [
         'What if the driver has no signal?',
@@ -63,14 +63,14 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; qa: readonly (readonly [string, st
       ],
       [
         'How long does it take to get started?',
-        'You add a van, invite a driver, the driver installs the app. The first route shows up at your end the same day. You load your clients from a CSV file – no retyping the client list.',
+        'You add a van, invite a driver, the driver installs the app. The first route shows up at your end the same day. You load your clients from a CSV file - no retyping the client list.',
       ],
       [
         'Can the dispatcher see how much I earn?',
         'They don’t need to. The money is visible to the owner and whoever handles the accounts.',
       ],
       ['Does a trailer count as a vehicle?', 'No. You only pay for powered vehicles.'],
-      ['What happens to my data if I cancel?', 'It stays yours. The account stays read-only – you download invoices, logs and exports.'],
+      ['What happens to my data if I cancel?', 'It stays yours. The account stays read-only - you download invoices, logs and exports.'],
     ],
   },
 };

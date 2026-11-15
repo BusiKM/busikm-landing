@@ -136,6 +136,7 @@ PLAN = {
     'mockup-kierowca-telefony-phone.png': (para, ['nawigacja', 'czas']),
     'mockup-kierowca-hero-trzy-phone.png': (trojka, ['czas', 'start', 'paragony']),
     'mockup-koszty-paragon-phone.png': (ciasny, ['paragony']),
+    'mockup-hero-telefon-phone.png': (ciasny, ['start']),
 }
 
 if __name__ == '__main__':

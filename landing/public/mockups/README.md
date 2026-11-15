@@ -69,7 +69,7 @@ rejestracyjne, co w projekcie (`Warszawa → Mediolan`, `WZ 4821K`, `Marek W.`).
 | `mockup-koszty-paragon-phone.png` | telefon 9:19.5 | Zdjęcie paragonu i formularz z polami rozpoznanymi na zielono |
 | `mockup-ksiegowa-eksport-desktop.png` | desktop 4:3 | Lista dziewięciu zestawień i przycisk „Pobierz komplet” |
 | `mockup-dokumenty-terminy-desktop.png` | desktop 4:3 | Lista dokumentów po dniach do wygaśnięcia, paski w trzech kolorach |
-| `mockup-demo-wejscie-desktop.png` | desktop 16:10 | Pulpit demo z paskiem „To jest demo” u góry |
+| `mockup-demo-ekran-desktop.png` | desktop 16:10 | Pulpit demo w trybie ciemnym (strona /demo) |
 
 Podstrony trzymają ten sam schemat. Pełna lista powstaje razem z projektami.
 

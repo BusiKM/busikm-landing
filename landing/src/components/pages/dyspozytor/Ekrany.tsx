@@ -18,12 +18,12 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; ekran: Opis; zlecenie: Opis; trasa
     },
     zlecenie: {
       label: 'Karta zlecenia · desktop',
-      note: 'Zlecenie Wrocław → Milano, zakładka Przegląd: pasek etapów, postoje z mapą, kierowca i auto z przyciskami „Zadzwoń” i „Napisz”.',
+      note: 'Zlecenie Köln → Kalisz, zakładka Przegląd: pasek etapów, postoje z mapą, kierowca i auto z przyciskami „Zadzwoń” i „Napisz”.',
       caption: 'Karta zlecenia',
     },
     trasa: {
       label: 'Trasa i śledzenie · desktop',
-      note: 'Zlecenie Olsztyn → München: ostrzeżenie o spóźnieniu, trasa z przyciskiem „Zmień trasę”, auto na mapie i czas dojazdu z pozycji auta.',
+      note: 'Zlecenie Kraków → Antwerpen: ostrzeżenie o spóźnieniu, trasa z przyciskiem „Zmień trasę”, auto na mapie i czas dojazdu z pozycji auta.',
       caption: 'Trasa i śledzenie',
     },
   },
@@ -36,12 +36,12 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; ekran: Opis; zlecenie: Opis; trasa
     },
     zlecenie: {
       label: 'Order card · desktop',
-      note: 'Order Wrocław → Milano, Overview tab: progress bar, stops with a map, driver and van with “Call” and “Message” buttons.',
+      note: 'Order Köln → Kalisz, Overview tab: progress bar, stops with a map, driver and van with “Call” and “Message” buttons.',
       caption: 'Order card',
     },
     trasa: {
       label: 'Route and tracking · desktop',
-      note: 'Order Olsztyn → München: a late-arrival warning, the route with a “Change route” button, the van on the map and the arrival time from its position.',
+      note: 'Order Kraków → Antwerp: a late-arrival warning, the route with a “Change route” button, the van on the map and the arrival time from its position.',
       caption: 'Route and tracking',
     },
   },

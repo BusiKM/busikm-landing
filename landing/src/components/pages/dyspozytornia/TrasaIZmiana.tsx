@@ -24,7 +24,7 @@ const TEKSTY: Tlumaczenia<{
       ],
     ],
     label: 'Trasa i śledzenie · desktop',
-    note: 'Zlecenie Olsztyn → München, zakładka Trasa i śledzenie: ostrzeżenie o spóźnieniu, trasa najszybsza 1167 km z przyciskiem „Zmień trasę”, auto na mapie, czas dojazdu i przebieg kursu.',
+    note: 'Zlecenie Kraków → Antwerpen, zakładka Trasa i śledzenie: ostrzeżenie o spóźnieniu, trasa najszybsza 1290 km z przyciskiem „Zmień trasę”, auto na mapie, czas dojazdu i przebieg kursu.',
   },
   en: {
     bloki: [
@@ -40,7 +40,7 @@ const TEKSTY: Tlumaczenia<{
       ],
     ],
     label: 'Route and tracking · desktop',
-    note: 'Order Olsztyn → München, Route and tracking tab: a late-arrival warning, the fastest route of 1,167 km with a “Change route” button, the van on the map, arrival time and the run’s timeline.',
+    note: 'Order Kraków → Antwerp, Route and tracking tab: a late-arrival warning, the fastest route of 1,290 km with a “Change route” button, the van on the map, arrival time and the run’s timeline.',
   },
 };
 

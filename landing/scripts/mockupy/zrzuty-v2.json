@@ -21,22 +21,22 @@
       },
       {
         "id": "dyspozytornia-zlecenie",
-        "path": "/orders/31010/",
+        "path": "/orders/32205/",
         "settleMs": 3000
       },
       {
         "id": "dyspozytornia-trasa",
-        "path": "/orders/31011/?tab=route",
+        "path": "/orders/32202/?tab=route",
         "settleMs": 3000
       },
       {
         "id": "faktury-ekran",
-        "path": "/invoices/27425/",
+        "path": "/invoices/28554/",
         "settleMs": 3000
       },
       {
         "id": "faktury-wysylka",
-        "path": "/invoices/27425/",
+        "path": "/invoices/28554/",
         "settleMs": 3000,
         "actions": [
           {
@@ -57,12 +57,12 @@
       },
       {
         "id": "faktury-zlecenie",
-        "path": "/orders/30997/?tab=financials",
+        "path": "/orders/32194/?tab=financials",
         "settleMs": 3000
       },
       {
         "id": "zysk-karta",
-        "path": "/orders/31007/?tab=financials",
+        "path": "/orders/32201/?tab=financials",
         "settleMs": 3000
       },
       {
@@ -88,7 +88,7 @@
       },
       {
         "id": "czas-karta",
-        "path": "/drivers/1239/compliance/",
+        "path": "/drivers/1254/compliance/",
         "settleMs": 3000
       },
       {
@@ -136,13 +136,13 @@
       },
       {
         "id": "koszty-kurs",
-        "path": "/costs/97352/",
+        "path": "/costs/100758/",
         "settleMs": 3000,
         "theme": "dark"
       },
       {
         "id": "trasy-przeliczenie",
-        "path": "/orders/31011/?tab=route",
+        "path": "/orders/32202/?tab=route",
         "settleMs": 3000,
         "actions": [
           {

@@ -72,7 +72,7 @@ const TEKSTY: Tlumaczenia<{
       tresc:
         'Zleceniodawca, załadunek, rozładunek, terminy, stawka. Pasek u góry karty pokazuje, gdzie jest kurs: przyjęte, przypisane, załadowane, w trasie, dostarczone, zafakturowane.',
       label: 'Karta zlecenia (desktop)',
-      note: 'Zlecenie Wrocław → Milano, zakładka Przegląd: pasek etapów, postoje z mapą, kierowca i auto z przyciskami „Zadzwoń” i „Napisz”, fracht i marża.',
+      note: 'Zlecenie Köln → Kalisz, zakładka Przegląd: pasek etapów, postoje z mapą, kierowca i auto z przyciskami „Zadzwoń” i „Napisz”, fracht i marża.',
     },
     przypisanie: {
       tytul: 'Przypisujesz auto, które zdąży',
@@ -122,7 +122,7 @@ const TEKSTY: Tlumaczenia<{
       tresc:
         'Client, loading, unloading, deadlines, rate. The bar at the top of the card shows where the run is: accepted, assigned, loaded, on the road, delivered, invoiced.',
       label: 'Order card (desktop)',
-      note: 'Order Wrocław → Milano, Overview tab: progress bar, stops with a map, driver and van with “Call” and “Message” buttons, freight and margin.',
+      note: 'Order Köln → Kalisz, Overview tab: progress bar, stops with a map, driver and van with “Call” and “Message” buttons, freight and margin.',
     },
     przypisanie: {
       tytul: 'You assign a van that will make it',

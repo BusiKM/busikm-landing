@@ -61,7 +61,7 @@ const TEKSTY: Tlumaczenia<{
       tresc:
         'Klikasz „Wystaw i wyślij do KSeF”. Wysyłkę do klienta zlecasz od razu - PDF z kodem QR wyjdzie mailem, razem z CMR, gdy KSeF nada numer. Na fakturze widzisz drogę: wystawiona, w KSeF, u klienta, zapłacona. Chcesz wysłać jeszcze raz albo na inny adres - masz „Wyślij klientowi”.',
       label: 'Okno „Wyślij klientowi” (desktop)',
-      note: 'Wysyłka FV/031/10/2026: adres z karty klienta, temat i treść z numerem KSeF, obok podgląd maila z załącznikiem PDF i przycisk „Wyślij”.',
+      note: 'Wysyłka FV/020/11/2026: adres z karty klienta, temat i treść z numerem KSeF, obok podgląd maila z załącznikiem PDF i przycisk „Wyślij”.',
     },
     kontrahenci: {
       tytul: 'Kontrahenci w jednym miejscu',
@@ -107,7 +107,7 @@ const TEKSTY: Tlumaczenia<{
       tresc:
         'You click “Issue and send to KSeF”. You schedule the email to the client straight away - the PDF with a QR code goes out, along with the CMR, as soon as KSeF assigns a number. On the invoice you see its path: issued, in KSeF, with the client, paid. Want to send it again or to another address? There’s “Send to client”.',
       label: '“Send to client” window (desktop)',
-      note: 'Sending FV/031/10/2026: the address from the client card, a subject and message with the KSeF number, and a preview of the email with the PDF attached and a “Send” button.',
+      note: 'Sending FV/020/11/2026: the address from the client card, a subject and message with the KSeF number, and a preview of the email with the PDF attached and a “Send” button.',
     },
     kontrahenci: {
       tytul: 'Clients in one place',

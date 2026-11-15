@@ -19,7 +19,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek2: 'Klient ma ją, zanim wrócisz do biura.',
     lead: 'Kierowca kończy kurs, Ty sprawdzasz kwotę i wysyłasz do KSeF. Mail z PDF do klienta zlecasz od razu - wyjdzie po nadaniu numeru. Niczego nie przepisujesz.',
     label: 'Karta faktury (desktop 1440)',
-    note: 'Faktura FV/031/10/2026: droga wystawiona → w KSeF → u klienta → zapłacona, windykacja z odsetkami, przypomnieniem i notą obciążeniową, obok numer KSeF z plikiem XML i kodem QR oraz stan płatności.',
+    note: 'Faktura FV/020/11/2026: droga wystawiona → w KSeF → u klienta → zapłacona, windykacja z odsetkami, przypomnieniem i notą obciążeniową, obok numer KSeF z plikiem XML i kodem QR oraz stan płatności.',
   },
   en: {
     eyebrow: 'Orders and invoices',
@@ -27,7 +27,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek2: 'The client has it before you’re back at the office.',
     lead: 'The driver finishes the job, you check the amount and send it to KSeF. You schedule the email with the PDF right away - it goes out once KSeF assigns a number. Nothing to retype.',
     label: 'Invoice card (desktop 1440)',
-    note: 'Invoice FV/031/10/2026: its path issued → in KSeF → with the client → paid, debt collection with interest, a reminder and a debit note, alongside the KSeF number with the XML file and QR code, and the payment status.',
+    note: 'Invoice FV/020/11/2026: its path issued → in KSeF → with the client → paid, debt collection with interest, a reminder and a debit note, alongside the KSeF number with the XML file and QR code, and the payment status.',
   },
 };
 

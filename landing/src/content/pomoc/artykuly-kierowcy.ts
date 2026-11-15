@@ -247,7 +247,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Na ekranie Dziś, pod kursem, jest „Nie mogę kontynuować". Wybierasz powód: Awaria auta, Wypadek, Choroba, Odbiorca zamknięty albo Inny powód. Kurs się wstrzymuje, a biuro dostaje powiadomienie - bez telefonu. Opóźnienie, na przykład korek, zgłaszasz przyciskiem Zgłoś w szczegółach zlecenia.',
+              'Na ekranie Dziś, pod kursem, jest „Zgłoś problem". Ten sam przycisk znajdziesz w szczegółach zlecenia. Najpierw odpowiadasz, czy możesz jechać dalej. „Nie, muszę stanąć": wybierasz powód (Awaria auta, Wypadek, Choroba, Odbiorca zamknięty albo Inny powód), kurs się wstrzymuje, a biuro dostaje wiadomość w czacie zlecenia i dzwoni do Ciebie. „Tak, jadę dalej": wybierasz Opóźnienie lub korek, Długie oczekiwanie, Uszkodzony ładunek, Kontrola drogowa albo Inny problem, a biuro dostaje informację w czacie i kurs trwa dalej.',
           },
         ],
       },

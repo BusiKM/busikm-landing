@@ -249,7 +249,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'On the Today screen, below the job, there’s “I can’t continue” (Nie mogę kontynuować). You pick a reason: Vehicle breakdown, Accident, Illness, Recipient closed or Other reason. The job is put on hold and the office gets a notification - no phone call needed. A delay, such as a traffic jam, you report with the Report (Zgłoś) button in the order details.',
+              'On the Today screen, below the job, there’s “Report a problem” (Zgłoś problem). The same button is in the order details. First you answer whether you can carry on. “No, I have to stop”: you pick a reason (Vehicle breakdown, Accident, Illness, Recipient closed or Other reason), the job is put on hold, and the office gets a message in the order chat and calls you. “Yes, I’m carrying on”: you pick Delay or traffic jam, Long wait, Damaged cargo, Roadside check or Other problem, the office gets a note in the chat and the job continues.',
           },
         ],
       },

@@ -31,7 +31,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis] }> = {
       },
       {
         label: 'Płace i diety (desktop)',
-        note: 'Rozliczenie Krzysztofa Kamińskiego za wrzesień: kalendarz dni w Niemczech, wynagrodzenie, diety i noclegi, kwota do rozliczenia.',
+        note: 'Rozliczenie Krzysztofa Kamińskiego za październik: kalendarz dni za granicą, wynagrodzenie, diety i noclegi, kwota do rozliczenia.',
         caption: 'Płace i diety',
       },
     ],
@@ -51,7 +51,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis] }> = {
       },
       {
         label: 'Payroll and allowances (desktop)',
-        note: 'Krzysztof Kamiński’s September settlement: a calendar of days in Germany, pay, per diems and overnight allowances, the total to settle.',
+        note: 'Krzysztof Kamiński’s October settlement: a calendar of days abroad, pay, per diems and overnight allowances, the total to settle.',
         caption: 'Payroll and allowances',
       },
     ],

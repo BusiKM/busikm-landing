@@ -37,7 +37,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis, Opis] }>
     opisy: [
       {
         label: 'Zlecenia (telefon, tryb nocny)',
-        note: 'Lista „Zlecenia” z zakładkami Aktywne, Oczekujące i Zakończone, kurs Wrocław → Milano „W trasie”.',
+        note: 'Lista „Zlecenia” z zakładkami Aktywne, Oczekujące i Zakończone, kurs Kraków → Antwerpen „W trasie”.',
         caption: 'Zlecenia',
       },
       {
@@ -52,7 +52,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis, Opis] }>
       },
       {
         label: 'Czas pracy (telefon, tryb nocny)',
-        note: 'Przy przewozie międzynarodowym: trzy wskaźniki (jazda ciągła, dzienna, tydzień), pasek „Dwa tygodnie”, przyciski „Przerwa” i „Odpoczynek”.',
+        note: 'Przy przewozie międzynarodowym: bieżący stan „Teraz: Jazda”, przypomnienie o przerwie, pasek dnia, limity jazdy oraz przyciski „Przerwa” i „Odpoczynek”.',
         caption: 'Przerwa',
       },
     ],
@@ -62,7 +62,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis, Opis] }>
     opisy: [
       {
         label: 'Orders (phone, dark mode)',
-        note: 'The “Orders” list with Active, Pending and Finished tabs, and the Wrocław → Milan job “On the road”.',
+        note: 'The “Orders” list with Active, Pending and Finished tabs, and the Kraków → Antwerp job “On the road”.',
         caption: 'Orders',
       },
       {
@@ -77,7 +77,7 @@ const TEKSTY: Tlumaczenia<{ naglowek: string; opisy: [Opis, Opis, Opis, Opis] }>
       },
       {
         label: 'Working time (phone, dark mode)',
-        note: 'For international transport: three gauges (continuous driving, daily, week), a “Two weeks” bar, and the “Break” and “Rest” buttons.',
+        note: 'For international transport: the current state “Now: Driving”, a break reminder, the day bar, the driving limits, and the “Break” and “Rest” buttons.',
         caption: 'Break',
       },
     ],

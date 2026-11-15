@@ -7,9 +7,17 @@ appId: ${APP_ID}
     timeout: 120000
 - tapOn: 'Zlecenia'
 - waitForAnimationToEnd
+# Baner powiadomienia z czatu zasłania górę ekranu, czekamy, aż zniknie.
+- extendedWaitUntil:
+    notVisible: '.*Nowa wiadomość.*'
+    timeout: 20000
 - takeScreenshot: telefony/zlecenia
 - tapOn:
     point: 77%, 41%
+# Szczegóły ładują się z serwera; bez czekania zrzut łapie szkielet ekranu.
+- extendedWaitUntil:
+    visible: '.*Rozładunek.*'
+    timeout: 30000
 - waitForAnimationToEnd
 - takeScreenshot: telefony/zlecenie
 - tapOn:

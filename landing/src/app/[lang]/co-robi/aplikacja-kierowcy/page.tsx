@@ -50,7 +50,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tresc:
         'Ekran zlecenia pokazuje trasę i godzinę z BusiKM. Jedno dotknięcie i trasa otwiera się w Apple Maps, Google Maps albo Waze. Kierowca wybiera raz, zmienia w ustawieniach. Działa z CarPlay i Android Auto. Nic nie przepisuje, a BusiKM zapisuje przejazd w tle.',
       label: 'Wybór nawigacji · telefon, tryb nocny',
-      note: 'Ekran „Dziś” z kursem Wrocław → Milano, a na nim plansza „Czym nawigujesz?” z wyborem Apple Maps, Google Maps albo Waze.',
+      note: 'Ekran „Dziś” z kursem Kraków → Antwerpen, a na nim plansza „Czym nawigujesz?” z wyborem Apple Maps, Google Maps albo Waze.',
     },
     koszt: {
       tytul: 'Paragon dodaje jednym przyciskiem',
@@ -63,7 +63,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'Przerwa i odpoczynek jednym tapnięciem',
       tresc: 'Przy przewozie międzynarodowym aplikacja przypomina o obowiązkowej przerwie 15 minut wcześniej, nie po fakcie, a na ekranie „Czas pracy” kierowca widzi jazdę ciągłą, dzienną i tydzień. Przerwę albo odpoczynek zapisuje jednym przyciskiem.',
       label: 'Czas pracy · telefon, tryb nocny',
-      note: 'Ekran „Czas pracy” przy przewozie międzynarodowym: trzy wskaźniki (jazda ciągła, dzienna, tydzień), pasek „Dwa tygodnie”, przyciski „Przerwa” i „Odpoczynek”.',
+      note: 'Ekran „Czas pracy” przy przewozie międzynarodowym: bieżący stan „Teraz: Jazda”, przypomnienie o przerwie, pasek dnia, pod nim limity jazdy, a u dołu przyciski „Przerwa” i „Odpoczynek”.',
     },
     wysylka: {
       tytul: 'Działa bez zasięgu',
@@ -94,7 +94,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tresc:
         'The order screen shows the route and the time from BusiKM. One tap and the route opens in Apple Maps, Google Maps or Waze. The driver picks one once and can change it in the settings. It works with CarPlay and Android Auto. Nothing to retype, and BusiKM logs the trip in the background.',
       label: 'Choosing navigation · phone, dark mode',
-      note: 'The “Today” screen with the Wrocław → Milan job and the “What do you navigate with?” sheet offering Apple Maps, Google Maps or Waze.',
+      note: 'The “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” sheet offering Apple Maps, Google Maps or Waze.',
     },
     koszt: {
       tytul: 'A receipt takes one button',
@@ -107,7 +107,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       tytul: 'Break or rest in one tap',
       tresc: 'On international jobs the app reminds them about the required break 15 minutes ahead, not after the fact, and the “Working time” screen shows continuous, daily and weekly driving. The driver logs a break or a rest with one button.',
       label: 'Working time · phone, dark mode',
-      note: 'The “Working time” screen for international transport: three gauges (continuous driving, daily, week), a “Two weeks” bar, and the “Break” and “Rest” buttons.',
+      note: 'The “Working time” screen for international transport: the current state “Now: Driving”, a break reminder, the day bar, the driving limits below, and the “Break” and “Rest” buttons at the bottom.',
     },
     wysylka: {
       tytul: 'Works with no signal',

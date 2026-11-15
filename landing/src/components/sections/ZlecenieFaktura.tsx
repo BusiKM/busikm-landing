@@ -22,7 +22,7 @@ const TEKSTY: Tlumaczenia<{
       'Zaliczki, korekty i faktura zbiorcza z kilku zleceń',
     ],
     label: 'Zlecenie i faktura · desktop',
-    opis: 'Zlecenie Radom → Köln, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu, wynik i marża, obok faktura FV/029/10/2026 ze statusem „W KSeF” i przyciskiem „Wyślij klientowi”.',
+    opis: 'Zlecenie Bielsko-Biała → Venlo, zakładka Finanse: fracht w euro przeliczony po kursie NBP, koszty kursu, wynik i marża, obok faktura FV/020/11/2026 ze statusem „W KSeF” i przyciskiem „Wyślij klientowi”.',
   },
   en: {
     tytul1: 'The order becomes the invoice.',
@@ -34,7 +34,7 @@ const TEKSTY: Tlumaczenia<{
       'Advance invoices, corrections and one invoice for several orders',
     ],
     label: 'Order and invoice · desktop',
-    opis: 'Order Radom → Köln, Finance tab: freight in euros converted at the NBP rate, run costs, result and margin, next to invoice FV/029/10/2026 marked “In KSeF” with a “Send to client” button.',
+    opis: 'Order Bielsko-Biała → Venlo, Finance tab: freight in euros converted at the NBP rate, run costs, result and margin, next to invoice FV/020/11/2026 marked “In KSeF” with a “Send to client” button.',
   },
 };
 

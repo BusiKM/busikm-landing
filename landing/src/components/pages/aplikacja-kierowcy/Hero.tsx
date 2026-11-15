@@ -43,11 +43,11 @@ const TEKSTY: Tlumaczenia<{
     lead: 'Kierowca dostaje kod mailem, ustawia hasło i jest w środku. Dalej prowadzi go jeden przycisk na każdy etap dnia.',
     trzy: {
       label: 'Trzy ekrany aplikacji kierowcy · telefon, tryb nocny',
-      note: 'Od lewej: „Czas pracy” z trzema wskaźnikami (przewóz międzynarodowy), „Dziś” z kursem Wrocław → Milano i przyciskiem „Jestem na rozładunku”, „Moje koszty” z przyciskiem „Dodaj paragon”.',
+      note: 'Od lewej: „Czas pracy” z bieżącym stanem i przypomnieniem o przerwie, „Dziś” z kursem Kraków → Antwerpen i przyciskiem „Jestem na rozładunku”, „Moje koszty” z przyciskiem „Dodaj paragon”.',
     },
     jeden: {
       label: 'Ekran „Dziś” · telefon, tryb nocny',
-      note: 'Kurs Wrocław → Milano „W trasie”: załadunek i rozładunek, przyciski „Nawiguj”, „Zadzwoń” i „Czat”, „Nie mogę kontynuować”, niżej „Trasa bez zlecenia”.',
+      note: 'Kurs Kraków → Antwerpen „W trasie”: załadunek i rozładunek, przyciski „Nawiguj”, „Zadzwoń” i „Czat”, czas do przerwy, „Zgłoś problem”, niżej kolejny kurs Kraków → Milano „Do przyjęcia”.',
     },
   },
   en: {
@@ -69,11 +69,11 @@ const TEKSTY: Tlumaczenia<{
     lead: 'The driver gets a code by email, sets a password and they’re in. From then on, one button takes them through each stage of the day.',
     trzy: {
       label: 'Three driver app screens · phone, dark mode',
-      note: 'From the left: “Working time” with three gauges (international transport), “Today” with the Wrocław → Milan job and an “At unloading” button, “My costs” with an “Add receipt” button.',
+      note: 'From the left: “Working time” with the current state and a break reminder, “Today” with the Kraków → Antwerp job and an “At unloading” button, “My costs” with an “Add receipt” button.',
     },
     jeden: {
       label: '“Today” screen · phone, dark mode',
-      note: 'The Wrocław → Milan job “On the road”: loading and unloading, “Navigate”, “Call” and “Chat” buttons, “I can’t continue”, and “Trip without an order” below.',
+      note: 'The Kraków → Antwerp job “On the road”: loading and unloading, “Navigate”, “Call” and “Chat” buttons, time to the next break, “Report a problem”, and the next Kraków → Milan job “To accept” below.',
     },
   },
 };

@@ -143,6 +143,7 @@ PLAN = {
     'mockup-kierowca-trasa-bez-zlecenia-phone.png': (pojedynczy, ['trasa']),
     'mockup-trasy-klient-link-phone.png': (pojedynczy, ['sledzenie']),
     'mockup-czas-bez-zasiegu-phone.png': (pojedynczy, ['bez-zasiegu']),
+    'mockup-dyspozytornia-czat-phone.png': (pojedynczy, ['czat']),
 }
 
 if __name__ == '__main__':

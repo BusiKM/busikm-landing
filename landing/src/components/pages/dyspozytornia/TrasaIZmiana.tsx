@@ -7,8 +7,8 @@ import { biezacyJezyk } from '@/i18n/serwer';
 
 const TEKSTY: Tlumaczenia<{
   bloki: readonly (readonly [string, string, string])[];
-  label: string;
-  note: string;
+  /** Makieta przy każdym bloku – kolejność jak w `bloki`. */
+  makiety: readonly (readonly [string, string])[];
 }> = {
   pl: {
     bloki: [
@@ -23,8 +23,16 @@ const TEKSTY: Tlumaczenia<{
         'Klient przesuwa rozładunek albo nie chcesz płatnych dróg - klikasz „Zmień trasę” i wybierasz wariant: najszybszy albo bez płatnych dróg. Nową trasę widzi kierowca w aplikacji, a klient na stronie śledzenia widzi nową godzinę dojazdu.',
       ],
     ],
-    label: 'Trasa i śledzenie (desktop)',
-    note: 'Zlecenie Kraków → Antwerpen, zakładka Trasa i śledzenie: ostrzeżenie o spóźnieniu, trasa najszybsza 1290 km z przyciskiem „Zmień trasę”, auto na mapie, czas dojazdu i przebieg kursu.',
+    makiety: [
+      [
+        'Trasa i śledzenie (desktop)',
+        'Zlecenie Kraków → Antwerpen, zakładka Trasa i śledzenie: ostrzeżenie o spóźnieniu, trasa najszybsza 1290 km z przyciskiem „Zmień trasę”, auto na mapie, czas dojazdu i przebieg kursu.',
+      ],
+      [
+        'Wybór trasy (desktop)',
+        'Zlecenie Kraków → Antwerpen, „Wybierz trasę”: dwa warianty na mapie, najszybsza 13 h i 1290 km oraz bez płatnych dróg 13 h 34 min i 1295 km, do tego przyciski omijania: płatne drogi, autostrady, promy.',
+      ],
+    ],
   },
   en: {
     bloki: [
@@ -39,12 +47,22 @@ const TEKSTY: Tlumaczenia<{
         'The client moves the unloading, or you’d rather skip toll roads - you click “Change route” and pick an option: fastest or no toll roads. The driver sees the new route in the app, and the client sees the new arrival time on the tracking page.',
       ],
     ],
-    label: 'Route and tracking (desktop)',
-    note: 'Order Kraków → Antwerp, Route and tracking tab: a late-arrival warning, the fastest route of 1,290 km with a “Change route” button, the van on the map, arrival time and the run’s timeline.',
+    makiety: [
+      [
+        'Route and tracking (desktop)',
+        'Order Kraków → Antwerp, Route and tracking tab: a late-arrival warning, the fastest route of 1,290 km with a “Change route” button, the van on the map, arrival time and the run’s timeline.',
+      ],
+      [
+        'Choosing a route (desktop)',
+        'Order Kraków → Antwerp, “Choose route”: two options on the map, fastest at 13 h and 1,290 km and no toll roads at 13 h 34 min and 1,295 km, plus avoid buttons: toll roads, motorways, ferries.',
+      ],
+    ],
   },
 };
 
-/** 04 i 05 – dwa bloki tekstu obok jednej makiety trasy. */
+/** 04 i 05 – każdy blok tekstu z własnym zrzutem: trasa kursu i wybór wariantu trasy. */
+const PLIKI = ['mockup-dyspozytornia-trasa-desktop.png', 'mockup-trasy-przeliczenie-desktop.png'] as const;
+
 export function TrasaIZmiana() {
   const t = TEKSTY[biezacyJezyk()];
   return (
@@ -75,36 +93,35 @@ export function TrasaIZmiana() {
         />
       </svg>
 
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-20">
-        <div className="flex flex-col gap-8 lg:gap-14">
-          {t.bloki.map(([numer, tytul, tresc], i) => (
-            <div
-              key={numer}
-              data-reveal
-              className={`flex flex-col gap-4 lg:gap-6 ${
-                i > 0 ? 'border-t border-line pt-8 lg:pt-10' : ''
-              }`}
-            >
+      <div className="flex flex-col gap-10 lg:gap-14">
+        {t.bloki.map(([numer, tytul, tresc], i) => (
+          <div
+            key={numer}
+            className={`grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-20 ${
+              i > 0 ? 'border-t border-line pt-10 lg:pt-14' : ''
+            }`}
+          >
+            <div data-reveal className="flex flex-col gap-4 lg:gap-6">
               <div className="text-[13px] font-semibold tracking-[0.06em] text-blue lg:text-caption">
                 {numer}
               </div>
               <h2 className="text-h2-m font-semibold text-balance lg:text-h2">{tytul}</h2>
               <p className="text-[16px] leading-relaxed text-muted lg:text-body">{tresc}</p>
             </div>
-          ))}
-        </div>
 
-        <div data-reveal>
-          <MockupSlot
-            file="mockup-dyspozytornia-trasa-desktop.png"
-            label={t.label}
-            note={t.note}
-            ratio="4:3"
-            noteClassName="bg-paper/80"
-          >
-            <PodgladTrasy />
-          </MockupSlot>
-        </div>
+            <div data-reveal>
+              <MockupSlot
+                file={PLIKI[i]}
+                label={t.makiety[i][0]}
+                note={t.makiety[i][1]}
+                ratio="4:3"
+                noteClassName="bg-paper/80"
+              >
+                <PodgladTrasy />
+              </MockupSlot>
+            </div>
+          </div>
+        ))}
       </div>
     </Section>
   );

@@ -50,12 +50,6 @@
         ]
       },
       {
-        "id": "faktury-historia",
-        "path": "/invoices/",
-        "settleMs": 3000,
-        "theme": "dark"
-      },
-      {
         "id": "faktury-zlecenie",
         "path": "/orders/32194/?tab=financials",
         "settleMs": 3000
@@ -195,6 +189,22 @@
             "ms": 600
           }
         ]
+      },
+      {
+        "id": "dyspozytornia-dyspozytor",
+        "path": "/orders/",
+        "settleMs": 4000,
+        "role": "dispatcher"
+      },
+      {
+        "id": "faktury-naleznosci",
+        "path": "/reports/receivables",
+        "settleMs": 4000
+      },
+      {
+        "id": "zysk-koszty",
+        "path": "/reports/costs",
+        "settleMs": 4000
       }
     ]
   }

@@ -20,7 +20,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Za BusiKM stoi człowiek, nie infolinia.',
     akapity: [
       'Jestem Łukasz Głowacz, założyciel i twórca BusiKM. Zacząłem go robić, gdy okazało się, że busy jeżdżące za granicę dostaną te same obowiązki co tiry, a większość busiarzy nie miała o tym pojęcia.',
-      'Dlatego pięć razy w tygodniu nagrywam rolki, w których łączę przepisy z tym, jak naprawdę wygląda praca busem: co mówi rozporządzenie, co sprawdzi inspektor i ile kosztuje błąd. Przy każdym przepisie podaję źródło, a każde pytanie z komentarzy dostaje odpowiedź. Większość rolek to czysta wiedza, w niektórych pokazuję, jak to samo załatwia BusiKM.',
+      'Dlatego pięć razy w tygodniu nagrywam rolki, w których łączę przepisy z tym, jak naprawdę wygląda praca busem: co mówi rozporządzenie, co sprawdzi inspektor i ile kosztuje błąd. Przy każdym przepisie podaję źródło, a na Wasze pytania z komentarzy odpowiadam w kolejnych rolkach. Większość rolek to czysta wiedza, w niektórych pokazuję, jak to samo załatwia BusiKM.',
       'Masz pytanie albo chcesz sprawdzić, czy BusiKM pasuje do Twojej firmy? Zadzwoń albo napisz, odpowiem osobiście.',
     ],
     zadzwon: 'Zadzwoń: 690 250 957',
@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Behind BusiKM is a person, not a call centre.',
     akapity: [
       'I’m Łukasz Głowacz, the founder and maker of BusiKM. I started building it when it turned out that vans driving abroad would get the same obligations as lorries, and most van operators had no idea.',
-      'That’s why, five times a week, I record short videos in Polish that connect the rules with what working with a van really looks like: what the regulation says, what the inspector will check and what a mistake costs. I give the source for every rule, and every question from the comments gets an answer. Most videos are pure knowledge, and in some I show how BusiKM handles the same thing.',
+      'That’s why, five times a week, I record short videos in Polish that connect the rules with what working with a van really looks like: what the regulation says, what the inspector will check and what a mistake costs. I give the source for every rule, and I answer your questions from the comments in the next videos. Most videos are pure knowledge, and in some I show how BusiKM handles the same thing.',
       'Got a question, or want to check whether BusiKM fits your company? Call or write, and I’ll answer personally.',
     ],
     zadzwon: 'Call: +48 690 250 957',

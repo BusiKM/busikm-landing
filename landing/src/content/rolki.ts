@@ -41,7 +41,12 @@ export type Rolka = {
   top?: 1 | 2 | 3;
 };
 
-export type Liczniki = { wyswietlenia?: string; reakcje?: string; komentarze?: string };
+/**
+ * Liczba do pokazania obok ikony („12 tys.”) i pełny opis dla czytnika ekranu
+ * („12 tys. wyświetleń”). Same słowa przy liczbach nie mieściły się na telefonie.
+ */
+export type Licznik = { krotko: string; opis: string };
+export type Liczniki = { wyswietlenia?: Licznik; reakcje?: Licznik; komentarze?: Licznik };
 
 /** „1,2 tys.”, „54 tys.”, „1,3 mln” – a po angielsku „1.2K”, „54K”, „1.3M”. */
 export function liczbaKrotko(n: number, jezyk: Jezyk): string {
@@ -73,7 +78,8 @@ function liczniki(w: Record<string, unknown>, jezyk: Jezyk): Liczniki {
     const n = w[pole];
     if (typeof n !== 'number' || !Number.isFinite(n) || n < 0) continue;
     const slowa = SLOWA[pole][jezyk];
-    wynik[pole] = `${liczbaKrotko(n, jezyk)} ${jezyk === 'pl' ? odmiana(n, slowa) : n === 1 ? slowa[0] : slowa[2]}`;
+    const krotko = liczbaKrotko(n, jezyk);
+    wynik[pole] = { krotko, opis: `${krotko} ${jezyk === 'pl' ? odmiana(n, slowa) : n === 1 ? slowa[0] : slowa[2]}` };
   }
   return wynik;
 }

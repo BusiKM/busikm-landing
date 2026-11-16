@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Eye } from 'lucide-react';
-import { czasFilmu, type Rolka } from '@/content/rolki';
+import { czasFilmu, type Licznik, type Rolka } from '@/content/rolki';
 
 /** Trójkąt „odtwórz". Wypełniony, bo na kadrze obrys ginie. */
 export function IkonaOdtworz({ className = 'size-[18px]' }: { className?: string }) {
@@ -35,8 +35,12 @@ export function KadrRolki({
   czas?: boolean;
   /** Okładka widoczna od razu po wejściu – leniwe ładowanie tylko by ją opóźniło. */
   pierwszyPlan?: boolean;
-  /** „54 tys. wyświetleń” – gdy synchronizacja przyniosła liczbę z Facebooka. */
-  wyswietlenia?: string;
+  /**
+   * Wyświetlenia: `krotko` („54 tys.”) widać obok ikony oka, a `opis`
+   * („54 tys. wyświetleń”) czyta czytnik ekranu. Na telefonie pełny tekst
+   * nie mieścił się obok przycisku odtwarzania.
+   */
+  wyswietlenia?: Licznik;
   className?: string;
 }) {
   return (
@@ -63,9 +67,12 @@ export function KadrRolki({
         </span>
       )}
       {wyswietlenia && (
-        <span className="absolute right-2.5 bottom-3.5 inline-flex items-center gap-1.5 rounded-full bg-ink/75 px-2.5 py-1 text-[12px] leading-[16px] font-medium text-paper">
+        <span
+          aria-label={wyswietlenia.opis}
+          className="absolute right-2.5 bottom-3.5 inline-flex items-center gap-1.5 rounded-full bg-ink/75 px-2.5 py-1 text-[12px] leading-[16px] font-medium text-paper"
+        >
           <Eye className="size-3.5" strokeWidth={2} aria-hidden />
-          {wyswietlenia}
+          <span aria-hidden>{wyswietlenia.krotko}</span>
         </span>
       )}
       {przycisk && (

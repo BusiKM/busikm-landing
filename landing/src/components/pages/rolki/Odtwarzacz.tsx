@@ -430,11 +430,12 @@ export function Odtwarzacz({
               ).map(([Znak, tekst]) =>
                 tekst ? (
                   <li
-                    key={tekst}
+                    key={tekst.opis}
+                    aria-label={tekst.opis}
                     className="inline-flex items-center gap-1.5 rounded-full border border-line-dark-2 px-3 py-1 text-[13px] text-paper"
                   >
                     {createElement(Znak, { className: 'size-4', strokeWidth: 2, 'aria-hidden': true })}
-                    {tekst}
+                    <span aria-hidden>{tekst.krotko}</span>
                   </li>
                 ) : null,
               )}

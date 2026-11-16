@@ -70,7 +70,14 @@ const SLOWA = {
   wyswietlenia: { pl: ['wyświetlenie', 'wyświetlenia', 'wyświetleń'], en: ['view', 'views', 'views'] },
   reakcje: { pl: ['reakcja', 'reakcje', 'reakcji'], en: ['reaction', 'reactions', 'reactions'] },
   komentarze: { pl: ['komentarz', 'komentarze', 'komentarzy'], en: ['comment', 'comments', 'comments'] },
+  obserwujacy: { pl: ['obserwujący', 'obserwujących', 'obserwujących'], en: ['follower', 'followers', 'followers'] },
+  rolki: { pl: ['rolka', 'rolki', 'rolek'], en: ['reel', 'reels', 'reels'] },
 } as const;
+
+function slowo(n: number, pole: keyof typeof SLOWA, jezyk: Jezyk): string {
+  const slowa = SLOWA[pole][jezyk];
+  return jezyk === 'pl' ? odmiana(n, slowa) : n === 1 ? slowa[0] : slowa[2];
+}
 
 function liczniki(w: Record<string, unknown>, jezyk: Jezyk): Liczniki {
   const wynik: Liczniki = {};
@@ -78,9 +85,8 @@ function liczniki(w: Record<string, unknown>, jezyk: Jezyk): Liczniki {
     const n = w[pole];
     // Zero nie zachęca – zamiast „0 komentarzy” po prostu nic (decyzja 16.11.2026).
     if (typeof n !== 'number' || !Number.isFinite(n) || n <= 0) continue;
-    const slowa = SLOWA[pole][jezyk];
     const krotko = liczbaKrotko(n, jezyk);
-    wynik[pole] = { krotko, opis: `${krotko} ${jezyk === 'pl' ? odmiana(n, slowa) : n === 1 ? slowa[0] : slowa[2]}` };
+    wynik[pole] = { krotko, opis: `${krotko} ${slowo(n, pole, jezyk)}` };
   }
   return wynik;
 }
@@ -120,19 +126,57 @@ function poprawna(w: Record<string, unknown>): boolean {
  * Rolki od najnowszej. Awaria magazynu to pusta lista, a nie błąd budowania:
  * strona bez rolek działa dalej, a CI nie może zależeć od cudzej sieci.
  */
-export async function pobierzRolki(jezyk: Jezyk): Promise<Rolka[]> {
-  let surowe: Record<string, unknown>[];
+async function czytaj(plik: string): Promise<unknown> {
   try {
-    const odp = await fetch(`${ADRES}/katalog.json`, {
+    const odp = await fetch(`${ADRES}/${plik}`, {
       next: { revalidate: ODSWIEZANIE },
       signal: AbortSignal.timeout(5000),
     });
-    if (!odp.ok) return [];
-    surowe = await odp.json();
-    if (!Array.isArray(surowe)) return [];
+    return odp.ok ? await odp.json() : null;
   } catch {
-    return [];
+    return null;
   }
+}
+
+async function czytajKatalog(): Promise<Record<string, unknown>[]> {
+  const surowe = await czytaj('katalog.json');
+  return Array.isArray(surowe) ? surowe : [];
+}
+
+/** Jedna liczba w pasku pod nagłówkiem rolek: „1 284” nad „obserwujących”. */
+export type Liczba = { wartosc: string; podpis: string };
+
+/**
+ * Pasek liczb kanału: obserwujący, rolki, wyświetlenia łącznie. Obserwujących
+ * zapisuje synchronizacja do `strona.json`. Liczby, której nie ma albo jest
+ * zerem, po prostu brakuje, jak przy licznikach rolek.
+ */
+export async function pobierzLiczbyKanalu(jezyk: Jezyk): Promise<Liczba[]> {
+  const [katalog, strona] = await Promise.all([czytajKatalog(), czytaj('strona.json')]);
+  const rolki = katalog.filter(poprawna);
+  const obserwujacy = (strona as { obserwujacy?: unknown } | null)?.obserwujacy;
+  const wyswietlenia = rolki.reduce((s, w) => s + (typeof w.wyswietlenia === 'number' ? w.wyswietlenia : 0), 0);
+  // Pełna liczba obserwujących, dopóki się mieści. „1 284” mówi więcej niż „1,2 tys.”.
+  // `always`: po polsku Intl zostawia cztery cyfry razem („1284”), a cennik pisze „1 490”.
+  const pelna = new Intl.NumberFormat(jezyk === 'pl' ? 'pl-PL' : 'en-GB', { useGrouping: 'always' });
+
+  const wynik: Liczba[] = [];
+  if (typeof obserwujacy === 'number' && Number.isInteger(obserwujacy) && obserwujacy > 0) {
+    wynik.push({
+      wartosc: obserwujacy < 10_000 ? pelna.format(obserwujacy) : liczbaKrotko(obserwujacy, jezyk),
+      podpis: slowo(obserwujacy, 'obserwujacy', jezyk),
+    });
+  }
+  if (rolki.length > 0) wynik.push({ wartosc: String(rolki.length), podpis: slowo(rolki.length, 'rolki', jezyk) });
+  if (wyswietlenia > 0) {
+    wynik.push({ wartosc: liczbaKrotko(wyswietlenia, jezyk), podpis: slowo(wyswietlenia, 'wyswietlenia', jezyk) });
+  }
+  return wynik;
+}
+
+export async function pobierzRolki(jezyk: Jezyk): Promise<Rolka[]> {
+  const surowe = await czytajKatalog();
+  if (!surowe.length) return [];
 
   const daty = new Intl.DateTimeFormat(jezyk === 'pl' ? 'pl-PL' : 'en-GB', {
     day: 'numeric',

@@ -16,7 +16,7 @@ export function PrzyciskCookie() {
     <button
       type="button"
       onClick={otworzUstawieniaCookie}
-      className="text-caption text-ink-muted underline underline-offset-2 hover:text-paper"
+      className="cursor-pointer text-ink-muted hover:text-paper"
     >
       {jezyk === 'pl' ? 'Ustawienia cookie' : 'Cookie settings'}
     </button>

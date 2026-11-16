@@ -1,4 +1,5 @@
 import { Section } from '@/components/ui/Section';
+import { MockupSlot } from '@/components/ui/MockupSlot';
 
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -6,10 +7,8 @@ import { biezacyJezyk } from '@/i18n/serwer';
 const TEKSTY: Tlumaczenia<{
   naglowek: string;
   tresc: string;
-  licznikPrzedStartem: string;
-  licznik: string;
-  zdjecie: string;
-  rozpocznij: string;
+  label: string;
+  note: string;
   pigulki: string[];
   nagrywa: string;
 }> = {
@@ -17,10 +16,8 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Zaczyna dzień jednym przyciskiem',
     tresc:
       'Klika „Zacznij dzień” i robi zdjęcie licznika - stan odczyta się sam, wystarczy go potwierdzić. Potem jedzie. Dalej „Jestem na załadunku”, „Jestem na rozładunku” - część statusów zmienia się sama, gdy dojedzie na miejsce. Telefon może zostać w kieszeni, trasa zapisuje się sama. A gdy coś stanie na drodze, „Zgłoś problem” od razu pyta, czy da się jechać dalej, i daje znać biuru.',
-    licznikPrzedStartem: 'Licznik na start',
-    licznik: '184 210 km',
-    zdjecie: 'zdjęcie licznika, stan odczytany',
-    rozpocznij: 'Potwierdź i rozpocznij',
+    label: 'Dziś przed startem (telefon, tryb nocny)',
+    note: 'Ekran „Dziś” w aplikacji BusiKM Kierowca: najbliższy kurs Venlo → Warszawa z autem, ładunkiem i rozładunkiem, na dole przycisk „Zacznij dzień”.',
     pigulki: ['ekran wyłączony', 'telefon w kieszeni'],
     nagrywa: 'trasa zapisuje się',
   },
@@ -28,16 +25,14 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'The day starts with one button',
     tresc:
       'They tap “Start the day” and snap the odometer - the reading fills itself in, they just confirm it. Then off they go. Next, “At loading”, “At unloading” - some statuses change by themselves when they arrive. The phone can stay in their pocket and the route records itself. And if something goes wrong on the road, “Report a problem” first asks whether they can carry on, then lets the office know.',
-    licznikPrzedStartem: 'Odometer at start',
-    licznik: '184,210 km',
-    zdjecie: 'odometer photo, reading filled in',
-    rozpocznij: 'Confirm and start',
+    label: 'Today before setting off (phone, dark mode)',
+    note: 'The “Today” screen in the BusiKM Driver app: the next job Venlo → Warsaw with the van, load and unloading time, and a “Start the day” button at the bottom.',
     pigulki: ['screen off', 'phone in pocket'],
     nagrywa: 'route recording',
   },
 };
 
-/** 03 – rusza jednym przyciskiem. Karta licznika zamiast telefonu. */
+/** 03 – rusza jednym przyciskiem. Ekran „Dziś” z przyciskiem „Zacznij dzień”. */
 export function Rusza() {
   const t = TEKSTY[biezacyJezyk()];
   return (
@@ -59,20 +54,18 @@ export function Rusza() {
         </div>
 
         <div data-reveal className="flex flex-col items-center gap-4">
-          <div className="flex w-full max-w-[420px] flex-col gap-5 rounded-panel bg-ink p-7 text-paper shadow-card lg:p-8">
-            <div className="flex justify-between text-[13px] text-ink-muted">
-              <span>{t.licznikPrzedStartem}</span>
-              <span>06:02</span>
-            </div>
-            <div className="text-[32px] font-bold tracking-[-0.03em] lg:text-[40px]">
-              {t.licznik}
-            </div>
-            <div className="flex h-25 items-center justify-center rounded-2xl bg-surface-2 text-[13px] text-ink-muted lg:h-30">
-              {t.zdjecie}
-            </div>
-            <div className="rounded-2xl bg-blue p-5 text-center text-[18px] font-semibold text-white lg:text-[20px]">
-              {t.rozpocznij}
-            </div>
+          <div className="w-full">
+            <MockupSlot
+              file="mockup-kierowca-zacznij-dzien-phone.png"
+              label={t.label}
+              note={t.note}
+              ratio="9:19.5"
+              box="6:7"
+              imageScale={1.8}
+              imageScaleTelefon={1.8}
+            >
+              {null}
+            </MockupSlot>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2.5 text-[13px] text-muted lg:text-caption">

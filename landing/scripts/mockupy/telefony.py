@@ -138,6 +138,11 @@ PLAN = {
     'mockup-kierowca-hero-trzy-phone.png': (trojka, ['czas', 'start', 'paragony']),
     'mockup-koszty-paragon-phone.png': (ciasny, ['paragony']),
     'mockup-hero-telefon-phone.png': (ciasny, ['start']),
+    'mockup-kierowca-zaproszenie-phone.png': (pojedynczy, ['zaproszenie']),
+    'mockup-kierowca-zacznij-dzien-phone.png': (pojedynczy, ['zacznij']),
+    'mockup-kierowca-trasa-bez-zlecenia-phone.png': (pojedynczy, ['trasa']),
+    'mockup-trasy-klient-link-phone.png': (pojedynczy, ['sledzenie']),
+    'mockup-czas-bez-zasiegu-phone.png': (pojedynczy, ['bez-zasiegu']),
 }
 
 if __name__ == '__main__':

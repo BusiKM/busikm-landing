@@ -18,8 +18,8 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Wchodzi kodem z maila',
     tresc:
       'Wysyłasz zaproszenie, kierowca dostaje mailem kod. W aplikacji wybiera „Mam zaproszenie”, wpisuje e-mail i kod, potem własne hasło - imię i nazwisko tylko wtedy, gdy ich nie wpisałeś. Następnym razem loguje się e-mailem i hasłem. Nie dzwoni do Ciebie z pytaniem, jaki ma login.',
-    label: 'Zlecenia (telefon, tryb nocny)',
-    note: 'Lista „Zlecenia” z zakładkami Aktywne, Oczekujące i Zakończone: kurs Kraków → Antwerpen „W trasie” z ostrzeżeniem „Załadunek po terminie”, pasek zakładek u dołu.',
+    label: 'Mam zaproszenie (telefon, tryb nocny)',
+    note: 'Ekran „Mam zaproszenie” w aplikacji BusiKM Kierowca: e-mail kierowcy i kod K7QM-4RTZ z maila, przycisk „Dalej”.',
     mail: 'E-mail od BusiKM',
     powitanie: 'Marek, Twój kod zaproszenia do BusiKM:',
     kod: 'K7QM-4RTZ',
@@ -29,8 +29,8 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'In with a code from the email',
     tresc:
       'You send an invite and the driver gets a code by email. In the app they choose “I have an invitation”, enter their email and the code, then their own password - and their name only if you haven’t entered it. After that they sign in with email and password. No calls to you asking what their login is.',
-    label: 'Orders (phone, dark mode)',
-    note: 'The “Orders” list with Active, Pending and Finished tabs: the Kraków → Antwerp job “On the road” with a “Late loading” warning, tab bar at the bottom.',
+    label: 'I have an invitation (phone, dark mode)',
+    note: 'The “I have an invitation” screen in the BusiKM Driver app: the driver’s email and the K7QM-4RTZ code from the email, with a “Next” button.',
     mail: 'Email from BusiKM',
     powitanie: 'Marek, your BusiKM invitation code:',
     kod: 'K7QM-4RTZ',
@@ -38,7 +38,7 @@ const TEKSTY: Tlumaczenia<{
   },
 };
 
-/** 01 – wchodzi kodem. Mail z kodem, strzałka, ekran z listą zleceń. */
+/** 01 – wchodzi kodem. Ekran „Mam zaproszenie” z kodem z maila. */
 export function Kod() {
   const t = TEKSTY[biezacyJezyk()];
   return (
@@ -61,7 +61,7 @@ export function Kod() {
 
         <div data-reveal>
           <MockupSlot
-            file="mockup-kierowca-zlecenia-phone.png"
+            file="mockup-kierowca-zaproszenie-phone.png"
             label={t.label}
             note={t.note}
             ratio="9:19.5"

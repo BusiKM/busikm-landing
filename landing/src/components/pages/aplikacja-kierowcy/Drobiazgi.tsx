@@ -1,6 +1,7 @@
 import Link from '@/i18n/Link';
 import { Section } from '@/components/ui/Section';
 import { StoreBadges } from '@/components/ui/StoreBadges';
+import { Kafelek } from '@/components/ui/Drobiazgi';
 
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -57,13 +58,7 @@ export function Drobiazgi() {
 
         <div data-reveal-group className="grid grid-cols-2 gap-2.5 lg:grid-cols-3 lg:gap-4">
           {t.kafelki.map((k) => (
-            <div
-              key={k}
-              data-reveal
-              className="rounded-card border border-line-dark bg-surface p-4.5 text-[15px] font-semibold lg:min-h-30 lg:p-7 lg:text-body"
-            >
-              {k}
-            </div>
+            <Kafelek key={k} tekst={k} dark />
           ))}
         </div>
 

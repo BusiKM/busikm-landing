@@ -28,14 +28,18 @@ const PUNKTY: Tlumaczenia<readonly Punkt[]> = {
 };
 
 /** Z dawnej sekcji „Czas pracy” – najmocniejsze trzy zdania i odnośnik. */
-const CZAS_PRACY: Tlumaczenia<{ punkty: readonly PunktDolaczony[]; wiecej: OdnosnikWiecej }> = {
+const CZAS_PRACY: Tlumaczenia<{ punkty: readonly PunktDolaczony[]; wiecej: readonly OdnosnikWiecej[] }> = {
   pl: {
     punkty: [
       ['Wiesz, kiedy kierowca musi stanąć', 'Kierowca dostaje przypomnienie 15 minut przed przerwą, nie po fakcie. Ty widzisz to samo ze swojego biura.'],
       ['Przerwa jednym przyciskiem', 'Jazda i praca liczą się same. Przerwę zapisze bez zasięgu, dojdzie, gdy wróci sygnał.'],
       ['Tachograf zapisuje. BusiKM pokazuje.', 'BusiKM nie zastępuje tachografu. Pokazuje na ekranie, ile jeszcze można jechać i kiedy trzeba stanąć.'],
     ],
-    wiecej: { href: '/co-robi/czas-pracy', label: 'Więcej: czas pracy i przerwy' },
+    // Najpierw cała aplikacja – sekcja jest o niej, czas pracy to jej część.
+    wiecej: [
+      { href: '/co-robi/aplikacja-kierowcy', label: 'Więcej: aplikacja kierowcy' },
+      { href: '/co-robi/czas-pracy', label: 'Czas pracy i przerwy' },
+    ],
   },
   en: {
     punkty: [
@@ -43,7 +47,10 @@ const CZAS_PRACY: Tlumaczenia<{ punkty: readonly PunktDolaczony[]; wiecej: Odnos
       ['A break in one tap', 'Driving and work time count themselves. Breaks are logged with no signal and go through once it’s back.'],
       ['The tachograph records. BusiKM shows.', 'BusiKM doesn’t replace the tachograph. It shows on screen how much longer the driver can drive and when they have to stop.'],
     ],
-    wiecej: { href: '/co-robi/czas-pracy', label: 'More: working time and breaks' },
+    wiecej: [
+      { href: '/co-robi/aplikacja-kierowcy', label: 'More: the driver app' },
+      { href: '/co-robi/czas-pracy', label: 'Working time and breaks' },
+    ],
   },
 };
 
@@ -163,7 +170,7 @@ export function AplikacjaKierowcy() {
       </div>
 
       <div className="relative mt-16 lg:mt-24">
-        <Dolaczone dark punkty={CZAS_PRACY[jezyk].punkty} wiecej={[CZAS_PRACY[jezyk].wiecej]} />
+        <Dolaczone dark punkty={CZAS_PRACY[jezyk].punkty} wiecej={CZAS_PRACY[jezyk].wiecej} />
       </div>
     </Section>
   );

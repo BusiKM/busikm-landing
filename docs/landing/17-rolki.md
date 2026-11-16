@@ -87,10 +87,11 @@ oraz podsumowanie polubień i komentarzy) i zapisuje w katalogu surowe liczby:
 - trzy najczęściej oglądane rolki mają nad tytułem nadpis „Nr 1 w oglądalności”
   (i Nr 2, Nr 3), bez znaczków na kadrze.
 
-Statystyki wymagają uprawnień `read_insights` i `pages_read_engagement` dla konta
-technicznego. Gdy Facebook ich odmówi albo chwilowo nie odpowie, w logu akcji pojawia
-się jedno ostrzeżenie, rolki zostają bez liczb, a filmy synchronizują się dalej
-normalnie. Liczba rolek z licznikami jest w ostatniej linii logu („z licznikami: N”).
+Wyświetlenia wymagają uprawnienia `read_insights`, a reakcje i komentarze
+`pages_read_engagement` (oba dla konta technicznego, z którego jest `FB_TOKEN`).
+Skrypt pyta o nie osobno: gdy Facebook odmówi jednego, w logu akcji pojawia się jedno
+ostrzeżenie, rolki zostają bez tych liczb, a reszta i filmy synchronizują się dalej.
+Ile rolek ma liczby, widać w logu („z wyświetleniami: N, z reakcjami: N”).
 
 ## Poprawki ręczne
 

@@ -77,6 +77,8 @@ Szczegóły w `06`, poziom 2.
 
 ## 3 · Cztery rzeczy, których nie będziesz już robił — J
 
+> **Zmiana 16.11.2026:** sekcja nie stoi już osobno. Same zdania bez obrazu źle się czytały tuż pod hero, więc każde „przed” trafiło jako dopisek „Koniec z:” do ruchu, którego dotyczy, w sekcji „Trzy ruchy” (z ekranami aplikacji). Kod: `landing/src/components/sections/TrzyRuchy.tsx`.
+
 Wąski pas tuż pod hero, tło `mist`. Bez makiety, sama typografia.
 
 **Nagłówek** *(h2)*

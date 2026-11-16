@@ -2,7 +2,6 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { FilmWlasciciela } from '@/components/sections/FilmWlasciciela';
-import { CzteryRzeczy } from '@/components/sections/CzteryRzeczy';
 import { TrzyRuchy } from '@/components/sections/TrzyRuchy';
 import { IleZostaje } from '@/components/sections/IleZostaje';
 import { Dyspozytornia } from '@/components/sections/Dyspozytornia';
@@ -18,7 +17,7 @@ import { PrzyklejoneDemo } from '@/components/ui/PrzyklejoneDemo';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
 
 /**
- * Strona główna – 13 sekcji i finał.
+ * Strona główna – 12 sekcji i finał.
  *
  * Krótsza niż pierwsza wersja z projektu (22 sekcje): mapa i trasa weszły
  * do dyspozytorni, czas pracy do aplikacji kierowcy, koszty i komplet dla
@@ -35,7 +34,6 @@ export default async function Home({ params }: ParametryJezyka) {
       <main>
         <Hero />
         <FilmWlasciciela />
-        <CzteryRzeczy />
         <TrzyRuchy />
         <IleZostaje />
         <Dyspozytornia />

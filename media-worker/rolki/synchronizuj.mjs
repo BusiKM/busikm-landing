@@ -193,7 +193,12 @@ async function rolkiZFacebooka(token) {
  * odmówi albo chwilowo nie odpowie, rolka zostaje bez tych liczb – synchronizacja
  * filmów idzie dalej jak dotąd.
  */
-const METRYKI_ODTWORZEN = ['blue_reels_play_count', 'fb_reels_total_plays', 'total_video_views'];
+/**
+ * `fb_reels_total_plays` to liczba, którą Facebook pokazuje przy rolce (z powtórkami).
+ * `blue_reels_play_count` liczy tylko pierwsze odtworzenia – sprawdzone 16.11.2026:
+ * 54 263 wobec 45 758 przy „Włączasz tachograf dopiero na granicy?”.
+ */
+const METRYKI_ODTWORZEN = ['fb_reels_total_plays', 'blue_reels_play_count', 'total_video_views'];
 
 /** Jedno zapytanie o statystyki. Po pierwszej odmowie tego rodzaju nie pytamy już o kolejne rolki. */
 async function zapytajOStatystyki(rodzaj, adres, token, uwagi) {
@@ -224,15 +229,30 @@ async function licznikiRolki(id, token, uwagi) {
     const metryki = new Map((wglad.data ?? []).map((m) => [m.name, m.values?.[0]?.value]));
     const odtworzenia = METRYKI_ODTWORZEN.map((n) => metryki.get(n)).find((v) => Number.isFinite(v));
     if (Number.isFinite(odtworzenia)) wynik.wyswietlenia = odtworzenia;
+    // Wszystkie reakcje (serca, „Wow” itd.), a nie tylko „Lubię to” z `likes`.
+    const reakcje = metryki.get('post_video_likes_by_reaction_type');
+    if (reakcje && typeof reakcje === 'object') {
+      wynik.reakcje = Object.values(reakcje).reduce((a, b) => a + (Number(b) || 0), 0);
+    }
+    // Komentarze razem z odpowiedziami – `comments` liczy tylko komentarze główne (18 wobec 73).
+    const akcje = metryki.get('post_video_social_actions');
+    if (Number.isFinite(akcje?.COMMENT)) wynik.komentarze = akcje.COMMENT;
+    else if (akcje && typeof akcje === 'object') wynik.komentarze = 0;
   }
+  // Gdy wgląd w statystyki ma już reakcje i komentarze, drugie zapytanie jest zbędne.
+  if (wynik.reakcje !== undefined && wynik.komentarze !== undefined) return wynik;
   const reakcje = await zapytajOStatystyki(
     'reakcje i komentarze',
     `${GRAPH}/${id}?fields=${encodeURIComponent('likes.summary(true).limit(0),comments.summary(true).limit(0)')}`,
     token,
     uwagi,
   );
-  if (Number.isFinite(reakcje?.likes?.summary?.total_count)) wynik.reakcje = reakcje.likes.summary.total_count;
-  if (Number.isFinite(reakcje?.comments?.summary?.total_count)) wynik.komentarze = reakcje.comments.summary.total_count;
+  if (wynik.reakcje === undefined && Number.isFinite(reakcje?.likes?.summary?.total_count)) {
+    wynik.reakcje = reakcje.likes.summary.total_count;
+  }
+  if (wynik.komentarze === undefined && Number.isFinite(reakcje?.comments?.summary?.total_count)) {
+    wynik.komentarze = reakcje.comments.summary.total_count;
+  }
   return wynik;
 }
 

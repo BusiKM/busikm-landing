@@ -27,10 +27,10 @@ const TEKSTY: Tlumaczenia<{
   pytania: readonly (readonly [string, string])[];
   naglowekPytan: string;
   drobiazgi: string[];
-  lista: Tekst;
-  zasieg: Tekst;
+  lista: Tekst & { label: string; note: string };
+  zasieg: Tekst & { label: string; note: string };
   karta: Tekst & { label: string; note: string };
-  kraje: Tekst;
+  kraje: Tekst & { label: string; note: string };
   ktoUzywa: string;
   link1: string;
   link2: string;
@@ -62,22 +62,29 @@ const TEKSTY: Tlumaczenia<{
     lista: {
       tytul: 'Ty widzisz to samo',
       tresc:
-        'Lista kierowców ze statusem: jedzie, na przerwie, odpoczywa, dostępny. Wszyscy na jednym ekranie.',
+        'Lista kierowców z tym, co robią teraz: w trasie, zaplanowany, nieobecny. Obok czas jazdy w tygodniu, najbliższy termin i czy może jechać. Wszyscy na jednym ekranie.',
+      label: 'Lista kierowców (desktop)',
+      note: 'Kierowcy: kafle „Mogą jechać dziś”, „Terminy w 30 dni”, „W trasie teraz”, „Nieobecni dziś”, pod spodem lista z kolumnami Teraz, Najbliższy termin, Czas jazdy w tygodniu, Auto domyślne i Gotowość.',
     },
     zasieg: {
       tytul: 'Działa bez zasięgu',
       tresc:
         'Liczniki liczy serwer. Bez sieci ostatni znany stan widać na ekranie „Dziś”, na pasku przerwy. Przerwy i odpoczynki zapisane bez zasięgu czekają w telefonie i dochodzą, gdy wróci sygnał. Pełny ekran „Czas pracy” odświeży się razem z siecią.',
+      label: 'Dziś bez zasięgu (telefon, tryb nocny)',
+      note: 'Ekran „Dziś” w aplikacji BusiKM Kierowca bez internetu: na górze pasek „Bez zasięgu - Wszystko zapisujemy w telefonie”, pod nim kurs Kraków → Antwerpen w trasie i pasek przerwy.',
     },
     karta: {
       tytul: 'Miesięczna karta do wydruku',
       tresc: 'Gotowa, bez przepisywania. Do teczki albo do księgowej.',
-      label: 'Karta miesięczna do wydruku (desktop)',
-      note: 'Dni, godziny jazdy, pracy i odpoczynku, kraje; podsumowanie i przycisk PDF. Jasna, jak wydruk.',
+      label: 'Karta ewidencji czasu pracy (PDF)',
+      note: 'Dwie strony karty ewidencji czasu pracy kierowcy za październik: podsumowanie miesiąca (czas pracy, jazda, noc, dyżury, przerwy, odpoczynki), nieobecności i ewidencja dzienna z godzinami.',
     },
     kraje: {
       tytul: 'Dni w każdym kraju',
-      tresc: 'Liczone z trasy. Możesz poprawić ręcznie, jeśli coś wyglądało inaczej.',
+      tresc:
+        'Liczone z GPS i przekroczeń granicy. Gdy coś wyglądało inaczej, poprawiasz dzień ręcznie, a poprzednia wartość zostaje w historii.',
+      label: 'Poprawka dnia w kraju (desktop)',
+      note: 'Karta kierowcy, zakładka „Za granicą i diety” za listopad: okno „Popraw dzień” z krajem DE i 8 godzinami w kraju, pod nim dni w krajach i diety.',
     },
     ktoUzywa: 'Kto tego używa:',
     link1: 'Kierowca →',
@@ -110,22 +117,29 @@ const TEKSTY: Tlumaczenia<{
     lista: {
       tytul: 'You see the same thing',
       tresc:
-        'A list of drivers with their status: driving, on a break, resting, available. Everyone on one screen.',
+        'A list of drivers with what they’re doing now: on the road, planned, away. Next to it, driving time this week, the next deadline and whether they can drive. Everyone on one screen.',
+      label: 'Driver list (desktop)',
+      note: 'Drivers: “Can drive today”, “Deadlines in 30 days”, “On the road now” and “Away today” tiles, then the list with Now, Next deadline, Driving time this week, Default vehicle and Readiness columns.',
     },
     zasieg: {
       tytul: 'Works with no signal',
       tresc:
         'The server does the counting. With no network the last known state shows on the “Today” screen, in the break bar. Breaks and rest logged with no signal wait on the phone and go through once it’s back. The full “Working time” screen refreshes when the network returns.',
+      label: 'Today with no signal (phone, dark mode)',
+      note: 'The “Today” screen in the BusiKM Driver app with no internet: a “No signal - we save everything on the phone” bar at the top, then the Kraków → Antwerp job on the road and the break bar.',
     },
     karta: {
       tytul: 'A monthly sheet to print',
       tresc: 'Ready, with no copying out. For the file or for your accountant.',
-      label: 'Monthly sheet to print (desktop)',
-      note: 'Days, hours of driving, work and rest, countries; a summary and a PDF button. Light, like a printout.',
+      label: 'Working time record sheet (PDF)',
+      note: 'Two pages of the driver’s working time record sheet for October: the month summary (working time, driving, night work, on-call, breaks, rest), absences and the daily record with hours.',
     },
     kraje: {
       tytul: 'Days in each country',
-      tresc: 'Counted from the route. You can correct them by hand if things looked different.',
+      tresc:
+        'Counted from GPS and border crossings. If something looked different, you correct the day by hand, and the previous value stays in the history.',
+      label: 'Correcting a day in a country (desktop)',
+      note: 'The driver card, “Abroad and allowances” tab for November: the “Correct day” window with DE and 8 hours in the country, with the days in countries and allowances behind it.',
     },
     ktoUzywa: 'Who uses it:',
     link1: 'Driver →',
@@ -155,7 +169,16 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="03"
           tytul={t.lista.tytul}
           tresc={t.lista.tresc}
-          makieta={<ListaKierowcow />}
+          makieta={
+            <MockupSlot
+              file="mockup-czas-kierowcy-lista-desktop.png"
+              label={t.lista.label}
+              note={t.lista.note}
+              ratio="4:3"
+            >
+              <ListaKierowcow />
+            </MockupSlot>
+          }
         />
 
         <Tachograf />
@@ -165,7 +188,19 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="04"
           tytul={t.zasieg.tytul}
           tresc={t.zasieg.tresc}
-          makieta={<BezZasiegu />}
+          makieta={
+            <MockupSlot
+              file="mockup-czas-bez-zasiegu-phone.png"
+              label={t.zasieg.label}
+              note={t.zasieg.note}
+              ratio="9:19.5"
+              box="6:7"
+              imageScale={1.8}
+              imageScaleTelefon={1.8}
+            >
+              <BezZasiegu />
+            </MockupSlot>
+          }
         />
 
         <Blok
@@ -175,7 +210,7 @@ export default async function Page({ params }: ParametryJezyka) {
           tresc={t.karta.tresc}
           makieta={
             <MockupSlot
-              file="mockup-czas-karta-desktop.png"
+              file="mockup-czas-karta-wydruk-dokument.png"
               label={t.karta.label}
               note={t.karta.note}
               ratio="4:3"
@@ -191,7 +226,16 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="06"
           tytul={t.kraje.tytul}
           tresc={t.kraje.tresc}
-          makieta={<DniWKrajach />}
+          makieta={
+            <MockupSlot
+              file="mockup-czas-korekta-dnia-desktop.png"
+              label={t.kraje.label}
+              note={t.kraje.note}
+              ratio="4:3"
+            >
+              <DniWKrajach />
+            </MockupSlot>
+          }
         />
 
         <Drobiazgi

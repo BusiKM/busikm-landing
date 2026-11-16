@@ -1,21 +1,14 @@
 import { Section } from '@/components/ui/Section';
+import { MockupSlot } from '@/components/ui/MockupSlot';
 
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
-/** Czy termin jest daleko – kolor zielony. Kolejność jak w `dokumenty` niżej. */
-const DALEKO = [false, false, false, true] as const;
-
 const TEKSTY: Tlumaczenia<{
   trasa: { naglowek: string; tresc: string };
-  bezZlecenia: string;
-  przejazd: string;
-  /** Rodzaj trasy bez zlecenia – dwie pigułki przed przyciskiem startu. */
-  sluzbowa: string;
-  prywatna: string;
-  potwierdz: string;
+  trasaZrzut: { label: string; note: string };
   dok: { naglowek: string; tresc: string };
-  dokumenty: readonly (readonly [string, string])[];
+  dokZrzut: { label: string; note: string };
 }> = {
   pl: {
     trasa: {
@@ -23,22 +16,19 @@ const TEKSTY: Tlumaczenia<{
       tresc:
         'Dojazd do bazy i przejazd do serwisu też się liczą. „Trasa bez zlecenia”: służbowa albo prywatna, „Rozpocznij trasę” i „Zakończ trasę”. Na prywatną przerwę zapis trasy wstrzymasz jednym przyciskiem.',
     },
-    bezZlecenia: 'Trasa bez zlecenia',
-    przejazd: 'Milano → serwis, Bergamo',
-    sluzbowa: 'Służbowa',
-    prywatna: 'Prywatna',
-    potwierdz: 'Rozpocznij trasę',
+    trasaZrzut: {
+      label: 'Trasa bez zlecenia (telefon, tryb nocny)',
+      note: 'Ekran „Trasa bez zlecenia”: pojazd, typ trasy Służbowa albo Prywatna, cel Serwis pojazdu, licznik na start i przycisk „Rozpocznij trasę”.',
+    },
     dok: {
       naglowek: 'Jego dokumenty w telefonie',
       tresc:
-        '„Moje dokumenty”: prawo jazdy, świadectwo kwalifikacji, badania, karta kierowcy - każdy z datą ważności. Gdy termin się zbliża, kierowca widzi to na ekranie „Dziś”, a Ty i dyspozytor dostajecie przypomnienie. Do tego dokumenty zlecenia, CMR i WZ, pod ręką w trasie.',
+        '„Moje dokumenty”: prawo jazdy, świadectwo kwalifikacji, badania, karta kierowcy - każdy z datą ważności. Gdy termin się zbliża, kierowca widzi to na ekranie „Dziś”, a Ty i dyspozytor dostajecie przypomnienie. Nowy dokument dodaje zdjęciem: AI odczyta datę ważności, a z prawa jazdy także kategorie, i wpisze je w odpowiednie pola, więc nic nie przepisuje ręcznie. Do tego dokumenty zlecenia, CMR i WZ, pod ręką w trasie.',
     },
-    dokumenty: [
-      ['Prawo jazdy, kat. B', '3 lata'],
-      ['Badania lekarskie', '41 dni'],
-      ['Karta kierowcy', '41 dni'],
-      ['Świadectwo kwalifikacji', '2 lata'],
-    ],
+    dokZrzut: {
+      label: 'Moje dokumenty (telefon, tryb nocny)',
+      note: 'Ekran „Moje dokumenty” w aplikacji BusiKM Kierowca: dokumenty kierowcy z datami ważności i oznaczeniem tych, którym kończy się termin.',
+    },
   },
   en: {
     trasa: {
@@ -46,22 +36,19 @@ const TEKSTY: Tlumaczenia<{
       tresc:
         'Driving to the depot or over to the garage counts too. “Trip without an order”: business or private, then start the trip and finish it. For a private break, one button pauses route recording.',
     },
-    bezZlecenia: 'Trip without an order',
-    przejazd: 'Milan → garage, Bergamo',
-    sluzbowa: 'Business',
-    prywatna: 'Private',
-    potwierdz: 'Start trip',
+    trasaZrzut: {
+      label: 'Trip without an order (phone, dark mode)',
+      note: 'The “Trip without an order” screen: vehicle, Business or Private trip, purpose Vehicle service, starting odometer and a “Start trip” button.',
+    },
     dok: {
       naglowek: 'Their documents on the phone',
       tresc:
-        '“My documents”: driving licence, driver CPC, medicals and the tachograph card - each with its expiry date. When a deadline gets close, the driver sees it on the “Today” screen, and you and the dispatcher get a reminder. Plus the order documents, CMR and delivery notes, to hand on the road.',
+        '“My documents”: driving licence, driver CPC, medicals and the tachograph card - each with its expiry date. When a deadline gets close, the driver sees it on the “Today” screen, and you and the dispatcher get a reminder. A new document goes in as a photo: AI reads the expiry date, and the categories from a driving licence, and fills in the right fields, so nothing is typed by hand. Plus the order documents, CMR and delivery notes, to hand on the road.',
     },
-    dokumenty: [
-      ['Driving licence, cat. B', '3 years'],
-      ['Medical check', '41 days'],
-      ['Driver card', '41 days'],
-      ['Driver CPC (Code 95)', '2 years'],
-    ],
+    dokZrzut: {
+      label: 'My documents (phone, dark mode)',
+      note: 'The “My documents” screen in the BusiKM Driver app: the driver’s documents with expiry dates, with the ones running out flagged.',
+    },
   },
 };
 
@@ -87,23 +74,7 @@ export function TrasaIDokumenty() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3.5 rounded-card bg-ink p-6 text-caption text-paper">
-            <div className="flex justify-between text-ink-muted">
-              <span>{t.bezZlecenia}</span>
-              <span>16:40</span>
-            </div>
-            <div className="flex justify-between gap-3">
-              <span>{t.przejazd}</span>
-              <b>48 km</b>
-            </div>
-            <div className="flex gap-2.5">
-              <span className="flex-1 rounded-xl bg-surface-2 py-3.5 text-center">{t.sluzbowa}</span>
-              <span className="flex-1 rounded-xl bg-surface-2 py-3.5 text-center">{t.prywatna}</span>
-              <span className="flex-1 rounded-xl bg-blue py-3.5 text-center font-semibold text-white">
-                {t.potwierdz}
-              </span>
-            </div>
-          </div>
+          <Telefon file="mockup-kierowca-trasa-bez-zlecenia-phone.png" {...t.trasaZrzut} />
         </div>
 
         <div
@@ -122,21 +93,26 @@ export function TrasaIDokumenty() {
             </p>
           </div>
 
-          <div className="flex flex-col rounded-card bg-ink p-6 text-caption text-paper">
-            {t.dokumenty.map(([name, left], i) => (
-              <div
-                key={name}
-                className={`flex justify-between gap-3 py-3 ${
-                  i < t.dokumenty.length - 1 ? 'border-b border-line-dark' : ''
-                }`}
-              >
-                <span>{name}</span>
-                <span className={DALEKO[i] ? 'text-green' : 'text-ink-muted'}>{left}</span>
-              </div>
-            ))}
-          </div>
+          <Telefon file="mockup-dokumenty-kierowca-phone.png" {...t.dokZrzut} />
         </div>
       </div>
     </Section>
+  );
+}
+
+/** Zrzut telefonu w karcie – ten sam kadr i powiększenie co w sekcjach 01 i 03. */
+function Telefon({ file, label, note }: { file: string; label: string; note: string }) {
+  return (
+    <MockupSlot
+      file={file}
+      label={label}
+      note={note}
+      ratio="9:19.5"
+      box="6:7"
+      imageScale={1.8}
+      imageScaleTelefon={1.8}
+    >
+      {null}
+    </MockupSlot>
   );
 }

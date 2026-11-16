@@ -87,11 +87,6 @@
         "settleMs": 3000
       },
       {
-        "id": "czas-karta",
-        "path": "/drivers/1254/compliance/",
-        "settleMs": 3000
-      },
-      {
         "id": "ksiegowa-eksport",
         "path": "/settlements/exports/",
         "settleMs": 3000,
@@ -156,17 +151,50 @@
         ]
       },
       {
-        "id": "trasy-lista",
-        "path": "/trips/",
+        "id": "trasy-przebieg",
+        "path": "/fleet/1045/?zakladka=przebieg",
         "settleMs": 4000,
-        "theme": "dark",
-        "waitFor": "table tbody tr"
+        "theme": "dark"
+      },
+      {
+        "id": "trasy-za-granica",
+        "path": "/drivers/1254/?zakladka=za-granica&miesiac=2026-10",
+        "settleMs": 4000
       },
       {
         "id": "demo-ekran",
         "path": "/",
         "settleMs": 3000,
         "theme": "dark"
+      },
+      {
+        "id": "czas-kierowcy-lista",
+        "path": "/drivers/",
+        "settleMs": 4000
+      },
+      {
+        "id": "czas-korekta-dnia",
+        "path": "/drivers/1254/?zakladka=za-granica",
+        "settleMs": 4000,
+        "actions": [
+          {
+            "type": "click",
+            "selector": "button:has-text(\"Popraw dzień\")"
+          },
+          {
+            "type": "wait",
+            "ms": 1200
+          },
+          {
+            "type": "fill",
+            "selector": "[role=\"dialog\"] input >> nth=1",
+            "text": "8"
+          },
+          {
+            "type": "wait",
+            "ms": 600
+          }
+        ]
       }
     ]
   }

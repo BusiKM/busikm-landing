@@ -21,7 +21,7 @@ export const generateMetadata = metadataPodstrony('co-robi/ewidencja-przebiegu')
 function tresc(jezyk: Jezyk): TrescFrazy {
   const makieta = (
     <MockupSlot
-      file="mockup-trasy-lista-desktop.png"
+      file="mockup-trasy-przebieg-desktop.png"
       label={TEKSTY[jezyk].makieta.label}
       note={TEKSTY[jezyk].makieta.note}
       ratio="4:3"
@@ -374,14 +374,14 @@ function tresc(jezyk: Jezyk): TrescFrazy {
 const TEKSTY: Tlumaczenia<{ makieta: { label: string; note: string } }> = {
   pl: {
     makieta: {
-      label: 'Lista tras z filtrami (desktop, tryb nocny)',
-      note: 'Trasy: filtry statusu, kierowcy, pojazdu, roku i miesiąca. Kolumny: data, kierowca, pojazd, dystans i stan potwierdzenia przez kierowcę i właściciela.',
+      label: 'Przebieg i przejazdy auta (desktop, tryb nocny)',
+      note: 'Karta pojazdu WX4821K, zakładka „Przebieg i przejazdy”: ewidencja przebiegu do VAT miesiąc po miesiącu, z kilometrami i liczbą przejazdów, pod spodem lista przejazdów z trasą, kierowcą i kilometrami.',
     },
   },
   en: {
     makieta: {
-      label: 'Route list with filters (desktop, dark mode)',
-      note: 'Trips: filters for status, driver, vehicle, year and month. Columns: date, driver, vehicle, distance and confirmation by the driver and the owner.',
+      label: 'Vehicle mileage and trips (desktop, dark mode)',
+      note: 'Vehicle card WX4821K, “Mileage and trips” tab: the VAT mileage log month by month with kilometres and number of trips, and below it the list of trips with route, driver and kilometres.',
     },
   },
 };

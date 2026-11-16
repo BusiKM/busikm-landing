@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState, type KeyboardEvent, type WheelEvent } from 'react';
+import { createElement, useEffect, useRef, useState, type KeyboardEvent, type WheelEvent } from 'react';
+import { Eye, Heart, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { czasFilmu, type Rolka } from '@/content/rolki';
@@ -417,6 +418,28 @@ export function Odtwarzacz({
           <p className={`mt-1.5 text-[14px] leading-relaxed text-[#c9c9cf] md:mt-3 md:block md:text-[15px] ${rozwiniete ? '' : 'hidden'}`}>
             {rolka.opis}
           </p>
+
+          {(rolka.liczniki.wyswietlenia || rolka.liczniki.reakcje || rolka.liczniki.komentarze) && (
+            <ul className="mt-2.5 flex flex-wrap gap-2 md:mt-4">
+              {(
+                [
+                  [Eye, rolka.liczniki.wyswietlenia],
+                  [Heart, rolka.liczniki.reakcje],
+                  [MessageCircle, rolka.liczniki.komentarze],
+                ] as const
+              ).map(([Znak, tekst]) =>
+                tekst ? (
+                  <li
+                    key={tekst}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line-dark-2 px-3 py-1 text-[13px] text-paper"
+                  >
+                    {createElement(Znak, { className: 'size-4', strokeWidth: 2, 'aria-hidden': true })}
+                    {tekst}
+                  </li>
+                ) : null,
+              )}
+            </ul>
+          )}
 
           <div className="mt-1.5 flex items-center gap-3 md:mt-5 md:block">
             <Button

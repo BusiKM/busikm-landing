@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Eye } from 'lucide-react';
 import { czasFilmu, type Rolka } from '@/content/rolki';
 
 /** Trójkąt „odtwórz". Wypełniony, bo na kadrze obrys ginie. */
@@ -23,6 +24,7 @@ export function KadrRolki({
   przycisk = true,
   czas = true,
   pierwszyPlan = false,
+  wyswietlenia,
   className = '',
 }: {
   rolka: Pick<Rolka, 'okladka' | 'sekundy'>;
@@ -33,6 +35,8 @@ export function KadrRolki({
   czas?: boolean;
   /** Okładka widoczna od razu po wejściu – leniwe ładowanie tylko by ją opóźniło. */
   pierwszyPlan?: boolean;
+  /** „54 tys. wyświetleń” – gdy synchronizacja przyniosła liczbę z Facebooka. */
+  wyswietlenia?: string;
   className?: string;
 }) {
   return (
@@ -56,6 +60,12 @@ export function KadrRolki({
       {czas && (
         <span className="absolute top-2.5 right-2.5 rounded-full bg-ink/75 px-2 py-0.5 font-mono text-[12px] leading-[18px] text-paper">
           {czasFilmu(rolka.sekundy)}
+        </span>
+      )}
+      {wyswietlenia && (
+        <span className="absolute right-2.5 bottom-3.5 inline-flex items-center gap-1.5 rounded-full bg-ink/75 px-2.5 py-1 text-[12px] leading-[16px] font-medium text-paper">
+          <Eye className="size-3.5" strokeWidth={2} aria-hidden />
+          {wyswietlenia}
         </span>
       )}
       {przycisk && (

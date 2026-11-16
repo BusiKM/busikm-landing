@@ -20,7 +20,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Za BusiKM stoi człowiek, nie infolinia.',
     akapity: [
       'Jestem Łukasz Głowacz, programista. Od 1 lipca 2026 busy 2,5-3,5 t w przewozach międzynarodowych muszą mieć tachograf i pilnować czasu pracy kierowcy. Zmiana przyszła szybko, a jasnych informacji było mało, więc zbudowałem BusiKM: aplikację, która działa w telefonie kierowcy i w biurze.',
-      'Przepisy czytam za Ciebie. Od poniedziałku do piątku nagrywam krótkie rolki: co mówi przepis, co sprawdzi inspektor i ile kosztuje błąd. Nie jeżdżę busem, dlatego niczego nie piszę z głowy: każda rolka ma źródło, a gdy przepis jest niejasny, mówię to wprost. Na pytania odpowiadam pod postami, a z najlepszych robię kolejne rolki. Gdy BusiKM coś z tego załatwia za Ciebie, pokazuję jak.',
+      'Przepisy czytam za Ciebie. Od poniedziałku do piątku nagrywam krótkie rolki: co mówi przepis, co sprawdzi inspektor i ile kosztuje błąd. Nie jeżdżę busem, dlatego niczego nie piszę z głowy: każda rolka ma źródło, a gdy przepis jest niejasny, mówię to wprost. Na pytania odpowiadam pod postami, a z najlepszych robię kolejne rolki. Jeśli BusiKM coś z tego załatwia za Ciebie, pokazuję jak.',
       'Gdy coś Ci w aplikacji nie gra albo czegoś brakuje, rozmawiasz z osobą, która może to zmienić. Zadzwoń albo napisz, odpowiem osobiście.',
     ],
     zadzwon: 'Zadzwoń: 690 250 957',
@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Behind BusiKM is a person, not a call centre.',
     akapity: [
       'I’m Łukasz Głowacz, a software developer. Since 1 July 2026, 2.5-3.5 t vans on international jobs must have a tachograph and keep track of the driver’s working time. The change came fast and clear information was scarce, so I built BusiKM: an app that works on the driver’s phone and in the office.',
-      'I read the rules so you don’t have to. Monday to Friday I record short videos in Polish: what the rule says, what the inspector will check and what a mistake costs. I don’t drive a van, so I never write from memory: every video has a source, and when a rule is unclear, I say so plainly. I answer questions under the posts, and the best ones become the next videos. When BusiKM handles something for you, I show how.',
+      'I read the rules so you don’t have to. Monday to Friday I record short videos in Polish: what the rule says, what the inspector will check and what a mistake costs. I don’t drive a van, so I never write from memory: every video has a source, and when a rule is unclear, I say so plainly. I answer questions under the posts, and the best ones become the next videos. If BusiKM handles any of it for you, I show how.',
       'When something in the app doesn’t work for you, or something is missing, you talk to the person who can change it. Call or write, and I’ll answer personally.',
     ],
     zadzwon: 'Call: +48 690 250 957',

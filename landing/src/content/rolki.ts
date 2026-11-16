@@ -35,7 +35,54 @@ export type Rolka = {
   facebook: string;
   /** Dokąd prowadzi przycisk pod filmem. */
   cel: { href: string; etykieta: string };
+  /** Liczby z Facebooka, już sformatowane. Pokazujemy je przy każdej rolce, bez progu – decyzja 16.11.2026. */
+  liczniki: Liczniki;
+  /** Miejsce w TOP 3 najczęściej oglądanych rolek, liczone z wyświetleń. */
+  top?: 1 | 2 | 3;
 };
+
+/**
+ * Liczba do pokazania obok ikony („12 tys.”) i pełny opis dla czytnika ekranu
+ * („12 tys. wyświetleń”). Same słowa przy liczbach nie mieściły się na telefonie.
+ */
+export type Licznik = { krotko: string; opis: string };
+export type Liczniki = { wyswietlenia?: Licznik; reakcje?: Licznik; komentarze?: Licznik };
+
+/** „1,2 tys.”, „54 tys.”, „1,3 mln” – a po angielsku „1.2K”, „54K”, „1.3M”. */
+export function liczbaKrotko(n: number, jezyk: Jezyk): string {
+  const [dzielnik, pl, en] = n >= 1_000_000 ? [1_000_000, ' mln', 'M'] : n >= 1000 ? [1000, ' tys.', 'K'] : [1, '', ''];
+  const wartosc = n / dzielnik;
+  const zaokraglona = dzielnik > 1 && wartosc < 10 ? Math.floor(wartosc * 10) / 10 : Math.floor(wartosc);
+  const tekst = new Intl.NumberFormat(jezyk === 'pl' ? 'pl-PL' : 'en-GB', { maximumFractionDigits: 1 }).format(zaokraglona);
+  return `${tekst}${jezyk === 'pl' ? pl : en}`;
+}
+
+/** Polska odmiana: 1 reakcja, 2-4 reakcje, 5 reakcji, 22 reakcje, „tys.” zawsze w dopełniaczu. */
+function odmiana(n: number, [jeden, kilka, wiele]: readonly [string, string, string]): string {
+  if (n >= 1000) return wiele;
+  if (n === 1) return jeden;
+  const d = n % 10;
+  const s = n % 100;
+  return d >= 2 && d <= 4 && (s < 12 || s > 14) ? kilka : wiele;
+}
+
+const SLOWA = {
+  wyswietlenia: { pl: ['wyświetlenie', 'wyświetlenia', 'wyświetleń'], en: ['view', 'views', 'views'] },
+  reakcje: { pl: ['reakcja', 'reakcje', 'reakcji'], en: ['reaction', 'reactions', 'reactions'] },
+  komentarze: { pl: ['komentarz', 'komentarze', 'komentarzy'], en: ['comment', 'comments', 'comments'] },
+} as const;
+
+function liczniki(w: Record<string, unknown>, jezyk: Jezyk): Liczniki {
+  const wynik: Liczniki = {};
+  for (const pole of ['wyswietlenia', 'reakcje', 'komentarze'] as const) {
+    const n = w[pole];
+    if (typeof n !== 'number' || !Number.isFinite(n) || n < 0) continue;
+    const slowa = SLOWA[pole][jezyk];
+    const krotko = liczbaKrotko(n, jezyk);
+    wynik[pole] = { krotko, opis: `${krotko} ${jezyk === 'pl' ? odmiana(n, slowa) : n === 1 ? slowa[0] : slowa[2]}` };
+  }
+  return wynik;
+}
 
 const DEMO: Tlumaczenia<string> = { pl: 'Zobacz demo', en: 'See the demo' };
 const CENNIK: Tlumaczenia<string> = { pl: 'Zobacz cennik', en: 'See pricing' };
@@ -92,6 +139,15 @@ export async function pobierzRolki(jezyk: Jezyk): Promise<Rolka[]> {
     timeZone: 'Europe/Warsaw',
   });
 
+  // TOP 3 z surowych liczb, zanim zamienimy je na tekst „54 tys.”.
+  const top = new Map(
+    surowe
+      .filter((w) => poprawna(w) && typeof w.wyswietlenia === 'number')
+      .sort((a, b) => (b.wyswietlenia as number) - (a.wyswietlenia as number))
+      .slice(0, 3)
+      .map((w, i) => [w.slug as string, (i + 1) as 1 | 2 | 3]),
+  );
+
   return surowe
     .filter(poprawna)
     .map((w) => {
@@ -111,6 +167,8 @@ export async function pobierzRolki(jezyk: Jezyk): Promise<Rolka[]> {
             ? `https://www.facebook.com/reel/${w.fb}`
             : firma.facebook,
         cel: celRolki(typeof w.cel === 'string' ? w.cel : '/demo', jezyk),
+        liczniki: liczniki(w, jezyk),
+        top: top.get(slug),
       };
     })
     .sort((a, b) => Date.parse(b.data) - Date.parse(a.data));

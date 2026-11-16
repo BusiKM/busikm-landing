@@ -19,6 +19,8 @@ const TEKSTY: Tlumaczenia<{
   odtworz: string;
   obserwuj: string;
   najnowsza: string;
+  /** „Nr 1 w oglądalności” nad tytułem rolki z TOP 3. */
+  top: (miejsce: number) => string;
   temat: string;
   wszystkie: string;
   tematy: Record<Temat, string>;
@@ -32,6 +34,7 @@ const TEKSTY: Tlumaczenia<{
     odtworz: 'Odtwórz najnowszą',
     obserwuj: 'Obserwuj na Facebooku',
     najnowsza: 'Najnowsza',
+    top: (m) => `Nr ${m} w oglądalności`,
     temat: 'Temat',
     wszystkie: 'Wszystkie',
     tematy: {
@@ -50,6 +53,7 @@ const TEKSTY: Tlumaczenia<{
     odtworz: 'Play the latest',
     obserwuj: 'Follow on Facebook',
     najnowsza: 'Latest',
+    top: (m) => `No. ${m} most watched`,
     temat: 'Topic',
     wszystkie: 'All',
     tematy: {
@@ -185,6 +189,7 @@ export function StronaRolek({ rolki }: { rolki: Rolka[] }) {
                     przycisk={r === najnowsza}
                     czas={r === najnowsza}
                     pierwszyPlan={r === najnowsza}
+                    wyswietlenia={r === najnowsza ? r.liczniki.wyswietlenia : undefined}
                     className={r === najnowsza ? 'shadow-hero' : ''}
                   />
                 </a>
@@ -242,8 +247,20 @@ export function StronaRolek({ rolki }: { rolki: Rolka[] }) {
                     rolka={r}
                     sizes="(min-width: 1024px) 262px, (min-width: 640px) 33vw, 50vw"
                     znacznik={r === najnowsza ? t.najnowsza : undefined}
+                    wyswietlenia={r.liczniki.wyswietlenia}
                   />
-                  <span className="mt-2.5 block text-[15px] leading-[1.35] font-semibold tracking-[-0.005em] group-hover:text-blue lg:mt-3.5 lg:text-[16px]">
+                  {/* TOP 3 jak „Nr 1 w kategorii” w App Store: sam tekst nad
+                      tytułem, bez znaczków na kadrze. */}
+                  {r.top && (
+                    <span className="mt-2.5 block text-[12px] font-semibold tracking-[0.04em] text-blue uppercase lg:mt-3.5 lg:text-[13px]">
+                      {t.top(r.top)}
+                    </span>
+                  )}
+                  <span
+                    className={`block text-[15px] leading-[1.35] font-semibold tracking-[-0.005em] group-hover:text-blue lg:text-[16px] ${
+                      r.top ? 'mt-1' : 'mt-2.5 lg:mt-3.5'
+                    }`}
+                  >
                     {r.tytul}
                   </span>
                   <span className="mt-1.5 block font-mono text-[12px] text-muted lg:text-[13px]">

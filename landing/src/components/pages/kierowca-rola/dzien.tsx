@@ -1,28 +1,82 @@
-import type { PunktDnia } from '@/components/ui/OsDnia';
+import type { MomentDnia } from '@/components/ui/ScenaDnia';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 
-/**
- * Dzień kierowcy – sześć punktów, każdy w jednym zdaniu.
- *
- * Bez kart obok: ta strona jest pisana do kierowcy, a nie do właściciela,
- * więc zamiast ilustracji przy każdym punkcie idą cztery duże telefony
- * w sekcji obok. Mniej rzeczy naraz.
- */
-export const dzienKierowcy: Tlumaczenia<PunktDnia[]> = {
+/** Dzień kierowcy – sześć chwil w aplikacji BusiKM Kierowca, od rana po koniec dnia. */
+export const dzienKierowcy: Tlumaczenia<MomentDnia[]> = {
   pl: [
-    { godzina: '6:00', tresc: 'Zlecenie jest w telefonie. Wiesz, gdzie i o której.' },
-    { godzina: '6:05', tresc: 'Klikasz „Zacznij dzień”, robisz zdjęcie licznika i jedziesz.' },
-    { godzina: '6:06', tresc: 'Nawigacja otwiera się jednym dotknięciem.' },
-    { godzina: '11:38', tresc: 'Tankujesz. Pstrykasz paragon. Jedziesz dalej.' },
-    { godzina: '13:20', tresc: 'Telefon mówi: za 15 minut przerwa. Nie po fakcie.' },
-    { godzina: '19:40', tresc: 'Zdjęcie licznika na koniec dnia. Papierów nie ma.' },
+    {
+      godzina: '6:00',
+      tresc: 'Zlecenie jest w telefonie. Wiesz, gdzie i o której.',
+      plik: 'mockup-kierowca-zacznij-dzien-phone.png',
+      alt: 'Ekran „Dziś”: najbliższy kurs Venlo → Warszawa z autem, ładunkiem i rozładunkiem, na dole przycisk „Zacznij dzień”.',
+    },
+    {
+      godzina: '6:05',
+      tresc: 'Klikasz „Zacznij dzień”, robisz zdjęcie licznika i jedziesz. Stan licznika odczyta AI.',
+      plik: 'mockup-kierowca-licznik-phone.png',
+      alt: 'Ekran „Licznik na start”: auto i kurs Venlo → Warszawa, pole na zdjęcie licznika ze stanem odczytywanym przez AI i pole na kilometry.',
+    },
+    {
+      godzina: '6:06',
+      tresc: 'Nawigacja otwiera się jednym dotknięciem.',
+      plik: 'mockup-kierowca-nawigacja-phone.png',
+      alt: 'Okno „Czym nawigujesz?” nad ekranem „Dziś”: Apple Maps, Google Maps i Waze.',
+    },
+    {
+      godzina: '11:38',
+      tresc: 'Tankujesz. Pstrykasz paragon. Jedziesz dalej.',
+      plik: 'mockup-kierowca-koszt-phone.png',
+      alt: 'Ekran „Moje koszty”: przycisk „Dodaj paragon”, zwrot dla kierowcy i lista paragonów z listopada.',
+    },
+    {
+      godzina: '13:20',
+      tresc: 'Telefon przypomina o przerwie 15 minut wcześniej, nie po fakcie. Potem przerwa na cały ekran z odliczaniem.',
+      plik: 'mockup-kierowca-przerwa-phone.png',
+      alt: 'Przerwa na cały ekran z odliczaniem obowiązkowych 45 minut.',
+    },
+    {
+      godzina: '19:40',
+      tresc: 'Koniec dnia. Jazda, praca i przerwy policzone same. Papierów nie ma.',
+      plik: 'mockup-kierowca-czas-phone.png',
+      alt: 'Ekran „Czas pracy”: jazda, praca i przerwy z dnia i tygodnia.',
+    },
   ],
   en: [
-    { godzina: '6:00', tresc: 'The order is on your phone. You know where and when.' },
-    { godzina: '6:05', tresc: 'Tap “Start the day”, snap the odometer and drive off.' },
-    { godzina: '6:06', tresc: 'Navigation opens in one tap.' },
-    { godzina: '11:38', tresc: 'You fill up. Snap the receipt. Drive on.' },
-    { godzina: '13:20', tresc: 'Your phone says: break in 15 minutes. Not after the fact.' },
-    { godzina: '19:40', tresc: 'Photo of the odometer at the end of the day. No paperwork.' },
+    {
+      godzina: '6:00',
+      tresc: 'The order is on your phone. You know where and when.',
+      plik: 'mockup-kierowca-zacznij-dzien-phone.png',
+      alt: 'The “Today” screen: the next job Venlo → Warsaw with the van, load and unloading time, and a “Start the day” button at the bottom.',
+    },
+    {
+      godzina: '6:05',
+      tresc: 'Tap “Start the day”, snap the odometer and drive off. AI reads the reading.',
+      plik: 'mockup-kierowca-licznik-phone.png',
+      alt: 'The “Odometer at start” screen: the van and the Venlo → Warsaw job, a photo field with the reading filled in by AI, and a kilometres field.',
+    },
+    {
+      godzina: '6:06',
+      tresc: 'Navigation opens in one tap.',
+      plik: 'mockup-kierowca-nawigacja-phone.png',
+      alt: 'The “How do you navigate?” sheet over the “Today” screen: Apple Maps, Google Maps and Waze.',
+    },
+    {
+      godzina: '11:38',
+      tresc: 'You fill up. Snap the receipt. Drive on.',
+      plik: 'mockup-kierowca-koszt-phone.png',
+      alt: 'The “My costs” screen: an “Add receipt” button, the driver’s refund and November’s receipts.',
+    },
+    {
+      godzina: '13:20',
+      tresc: 'Your phone reminds you 15 minutes before a break, not after the fact. Then the break fills the screen with a countdown.',
+      plik: 'mockup-kierowca-przerwa-phone.png',
+      alt: 'A full-screen break with a countdown of the required 45 minutes.',
+    },
+    {
+      godzina: '19:40',
+      tresc: 'End of the day. Driving, work and breaks counted by themselves. No paperwork.',
+      plik: 'mockup-kierowca-czas-phone.png',
+      alt: 'The “Working time” screen: driving, work and breaks for the day and the week.',
+    },
   ],
 };

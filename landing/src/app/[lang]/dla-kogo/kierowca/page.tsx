@@ -2,14 +2,13 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { Akordeon } from '@/components/ui/Akordeon';
-import { OsDnia } from '@/components/ui/OsDnia';
+import { ScenaDnia } from '@/components/ui/ScenaDnia';
 import { PrzekreslonaLista } from '@/components/ui/PrzekreslonaLista';
 import { metadataPodstrony } from '@/lib/metadata';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { Hero } from '@/components/pages/kierowca-rola/Hero';
 import { dzienKierowcy } from '@/components/pages/kierowca-rola/dzien';
-import { Ekrany } from '@/components/pages/kierowca-rola/Ekrany';
 import { CoWidzisz } from '@/components/pages/kierowca-rola/CoWidzisz';
 
 export const generateMetadata = metadataPodstrony('dla-kogo/kierowca');
@@ -87,8 +86,7 @@ export default async function Page({ params }: ParametryJezyka) {
       <Header />
       <main>
         <Hero />
-        <OsDnia naglowek={t.osNaglowek} punkty={dzienKierowcy[jezyk]} tone="surface" />
-        <Ekrany />
+        <ScenaDnia naglowek={t.osNaglowek} momenty={dzienKierowcy[jezyk]} urzadzenie="telefon" />
         <PrzekreslonaLista rzeczy={t.nieRobisz} tone="surface" />
         <CoWidzisz />
         <Akordeon heading={t.pytaniaNaglowek} items={t.pytania} tone="surface" />

@@ -3,14 +3,13 @@ import { Footer } from '@/components/layout/Footer';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { Akordeon } from '@/components/ui/Akordeon';
 import { HeroRoli } from '@/components/ui/HeroRoli';
-import { OsDnia } from '@/components/ui/OsDnia';
+import { ScenaDnia } from '@/components/ui/ScenaDnia';
 import { PrzekreslonaLista } from '@/components/ui/PrzekreslonaLista';
 import { ZakresRoli, type KolumnaZakresu } from '@/components/ui/ZakresRoli';
 import { metadataPodstrony } from '@/lib/metadata';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { miesiacKsiegowej } from '@/components/pages/ksiegowa-rola/miesiac';
-import { Ekrany } from '@/components/pages/ksiegowa-rola/Ekrany';
 
 export const generateMetadata = metadataPodstrony('dla-kogo/ksiegowa');
 
@@ -132,8 +131,7 @@ export default async function Page({ params }: ParametryJezyka) {
       <Header />
       <main>
         <HeroRoli nadtytul={t.nadtytul} tytul={t.tytul} lead={t.lead} />
-        <OsDnia naglowek={t.osNaglowek} punkty={miesiacKsiegowej[jezyk]} skala="slowa" />
-        <Ekrany />
+        <ScenaDnia naglowek={t.osNaglowek} momenty={miesiacKsiegowej[jezyk]} urzadzenie="laptop" />
         <PrzekreslonaLista rzeczy={t.nieRobisz} />
         <ZakresRoli
           naglowek={t.zakres.naglowek}

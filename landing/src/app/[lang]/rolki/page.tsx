@@ -9,7 +9,7 @@ import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { Eyebrow } from '@/components/ui/Section';
 import { firma } from '@/content/firma';
 import { appLinks } from '@/content/navigation';
-import { pobierzRolki } from '@/content/rolki';
+import { pobierzLiczbyKanalu, pobierzRolki } from '@/content/rolki';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
 import { metadataPodstrony } from '@/lib/metadata';
@@ -54,14 +54,14 @@ const TEKSTY: Tlumaczenia<{
 export default async function Page({ params }: ParametryJezyka) {
   const jezyk = await jezykZParametrow(params);
   const t = TEKSTY[jezyk];
-  const rolki = await pobierzRolki(jezyk);
+  const [rolki, liczby] = await Promise.all([pobierzRolki(jezyk), pobierzLiczbyKanalu(jezyk)]);
 
   return (
     <>
       <Header />
       {rolki.length > 0 && <JsonLd dane={listaRolek(rolki, jezyk)} />}
       <main>
-        <StronaRolek rolki={rolki} />
+        <StronaRolek rolki={rolki} liczby={liczby} />
 
         <section className="bg-paper px-6 pb-20 lg:px-12 lg:pb-24">
           <Container className="grid gap-4 lg:grid-cols-2 lg:gap-6">

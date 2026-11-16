@@ -119,7 +119,13 @@ export function Licznik({
     const krok = (czas: number) => {
       if (start === null) start = czas;
       const t = Math.min(1, (czas - start) / CZAS);
-      setBiezaca(Math.round(od + (wartosc - od) * wyhamuj(t)));
+      // Źródło idzie razem z ekranem. Gdy ktoś przełączy okres w trakcie,
+      // kolejne doliczanie rusza od kwoty, którą widać, a nie od startu
+      // przerwanego. Przy powrocie do niego efekt uznałby, że nie ma czego
+      // liczyć, i kwota zostałaby na przypadkowej wartości.
+      const teraz = Math.round(od + (wartosc - od) * wyhamuj(t));
+      zrodlo.current = teraz;
+      setBiezaca(teraz);
       if (t < 1) uchwyt.current = requestAnimationFrame(krok);
       else {
         zrodlo.current = wartosc;

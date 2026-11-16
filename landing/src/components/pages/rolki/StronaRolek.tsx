@@ -6,7 +6,7 @@ import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { Eyebrow } from '@/components/ui/Section';
 import { firma } from '@/content/firma';
-import { czasFilmu, TEMATY, type Rolka, type Temat } from '@/content/rolki';
+import { czasFilmu, TEMATY, type Liczba, type Rolka, type Temat } from '@/content/rolki';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { useJezyk } from '@/i18n/klient';
 import { IkonaOdtworz, KadrRolki } from './KafelRolki';
@@ -103,7 +103,7 @@ function zmienAdres(slug: string | null, sposob: 'dodaj' | 'podmien') {
  * Kafle to prawdziwe odnośniki: środkowy przycisk myszy otwiera film w nowej
  * karcie, a robot widzi adres każdej rolki.
  */
-export function StronaRolek({ rolki }: { rolki: Rolka[] }) {
+export function StronaRolek({ rolki, liczby }: { rolki: Rolka[]; liczby: Liczba[] }) {
   const t = TEKSTY[useJezyk()];
   const [temat, setTemat] = useState<Temat | null>(null);
   const [wszystkie, setWszystkie] = useState(false);
@@ -170,6 +170,23 @@ export function StronaRolek({ rolki }: { rolki: Rolka[] }) {
               )}
               {obserwuj}
             </div>
+            {/* Pasek liczb jak nagłówek aplikacji w App Store. Jedna liczba
+                to jeszcze nie pasek, więc wtedy go nie ma. */}
+            {liczby.length > 1 && (
+              <dl className="mt-6 flex max-w-[460px] border-t border-line pt-5 lg:mt-8">
+                {liczby.map((l) => (
+                  <div
+                    key={l.podpis}
+                    className="flex flex-1 flex-col-reverse gap-0.5 border-l border-line px-4 first:border-l-0 first:pl-0 last:pr-0"
+                  >
+                    <dt className="text-[13px] text-muted">{l.podpis}</dt>
+                    <dd className="text-[22px] leading-tight font-semibold tracking-[-0.02em] tabular-nums lg:text-[26px]">
+                      {l.wartosc}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
           </div>
 
           {trzecia && (

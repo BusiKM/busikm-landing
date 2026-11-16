@@ -164,12 +164,15 @@ async function graph(adres, token, opis) {
  * Lista rolek wymaga klucza strony, a konto techniczne ma klucz użytkownika.
  * Klucz strony żyje tylko w pamięci tego przebiegu, a GitHub nie zna go jako
  * sekretu, więc maskujemy go w logu sami.
+ *
+ * Tym samym zapytaniem bierzemy liczbę obserwujących strony, bez osobnego
+ * wywołania i bez nowych uprawnień.
  */
 async function kluczStrony(token) {
-  const dane = await graph(`${GRAPH}/${STRONA}?fields=access_token`, token, 'Klucz strony');
+  const dane = await graph(`${GRAPH}/${STRONA}?fields=access_token,followers_count`, token, 'Klucz strony');
   if (!dane.access_token) throw new Error('Klucz strony: brak w odpowiedzi');
   if (process.env.GITHUB_ACTIONS) console.log(`::add-mask::${dane.access_token}`);
-  return dane.access_token;
+  return { klucz: dane.access_token, obserwujacy: dane.followers_count };
 }
 
 /** Bez `paging.next`, bo Facebook dokleja do niego token. Kursor wystarcza. */
@@ -190,8 +193,8 @@ async function rolkiZFacebooka(token) {
  * je formatuje (landing/src/content/rolki.ts).
  *
  * Statystyki wymagają innych uprawnień niż sama lista rolek. Gdy Facebook ich
- * odmówi albo chwilowo nie odpowie, rolka zostaje bez tych liczb – synchronizacja
- * filmów idzie dalej jak dotąd.
+ * odmówi albo chwilowo nie odpowie, rolka zostaje przy liczbach z poprzedniego
+ * katalogu, a synchronizacja filmów idzie dalej jak dotąd.
  */
 /**
  * `fb_reels_total_plays` to liczba, którą Facebook pokazuje przy rolce (z powtórkami).
@@ -200,6 +203,19 @@ async function rolkiZFacebooka(token) {
  */
 const METRYKI_ODTWORZEN = ['fb_reels_total_plays', 'blue_reels_play_count', 'total_video_views'];
 
+/**
+ * Statystyki pobieramy raz na godzinę, w pierwszym przebiegu po pełnej
+ * godzinie. Przebieg co 15 minut pytał o każdą rolkę dwa razy i Facebook
+ * zaczął odpowiadać HTTP 429 (16.11.2026). `--statystyki` wymusza pobranie.
+ */
+const STATYSTYKI_TERAZ = process.argv.includes('--statystyki') || new Date().getUTCMinutes() < 15;
+const POLA_STATYSTYK = ['wyswietlenia', 'reakcje', 'komentarze'];
+
+/** Liczby rolki z poprzedniego katalogu. Odmowa Facebooka ich nie kasuje. */
+function stareLiczniki(stara) {
+  return Object.fromEntries(POLA_STATYSTYK.filter((p) => stara?.[p] !== undefined).map((p) => [p, stara[p]]));
+}
+
 /** Jedno zapytanie o statystyki. Po pierwszej odmowie tego rodzaju nie pytamy już o kolejne rolki. */
 async function zapytajOStatystyki(rodzaj, adres, token, uwagi) {
   if (uwagi.has(rodzaj)) return null;
@@ -207,7 +223,7 @@ async function zapytajOStatystyki(rodzaj, adres, token, uwagi) {
     return await graph(adres, token, `Statystyki rolki (${rodzaj})`);
   } catch (e) {
     uwagi.add(rodzaj);
-    console.log(`::warning::${e.message}. Rolki zostają bez: ${rodzaj}.`);
+    console.log(`::warning::${e.message}. Rolki zostają przy poprzednich liczbach: ${rodzaj}.`);
     return null;
   }
 }
@@ -372,7 +388,7 @@ async function main() {
 
   const m = magazyn(lokalnie, lokalnie ? null : await daneS3());
   const nadpisania = JSON.parse(readFileSync(join(TUTAJ, 'nadpisania.json'), 'utf8'));
-  const kluczStr = await kluczStrony(token);
+  const { klucz: kluczStr, obserwujacy } = await kluczStrony(token);
   const rolki = await rolkiZFacebooka(kluczStr);
   const uwagi = new Set();
   // Pusta odpowiedź przy kilkudziesięciu rolkach to raczej awaria niż decyzja.
@@ -454,7 +470,8 @@ async function main() {
         plik,
         okladka,
         zrodlo,
-        ...(await licznikiRolki(r.id, kluczStr, uwagi)),
+        ...stareLiczniki(stara),
+        ...(STATYSTYKI_TERAZ ? await licznikiRolki(r.id, kluczStr, uwagi) : {}),
       });
       console.log(stara ? `Bez zmian pliku: ${slug}` : `Nowa rolka: ${slug} (${zrodlo})`);
     }
@@ -471,6 +488,20 @@ async function main() {
       console.log(`Katalog zapisany: ${nowy.length} rolek, z wyświetleniami: ${zWyswietleniami}, z reakcjami: ${zReakcjami}`);
     } else {
       console.log('Katalog bez zmian');
+    }
+
+    // Osobny plik, nie pole w katalogu: katalog to lista, a wdrożona strona
+    // odrzuca wszystko, co listą nie jest, i zostałaby bez rolek.
+    if (Number.isInteger(obserwujacy) && obserwujacy > 0) {
+      const strona = await m.czytaj('strona.json');
+      if (strona.obserwujacy !== obserwujacy) {
+        const plik = join(robocze, 'strona.json');
+        writeFileSync(plik, JSON.stringify({ obserwujacy }, null, 2));
+        m.zapisz('strona.json', plik, 'application/json');
+        console.log(`Obserwujący zapisani: ${obserwujacy}`);
+      }
+    } else {
+      console.log('::warning::Facebook nie podał liczby obserwujących. Strona zostaje przy poprzedniej.');
     }
 
     if (wolne.length !== poczekalnia.length) {

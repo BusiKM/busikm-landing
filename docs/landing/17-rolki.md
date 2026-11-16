@@ -77,7 +77,8 @@ karami i podstawami prawnymi, bo [strona nie podaje przepisów](02-odbiorcy-i-je
 
 ## Wyświetlenia, reakcje i komentarze
 
-Przy każdej rolce skrypt synchronizacji pyta Facebooka o statystyki (`video_insights`
+Raz na godzinę (w pierwszym przebiegu po pełnej godzinie) skrypt synchronizacji pyta
+Facebooka o statystyki każdej rolki (`video_insights`
 oraz podsumowanie polubień i komentarzy) i zapisuje w katalogu surowe liczby:
 `wyswietlenia`, `reakcje`, `komentarze`. Strona formatuje je po polsku („1,2 tys.”,
 „54 tys.”) i pokazuje przy każdej rolce, bez progu, ale bez zer: liczba 0 po prostu się
@@ -91,8 +92,27 @@ nie pokazuje (decyzja z 16.11.2026):
 Wyświetlenia wymagają uprawnienia `read_insights`, a reakcje i komentarze
 `pages_read_engagement` (oba dla konta technicznego, z którego jest `FB_TOKEN`).
 Skrypt pyta o nie osobno: gdy Facebook odmówi jednego, w logu akcji pojawia się jedno
-ostrzeżenie, rolki zostają bez tych liczb, a reszta i filmy synchronizują się dalej.
-Ile rolek ma liczby, widać w logu („z wyświetleniami: N, z reakcjami: N”).
+ostrzeżenie, rolki zostają przy liczbach z poprzedniego katalogu, a reszta i filmy
+synchronizują się dalej. Ile rolek ma liczby, widać w logu („z wyświetleniami: N,
+z reakcjami: N”).
+
+Dlaczego raz na godzinę, a nie przy każdym przebiegu: 16.11.2026 przebiegi co 15 minut
+(dwa zapytania na rolkę) wyczerpały limit Facebooka. Odpowiedź HTTP 429 kasowała wtedy
+liczby w katalogu i strona przez kilka godzin pokazywała je tylko przy jednej rolce.
+Teraz odmowa niczego nie kasuje. Ręcznie statystyki wymusza flaga `--statystyki`.
+
+## Obserwujący i pasek liczb
+
+Przy każdym przebiegu, w tym samym zapytaniu co klucz strony, skrypt bierze
+`followers_count` strony na Facebooku i zapisuje go w osobnym pliku `rolki/strona.json`
+(`{ "obserwujacy": 1284 }`), tylko gdy liczba się zmieniła. Nie trafia do `katalog.json`,
+bo katalog jest listą, a wcześniejsze wersje strony odrzucają wszystko, co listą nie jest.
+
+Pod przyciskami w nagłówku `/rolki` stoi pasek trzech liczb jak w App Store:
+obserwujący, liczba rolek i wyświetlenia wszystkich rolek razem
+(`pobierzLiczbyKanalu()` w `landing/src/content/rolki.ts`). Obserwujących do 9 999
+pokazujemy w pełnej liczbie („1 284”), wyżej skrótem. Liczby, której brakuje albo jest
+zerem, nie ma, a przy mniej niż dwóch liczbach nie ma całego paska.
 
 ## Poprawki ręczne
 

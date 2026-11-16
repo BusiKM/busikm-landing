@@ -13,7 +13,7 @@ import { Hero } from '@/components/pages/faktury/Hero';
 import { JednoZrodlo } from '@/components/pages/faktury/JednoZrodlo';
 import { KorektyIWaluty } from '@/components/pages/faktury/KorektyIWaluty';
 import { OknoWysylki } from '@/components/mockups/faktury/OknoWysylki';
-import { Kontrahenci } from '@/components/mockups/faktury/Kontrahenci';
+import { Wycinek } from '@/components/ui/Wycinek';
 import { ListaDokumentow } from '@/components/mockups/faktury/ListaDokumentow';
 import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
 
@@ -26,7 +26,7 @@ const TEKSTY: Tlumaczenia<{
   naglowekPytan: string;
   drobiazgi: string[];
   wysylka: Tekst & { label: string; note: string };
-  kontrahenci: Tekst;
+  kontrahenci: Tekst & { alt: string };
   historia: Tekst & { label: string; note: string };
   ktoUzywa: string;
   link1: string;
@@ -68,12 +68,13 @@ const TEKSTY: Tlumaczenia<{
       tytul: 'Kontrahenci w jednym miejscu',
       tresc:
         'Wpisujesz NIP albo numer VAT z UE - nazwa i adres wpisują się same z GUS i VIES. Co noc sprawdzamy status VAT i rachunek na Białej Liście, a klient podpowiada się przy każdym kolejnym zleceniu.',
+      alt: 'Nowe zlecenie, krok Klient: w polu wpisane „Agro”, pod nim podpowiedź Agro-Części Radom Sp. z o.o. z NIP-em i miastem oraz „Dodaj nową firmę”.',
     },
     historia: {
       tytul: 'Kto nie zapłacił',
       tresc: 'Widzisz, kto zalega, ile dni i ile wpłynie w najbliższych tygodniach. Odsetki i rekompensatę 40 € BusiKM policzy sam. Przypomnienie albo notę wysyłasz jednym kliknięciem.',
-      label: 'Lista faktur (desktop, tryb nocny)',
-      note: 'Faktury: liczniki - do zapłaty, po terminie, zapłacone, KSeF - zakładki od szkiców po korekty, w tabeli termin płatności, stan płatności i status w KSeF.',
+      label: 'Należności (desktop)',
+      note: 'Raporty, zakładka Należności: do zapłaty przez klientów, po terminie, średni czas zapłaty i wpływy w 30 dni, pod spodem wiek należności i wpływy tydzień po tygodniu.',
     },
     ktoUzywa: 'Kto tego używa:',
     link1: 'Właściciel →',
@@ -115,12 +116,13 @@ const TEKSTY: Tlumaczenia<{
       tytul: 'Clients in one place',
       tresc:
         'You type in the Polish tax number (NIP) or an EU VAT number - the name and address fill in by themselves from the Polish business register (GUS) and VIES. Every night we check the VAT status and the bank account on the Polish VAT White List, and the client is suggested on every order after that.',
+      alt: 'New order, Client step: “Agro” typed in the field, with Agro-Części Radom Sp. z o.o. suggested below with its tax number and town, plus “Add a new company”.',
     },
     historia: {
       tytul: 'Who hasn’t paid',
       tresc: 'You see who owes you, how many days late, and how much is coming in over the next few weeks. BusiKM works out the interest and the €40 compensation itself. You send a reminder or a debit note in one click.',
-      label: 'Invoice list (desktop, dark mode)',
-      note: 'Invoices: counters - due, overdue, paid, KSeF - tabs from drafts to corrections, and a table with payment terms, payment status and KSeF status.',
+      label: 'Receivables (desktop)',
+      note: 'Reports, Receivables tab: owed by clients, overdue, average time to payment and inflows in 30 days, then the age of receivables and inflows week by week.',
     },
     ktoUzywa: 'Who uses it:',
     link1: 'Owner →',
@@ -165,7 +167,14 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="05"
           tytul={t.kontrahenci.tytul}
           tresc={t.kontrahenci.tresc}
-          makieta={<Kontrahenci />}
+          makieta={
+            <Wycinek
+              plik="mockup-faktury-kontrahent-wycinek.png"
+              alt={t.kontrahenci.alt}
+              szer={1480}
+              wys={680}
+            />
+          }
         />
 
         <Blok
@@ -175,7 +184,7 @@ export default async function Page({ params }: ParametryJezyka) {
           tresc={t.historia.tresc}
           makieta={
             <MockupSlot
-              file="mockup-faktury-historia-desktop.png"
+              file="mockup-faktury-naleznosci-desktop.png"
               label={t.historia.label}
               note={t.historia.note}
               ratio="4:3"

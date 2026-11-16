@@ -13,10 +13,9 @@ import { JedenEkran } from '@/components/pages/dyspozytornia/JedenEkran';
 import { TrasaIZmiana } from '@/components/pages/dyspozytornia/TrasaIZmiana';
 import { Drobiazgi } from '@/components/ui/Drobiazgi';
 import { KartaZlecenia } from '@/components/mockups/dyspozytornia/KartaZlecenia';
-import { PrzypiszKierowce } from '@/components/mockups/dyspozytornia/PrzypiszKierowce';
-import { Rozmowa } from '@/components/mockups/dyspozytornia/Rozmowa';
 import { ZakresDostepu } from '@/components/mockups/dyspozytornia/ZakresDostepu';
 import { Rozdzielacz } from '@/components/ui/Rozdzielacz';
+import { Wycinek } from '@/components/ui/Wycinek';
 
 export const generateMetadata = metadataPodstrony('co-robi/dyspozytornia');
 
@@ -35,9 +34,9 @@ const TEKSTY: Tlumaczenia<{
   drobiazgi: string[];
   statusy: string[];
   zlecenie: Tekst & { label: string; note: string };
-  przypisanie: Tekst;
-  rozmowa: Tekst;
-  stanowisko: Tekst;
+  przypisanie: Tekst & { alt: string };
+  rozmowa: Tekst & { label: string; note: string };
+  stanowisko: Tekst & { label: string; note: string };
   ktoUzywa: string;
   dyspozytor: string;
   wlasciciel: string;
@@ -80,16 +79,21 @@ const TEKSTY: Tlumaczenia<{
     przypisanie: {
       tytul: 'Przypisujesz auto, które zdąży',
       tresc: 'System podpowiada, które auto i kierowca zdążą na załadunek: dojazd, odpoczynek i czas jazdy, ładowność, ważne dokumenty. Przy reszcie pisze, dlaczego nie.',
+      alt: 'Okno „Przypisz kurs” Milano → Poznań: w sekcji „Kto zdąży na załadunek” auto WX4821K z kierowcą Janem Nowakiem oznaczone jako polecane, z dojazdem, odpoczynkiem i ładownością, oraz przycisk „Przypisz i powiadom Jan”.',
     },
     rozmowa: {
       tytul: 'Do kierowcy piszesz jednym kliknięciem',
       tresc:
         '„Napisz” na karcie kursu otwiera czat zlecenia. Nie szukasz numeru, a cała rozmowa zostaje przy kursie. Wolisz zadzwonić - obok jest „Zadzwoń”.',
+      label: 'Czat zlecenia u kierowcy (telefon, tryb nocny)',
+      note: 'Czat w aplikacji BusiKM Kierowca z dyspozytorem Markiem Górskim przy kursie Kraków → Antwerpen: poprawione zdjęcie paragonu, korek przed Hanowerem, godzina przyjazdu z aplikacji i odpowiedź klienta, na dole szybkie odpowiedzi.',
     },
     stanowisko: {
       tytul: 'Dyspozytor to osobne stanowisko',
       tresc:
         'Ma własny dostęp. Widzi to, czego potrzebuje do prowadzenia tras - nie widzi faktur, kosztów firmy ani raportów. W małej firmie właściciel otwiera dyspozytornię z menu, bo ma ją u siebie.',
+      label: 'Zlecenia oczami dyspozytora (desktop)',
+      note: 'Zalogowany dyspozytor Marek Górski: w menu Dyspozytornia, Zlecenia, Pojazdy, Kierowcy, Dokumenty i Kontrahenci, bez faktur, kosztów i raportów. Lista zleceń z przyciskami „Przypisz kierowcę”.',
     },
     ktoUzywa: 'Kto tego używa:',
     dyspozytor: 'Dyspozytor →',
@@ -133,16 +137,21 @@ const TEKSTY: Tlumaczenia<{
     przypisanie: {
       tytul: 'You assign a van that will make it',
       tresc: 'The system suggests which van and driver will make the pickup: approach time, rest and driving time, payload, valid documents. For the rest it says why not.',
+      alt: 'The “Assign run” window for Milan → Poznań: under “Who will make the pickup” the van WX4821K with driver Jan Nowak marked as recommended, with approach time, rest and payload, and an “Assign and notify Jan” button.',
     },
     rozmowa: {
       tytul: 'Message the driver in one click',
       tresc:
         '“Message” on the run card opens the order chat. No looking up numbers, and the whole conversation stays with the run. Rather call? “Call” is right next to it.',
+      label: 'Order chat on the driver’s phone (dark mode)',
+      note: 'The chat in the BusiKM Driver app with dispatcher Marek Górski on the Kraków → Antwerp run: a retaken receipt photo, a traffic jam before Hanover, the arrival time from the app and the client’s answer, with quick replies at the bottom.',
     },
     stanowisko: {
       tytul: 'Dispatcher is a role of its own',
       tresc:
         'They get their own access. They see what they need to run routes - not invoices, company costs or reports. In a small firm the owner opens dispatch from the menu, because it’s there for them too.',
+      label: 'Orders as the dispatcher sees them (desktop)',
+      note: 'Signed in as dispatcher Marek Górski: the menu has Dispatch, Orders, Vehicles, Drivers, Documents and Contractors, with no invoices, costs or reports. The order list with “Assign driver” buttons.',
     },
     ktoUzywa: 'Who uses it:',
     dyspozytor: 'Dispatcher →',
@@ -195,7 +204,16 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="03"
           tytul={t.przypisanie.tytul}
           tresc={t.przypisanie.tresc}
-          makieta={<PrzypiszKierowce />}
+          makieta={
+            <Wycinek
+              plik="mockup-dyspozytornia-przypisz-wycinek.png"
+              alt={t.przypisanie.alt}
+              szer={752}
+              wys={984}
+              dark
+              className="mx-auto w-full max-w-[460px]"
+            />
+          }
         />
 
         <TrasaIZmiana />
@@ -205,7 +223,20 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="06"
           tytul={t.rozmowa.tytul}
           tresc={t.rozmowa.tresc}
-          makieta={<Rozmowa />}
+          makieta={
+            <MockupSlot
+              file="mockup-dyspozytornia-czat-phone.png"
+              label={t.rozmowa.label}
+              note={t.rozmowa.note}
+              ratio="9:19.5"
+              box="6:7"
+              imageScale={1.8}
+              imageScaleTelefon={1.8}
+              dark
+            >
+              {null}
+            </MockupSlot>
+          }
         />
 
         <Blok
@@ -213,7 +244,16 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="07"
           tytul={t.stanowisko.tytul}
           tresc={t.stanowisko.tresc}
-          makieta={<ZakresDostepu />}
+          makieta={
+            <MockupSlot
+              file="mockup-dyspozytornia-dyspozytor-desktop.png"
+              label={t.stanowisko.label}
+              note={t.stanowisko.note}
+              ratio="4:3"
+            >
+              <ZakresDostepu />
+            </MockupSlot>
+          }
         />
 
         <Drobiazgi

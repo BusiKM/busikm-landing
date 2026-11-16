@@ -35,7 +35,7 @@ export type Rolka = {
   facebook: string;
   /** Dokąd prowadzi przycisk pod filmem. */
   cel: { href: string; etykieta: string };
-  /** Liczby z Facebooka, już sformatowane. Pokazujemy je przy każdej rolce, bez progu – decyzja 16.11.2026. */
+  /** Liczby z Facebooka, już sformatowane. Bez progu, ale zero pomijamy – decyzja 16.11.2026. */
   liczniki: Liczniki;
   /** Miejsce w TOP 3 najczęściej oglądanych rolek, liczone z wyświetleń. */
   top?: 1 | 2 | 3;
@@ -76,7 +76,8 @@ function liczniki(w: Record<string, unknown>, jezyk: Jezyk): Liczniki {
   const wynik: Liczniki = {};
   for (const pole of ['wyswietlenia', 'reakcje', 'komentarze'] as const) {
     const n = w[pole];
-    if (typeof n !== 'number' || !Number.isFinite(n) || n < 0) continue;
+    // Zero nie zachęca – zamiast „0 komentarzy” po prostu nic (decyzja 16.11.2026).
+    if (typeof n !== 'number' || !Number.isFinite(n) || n <= 0) continue;
     const slowa = SLOWA[pole][jezyk];
     const krotko = liczbaKrotko(n, jezyk);
     wynik[pole] = { krotko, opis: `${krotko} ${jezyk === 'pl' ? odmiana(n, slowa) : n === 1 ? slowa[0] : slowa[2]}` };

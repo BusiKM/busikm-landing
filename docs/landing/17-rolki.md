@@ -80,7 +80,8 @@ karami i podstawami prawnymi, bo [strona nie podaje przepisów](02-odbiorcy-i-je
 Przy każdej rolce skrypt synchronizacji pyta Facebooka o statystyki (`video_insights`
 oraz podsumowanie polubień i komentarzy) i zapisuje w katalogu surowe liczby:
 `wyswietlenia`, `reakcje`, `komentarze`. Strona formatuje je po polsku („1,2 tys.”,
-„54 tys.”) i pokazuje przy każdej rolce, bez progu (decyzja z 16.11.2026):
+„54 tys.”) i pokazuje przy każdej rolce, bez progu, ale bez zer: liczba 0 po prostu się
+nie pokazuje (decyzja z 16.11.2026):
 
 - na kafelku i na dużej rolce w nagłówku: liczba wyświetleń,
 - w otwartej rolce, pod opisem: wyświetlenia, reakcje i komentarze,

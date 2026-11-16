@@ -1,31 +1,22 @@
 import { Section } from '@/components/ui/Section';
+import { Wycinek } from '@/components/ui/Wycinek';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
-type Liczba = { label: string; value: string; mocna: boolean };
-
-const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; liczby: readonly Liczba[] }> = {
+const TEKSTY: Tlumaczenia<{ tytul: string; tresc: string; alt: string }> = {
   pl: {
     tytul: 'Zysk na pierwszym ekranie',
     tresc: 'Na pulpicie, pod sprawami na dziś: przychód netto, koszty i wynik, obok poprzedni tydzień, miesiąc albo rok.',
-    liczby: [
-      { label: 'Przychód netto, wrzesień', value: '184 320 zł', mocna: false },
-      { label: 'Koszty', value: '121 840 zł', mocna: false },
-      { label: 'Wynik', value: '62 480 zł', mocna: true },
-    ],
+    alt: 'Pulpit, sekcja „Finanse, listopad 2026”: przychód netto, koszty, wynik z marżą i należności, przy każdej liczbie zmiana względem października i postęp celu miesiąca, obok przełącznik tydzień, miesiąc, rok.',
   },
   en: {
     tytul: 'Profit on the first screen',
     tresc: 'On the dashboard, below today’s tasks: net revenue, costs and result, next to the previous week, month or year.',
-    liczby: [
-      { label: 'Net revenue, September', value: 'PLN 184,320', mocna: false },
-      { label: 'Costs', value: 'PLN 121,840', mocna: false },
-      { label: 'Result', value: 'PLN 62,480', mocna: true },
-    ],
+    alt: 'The dashboard’s “Finance, November 2026” section: net revenue, costs, result with margin and receivables, each with the change against October and progress to the monthly goal, plus a week, month, year switch.',
   },
 };
 
-/** 01 – trzy liczby, które właściciel widzi zaraz po zalogowaniu. */
+/** 01 – finanse z pulpitu, które właściciel widzi zaraz po zalogowaniu. */
 export function ZyskNaPierwszymEkranie() {
   const t = TEKSTY[biezacyJezyk()];
   return (
@@ -48,29 +39,8 @@ export function ZyskNaPierwszymEkranie() {
           </p>
         </div>
 
-        <div data-reveal-group className="grid gap-2.5 lg:grid-cols-3 lg:gap-4">
-          {t.liczby.map((l) => (
-            <div
-              key={l.label}
-              data-reveal
-              className={`rounded-card p-6 lg:p-8 ${
-                l.mocna
-                  ? 'bg-ink text-paper shadow-card'
-                  : 'border border-line bg-white shadow-card'
-              }`}
-            >
-              <div className={`text-[13px] lg:text-caption ${l.mocna ? 'text-ink-muted' : 'text-muted'}`}>
-                {l.label}
-              </div>
-              <div
-                className={`mt-2.5 text-[34px] tracking-[-0.03em] lg:mt-3 lg:text-[48px] ${
-                  l.mocna ? 'font-bold' : 'font-semibold'
-                }`}
-              >
-                {l.value}
-              </div>
-            </div>
-          ))}
+        <div data-reveal>
+          <Wycinek plik="mockup-zysk-pulpit-wycinek.png" alt={t.alt} szer={2280} wys={590} />
         </div>
       </div>
     </Section>

@@ -3,15 +3,12 @@ import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
-
-const TELEFON = '+48690250957';
-const MAIL = 'kontakt@busikm.pl';
+import { firma } from '@/content/firma';
 
 const TEKSTY: Tlumaczenia<{
   eyebrow: string;
   naglowek: string;
   akapity: readonly string[];
-  zadzwon: string;
   rolki: string;
   alt: string;
 }> = {
@@ -19,11 +16,10 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Kto robi BusiKM',
     naglowek: 'Za BusiKM stoi człowiek, nie infolinia.',
     akapity: [
-      'Jestem Łukasz Głowacz, założyciel i twórca BusiKM. Zacząłem go robić, gdy okazało się, że busy jeżdżące za granicę dostaną te same obowiązki co tiry, a większość busiarzy nie miała o tym pojęcia.',
-      'Co tydzień nagrywam rolki dla firm z busami: przepisy w 30 sekund, odpowiedzi na Wasze pytania z komentarzy i codzienne problemy branży, od tachografu po KSeF. Bez sprzedawania.',
-      'Masz pytanie albo chcesz sprawdzić, czy BusiKM pasuje do Twojej firmy? Zadzwoń albo napisz, odpowiem osobiście.',
+      'Jestem Łukasz Głowacz, programista. Od 1 lipca 2026 busy 2,5-3,5 t w przewozach międzynarodowych muszą mieć tachograf i pilnować czasu pracy kierowcy. Zmiana przyszła szybko, a jasnych informacji było mało, więc zbudowałem BusiKM: aplikację, która działa w telefonie kierowcy i w biurze.',
+      'Przepisy czytam za Ciebie. Od poniedziałku do piątku nagrywam krótkie rolki: co mówi przepis, co sprawdzi inspektor i ile kosztuje błąd. Nie jeżdżę busem, dlatego niczego nie piszę z głowy: każda rolka ma źródło, a gdy przepis jest niejasny, mówię to wprost. Na pytania odpowiadam pod postami, a z najlepszych robię kolejne rolki. Jeśli BusiKM coś z tego załatwia za Ciebie, pokazuję jak.',
+      'Gdy coś Ci w aplikacji nie gra albo czegoś brakuje, trafiasz do osoby, która może to zmienić. Napisz, odpowiem osobiście.',
     ],
-    zadzwon: 'Zadzwoń: 690 250 957',
     rolki: 'Zobacz rolki',
     alt: 'Łukasz Głowacz, założyciel BusiKM',
   },
@@ -31,11 +27,10 @@ const TEKSTY: Tlumaczenia<{
     eyebrow: 'Who makes BusiKM',
     naglowek: 'Behind BusiKM is a person, not a call centre.',
     akapity: [
-      'I’m Łukasz Głowacz, the founder and maker of BusiKM. I started building it when it turned out that vans driving abroad would get the same obligations as lorries, and most van operators had no idea.',
-      'Every week I record short videos for companies with vans, in Polish: the rules in 30 seconds, answers to your questions from the comments and the industry’s everyday problems, from the tachograph to KSeF. No selling.',
-      'Got a question, or want to check whether BusiKM fits your company? Call or write, and I’ll answer personally.',
+      'I’m Łukasz Głowacz, a software developer. Since 1 July 2026, 2.5-3.5 t vans on international jobs must have a tachograph and keep track of the driver’s working time. The change came fast and clear information was scarce, so I built BusiKM: an app that works on the driver’s phone and in the office.',
+      'I read the rules so you don’t have to. Monday to Friday I record short videos in Polish: what the rule says, what the inspector will check and what a mistake costs. I don’t drive a van, so I never write from memory: every video has a source, and when a rule is unclear, I say so plainly. I answer questions under the posts, and the best ones become the next videos. If BusiKM handles any of it for you, I show how.',
+      'When something in the app doesn’t work for you, or something is missing, you reach the person who can change it. Write to me, and I’ll answer personally.',
     ],
-    zadzwon: 'Call: +48 690 250 957',
     rolki: 'Watch the reels',
     alt: 'Łukasz Głowacz, founder of BusiKM',
   },
@@ -75,14 +70,8 @@ export function KtoRobi() {
           ))}
 
           <div data-reveal className="mt-2 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap lg:gap-3">
-            <a
-              href={`tel:${TELEFON}`}
-              className="inline-flex h-[52px] items-center justify-center rounded-btn bg-blue px-7 text-body font-semibold text-white transition-colors hover:bg-blue-dark hover:text-white lg:h-14"
-            >
-              {t.zadzwon}
-            </a>
-            <Button href={`mailto:${MAIL}`} variant="secondary">
-              {MAIL}
+            <Button href={`mailto:${firma.email}`}>
+              {firma.email}
             </Button>
             <Button href="/rolki" variant="secondary">
               {t.rolki}

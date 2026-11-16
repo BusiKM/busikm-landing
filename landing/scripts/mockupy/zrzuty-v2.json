@@ -50,12 +50,6 @@
         ]
       },
       {
-        "id": "faktury-historia",
-        "path": "/invoices/",
-        "settleMs": 3000,
-        "theme": "dark"
-      },
-      {
         "id": "faktury-zlecenie",
         "path": "/orders/32194/?tab=financials",
         "settleMs": 3000
@@ -84,11 +78,6 @@
       {
         "id": "czas-pracy-pierscienie",
         "path": "/drivers/aetr/",
-        "settleMs": 3000
-      },
-      {
-        "id": "czas-karta",
-        "path": "/drivers/1254/compliance/",
         "settleMs": 3000
       },
       {
@@ -156,17 +145,166 @@
         ]
       },
       {
-        "id": "trasy-lista",
-        "path": "/trips/",
+        "id": "trasy-przebieg",
+        "path": "/fleet/1045/?zakladka=przebieg",
         "settleMs": 4000,
-        "theme": "dark",
-        "waitFor": "table tbody tr"
+        "theme": "dark"
+      },
+      {
+        "id": "trasy-za-granica",
+        "path": "/drivers/1254/?zakladka=za-granica&miesiac=2026-10",
+        "settleMs": 4000
       },
       {
         "id": "demo-ekran",
         "path": "/",
         "settleMs": 3000,
         "theme": "dark"
+      },
+      {
+        "id": "czas-kierowcy-lista",
+        "path": "/drivers/",
+        "settleMs": 4000
+      },
+      {
+        "id": "czas-korekta-dnia",
+        "path": "/drivers/1254/?zakladka=za-granica",
+        "settleMs": 4000,
+        "actions": [
+          {
+            "type": "click",
+            "selector": "button:has-text(\"Popraw dzień\")"
+          },
+          {
+            "type": "wait",
+            "ms": 1200
+          },
+          {
+            "type": "fill",
+            "selector": "[role=\"dialog\"] input >> nth=1",
+            "text": "8"
+          },
+          {
+            "type": "wait",
+            "ms": 600
+          }
+        ]
+      },
+      {
+        "id": "dyspozytornia-dyspozytor",
+        "path": "/orders/",
+        "settleMs": 4000,
+        "role": "dispatcher"
+      },
+      {
+        "id": "faktury-naleznosci",
+        "path": "/reports/receivables",
+        "settleMs": 4000
+      },
+      {
+        "id": "zysk-koszty",
+        "path": "/reports/costs",
+        "settleMs": 4000
+      },
+      {
+        "id": "dzien-wl-pulpit",
+        "path": "/",
+        "settleMs": 4000,
+        "role": "owner"
+      },
+      {
+        "id": "dzien-wl-mapa",
+        "path": "/dispatch/",
+        "settleMs": 4000,
+        "role": "owner"
+      },
+      {
+        "id": "dzien-wl-faktura",
+        "path": "/invoices/28557/",
+        "settleMs": 4000,
+        "role": "owner"
+      },
+      {
+        "id": "dzien-wl-paczka",
+        "path": "/settlements/exports/",
+        "settleMs": 4000,
+        "role": "owner"
+      },
+      {
+        "id": "dzien-dy-zlecenie",
+        "path": "/orders/new/",
+        "settleMs": 4000,
+        "role": "dispatcher",
+        "actions": [
+          {
+            "type": "type",
+            "selector": "input[placeholder^=\"np. Hurtownia\"]",
+            "text": "Agro",
+            "delayMs": 60
+          },
+          {
+            "type": "wait",
+            "ms": 2500
+          }
+        ]
+      },
+      {
+        "id": "dzien-dy-przypisz",
+        "path": "/orders/",
+        "settleMs": 4000,
+        "role": "dispatcher",
+        "actions": [
+          {
+            "type": "click",
+            "selector": "button:has-text(\"Przypisz kierowcę\") >> nth=0"
+          },
+          {
+            "type": "wait",
+            "ms": 3500
+          }
+        ]
+      },
+      {
+        "id": "dzien-dy-trasa",
+        "path": "/orders/32202/?tab=route",
+        "settleMs": 4000,
+        "role": "dispatcher"
+      },
+      {
+        "id": "dzien-dy-reakcja",
+        "path": "/dispatch/",
+        "settleMs": 4000,
+        "role": "dispatcher"
+      },
+      {
+        "id": "dzien-ks-faktury",
+        "path": "/invoices/",
+        "settleMs": 4000,
+        "role": "accountant"
+      },
+      {
+        "id": "dzien-ks-miesiac",
+        "path": "/settlements/",
+        "settleMs": 4000,
+        "role": "accountant"
+      },
+      {
+        "id": "dzien-ks-paczka",
+        "path": "/settlements/exports/",
+        "settleMs": 4000,
+        "role": "accountant"
+      },
+      {
+        "id": "dzien-ks-place",
+        "path": "/settlements/payroll/",
+        "settleMs": 4000,
+        "role": "accountant"
+      },
+      {
+        "id": "dzien-ks-zamkniecie",
+        "path": "/settlements/declarations/",
+        "settleMs": 4000,
+        "role": "accountant"
       }
     ]
   }

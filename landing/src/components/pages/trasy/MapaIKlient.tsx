@@ -1,4 +1,5 @@
 import { Section } from '@/components/ui/Section';
+import { MockupSlot } from '@/components/ui/MockupSlot';
 
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -15,6 +16,7 @@ const TEKSTY: Tlumaczenia<{
   odpowiedzKiedy: string;
   odpowiedz: string;
   puenta: string;
+  link: { eyebrow: string; tytul: string; tresc: string; label: string; note: string };
 }> = {
   pl: {
     punkty: [
@@ -31,6 +33,14 @@ const TEKSTY: Tlumaczenia<{
     odpowiedzKiedy: '09:41, odpowiadasz',
     odpowiedz: '„Jest pod Bolzano. Jutro o ósmej u Państwa.”',
     puenta: 'Kierowca jedzie dalej. Nikt do niego nie dzwonił.',
+    link: {
+      eyebrow: 'Link dla klienta',
+      tytul: 'Albo klient wcale nie dzwoni',
+      tresc:
+        'Wysyłasz mu link do śledzenia przesyłki. Widzi status, kraj ostatniej pozycji auta i godzinę rozładunku, która odświeża się sama co minutę. Danych kierowcy ani dokładnej pozycji auta nie widzi.',
+      label: 'Śledzenie przesyłki u klienta (telefon)',
+      note: 'Strona śledzenia otwarta z linku: „Na rozładunku dziś ok. 18:54”, ostatnia pozycja auta w Niemczech sprzed 4 minut, etapy Przyjęte, Załadowane, W drodze, Dostarczone i trasa Kraków → Antwerpen.',
+    },
   },
   en: {
     punkty: [
@@ -47,6 +57,14 @@ const TEKSTY: Tlumaczenia<{
     odpowiedzKiedy: '09:41, you answer',
     odpowiedz: '“It’s near Bolzano. With you at eight tomorrow.”',
     puenta: 'The driver keeps driving. Nobody called him.',
+    link: {
+      eyebrow: 'A link for the client',
+      tytul: 'Or the client doesn’t call at all',
+      tresc:
+        'You send them a tracking link. They see the status, the country of the van’s last position and the unloading time, which refreshes by itself every minute. They don’t see the driver’s details or the van’s exact position.',
+      label: 'Shipment tracking on the client’s phone',
+      note: 'The tracking page opened from the link: “Unloading today around 18:54”, the van’s last position in Germany 4 minutes ago, the Accepted, Loaded, On the way and Delivered stages, and the Kraków → Antwerp route.',
+    },
   },
 };
 
@@ -124,6 +142,38 @@ export function MapaIKlient() {
             <div className="mt-auto text-[14px] text-white">
               {t.puenta}
             </div>
+          </div>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-20">
+          <div className="flex flex-col gap-4 lg:gap-6">
+            <div
+              data-reveal
+              className="text-[13px] font-semibold tracking-[0.06em] text-blue-light lg:text-caption"
+            >
+              {t.link.eyebrow}
+            </div>
+            <h3 data-reveal className="text-h2-m font-semibold text-balance lg:text-h2">
+              {t.link.tytul}
+            </h3>
+            <p data-reveal className="text-[16px] leading-relaxed text-ink-muted lg:text-body">
+              {t.link.tresc}
+            </p>
+          </div>
+
+          <div data-reveal>
+            <MockupSlot
+              file="mockup-trasy-klient-link-phone.png"
+              label={t.link.label}
+              note={t.link.note}
+              ratio="9:19.5"
+              box="6:7"
+              imageScale={1.8}
+              imageScaleTelefon={1.8}
+              dark
+            >
+              {null}
+            </MockupSlot>
           </div>
         </div>
       </div>

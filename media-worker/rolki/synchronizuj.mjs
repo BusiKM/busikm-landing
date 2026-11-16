@@ -186,6 +186,77 @@ async function rolkiZFacebooka(token) {
 }
 
 /**
+ * Wyświetlenia, reakcje i komentarze rolki. Zapisujemy surowe liczby, a strona
+ * je formatuje (landing/src/content/rolki.ts).
+ *
+ * Statystyki wymagają innych uprawnień niż sama lista rolek. Gdy Facebook ich
+ * odmówi albo chwilowo nie odpowie, rolka zostaje bez tych liczb – synchronizacja
+ * filmów idzie dalej jak dotąd.
+ */
+/**
+ * `fb_reels_total_plays` to liczba, którą Facebook pokazuje przy rolce (z powtórkami).
+ * `blue_reels_play_count` liczy tylko pierwsze odtworzenia – sprawdzone 16.11.2026:
+ * 54 263 wobec 45 758 przy „Włączasz tachograf dopiero na granicy?”.
+ */
+const METRYKI_ODTWORZEN = ['fb_reels_total_plays', 'blue_reels_play_count', 'total_video_views'];
+
+/** Jedno zapytanie o statystyki. Po pierwszej odmowie tego rodzaju nie pytamy już o kolejne rolki. */
+async function zapytajOStatystyki(rodzaj, adres, token, uwagi) {
+  if (uwagi.has(rodzaj)) return null;
+  try {
+    return await graph(adres, token, `Statystyki rolki (${rodzaj})`);
+  } catch (e) {
+    uwagi.add(rodzaj);
+    console.log(`::warning::${e.message}. Rolki zostają bez: ${rodzaj}.`);
+    return null;
+  }
+}
+
+/**
+ * Wyświetlenia wymagają `read_insights`, a reakcje i komentarze
+ * `pages_read_engagement`, więc pytamy o nie osobno: brak jednego uprawnienia
+ * nie zabiera liczb, do których dostęp jest.
+ */
+async function licznikiRolki(id, token, uwagi) {
+  const wynik = {};
+  const wglad = await zapytajOStatystyki(
+    'wyświetlenia',
+    `${GRAPH}/${id}/video_insights?fields=name,values`,
+    token,
+    uwagi,
+  );
+  if (wglad) {
+    const metryki = new Map((wglad.data ?? []).map((m) => [m.name, m.values?.[0]?.value]));
+    const odtworzenia = METRYKI_ODTWORZEN.map((n) => metryki.get(n)).find((v) => Number.isFinite(v));
+    if (Number.isFinite(odtworzenia)) wynik.wyswietlenia = odtworzenia;
+    // Wszystkie reakcje (serca, „Wow” itd.), a nie tylko „Lubię to” z `likes`.
+    const reakcje = metryki.get('post_video_likes_by_reaction_type');
+    if (reakcje && typeof reakcje === 'object') {
+      wynik.reakcje = Object.values(reakcje).reduce((a, b) => a + (Number(b) || 0), 0);
+    }
+    // Komentarze razem z odpowiedziami – `comments` liczy tylko komentarze główne (18 wobec 73).
+    const akcje = metryki.get('post_video_social_actions');
+    if (Number.isFinite(akcje?.COMMENT)) wynik.komentarze = akcje.COMMENT;
+    else if (akcje && typeof akcje === 'object') wynik.komentarze = 0;
+  }
+  // Gdy wgląd w statystyki ma już reakcje i komentarze, drugie zapytanie jest zbędne.
+  if (wynik.reakcje !== undefined && wynik.komentarze !== undefined) return wynik;
+  const reakcje = await zapytajOStatystyki(
+    'reakcje i komentarze',
+    `${GRAPH}/${id}?fields=${encodeURIComponent('likes.summary(true).limit(0),comments.summary(true).limit(0)')}`,
+    token,
+    uwagi,
+  );
+  if (wynik.reakcje === undefined && Number.isFinite(reakcje?.likes?.summary?.total_count)) {
+    wynik.reakcje = reakcje.likes.summary.total_count;
+  }
+  if (wynik.komentarze === undefined && Number.isFinite(reakcje?.comments?.summary?.total_count)) {
+    wynik.komentarze = reakcje.comments.summary.total_count;
+  }
+  return wynik;
+}
+
+/**
  * Dostęp do R2 przez API S3. Klucz Cloudflare ma prawo zapisu tylko do jednego
  * bucketa, a takiego klucza `wrangler` nie przyjmuje (403). Dane logowania S3
  * wyprowadza się z niego: identyfikator klucza i SHA-256 jego wartości.
@@ -301,7 +372,9 @@ async function main() {
 
   const m = magazyn(lokalnie, lokalnie ? null : await daneS3());
   const nadpisania = JSON.parse(readFileSync(join(TUTAJ, 'nadpisania.json'), 'utf8'));
-  const rolki = await rolkiZFacebooka(await kluczStrony(token));
+  const kluczStr = await kluczStrony(token);
+  const rolki = await rolkiZFacebooka(kluczStr);
+  const uwagi = new Set();
   // Pusta odpowiedź przy kilkudziesięciu rolkach to raczej awaria niż decyzja.
   if (!rolki.length) throw new Error('Facebook zwrócił pustą listę, niczego nie zmieniam');
 
@@ -381,6 +454,7 @@ async function main() {
         plik,
         okladka,
         zrodlo,
+        ...(await licznikiRolki(r.id, kluczStr, uwagi)),
       });
       console.log(stara ? `Bez zmian pliku: ${slug}` : `Nowa rolka: ${slug} (${zrodlo})`);
     }
@@ -392,7 +466,9 @@ async function main() {
       const plik = join(robocze, 'katalog.json');
       writeFileSync(plik, JSON.stringify(nowy, null, 2));
       m.zapisz('katalog.json', plik, 'application/json');
-      console.log(`Katalog zapisany: ${nowy.length} rolek`);
+      const zWyswietleniami = nowy.filter((n) => n.wyswietlenia !== undefined).length;
+      const zReakcjami = nowy.filter((n) => n.reakcje !== undefined).length;
+      console.log(`Katalog zapisany: ${nowy.length} rolek, z wyświetleniami: ${zWyswietleniami}, z reakcjami: ${zReakcjami}`);
     } else {
       console.log('Katalog bez zmian');
     }

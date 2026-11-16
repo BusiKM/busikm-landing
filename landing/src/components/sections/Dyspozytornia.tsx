@@ -60,7 +60,7 @@ export function Dyspozytornia() {
   return (
     <Section>
       <div className="flex flex-col gap-8 lg:gap-18">
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-16">
           <h2 data-reveal className="text-h2-m font-semibold text-balance lg:text-h2">
             {t.naglowek}
           </h2>

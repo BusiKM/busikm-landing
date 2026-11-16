@@ -61,9 +61,9 @@ const TEKSTY: Tlumaczenia<{
     },
     historia: {
       tytul: 'Historia tras',
-      tresc: 'Każdy przejazd zapisany: kilometry, czas i ślad do odtworzenia. Filtrujesz po kierowcy i pojeździe, sprawdzasz po miesiącu i po roku.',
-      label: 'Lista tras z filtrami (desktop, tryb nocny)',
-      note: 'Trasy: filtry statusu, kierowcy, pojazdu, roku i miesiąca. Kolumny: data, kierowca, pojazd, dystans i stan potwierdzenia przez kierowcę i właściciela.',
+      tresc: 'Każdy przejazd zapisany na karcie auta: data, skąd i dokąd, kierowca, kilometry i czy był służbowy. Z przejazdów co miesiąc składa się ewidencja przebiegu do VAT.',
+      label: 'Przebieg i przejazdy auta (desktop, tryb nocny)',
+      note: 'Karta pojazdu WX4821K, zakładka „Przebieg i przejazdy”: ewidencja przebiegu do VAT miesiąc po miesiącu, z kilometrami i liczbą przejazdów, pod spodem lista przejazdów z trasą, kierowcą i kilometrami.',
     },
     ktoUzywa: 'Kto tego używa:',
     link1: 'Dyspozytor →',
@@ -102,9 +102,9 @@ const TEKSTY: Tlumaczenia<{
     },
     historia: {
       tytul: 'Route history',
-      tresc: 'Every trip on record: kilometres, time and a trace you can replay. Filter by driver and vehicle, and check it a month or a year later.',
-      label: 'Route list with filters (desktop, dark mode)',
-      note: 'Trips: filters for status, driver, vehicle, year and month. Columns: date, driver, vehicle, distance and confirmation by the driver and the owner.',
+      tresc: 'Every trip is on record on the vehicle card: date, from and to, driver, kilometres and whether it was business. Each month the trips add up to the mileage log for VAT.',
+      label: 'Vehicle mileage and trips (desktop, dark mode)',
+      note: 'Vehicle card WX4821K, “Mileage and trips” tab: the VAT mileage log month by month with kilometres and number of trips, and below it the list of trips with route, driver and kilometres.',
     },
     ktoUzywa: 'Who uses it:',
     link1: 'Dispatcher →',
@@ -150,7 +150,7 @@ export default async function Page({ params }: ParametryJezyka) {
           tresc={t.historia.tresc}
           makieta={
             <MockupSlot
-              file="mockup-trasy-lista-desktop.png"
+              file="mockup-trasy-przebieg-desktop.png"
               label={t.historia.label}
               note={t.historia.note}
               ratio="4:3"

@@ -1,6 +1,8 @@
+import { createElement } from 'react';
 import { Section } from '@/components/ui/Section';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
+import { ikonaKafelka } from '@/components/ui/ikony-kafelkow';
 
 const NAGLOWEK: Tlumaczenia<string> = {
   pl: 'Drobiazgi, które widać dopiero w robocie.',
@@ -35,15 +37,7 @@ export function Drobiazgi({
 
         <div data-reveal-group className="grid grid-cols-2 gap-2.5 lg:grid-cols-3 lg:gap-4">
           {kafelki.map((k) => (
-            <div
-              key={k}
-              data-reveal
-              className={`rounded-card p-4.5 text-[15px] font-semibold lg:min-h-30 lg:p-7 lg:text-body ${
-                dark ? 'border border-line-dark bg-surface' : 'border border-line bg-white'
-              }`}
-            >
-              {k}
-            </div>
+            <Kafelek key={k} tekst={k} dark={dark} />
           ))}
         </div>
 
@@ -63,5 +57,27 @@ export function Drobiazgi({
         )}
       </div>
     </Section>
+  );
+}
+
+/** Kafelek z ikoną w niebieskim kwadracie nad tekstem. */
+export function Kafelek({ tekst, dark }: { tekst: string; dark: boolean }) {
+  return (
+    <div
+      data-reveal
+      className={`flex flex-col gap-3.5 rounded-card p-4.5 text-[15px] font-semibold lg:min-h-30 lg:gap-5 lg:p-7 lg:text-body ${
+        dark ? 'border border-line-dark bg-surface' : 'border border-line bg-white'
+      }`}
+    >
+      <span
+        aria-hidden
+        className={`flex size-9 items-center justify-center rounded-xl lg:size-10 ${
+          dark ? 'bg-blue/15 text-blue-light' : 'bg-blue-soft text-blue'
+        }`}
+      >
+        {createElement(ikonaKafelka(tekst), { className: 'size-[18px] lg:size-5', strokeWidth: 2 })}
+      </span>
+      {tekst}
+    </div>
   );
 }

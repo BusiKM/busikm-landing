@@ -75,6 +75,25 @@ wersję z Facebooka sam. Plik kopiujemy do R2, bo linki z Facebooka wygasają po
 emoji, hashtagi, wyliczenia, pytania i wezwania do działania. Odpadają też zdania z limitami,
 karami i podstawami prawnymi, bo [strona nie podaje przepisów](02-odbiorcy-i-jezyk.md).
 
+## Wyświetlenia, reakcje i komentarze
+
+Przy każdej rolce skrypt synchronizacji pyta Facebooka o statystyki (`video_insights`
+oraz podsumowanie polubień i komentarzy) i zapisuje w katalogu surowe liczby:
+`wyswietlenia`, `reakcje`, `komentarze`. Strona formatuje je po polsku („1,2 tys.”,
+„54 tys.”) i pokazuje przy każdej rolce, bez progu, ale bez zer: liczba 0 po prostu się
+nie pokazuje (decyzja z 16.11.2026):
+
+- na kafelku i na dużej rolce w nagłówku: liczba wyświetleń,
+- w otwartej rolce, pod opisem: wyświetlenia, reakcje i komentarze,
+- trzy najczęściej oglądane rolki mają nad tytułem nadpis „Nr 1 w oglądalności”
+  (i Nr 2, Nr 3), bez znaczków na kadrze.
+
+Wyświetlenia wymagają uprawnienia `read_insights`, a reakcje i komentarze
+`pages_read_engagement` (oba dla konta technicznego, z którego jest `FB_TOKEN`).
+Skrypt pyta o nie osobno: gdy Facebook odmówi jednego, w logu akcji pojawia się jedno
+ostrzeżenie, rolki zostają bez tych liczb, a reszta i filmy synchronizują się dalej.
+Ile rolek ma liczby, widać w logu („z wyświetleniami: N, z reakcjami: N”).
+
 ## Poprawki ręczne
 
 `media-worker/rolki/nadpisania.json`, klucz to numer rolki z `facebook.com/reel/<numer>`:

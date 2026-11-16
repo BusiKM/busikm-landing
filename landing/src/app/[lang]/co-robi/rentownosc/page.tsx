@@ -21,7 +21,7 @@ export const generateMetadata = metadataPodstrony('co-robi/rentownosc');
 type Teksty = {
   pytania: readonly (readonly [string, string])[];
   drobiazgi: readonly string[];
-  koszty: { tytul: string; tresc: string };
+  koszty: { tytul: string; tresc: string; label: string; note: string };
   porownanie: { tytul: string; tresc: string; label: string; note: string };
   ktoUzywa: string;
   wlasciciel: string;
@@ -57,6 +57,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     koszty: {
       tytul: 'Wszystkie koszty w środku',
       tresc: 'Na kursie: paliwo, opłaty drogowe, nocleg, parking, podwykonawca i diety kierowcy. Amortyzacja, leasing i polisa - w kosztach auta i w wyniku miesiąca.',
+      label: 'Raport kosztów (desktop)',
+      note: 'Raporty, zakładka Koszty: koszty razem, koszt na km, udział paliwa i koszty do uzupełnienia, wykres kosztów miesiąc po miesiącu w grupach i lista „Na co idą pieniądze”: paliwo, płace i diety, opłaty drogowe, leasing i raty, serwis, ubezpieczenia.',
     },
     porownanie: {
       tytul: 'Porównanie okresów',
@@ -96,6 +98,8 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     koszty: {
       tytul: 'Every cost counted',
       tresc: 'On the run: fuel, tolls, overnight stay, parking, subcontractor and the driver’s per diems (daily travel allowance). Depreciation, lease and insurance - in the vehicle’s costs and the monthly result.',
+      label: 'Cost report (desktop)',
+      note: 'Reports, Costs tab: total costs, cost per km, share of fuel and costs still to complete, a month-by-month chart by group and the “Where the money goes” list: fuel, pay and allowances, tolls, lease and instalments, service, insurance.',
     },
     porownanie: {
       tytul: 'Compare periods',
@@ -128,7 +132,16 @@ export default async function Page({ params }: ParametryJezyka) {
           numer="04"
           tytul={t.koszty.tytul}
           tresc={t.koszty.tresc}
-          makieta={<RozbicieKosztow />}
+          makieta={
+            <MockupSlot
+              file="mockup-zysk-koszty-desktop.png"
+              label={t.koszty.label}
+              note={t.koszty.note}
+              ratio="4:3"
+            >
+              <RozbicieKosztow />
+            </MockupSlot>
+          }
         />
 
         <Blok

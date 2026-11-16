@@ -1,98 +1,104 @@
-import { Section } from '@/components/ui/Section';
-import { KartaBloku } from '@/components/ui/KartaBloku';
+import { Section } from "@/components/ui/Section";
+import { KartaBloku } from "@/components/ui/KartaBloku";
+import { MockupSlot } from "@/components/ui/MockupSlot";
+import { Makieta } from "@/components/ui/Makieta";
 
-import type { Tlumaczenia } from '@/i18n/jezyki';
-import { biezacyJezyk } from '@/i18n/serwer';
+import type { Tlumaczenia } from "@/i18n/jezyki";
+import { biezacyJezyk } from "@/i18n/serwer";
 
-const kraje = [
-  { czas: '4 h 20 min', udzial: 22, kolor: '#C9CBD1' },
-  { czas: '3 h 35 min', udzial: 18, kolor: '#9A9AA2' },
-  { czas: '3 h 50 min', udzial: 20, kolor: '#6E6E76' },
-  { czas: '2 h 05 min', udzial: 10, kolor: '#0A46C0' },
-  { czas: '5 h 50 min', udzial: 30, kolor: '#0B5FFF' },
-];
+type Zrzut = { label: string; note: string };
+
+const DEV = process.env.NODE_ENV === "development";
 
 const TEKSTY: Tlumaczenia<{
   kraje: { tytul: string; tresc: string };
-  /** Nazwy krajów – kolejność jak w `kraje`. */
-  nazwy: readonly string[];
-  kurs: string;
-  daty: string;
+  krajeZrzut: Zrzut;
   przejazd: { tytul: string; tresc: string };
-  bezZlecenia: string;
-  kiedy: string;
-  trasa: string;
-  powod: string;
-  powodWartosc: string;
-  przyciski: readonly string[];
+  przejazdZrzut: Zrzut;
+  powieksz: string;
+  zamknij: string;
 }> = {
   pl: {
+    powieksz: "Powiększ",
+    zamknij: "Zamknij",
     kraje: {
-      tytul: 'Kraje na trasie',
-      tresc: 'System sam widzi, gdzie kierowca był i jak długo. Nikt tego nie zgłasza ręcznie.',
+      tytul: "Kraje na trasie",
+      tresc:
+        "System sam liczy dni w każdym kraju z GPS i przekroczeń granicy, a z nich diety kierowcy. Nikt tego nie zgłasza ręcznie.",
     },
-    nazwy: ['Polska', 'Czechy', 'Niemcy', 'Austria', 'Włochy'],
-    kurs: 'Marek W., Warszawa → Mediolan',
-    daty: '2-3.09',
+    krajeZrzut: {
+      label: "Za granicą i diety (desktop)",
+      note: "Karta kierowcy, zakładka „Za granicą i diety” za październik: doby w Niemczech, Holandii i Polsce, dieta po kursie NBP i lista wyjazdów z datami.",
+    },
     przejazd: {
-      tytul: 'Przejazd bez zlecenia też się liczy',
-      tresc: 'Dojazd do bazy, wyjazd do serwisu, przeprowadzka pojazdu. Kilometry nie giną.',
+      tytul: "Przejazd bez zlecenia też się liczy",
+      tresc:
+        "Dojazd do bazy, wyjazd do serwisu, przeprowadzka pojazdu. Kierowca wybiera „Trasa bez zlecenia”, służbową albo prywatną, i kilometry nie giną.",
     },
-    bezZlecenia: 'Przejazd bez zlecenia',
-    kiedy: '31.08, 16:40',
-    trasa: 'Mediolan → serwis, Bergamo',
-    powod: 'Powód',
-    powodWartosc: 'Serwis, WZ 4821K',
-    przyciski: ['Start', 'Stop', 'Potwierdź'],
+    przejazdZrzut: {
+      label: "Trasa bez zlecenia (telefon, tryb nocny)",
+      note: "Ekran „Trasa bez zlecenia” w aplikacji BusiKM Kierowca: pojazd, typ trasy Służbowa albo Prywatna, cel Serwis pojazdu i przycisk „Rozpocznij trasę”.",
+    },
   },
   en: {
+    powieksz: "Enlarge",
+    zamknij: "Close",
     kraje: {
-      tytul: 'Countries on the route',
-      tresc: 'The system sees for itself where the driver was and for how long. Nobody reports it by hand.',
+      tytul: "Countries on the route",
+      tresc:
+        "The system counts the days in each country from GPS and border crossings, and works out the driver’s allowances from them. Nobody reports it by hand.",
     },
-    nazwy: ['Poland', 'Czechia', 'Germany', 'Austria', 'Italy'],
-    kurs: 'Marek W., Warsaw → Milan',
-    daty: '2-3 Sep',
+    krajeZrzut: {
+      label: "Abroad and allowances (desktop)",
+      note: "The driver card, “Abroad and allowances” tab for October: days in Germany, the Netherlands and Poland, the allowance at the NBP rate and the list of trips abroad with dates.",
+    },
     przejazd: {
-      tytul: 'Trips without an order count too',
-      tresc: 'Driving to the depot, over to the garage, moving a vehicle. No kilometre goes missing.',
+      tytul: "Trips without an order count too",
+      tresc:
+        "Driving to the depot, over to the garage, moving a vehicle. The driver picks “Trip without an order”, business or private, and no kilometre goes missing.",
     },
-    bezZlecenia: 'Trip without an order',
-    kiedy: '31 Aug, 16:40',
-    trasa: 'Milan → garage, Bergamo',
-    powod: 'Reason',
-    powodWartosc: 'Service, WZ 4821K',
-    przyciski: ['Start', 'Stop', 'Confirm'],
+    przejazdZrzut: {
+      label: "Trip without an order (phone, dark mode)",
+      note: "The “Trip without an order” screen in the BusiKM Driver app: vehicle, Business or Private trip, purpose Vehicle service and a “Start trip” button.",
+    },
   },
 };
 
-/** 05 + 06 – dwa punkty w dwóch kartach obok siebie. */
+/** 05 + 06 – dwa punkty w dwóch kartach obok siebie, każdy ze zrzutem. */
 export function KrajeIPrzejazd() {
   const t = TEKSTY[biezacyJezyk()];
   return (
     <Section>
-      <div className="grid gap-2.5 lg:grid-cols-2 lg:gap-6">
+      <div className="grid gap-2.5 lg:grid-cols-2 lg:grid-rows-[auto_auto_auto_1fr] lg:gap-x-6">
         <KartaBloku
           numer="05"
           tytul={t.kraje.tytul}
           tresc={t.kraje.tresc}
+          rowno
         >
-          <div className="flex flex-col rounded-card border border-line bg-white p-5 text-[13px] lg:p-6 lg:text-caption">
-            <div className="flex justify-between gap-3 pb-2.5 text-muted">
-              <span className="truncate">{t.kurs}</span>
-              <span className="flex-none">{t.daty}</span>
-            </div>
-            <div className="mb-3 flex h-2.5 gap-0.5 overflow-hidden rounded-[5px]" aria-hidden>
-              {kraje.map((k) => (
-                <span key={k.kolor} style={{ width: `${k.udzial}%`, background: k.kolor }} />
-              ))}
-            </div>
-            {kraje.map((k, i) => (
-              <div key={k.kolor} className="flex justify-between gap-3 border-t border-line py-2">
-                <span>{t.nazwy[i]}</span>
-                <span>{k.czas}</span>
+          {/* Lewa połowa laptopa w pudle 6:7, jak telefon w karcie obok.
+              Prawa połowa chowa się za krawędzią karty, więc dni w krajach są
+              duże i czytelne bez powiększania. */}
+          {/* Liczby z kadru: telefon w pudle 6:7 (powiększenie 1,8) zajmuje od
+              3% do 97% wysokości, a laptop w pliku 2016x1270 kończy się podstawą
+              na 1159 px. Stąd góra 3% i wysokość 102,9% – laptop od ramki do
+              podstawy równa się telefonowi, cień pod spodem przycina pudło. */}
+          <div className="-mr-7 overflow-hidden lg:-mr-14">
+            {/* Pudło tej samej szerokości co telefon obok, laptop wystaje z niego
+                w prawo aż do krawędzi karty, którą przycina opakowanie wyżej. */}
+            <div className="relative mr-7 aspect-[6/7] lg:mr-14">
+              <div className="absolute top-[3.03%] left-0 aspect-[2016/1270] h-[102.9%]">
+                <Makieta
+                  src="/mockups/mockup-trasy-za-granica-desktop.png"
+                  alt={t.krajeZrzut.note}
+                  sizes="(max-width: 1024px) 200vw, 1100px"
+                  imgClassName="object-contain"
+                  etykietaPowieksz={t.powieksz}
+                  etykietaZamknij={t.zamknij}
+                  unoptimized={DEV}
+                />
               </div>
-            ))}
+            </div>
           </div>
         </KartaBloku>
 
@@ -100,33 +106,19 @@ export function KrajeIPrzejazd() {
           numer="06"
           tytul={t.przejazd.tytul}
           tresc={t.przejazd.tresc}
+          rowno
         >
-          <div className="flex flex-col gap-3.5 rounded-card bg-ink p-5 text-[13px] text-paper lg:p-6 lg:text-caption">
-            <div className="flex justify-between gap-3 text-ink-muted">
-              <span>{t.bezZlecenia}</span>
-              <span className="flex-none">{t.kiedy}</span>
-            </div>
-            <div className="flex justify-between gap-3">
-              <span className="truncate">{t.trasa}</span>
-              <b className="flex-none">48 km, 0:55</b>
-            </div>
-            <div className="flex justify-between gap-3 text-ink-muted">
-              <span>{t.powod}</span>
-              <span className="flex-none">{t.powodWartosc}</span>
-            </div>
-            <div className="mt-1.5 flex gap-2.5">
-              {t.przyciski.map((k, i) => (
-                <span
-                  key={k}
-                  className={`flex-1 rounded-btn py-3.5 text-center ${
-                    i === 2 ? 'bg-blue font-semibold' : 'bg-surface-2'
-                  }`}
-                >
-                  {k}
-                </span>
-              ))}
-            </div>
-          </div>
+          <MockupSlot
+            file="mockup-kierowca-trasa-bez-zlecenia-phone.png"
+            label={t.przejazdZrzut.label}
+            note={t.przejazdZrzut.note}
+            ratio="9:19.5"
+            box="6:7"
+            imageScale={1.8}
+            imageScaleTelefon={1.8}
+          >
+            {null}
+          </MockupSlot>
         </KartaBloku>
       </div>
     </Section>

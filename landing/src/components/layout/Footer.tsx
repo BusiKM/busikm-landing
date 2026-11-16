@@ -150,8 +150,9 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-line-dark pt-6 text-[12px] text-ink-muted lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:text-caption">
-          <span>
+        <div className="flex flex-col gap-4 border-t border-line-dark pt-6 text-[12px] text-ink-muted lg:flex-row lg:items-baseline lg:justify-between lg:gap-6 lg:text-caption">
+          {/* Bez łamania w środku nazwy („Sp. z” / „o.o.”). */}
+          <span className="whitespace-nowrap">
             © {rok} {firma.nazwa}
           </span>
 

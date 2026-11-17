@@ -31,6 +31,7 @@
   --color-amber-ink: #a15e00; /* bursztyn jako TEKST – sam #ff9500 jest nieczytelny */
   --color-red-ink: #dd0c00; /* czerwień jako TEKST – gwiazdka pola wymaganego */
   --color-blue-light: #3a7eff; /* niebieski jako tekst na ciemnym tle */
+  --color-blue-mist: #b9ceff; /* druga linia nagłówka na niebieskim, baner marki (hero, Facebook, YouTube) */
 
   /* --- Ciemne sekcje ----------------------------------------------------- */
   --color-ink-muted: #8e8e96; /* tekst drugorzędny na ciemnym */

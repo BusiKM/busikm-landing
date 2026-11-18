@@ -58,7 +58,7 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
    Zmiana trasy w trakcie jazdy trafia do kierowcy od razu.
 3. **Księgowa** (przeglądarka): komplet za miesiąc jednym przyciskiem.
    Księgowa z zewnątrz dostaje własny dostęp z zaproszenia mailem.
-4. **Kierowca** (telefon, aplikacja BusiKM Kierowca na iPhone i Android):
+4. **Kierowca** (telefon, aplikacja BusiKM Kierowca na Androida, wkrótce na iPhone):
    zlecenia, nawigacja, przerwy, paragony i czat z biurem w jednym miejscu.
 
 ## Co robi BusiKM
@@ -135,17 +135,19 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
 - Dokumenty zlecenia (CMR, WZ) pod ręką kierowcy w trasie.
 
 ### Aplikacja BusiKM Kierowca
-- iPhone i Android, po polsku, z trybem nocnym.
-- Nawigacja jednym dotknięciem w Apple Maps, Google Maps albo Waze.
-  Działa z CarPlay i Android Auto.
+- Android 7.0 lub nowszy (Google Play), wersja na iPhone wkrótce. Po polsku,
+  z trybem nocnym.
+- Nawigacja jednym dotknięciem w Google Maps albo Waze.
+  Działa z Android Auto.
 - „Zacznij dzień” ze zdjęciem licznika: stan odczytuje się sam.
 - Działa bez zasięgu: tunel, góry, terminal promowy. Wszystko dośle, gdy
   złapie sygnał, a kierowca widzi, co jeszcze czeka na wysłanie.
 - „Zgłoś problem”: najpierw pyta, czy da się jechać dalej, potem daje znać
   biuru.
 - Kierowca dostaje mailem zaproszenie z kodem i sam ustawia hasło.
-  Aplikacji nie ma jeszcze publicznie w App Store i Google Play, odnośnik
-  do pobrania przychodzi w zaproszeniu.
+  Aplikacja jest w Google Play:
+  https://play.google.com/store/apps/details?id=com.busikm.driver
+  Konto zakłada firma w panelu webowym, aplikacja służy tylko kierowcom.
 
 ## Czego BusiKM nie robi
 
@@ -291,9 +293,9 @@ the client; in the Firma (Business) plan the accountant gets the whole month
 in one click in formats for Comarch Optima, Insert GT, Symfonia or CSV.
 
 Four roles: owner, dispatcher and accountant in the browser, the driver in
-the BusiKM Kierowca phone app (iPhone and Android, in Polish). Navigation
-opens in Apple Maps, Google Maps or Waze and works with CarPlay and Android
-Auto. The app works without signal and sends everything once it is back.
+the BusiKM Kierowca phone app (Android 7.0 or later on Google Play, iPhone
+coming soon, in Polish). Navigation opens in Google Maps or Waze and works
+with Android Auto. The app works without signal and sends everything once it is back.
 Days in each country are counted from the route.
 
 It is not a replacement for a tachograph: the tachograph records, BusiKM
@@ -311,8 +313,10 @@ VAT registers in Excel, JPK_V7M, the driver payroll list and business trips
 in the accounting software format. Firma can be chosen for any fleet size,
 even a single van. Drivers and office staff are not counted. Yearly billing gives 2 months free. Once accounts open: 14 days
 free with no card and no fixed-term contract. Public sign-up is not open yet: busikm.pl/zaloguj
-collects sign-ups. The driver app is not yet public on the App Store or
-Google Play; drivers get a download link in their invitation.
+collects sign-ups. The driver app is on Google Play
+(https://play.google.com/store/apps/details?id=com.busikm.driver); the iPhone
+version is coming soon. Companies create their account in the web panel and
+invite drivers with a code.
 
 Demo without an account: https://staging.busikm.pl/demo/ (a sample transport
 company, choose a role, read-only, one-hour session).

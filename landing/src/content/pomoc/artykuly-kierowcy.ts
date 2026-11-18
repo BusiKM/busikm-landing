@@ -83,7 +83,7 @@ export const artykulyKierowcy: Artykul[] = [
     role: ['kierowca'],
     gdzie: 'Aplikacja BusiKM Kierowca',
     czas: 'Pięć minut',
-    zanim: ['E-mail z kodem zaproszenia od pracodawcy', 'Telefon z Androidem albo iPhone'],
+    zanim: ['E-mail z kodem zaproszenia od pracodawcy', 'Telefon z Androidem 7.0 lub nowszym (wersja na iPhone wkrótce)'],
     rozdzialy: [
       {
         tytul: 'Wejście do aplikacji',
@@ -91,7 +91,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'kroki',
             kroki: [
-              { tytul: 'Zainstaluj aplikację BusiKM Kierowca z odnośnika w zaproszeniu' },
+              { tytul: 'Zainstaluj aplikację BusiKM Kierowca z Google Play albo z odnośnika w zaproszeniu' },
               { tytul: 'Otwórz aplikację i wybierz Mam zaproszenie' },
               {
                 tytul: 'Wpisz e-mail i kod zaproszenia',
@@ -195,7 +195,7 @@ export const artykulyKierowcy: Artykul[] = [
               },
               {
                 tytul: 'Wybierz Nawiguj',
-                opis: 'Trasa ze zlecenia otwiera się w Apple Maps, Google Maps albo Waze. Aplikację wybierasz raz, zmienisz ją w ustawieniach. Działa z CarPlay i Android Auto.',
+                opis: 'Trasa ze zlecenia otwiera się w Google Maps albo Waze. Aplikację wybierasz raz, zmienisz ją w ustawieniach. Działa z Android Auto.',
               },
               {
                 tytul: 'Na miejscu wybierz Jestem na załadunku',

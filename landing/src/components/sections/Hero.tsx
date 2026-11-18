@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Section';
@@ -5,11 +7,14 @@ import { MockupSlot } from '@/components/ui/MockupSlot';
 import { Makieta } from '@/components/ui/Makieta';
 import { PulpitMockup } from '@/components/mockups/PulpitMockup';
 import { appLinks } from '@/content/navigation';
+import { linkGooglePlay } from '@/content/sklepy';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
 const TEKSTY: Tlumaczenia<{
   eyebrow: string;
+  android: string;
+  androidOpis: string;
   tytul1: string;
   tytul2: string;
   lead: string;
@@ -24,6 +29,8 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     eyebrow: 'Busy 2,5-3,5 t, transport krajowy i międzynarodowy',
+    android: 'BusiKM Kierowca już na Androida',
+    androidOpis: 'BusiKM Kierowca w Google Play, aplikacja dla kierowców',
     tytul1: 'Kierowca jedzie.',
     tytul2: 'Reszta dzieje się sama.',
     lead: 'Zlecenia, trasy, koszty, faktury i komplet dla księgowej - w jednym miejscu. Kierowca ma telefon w kieszeni, Ty masz robotę zrobioną.',
@@ -38,6 +45,8 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     eyebrow: 'Vans 2.5-3.5 t, domestic and international transport',
+    android: 'BusiKM Kierowca is now on Android',
+    androidOpis: 'BusiKM Kierowca on Google Play, the app for drivers',
     tytul1: 'The driver drives.',
     tytul2: 'Everything else just happens.',
     lead: 'Orders, routes, costs, invoices and everything your accountant needs - in one place. Your driver keeps a phone in their pocket. You get the work done.',
@@ -62,6 +71,27 @@ export function Hero() {
 
   const tresc = (
     <>
+      {/* Plakietka aplikacji kierowcy. Mniejsza i spokojniejsza niż przyciski
+          dla firm, żeby ich nie przyćmić. Prowadzi prosto do Google Play. */}
+      <a
+        data-reveal
+        href={linkGooglePlay('hero')}
+        target="_blank"
+        rel="noopener"
+        aria-label={t.androidOpis}
+        className="inline-flex items-center gap-2.5 self-start rounded-full border border-white/25 bg-white/12 py-1.5 pr-4 pl-1.5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/18 hover:text-white lg:self-center lg:text-[15px]"
+      >
+        <Image
+          src="/aplikacja/busikm-kierowca.png"
+          alt=""
+          width={192}
+          height={192}
+          className="size-7 rounded-[8px] ring-1 ring-white/60"
+        />
+        {t.android}
+        <ArrowRight aria-hidden className="size-4" strokeWidth={2} />
+      </a>
+
       <Eyebrow data-reveal className="!text-white/70">
         {t.eyebrow}
       </Eyebrow>

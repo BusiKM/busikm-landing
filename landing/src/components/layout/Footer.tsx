@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import Link from '@/i18n/Link';
 import { Container } from '@/components/ui/Container';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { firma } from '@/content/firma';
+import { linkGooglePlay } from '@/content/sklepy';
 import { Logo } from '@/components/layout/Logo';
 import { nawigacja } from '@/content/navigation';
 import { PrzyciskCookie } from '@/components/analytics/PrzyciskCookie';
@@ -40,6 +42,8 @@ const TEKSTY: Tlumaczenia<{
   sad: string;
   kapital: string;
   odpowiedz: string;
+  pobierz: string;
+  iphone: string;
 }> = {
   pl: {
     domu: 'BusiKM - strona główna',
@@ -51,6 +55,8 @@ const TEKSTY: Tlumaczenia<{
     sad: firma.sad,
     kapital: `Kapitał zakładowy ${firma.kapital}`,
     odpowiedz: 'Odpisujemy tego samego dnia roboczego',
+    pobierz: 'Pobierz BusiKM Kierowca z Google Play',
+    iphone: 'Wkrótce na iPhone',
   },
   en: {
     domu: 'BusiKM - home',
@@ -63,6 +69,8 @@ const TEKSTY: Tlumaczenia<{
     sad: `District Court for Szczecin-Centrum in Szczecin, 13th Commercial Division of the National Court Register (${firma.sad})`,
     kapital: `Share capital PLN 5,000`,
     odpowiedz: 'We reply the same business day',
+    pobierz: 'Get BusiKM Kierowca on Google Play',
+    iphone: 'Coming soon for iPhone',
   },
 };
 
@@ -96,6 +104,29 @@ export function Footer() {
               <IkonaFacebook />
               Facebook
             </a>
+            {/* Ten sam wzór co `StoreBadges`: oficjalna odznaka i iPhone bez daty.
+                Plik ma u góry i u dołu przezroczysty margines (widoczna odznaka
+                to 192 z 250 px), więc 57 px pliku daje 44 px odznaki, równo
+                z przyciskiem Facebooka. Ujemny margines zjada tę pustkę, żeby
+                odstępy w kolumnie zostały równe. */}
+            <div className="flex flex-col gap-2">
+              <a
+                href={linkGooglePlay('stopka')}
+                target="_blank"
+                rel="noopener"
+                aria-label={t.pobierz}
+                className="-my-[7px] block w-fit transition-opacity hover:opacity-85"
+              >
+                <Image
+                  src="/sklepy/google-play-pl.png"
+                  alt=""
+                  width={646}
+                  height={250}
+                  className="h-[57px] w-auto"
+                />
+              </a>
+              <span className="text-[13px] text-ink-muted">{t.iphone}</span>
+            </div>
           </div>
 
           {kolumnyNawigacji.map((column) => (

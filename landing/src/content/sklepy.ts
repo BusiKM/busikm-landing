@@ -13,7 +13,7 @@
 const GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.busikm.driver';
 
 /** Skąd przyszło kliknięcie. Widać to w Play Console w źródłach instalacji. */
-export type MiejsceSklepu = 'hero' | 'aplikacja' | 'sekcja-kierowcy' | 'rola-kierowcy';
+export type MiejsceSklepu = 'hero' | 'aplikacja' | 'sekcja-kierowcy' | 'rola-kierowcy' | 'stopka';
 
 /**
  * Link do Google Play z oznaczeniem źródła. `referrer` to zakodowane

@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     nota: 'Demo działa bez konta. Konta otwieramy wkrótce, pierwsze 14 dni bez opłat.',
     label: 'Ekran właściciela (desktop 1440)',
     opis: 'Pulpit po zalogowaniu: po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” - kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
-    telefon: 'BusiKM Kierowca na Androidzie: ekran „Dziś” z kursem Milano → Kalisz w trasie i przyciskami Nawiguj, Zadzwoń, Czat.',
+    telefon: 'Aplikacja kierowcy: ekran „Dziś” z kursem Kraków → Antwerpen i przyciskami Nawiguj, Zadzwoń, Czat.',
     powieksz: 'Powiększ',
     zamknij: 'Zamknij',
     nowosc: 'Nowość',
@@ -48,7 +48,7 @@ const TEKSTY: Tlumaczenia<{
     nota: 'The demo needs no account. Accounts open soon, with the first 14 days free.',
     label: 'Owner’s screen (desktop 1440)',
     opis: 'Dashboard after signing in: “To do” on the left with what’s waiting for your decision, “Today” on the right - runs on the road, loadings, deliveries and who is driving right now.',
-    telefon: 'BusiKM Kierowca on Android: the “Today” screen with the Milano → Kalisz run on the road and Navigate, Call and Chat buttons.',
+    telefon: 'Driver app: the “Today” screen with the Kraków → Antwerp run and Navigate, Call and Chat buttons.',
     powieksz: 'Enlarge',
     zamknij: 'Close',
     nowosc: 'New',
@@ -191,10 +191,7 @@ export function Hero() {
             </MockupSlot>
             {/*
               Telefon kierowcy oparty o prawy dolny róg laptopa: biuro i kierowca
-              na jednym obrazku, zanim czytelnik przewinie dalej. Od startu
-              w Google Play to prawdziwy zrzut z Androida (emulator, konto demo
-              ze stagingu, tryb nocny) w ogólnej ramce telefonu bez znaków
-              producenta. Pozycja liczona
+              na jednym obrazku, zanim czytelnik przewinie dalej. Pozycja liczona
               od pudła 16:10 – ekran laptopa kończy się na 88% szerokości
               i 80% wysokości, więc telefon zachodzi na róg ekranu, nie zasłania
               listy „Do zrobienia”.
@@ -204,7 +201,7 @@ export function Hero() {
               style={{ aspectRatio: '1226 / 2064' }}
             >
               <Makieta
-                src="/mockups/mockup-hero-telefon-android-phone.png"
+                src="/mockups/mockup-hero-telefon-phone.png"
                 alt={t.telefon}
                 sizes="(max-width: 1024px) 30vw, 320px"
                 unoptimized={false}

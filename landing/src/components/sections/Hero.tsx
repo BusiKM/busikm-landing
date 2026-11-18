@@ -52,114 +52,125 @@ const TEKSTY: Tlumaczenia<{
   },
 };
 
-/** 6.1 – hero. Siatka i jedna świecąca trasa w tle, pulpit uniesiony nad stroną. */
+/**
+ * 6.1 – hero. Ten sam baner co na Facebooku i YouTube: niebieskie tło,
+ * biała pierwsza linia, jasnoniebieska druga. Pulpit wychodzi z banera
+ * na jasną stronę.
+ */
 export function Hero() {
   const t = TEKSTY[biezacyJezyk()];
-  return (
-    <section id="hero" className="relative overflow-hidden bg-paper px-6 pt-24 lg:px-12 lg:pt-40">
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(rgba(10,10,11,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,11,.035)_1px,transparent_1px)] bg-size-[80px_80px] lg:bg-size-[120px_120px]"
-      />
-      {/* Trasa w tle. Wysokość ograniczona, żeby krzywa nie rozciągnęła się
-          na całą – bardzo wysoką – sekcję i nie wyprostowała w linię. */}
-      <svg
-        viewBox="0 0 1440 1200"
-        preserveAspectRatio="xMidYMin slice"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[820px] w-full lg:h-[1200px]"
-        aria-hidden
+
+  const tresc = (
+    <>
+      <Eyebrow data-reveal className="!text-white/70">
+        {t.eyebrow}
+      </Eyebrow>
+
+      <h1
+        data-reveal
+        className="max-w-[980px] text-display-m font-bold text-balance text-white lg:text-display"
       >
-        <path
-          d="M 220 980 C 520 720, 760 760, 940 480 S 1180 300, 1320 120"
-          fill="none"
-          stroke="#0B5FFF"
-          strokeWidth="14"
-          opacity=".05"
-        />
-        <path
-          d="M 220 980 C 520 720, 760 760, 940 480 S 1180 300, 1320 120"
-          fill="none"
-          stroke="#0B5FFF"
-          strokeWidth="2"
-          opacity=".18"
-        />
-        <circle cx="220" cy="980" r="5" fill="#0B5FFF" opacity=".35" />
-        <circle cx="1320" cy="120" r="5" fill="#0B5FFF" opacity=".35" />
-      </svg>
+        {t.tytul1}{' '}
+        {/* Druga linia zawsze od nowego wiersza, także na telefonie: dwa kolory
+            czyta się jak dwa zdania. */}
+        <span className="block text-blue-mist">{t.tytul2}</span>
+      </h1>
 
-      <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
-        <Eyebrow data-reveal>{t.eyebrow}</Eyebrow>
+      <p
+        data-reveal
+        className="max-w-[700px] text-lead-m text-pretty text-white/85 lg:text-lead"
+      >
+        {t.lead}
+      </p>
 
-        <h1
-          data-reveal
-          className="max-w-[980px] text-display-m font-bold text-balance lg:text-display"
-        >
-          {t.tytul1} <br className="hidden lg:inline" />
-          {t.tytul2}
-        </h1>
-
-        <p
-          data-reveal
-          className="max-w-[700px] text-lead-m text-pretty text-muted lg:text-lead"
-        >
-          {t.lead}
-        </p>
-
-        <div data-reveal className="flex flex-col gap-2.5 lg:mt-2 lg:items-center lg:gap-4">
-          <div className="flex flex-col gap-2.5 lg:flex-row lg:gap-3">
-            {/* Dopóki rejestracja jest zamknięta, głównym wejściem jest demo.
-                Drugi przycisk zapisuje na listę otwarcia kont. */}
-            <Button href={appLinks.demo} fullWidth className="lg:w-auto">
-              {t.demo}
-            </Button>
-            <Button href={appLinks.zapis} variant="secondary" fullWidth className="lg:w-auto">
-              {t.zapis}
-            </Button>
-          </div>
-          <p className="text-center text-[13px] text-muted lg:text-caption">
-            {t.nota}
-          </p>
+      <div data-reveal className="flex flex-col gap-2.5 lg:mt-2 lg:items-center lg:gap-4">
+        <div className="flex flex-col gap-2.5 lg:flex-row lg:gap-3">
+          {/* Dopóki rejestracja jest zamknięta, głównym wejściem jest demo.
+              Drugi przycisk zapisuje na listę otwarcia kont. */}
+          <Button
+            href={appLinks.demo}
+            fullWidth
+            className="!bg-white !text-blue hover:!bg-blue-soft lg:w-auto"
+          >
+            {t.demo}
+          </Button>
+          <Button
+            href={appLinks.zapis}
+            variant="secondaryDark"
+            fullWidth
+            className="!border-white/45 hover:!border-white lg:w-auto"
+          >
+            {t.zapis}
+          </Button>
         </div>
-      </Container>
+        <p className="text-center text-[13px] text-white/70 lg:text-caption">{t.nota}</p>
+      </div>
+    </>
+  );
 
-      <Container className="relative mt-16 pb-24 lg:mt-24 lg:pb-40">
+  // Przyciemnione boki jak na banerze. Tylko w poziomie, żeby tło banera
+  // i pasmo za laptopem łączyły się bez szwu.
+  const winieta =
+    'bg-[linear-gradient(90deg,rgba(4,22,90,.38),transparent_28%,transparent_72%,rgba(4,22,90,.38))]';
+
+  return (
+    <section id="hero" className="relative overflow-hidden bg-paper">
+      <div className="relative bg-blue px-6 pt-24 lg:px-12 lg:pt-40">
+        <div aria-hidden className={`absolute inset-0 ${winieta}`} />
+        <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
+          {tresc}
+        </Container>
+        <div className="h-16 lg:h-24" />
+      </div>
+
+      {/* Niebieski schodzi za górną połowę laptopa: wysokość to połowa
+          pudła bez dolnego odstępu (pb-24, na desktopie pb-40). */}
+      <div className="relative px-6 lg:px-12">
         <div
           aria-hidden
-          className="absolute right-[10%] bottom-35 left-[10%] h-30 rounded-[50%] bg-blue opacity-30 blur-[70px] lg:bottom-50 lg:h-50 lg:opacity-28 lg:blur-[120px]"
-        />
-        <div data-reveal className="relative">
-          <MockupSlot
-            file="mockup-hero-pulpit-desktop.png"
-            label={t.label}
-            note={t.opis}
-            ratio="16:10"
-            noteClassName="mx-auto max-w-[600px]"
-          >
-            <PulpitMockup />
-          </MockupSlot>
-          {/*
-            Telefon kierowcy oparty o prawy dolny róg laptopa: biuro i kierowca
-            na jednym obrazku, zanim czytelnik przewinie dalej. Pozycja liczona
-            od pudła 16:10 – ekran laptopa kończy się na 88% szerokości
-            i 80% wysokości, więc telefon zachodzi na róg ekranu, nie zasłania
-            listy „Do zrobienia”.
-          */}
-          <div
-            className="absolute right-[-2%] bottom-[-2%] w-[30%] max-w-[320px] drop-shadow-[0_24px_40px_rgba(10,10,11,0.35)] lg:right-[-1%] lg:bottom-[0%] lg:w-[26%]"
-            style={{ aspectRatio: '1226 / 2064' }}
-          >
-            <Makieta
-              src="/mockups/mockup-hero-telefon-phone.png"
-              alt={t.telefon}
-              sizes="(max-width: 1024px) 30vw, 320px"
-              unoptimized={false}
-              imgClassName="object-contain"
-              etykietaPowieksz={t.powieksz}
-              etykietaZamknij={t.zamknij}
-            />
-          </div>
+          className="absolute inset-x-0 top-0 h-[calc((100%-6rem)/2)] bg-blue lg:h-[calc((100%-10rem)/2)]"
+        >
+          <div className={`absolute inset-0 ${winieta}`} />
         </div>
-      </Container>
+        <Container className="relative pb-24 lg:pb-40">
+          <div
+            aria-hidden
+            className="absolute right-[10%] bottom-35 left-[10%] h-30 rounded-[50%] bg-blue opacity-30 blur-[70px] lg:bottom-50 lg:h-50 lg:opacity-28 lg:blur-[120px]"
+          />
+          <div data-reveal className="relative">
+            <MockupSlot
+              file="mockup-hero-pulpit-desktop.png"
+              label={t.label}
+              note={t.opis}
+              ratio="16:10"
+              noteClassName="mx-auto max-w-[600px]"
+            >
+              <PulpitMockup />
+            </MockupSlot>
+            {/*
+              Telefon kierowcy oparty o prawy dolny róg laptopa: biuro i kierowca
+              na jednym obrazku, zanim czytelnik przewinie dalej. Pozycja liczona
+              od pudła 16:10 – ekran laptopa kończy się na 88% szerokości
+              i 80% wysokości, więc telefon zachodzi na róg ekranu, nie zasłania
+              listy „Do zrobienia”.
+            */}
+            <div
+              className="absolute right-[-2%] bottom-[-2%] w-[30%] max-w-[320px] drop-shadow-[0_24px_40px_rgba(10,10,11,0.35)] lg:right-[-1%] lg:bottom-[0%] lg:w-[26%]"
+              style={{ aspectRatio: '1226 / 2064' }}
+            >
+              <Makieta
+                src="/mockups/mockup-hero-telefon-phone.png"
+                alt={t.telefon}
+                sizes="(max-width: 1024px) 30vw, 320px"
+                unoptimized={false}
+                imgClassName="object-contain"
+                etykietaPowieksz={t.powieksz}
+                etykietaZamknij={t.zamknij}
+              />
+            </div>
+          </div>
+        </Container>
+      </div>
     </section>
   );
 }

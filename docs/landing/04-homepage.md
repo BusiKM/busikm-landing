@@ -47,6 +47,14 @@ niebieski przycisk „Zobacz demo”.
 
 ## 2 · Hero — J
 
+> **Zmiana 18.11.2026: hero to baner marki.** Wygląda jak okładka na Facebooku i baner na YouTube:
+> niebieskie tło (`blue`) z przyciemnionymi bokami, pierwsza linia nagłówka biała, druga
+> jasnoniebieska (`blue-mist`, #B9CEFF), podtytuł i nadtytuł białe z przezroczystością.
+> Przyciski: „Zobacz demo” biały z niebieskim tekstem, „Zapisz się na start” z białym obrysem.
+> Niebieski schodzi do połowy laptopa, niżej zaczyna się jasna strona. To standard: nowy baner
+> (Facebook, YouTube, obrazek do udostępniania) powtarza te kolory i dwukolorowy nagłówek.
+> Kod: `landing/src/components/sections/Hero.tsx`.
+
 **Nadtytuł** *(caption, wersaliki, szary — nad nagłówkiem)*
 > BUSY 2,5–3,5 T · TRANSPORT KRAJOWY I MIĘDZYNARODOWY
 

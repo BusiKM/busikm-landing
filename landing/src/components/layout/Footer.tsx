@@ -59,7 +59,7 @@ const TEKSTY: Tlumaczenia<{
     pobierz: 'Pobierz BusiKM Kierowca z Google Play',
     iphone: 'Wkrótce na iPhone',
     znaki:
-      'Android jest znakiem towarowym Google LLC. Google Play i logo Google Play są znakami towarowymi Google LLC. Robot Androida jest odtworzony lub zmodyfikowany na podstawie pracy stworzonej i udostępnionej przez Google, na warunkach licencji Creative Commons 3.0 Uznanie autorstwa.',
+      'Android, Google Play, Android Auto, Mapy Google i Waze są znakami towarowymi Google LLC. Robot Android został odtworzony lub zmodyfikowany na podstawie projektu utworzonego i udostępnionego przez firmę Google. Jego wykorzystanie jest zgodne z warunkami opisanymi w licencji Creative Commons 3.0 - Uznanie autorstwa.',
   },
   en: {
     domu: 'BusiKM - home',
@@ -75,7 +75,7 @@ const TEKSTY: Tlumaczenia<{
     pobierz: 'Get BusiKM Kierowca on Google Play',
     iphone: 'Coming soon for iPhone',
     znaki:
-      'Android is a trademark of Google LLC. Google Play and the Google Play logo are trademarks of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.',
+      'Android, Google Play, Android Auto, Google Maps and Waze are trademarks of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.',
   },
 };
 
@@ -184,11 +184,13 @@ export function Footer() {
           {t.drobnyDruk.map((zdanie) => (
             <p key={zdanie}>{zdanie}</p>
           ))}
-          {/* Nota wymagana przez wytyczne marek Google: odznaka Google Play
-              w stopce i hero, robot Androida w hero (licencja CC BY 3.0
-              wymaga podania autora). Osobno od drobnego druku powyżej, bo
-              to nie jest twierdzenie o produkcie. Zostaje, dopóki strona
-              pokazuje odznakę albo robota. */}
+          {/* Nota wymagana przez wytyczne marek Google, brzmienie z ich
+              generatora (partnermarketinghub.withgoogle.com/tools/
+              legal-line-generator, 18.11.2026): Android i Google Play
+              w hero i stopce, Android Auto, Mapy Google i Waze w tekstach, robot
+              Androida w hero (licencja CC BY 3.0). Jedyna zmiana: „-”
+              zamiast półpauzy, jak wszędzie na stronie. Dochodzi nowa marka
+              Google na stronie, generujemy notę od nowa. */}
           <p>{t.znaki}</p>
         </div>
 

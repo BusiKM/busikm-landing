@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import Link from '@/i18n/Link';
 import { Container } from '@/components/ui/Container';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { firma } from '@/content/firma';
+import { linkGooglePlay } from '@/content/sklepy';
 import { Logo } from '@/components/layout/Logo';
 import { nawigacja } from '@/content/navigation';
 import { PrzyciskCookie } from '@/components/analytics/PrzyciskCookie';
@@ -40,6 +42,9 @@ const TEKSTY: Tlumaczenia<{
   sad: string;
   kapital: string;
   odpowiedz: string;
+  pobierz: string;
+  iphone: string;
+  znaki: string;
 }> = {
   pl: {
     domu: 'BusiKM - strona główna',
@@ -51,6 +56,10 @@ const TEKSTY: Tlumaczenia<{
     sad: firma.sad,
     kapital: `Kapitał zakładowy ${firma.kapital}`,
     odpowiedz: 'Odpisujemy tego samego dnia roboczego',
+    pobierz: 'Pobierz BusiKM Kierowca z Google Play',
+    iphone: 'Wkrótce na iPhone',
+    znaki:
+      'Android, Google Play, Android Auto, Mapy Google i Waze są znakami towarowymi Google LLC. Robot Android został odtworzony lub zmodyfikowany na podstawie projektu utworzonego i udostępnionego przez firmę Google. Jego wykorzystanie jest zgodne z warunkami opisanymi w licencji Creative Commons 3.0 - Uznanie autorstwa.',
   },
   en: {
     domu: 'BusiKM - home',
@@ -63,6 +72,10 @@ const TEKSTY: Tlumaczenia<{
     sad: `District Court for Szczecin-Centrum in Szczecin, 13th Commercial Division of the National Court Register (${firma.sad})`,
     kapital: `Share capital PLN 5,000`,
     odpowiedz: 'We reply the same business day',
+    pobierz: 'Get BusiKM Kierowca on Google Play',
+    iphone: 'Coming soon for iPhone',
+    znaki:
+      'Android, Google Play, Android Auto, Google Maps and Waze are trademarks of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.',
   },
 };
 
@@ -96,6 +109,29 @@ export function Footer() {
               <IkonaFacebook />
               Facebook
             </a>
+            {/* Ten sam wzór co `StoreBadges`: oficjalna odznaka i iPhone bez daty.
+                Plik ma u góry i u dołu przezroczysty margines (widoczna odznaka
+                to 192 z 250 px), więc 57 px pliku daje 44 px odznaki, równo
+                z przyciskiem Facebooka. Ujemny margines zjada tę pustkę, żeby
+                odstępy w kolumnie zostały równe. */}
+            <div className="flex flex-col gap-2">
+              <a
+                href={linkGooglePlay('stopka')}
+                target="_blank"
+                rel="noopener"
+                aria-label={t.pobierz}
+                className="-my-[7px] block w-fit transition-opacity hover:opacity-85"
+              >
+                <Image
+                  src="/sklepy/google-play-pl.png"
+                  alt=""
+                  width={646}
+                  height={250}
+                  className="h-[57px] w-auto"
+                />
+              </a>
+              <span className="text-[13px] text-ink-muted">{t.iphone}</span>
+            </div>
           </div>
 
           {kolumnyNawigacji.map((column) => (
@@ -148,6 +184,14 @@ export function Footer() {
           {t.drobnyDruk.map((zdanie) => (
             <p key={zdanie}>{zdanie}</p>
           ))}
+          {/* Nota wymagana przez wytyczne marek Google, brzmienie z ich
+              generatora (partnermarketinghub.withgoogle.com/tools/
+              legal-line-generator, 18.11.2026): Android i Google Play
+              w hero i stopce, Android Auto, Mapy Google i Waze w tekstach, robot
+              Androida w hero (licencja CC BY 3.0). Jedyna zmiana: „-”
+              zamiast półpauzy, jak wszędzie na stronie. Dochodzi nowa marka
+              Google na stronie, generujemy notę od nowa. */}
+          <p>{t.znaki}</p>
         </div>
 
         <div className="flex flex-col gap-4 border-t border-line-dark pt-6 text-[12px] text-ink-muted lg:flex-row lg:items-baseline lg:justify-between lg:gap-6 lg:text-caption">

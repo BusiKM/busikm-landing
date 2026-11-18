@@ -123,7 +123,8 @@ function aplikacja(jezyk: Jezyk) {
     applicationCategory: 'BusinessApplication',
     applicationSubCategory:
       jezyk === 'pl' ? 'Zarządzanie flotą i transportem' : 'Fleet and transport management',
-    operatingSystem: 'Web, iOS, Android',
+    // iOS dopisać, gdy BusiKM Kierowca będzie w App Store.
+    operatingSystem: 'Web, Android',
     url: serwis.url,
     description: opisSerwisu[jezyk].opis,
     inLanguage: KODY[jezyk].lang,

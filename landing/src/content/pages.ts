@@ -57,16 +57,16 @@ const strony = {
   },
 
   'co-robi/aplikacja-kierowcy': {
-    eyebrow: 'BusiKM Kierowca na iPhone i Androida',
+    eyebrow: 'BusiKM Kierowca na Androida, wkrótce na iPhone',
     heading: 'Cały dzień pracy w jednej aplikacji.\nBez wpisywania czegokolwiek w trasie.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku.',
     title: 'Aplikacja kierowcy',
     seoTitle: 'Aplikacja dla kierowcy busa - trasa i koszty | BusiKM',
     description:
-      'Aplikacja dla kierowców: zlecenia, nawigacja w Apple Maps, Google Maps albo Waze, koszt ze zdjęcia i przerwy zapisane bez zasięgu. iPhone i Android.',
+      'Aplikacja dla kierowców: zlecenia, nawigacja w Google Maps albo Waze, koszt ze zdjęcia i przerwy zapisane bez zasięgu. Android, wkrótce iPhone.',
     outline: [
       'Wchodzi kodem z zaproszenia i ustawia hasło',
-      'Nawigacja jednym dotknięciem - Apple Maps, Google Maps albo Waze',
+      'Nawigacja jednym dotknięciem - Google Maps albo Waze',
       'Zdjęcie licznika i „Zacznij dzień”',
       'Koszt dodaje jednym przyciskiem, w trasie',
       'Przerwa i powrót jednym tapnięciem',
@@ -299,7 +299,7 @@ const strony = {
     title: 'BusiKM dla kierowcy',
     seoTitle: 'BusiKM dla kierowcy - aplikacja na telefon',
     description:
-      'Zdjęcie licznika, „Zacznij dzień” i w drogę. Przerwy i koszty w tej samej aplikacji, nawigacja w Apple Maps, Google Maps albo Waze.',
+      'Zdjęcie licznika, „Zacznij dzień” i w drogę. Przerwy i koszty w tej samej aplikacji, nawigacja w Google Maps albo Waze.',
   },
 
   cennik: {
@@ -417,16 +417,16 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
   },
 
   'co-robi/aplikacja-kierowcy': {
-    eyebrow: 'BusiKM Driver for iPhone and Android',
+    eyebrow: 'BusiKM Kierowca for Android, iPhone coming soon',
     heading: 'A whole working day in one app.\nNothing to type on the road.',
     lead: 'The driver gets a code by email, enters it in the app, sets a password and is in.',
     title: 'Driver app',
     seoTitle: 'Van driver app - routes and expenses | BusiKM',
     description:
-      'App for van drivers: orders, navigation in Apple Maps, Google Maps or Waze, costs from a photo, and breaks saved without signal. iPhone and Android.',
+      'App for van drivers: orders, navigation in Google Maps or Waze, costs from a photo, and breaks saved without signal. Android now, iPhone coming soon.',
     outline: [
       'Signs in with an invitation code and sets a password',
-      'Navigation in one tap - Apple Maps, Google Maps or Waze',
+      'Navigation in one tap - Google Maps or Waze',
       'An odometer photo and “Start the day”',
       'Adds a cost with one button, on the road',
       'Break and back in one tap',
@@ -660,7 +660,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     title: 'BusiKM for drivers',
     seoTitle: 'BusiKM for drivers - the van driver app',
     description:
-      'An odometer photo, “Start the day” and off you go. Breaks and costs in the same app, navigation in Apple Maps, Google Maps or Waze.',
+      'An odometer photo, “Start the day” and off you go. Breaks and costs in the same app, navigation in Google Maps or Waze.',
   },
 
   cennik: {

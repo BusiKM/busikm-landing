@@ -55,6 +55,35 @@ niebieski przycisk „Zobacz demo”.
 > (Facebook, YouTube, obrazek do udostępniania) powtarza te kolory i dwukolorowy nagłówek.
 > Kod: `landing/src/components/sections/Hero.tsx`.
 
+> **Zmiana 18.11.2026: hero premiery BusiKM Kierowca na Androida.** Na czas startu w Google Play
+> hero ogłasza aplikację. Kolory banera marki zostają, zmienia się treść i scena:
+>
+> - nad nagłówkiem ikona aplikacji pod jasnym światłem (gradient radialny) i pigułka
+>   „Nowość” + „Dla kierowców Twojej firmy”,
+> - nagłówek „BusiKM Kierowca” / „już na Androida™.”, druga linia w `blue-mist`; ™ przy
+>   pierwszym „Android” wymagają wytyczne marki Android,
+> - podtytuł mówi wprost, że kierowca loguje się kodem zaproszenia od firmy, więc sama
+>   aplikacja nie wystarczy do założenia konta,
+> - główny przycisk to oficjalna polska odznaka Google Play (`/sklepy/google-play-pl.png`,
+>   link z `linkGooglePlay('hero')`), obok biały „Zobacz demo”; „Zapisz się na start” zszedł
+>   z hero (zostaje w nawigacji i niżej na stronie),
+> - pod przyciskami „Wersja na iPhone wkrótce.” i nota o demo, bez dat.
+>
+> **Ikony w tle** (`landing/src/components/sections/IkonyStartu.tsx`): oficjalny robot Androida
+> w 3D od Google (`/marki/android-robot-3d.png`, licencja CC BY 3.0) i ikona BusiKM Kierowca,
+> rozsypane w trzech planach jak w obiektywie: z tyłu małe, rozmyte i przygaszone, z przodu
+> duże i ostre. Unoszą się powoli (`.ikona-unosi` w `globals.css`) i przesuwają za kursorem,
+> tym mocniej, im bliżej stoją. Przy „ogranicz ruch” stoją w miejscu. Na telefonie widać trzy
+> ikony w prawym górnym rogu, reszta znika poniżej `lg`.
+>
+> **Czego tu nie ma i dlaczego:** samodzielnej ikony Google Play (Google pozwala jej używać tylko
+> w oficjalnej odznace) ani napisu „android” (logotyp jest zastrzeżony do użytku Google).
+> Robot w pliku ma 303 px szerokości, więc na stronie najwyżej 150 px, żeby na ekranie retina
+> nie był powiększany ponad oryginał.
+>
+> **Powrót do hero marki** po okresie startu: treść poprzedniego hero („Kierowca jedzie. Reszta
+> dzieje się sama.”) jest w historii gita, w commicie przed zmianą „hero premiery”.
+
 **Nadtytuł** *(caption, wersaliki, szary — nad nagłówkiem)*
 > BUSY 2,5–3,5 T · TRANSPORT KRAJOWY I MIĘDZYNARODOWY
 

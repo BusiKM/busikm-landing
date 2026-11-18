@@ -10,19 +10,19 @@ type Punkt = readonly [string, string];
 
 const PUNKTY: Tlumaczenia<readonly Punkt[]> = {
   pl: [
-    ['Nawigacja jednym dotknięciem', 'Trasa ze zlecenia otwiera się w Apple Maps, Google Maps albo Waze. Nic nie przepisuje'],
+    ['Nawigacja jednym dotknięciem', 'Trasa ze zlecenia otwiera się w Google Maps albo Waze. Nic nie przepisuje'],
     ['Paragon jednym przyciskiem', 'Zatankował, pstryknął, jedzie dalej. Kwotę BusiKM odczyta sam'],
     ['Działa bez zasięgu', 'Tunel, góry, terminal promowy. Wszystko dośle, gdy złapie sygnał'],
     ['Widzi, co czeka na wysłanie', 'Żadnego zgadywania, czy dane doszły'],
-    ['Działa z CarPlay i Android Auto', 'Trasa na ekranie w kabinie, BusiKM zapisuje przejazd w tle'],
+    ['Działa z Android Auto', 'Trasa na ekranie w kabinie, BusiKM zapisuje przejazd w tle'],
     ['Tryb nocny', 'O trzeciej nad ranem ekran nie razi w oczy'],
   ],
   en: [
-    ['Navigation in one tap', 'The route from the order opens in Apple Maps, Google Maps or Waze. Nothing to retype'],
+    ['Navigation in one tap', 'The route from the order opens in Google Maps or Waze. Nothing to retype'],
     ['A receipt in one tap', 'Filled up, snapped the receipt, back on the road. BusiKM reads the amount itself'],
     ['Works without signal', 'Tunnel, mountains, ferry terminal. It all goes through once there’s signal again'],
     ['Sees what’s waiting to send', 'No guessing whether the data got through'],
-    ['Works with CarPlay and Android Auto', 'The route on the dashboard screen, while BusiKM logs the trip in the background'],
+    ['Works with Android Auto', 'The route on the dashboard screen, while BusiKM logs the trip in the background'],
     ['Night mode', 'At three in the morning the screen doesn’t dazzle'],
   ],
 };
@@ -62,14 +62,14 @@ const TEKSTY: Tlumaczenia<{
   opis: string;
 }> = {
   pl: {
-    eyebrow: 'BusiKM Kierowca na iPhone i Androida',
+    eyebrow: 'BusiKM Kierowca na Androida, wkrótce na iPhone',
     naglowek: 'Cały dzień pracy w jednej aplikacji.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku. Nie dzwoni do Ciebie z pytaniem, jak się zalogować.',
     label: 'Aplikacja kierowcy (telefon, tryb nocny)',
     opis: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: ekran „Czas pracy” przy przewozie międzynarodowym z bieżącym stanem, przypomnieniem o przerwie, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
-    eyebrow: 'BusiKM Driver for iPhone and Android',
+    eyebrow: 'BusiKM Kierowca for Android, iPhone coming soon',
     naglowek: 'The whole working day in one app.',
     lead: 'The driver gets a code by email, types it into the app, sets a password and they’re in. No calling you to ask how to log in.',
     label: 'Driver app (phone, night mode)',
@@ -136,7 +136,7 @@ export function AplikacjaKierowcy() {
             ))}
           </div>
 
-          <StoreBadges />
+          <StoreBadges miejsce="sekcja-kierowcy" />
         </div>
 
         {/*

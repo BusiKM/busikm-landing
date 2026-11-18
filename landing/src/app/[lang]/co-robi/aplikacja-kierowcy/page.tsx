@@ -48,7 +48,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     nawigacja: {
       tytul: 'Nawigacja jednym dotknięciem',
       tresc:
-        'Ekran zlecenia pokazuje trasę i godzinę z BusiKM. Jedno dotknięcie i trasa otwiera się w Apple Maps, Google Maps albo Waze. Kierowca wybiera raz, zmienia w ustawieniach. Działa z CarPlay i Android Auto. Nic nie przepisuje, a BusiKM zapisuje przejazd w tle.',
+        'Ekran zlecenia pokazuje trasę i godzinę z BusiKM. Jedno dotknięcie i trasa otwiera się w Google Maps albo Waze. Kierowca wybiera raz, zmienia w ustawieniach. Działa z Android Auto. Nic nie przepisuje, a BusiKM zapisuje przejazd w tle.',
       label: 'Wybór nawigacji (telefon, tryb nocny)',
       note: 'Ekran „Dziś” z kursem Kraków → Antwerpen, a na nim plansza „Czym nawigujesz?” z wyborem Apple Maps, Google Maps albo Waze.',
     },
@@ -92,7 +92,7 @@ const TEKSTY: Tlumaczenia<Teksty> = {
     nawigacja: {
       tytul: 'Navigation in one tap',
       tresc:
-        'The order screen shows the route and the time from BusiKM. One tap and the route opens in Apple Maps, Google Maps or Waze. The driver picks one once and can change it in the settings. It works with CarPlay and Android Auto. Nothing to retype, and BusiKM logs the trip in the background.',
+        'The order screen shows the route and the time from BusiKM. One tap and the route opens in Google Maps or Waze. The driver picks one once and can change it in the settings. It works with Android Auto. Nothing to retype, and BusiKM logs the trip in the background.',
       label: 'Choosing navigation (phone, dark mode)',
       note: 'The “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” sheet offering Apple Maps, Google Maps or Waze.',
     },

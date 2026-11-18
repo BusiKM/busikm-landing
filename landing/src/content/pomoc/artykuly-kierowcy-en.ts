@@ -83,7 +83,7 @@ export const artykulyKierowcyEn: Artykul[] = [
     role: ['kierowca'],
     gdzie: 'The BusiKM Driver app (BusiKM Kierowca)',
     czas: 'Five minutes',
-    zanim: ['The email with the invitation code from your employer', 'An Android phone or an iPhone'],
+    zanim: ['The email with the invitation code from your employer', 'An Android phone with Android 7.0 or later (the iPhone version is coming soon)'],
     rozdzialy: [
       {
         tytul: 'Getting into the app',
@@ -91,7 +91,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'kroki',
             kroki: [
-              { tytul: 'Install the BusiKM Driver app (BusiKM Kierowca) from the link in your invitation' },
+              { tytul: 'Install the BusiKM Driver app (BusiKM Kierowca) from Google Play or from the link in your invitation' },
               { tytul: 'Open the app and choose I have an invitation (Mam zaproszenie)' },
               {
                 tytul: 'Enter your email and the invitation code (Kod zaproszenia)',
@@ -197,7 +197,7 @@ export const artykulyKierowcyEn: Artykul[] = [
               },
               {
                 tytul: 'Choose Navigate (Nawiguj)',
-                opis: 'The route from the order opens in Apple Maps, Google Maps or Waze. You pick the app once and can change it in the settings. It works with CarPlay and Android Auto.',
+                opis: 'The route from the order opens in Google Maps or Waze. You pick the app once and can change it in the settings. It works with Android Auto.',
               },
               {
                 tytul: 'When you arrive, choose At loading (Jestem na załadunku)',

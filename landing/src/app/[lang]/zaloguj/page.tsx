@@ -17,9 +17,9 @@ const TEKSTY: Tlumaczenia<{
 }> = {
   pl: {
     etapy: [
-      ['Teraz', 'MVP sprawdzamy na prawdziwych trasach, w małej grupie firm'],
+      ['Teraz', 'MVP sprawdzamy na prawdziwych trasach, w małej grupie firm. Aplikacja BusiKM Kierowca jest już w Google Play'],
       ['Potem', 'otwieramy zapisy - pierwsze 14 dni bez opłat'],
-      ['Dalej', 'aplikacja kierowcy w App Store i Google Play'],
+      ['Dalej', 'BusiKM Kierowca na iPhone'],
     ],
     kontoTestowe: 'Masz już konto testowe?',
     zalogujTestowo: 'Zaloguj się w wersji testowej →',
@@ -29,9 +29,9 @@ const TEKSTY: Tlumaczenia<{
   },
   en: {
     etapy: [
-      ['Now', 'we’re testing the MVP on real routes with a small group of companies'],
+      ['Now', 'we’re testing the MVP on real routes with a small group of companies. The BusiKM Kierowca app is already on Google Play'],
       ['Next', 'sign-ups open - the first 14 days free'],
-      ['Later', 'the driver app on the App Store and Google Play'],
+      ['Later', 'BusiKM Kierowca for iPhone'],
     ],
     kontoTestowe: 'Already have a test account?',
     zalogujTestowo: 'Sign in to the test version →',

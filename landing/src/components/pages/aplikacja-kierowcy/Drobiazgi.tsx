@@ -16,7 +16,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Drobiazgi, które widać dopiero w trasie.',
     kafelki: [
       'Tryb nocny',
-      'Działa z CarPlay i Android Auto',
+      'Działa z Android Auto',
       'Powiadomienia o nowym zleceniu',
       'Podpis i zdjęcia przy załadunku i rozładunku (e-CMR)',
       'Historia zakończonych zleceń',
@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Small things you only notice on the road.',
     kafelki: [
       'Dark mode',
-      'Works with CarPlay and Android Auto',
+      'Works with Android Auto',
       'New order notifications',
       'Signature and photos at loading and unloading (e-CMR)',
       'History of finished orders',
@@ -63,7 +63,7 @@ export function Drobiazgi() {
         </div>
 
         <div className="flex flex-col gap-6 border-t border-line-dark pt-10 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:pt-16">
-          <StoreBadges />
+          <StoreBadges miejsce="aplikacja" />
           <p className="text-[16px] leading-relaxed text-ink-muted lg:text-body">
             {t.ktoUzywa}{' '}
             <Link href="/dla-kogo/kierowca" className="text-blue-light">

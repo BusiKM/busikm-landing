@@ -3,7 +3,7 @@ import Link from '@/i18n/Link';
 import { Container } from '@/components/ui/Container';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { firma } from '@/content/firma';
-import { linkGooglePlay } from '@/content/sklepy';
+import { linkGooglePlay, markaAndroid } from '@/content/sklepy';
 import { Logo } from '@/components/layout/Logo';
 import { nawigacja } from '@/content/navigation';
 import { PrzyciskCookie } from '@/components/analytics/PrzyciskCookie';
@@ -45,6 +45,7 @@ const TEKSTY: Tlumaczenia<{
   pobierz: string;
   iphone: string;
   znaki: string;
+  robot: string;
 }> = {
   pl: {
     domu: 'BusiKM - strona główna',
@@ -56,10 +57,12 @@ const TEKSTY: Tlumaczenia<{
     sad: firma.sad,
     kapital: `Kapitał zakładowy ${firma.kapital}`,
     odpowiedz: 'Odpisujemy tego samego dnia roboczego',
-    pobierz: 'Pobierz BusiKM Kierowca z Google Play',
+    pobierz: 'BusiKM Kierowca w Google Play',
     iphone: 'Wkrótce na iPhone',
     znaki:
-      'Android, Google Play, Android Auto, Mapy Google i Waze są znakami towarowymi Google LLC. Robot Android został odtworzony lub zmodyfikowany na podstawie projektu utworzonego i udostępnionego przez firmę Google. Jego wykorzystanie jest zgodne z warunkami opisanymi w licencji Creative Commons 3.0 - Uznanie autorstwa.',
+      'Android i Google Play są znakami towarowymi Google LLC.',
+    robot:
+      'Robot Android został odtworzony lub zmodyfikowany na podstawie projektu utworzonego i udostępnionego przez firmę Google. Jego wykorzystanie jest zgodne z warunkami opisanymi w licencji Creative Commons 3.0 - Uznanie autorstwa.',
   },
   en: {
     domu: 'BusiKM - home',
@@ -75,7 +78,9 @@ const TEKSTY: Tlumaczenia<{
     pobierz: 'Get BusiKM Kierowca on Google Play',
     iphone: 'Coming soon for iPhone',
     znaki:
-      'Android, Google Play, Android Auto, Google Maps and Waze are trademarks of Google LLC. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.',
+      'Android and Google Play are trademarks of Google LLC.',
+    robot:
+      'The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.',
   },
 };
 
@@ -184,14 +189,18 @@ export function Footer() {
           {t.drobnyDruk.map((zdanie) => (
             <p key={zdanie}>{zdanie}</p>
           ))}
-          {/* Nota wymagana przez wytyczne marek Google, brzmienie z ich
-              generatora (partnermarketinghub.withgoogle.com/tools/
-              legal-line-generator, 18.11.2026): Android i Google Play
-              w hero i stopce, Android Auto, Mapy Google i Waze w tekstach, robot
-              Androida w hero (licencja CC BY 3.0). Jedyna zmiana: „-”
-              zamiast półpauzy, jak wszędzie na stronie. Dochodzi nowa marka
-              Google na stronie, generujemy notę od nowa. */}
-          <p>{t.znaki}</p>
+          {/* Nota o znakach Google w brzmieniu od zespołu marki Android
+              (zgłoszenie a384508e8b7b, 19.11.2026). Na stronie są tylko
+              Android i Google Play, głowa robota przy krawędzi hero (stąd
+              nota o licencji CC BY 3.0, razem z przełącznikiem
+              `markaAndroid`), bez nazw Mapy Google, Waze i Android Auto, które
+              wymagałyby osobnej akceptacji. Nowa marka Google na stronie =
+              nowe zgłoszenie i nota z generatora
+              (partnermarketinghub.withgoogle.com/tools/legal-line-generator). */}
+          <p>
+            {t.znaki}
+            {markaAndroid && ` ${t.robot}`}
+          </p>
         </div>
 
         <div className="flex flex-col gap-4 border-t border-line-dark pt-6 text-[12px] text-ink-muted lg:flex-row lg:items-baseline lg:justify-between lg:gap-6 lg:text-caption">

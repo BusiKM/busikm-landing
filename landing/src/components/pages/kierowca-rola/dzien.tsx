@@ -20,7 +20,7 @@ export const dzienKierowcy: Tlumaczenia<MomentDnia[]> = {
       godzina: '6:06',
       tresc: 'Nawigacja otwiera się jednym dotknięciem.',
       plik: 'mockup-kierowca-nawigacja-phone.png',
-      alt: 'Okno „Czym nawigujesz?” nad ekranem „Dziś”: Apple Maps, Google Maps i Waze.',
+      alt: 'Okno „Czym nawigujesz?” nad ekranem „Dziś” z listą aplikacji nawigacyjnych.',
     },
     {
       godzina: '11:38',
@@ -58,7 +58,7 @@ export const dzienKierowcy: Tlumaczenia<MomentDnia[]> = {
       godzina: '6:06',
       tresc: 'Navigation opens in one tap.',
       plik: 'mockup-kierowca-nawigacja-phone.png',
-      alt: 'The “How do you navigate?” sheet over the “Today” screen: Apple Maps, Google Maps and Waze.',
+      alt: 'The “How do you navigate?” sheet over the “Today” screen, listing navigation apps.',
     },
     {
       godzina: '11:38',

@@ -16,7 +16,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Drobiazgi, które widać dopiero w trasie.',
     kafelki: [
       'Tryb nocny',
-      'Działa z Android Auto',
+      'Trasa także na ekranie w kabinie',
       'Powiadomienia o nowym zleceniu',
       'Podpis i zdjęcia przy załadunku i rozładunku (e-CMR)',
       'Historia zakończonych zleceń',
@@ -32,7 +32,7 @@ const TEKSTY: Tlumaczenia<{
     naglowek: 'Small things you only notice on the road.',
     kafelki: [
       'Dark mode',
-      'Works with Android Auto',
+      'The route on the in-cab screen too',
       'New order notifications',
       'Signature and photos at loading and unloading (e-CMR)',
       'History of finished orders',

@@ -17,7 +17,7 @@ import { biezacyJezyk } from '@/i18n/serwer';
 
 const TEKSTY: Tlumaczenia<{ pobierz: string; wkrotce: string; iphone: string; kod: string }> = {
   pl: {
-    pobierz: 'Pobierz BusiKM Kierowca z Google Play',
+    pobierz: 'BusiKM Kierowca w Google Play',
     wkrotce: 'Wkrótce',
     iphone: 'na iPhone',
     kod: 'Kod zaproszenia dostajesz od swojej firmy.',

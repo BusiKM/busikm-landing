@@ -60,7 +60,7 @@ niebieski przycisk „Zobacz demo”.
 >
 > - nad nagłówkiem ikona aplikacji pod jasnym światłem (gradient radialny) i pigułka
 >   „Nowość” + „Dla kierowców Twojej firmy”,
-> - nagłówek „BusiKM Kierowca” / „już na Androida™.”, druga linia w `blue-mist`; ™ przy
+> - nagłówek „BusiKM Kierowca” / „już na system Android™.” (od 19.11.2026), druga linia w `blue-mist`; ™ przy
 >   pierwszym „Android” wymagają wytyczne marki Android,
 > - podtytuł mówi wprost, że kierowca loguje się kodem zaproszenia od firmy, więc sama
 >   aplikacja nie wystarczy do założenia konta,
@@ -80,6 +80,27 @@ niebieski przycisk „Zobacz demo”.
 > w oficjalnej odznace) ani napisu „android” (logotyp jest zastrzeżony do użytku Google).
 > Robot w pliku ma 303 px szerokości, więc na stronie najwyżej 150 px, żeby na ekranie retina
 > nie był powiększany ponad oryginał.
+>
+> **Zmiana 19.11.2026: uwagi zespołu marki Android** (Partner Marketing Hub, zgłoszenie
+> a384508e8b7b, runda 1). Wprowadzone:
+>
+> - nazwy „Android” nie odmieniamy: „już na system Android™.”, „z systemem Android”,
+>   nigdy „na Androida”, „z Androidem”; ™ przy pierwszym albo najbardziej widocznym użyciu,
+> - „w Google Play” zamiast „z Google Play” w tekstach (odznaka zostaje oficjalna),
+> - wokół odznaki Google Play wolne pole co najmniej 1/4 jej wysokości (w hero odstęp 24 px),
+> - unoszące się roboty usunięte, w tle zostają ikony BusiKM Kierowca; plik
+>   `android-robot-3d.png` usunięty,
+> - głowa robota wolno tylko przy krawędzi (podstawa równo z krawędzią, cała, bez
+>   przycięcia) i zawsze ze znakiem słownym Android po przeciwnej stronie. W hero: głowa
+>   z lewej krawędzi banera, logo „Android” przy prawej, tylko desktop (`MarkaAndroid`
+>   w `Hero.tsx`). Pliki z Partner Marketing Hub są poufne do akceptacji Google, a repo jest
+>   publiczne, więc ich tu nie ma; włącza je przełącznik `markaAndroid` w
+>   `src/content/sklepy.ts` (lokalnie `NEXT_PUBLIC_MARKA_ANDROID=1`),
+> - nota w stopce: „Android i Google Play są znakami towarowymi Google LLC.”, nota
+>   o licencji robota tylko razem z głową robota,
+> - bez nazw Mapy Google, Waze i Android Auto na całej stronie (każda wymagałaby osobnej
+>   akceptacji): „nawigacja, której kierowca używa na co dzień”, „ekran w kabinie”.
+>   Uwaga: makiety ekranu „Czym nawigujesz?” nadal pokazują logo aplikacji map.
 >
 > **Powrót do hero marki** po okresie startu: treść poprzedniego hero („Kierowca jedzie. Reszta
 > dzieje się sama.”) jest w historii gita, w commicie przed zmianą „hero premiery”.

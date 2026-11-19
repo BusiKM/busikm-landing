@@ -4,24 +4,24 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 /**
- * Rozsypane ikony za hero startu aplikacji: robot Androida (oficjalny plik
- * 3D od Google, licencja CC BY 3.0, dopisek w stopce) i ikona BusiKM
- * Kierowca. Trzy plany jak w obiektywie: z tyłu małe i rozmyte, z przodu
- * duże i ostre. Za kursorem przesuwają się tym mocniej, im bliżej stoją.
+ * Rozsypane ikony BusiKM Kierowca za hero startu aplikacji. Trzy plany jak
+ * w obiektywie: z tyłu małe i rozmyte, z przodu duże i ostre. Za kursorem
+ * przesuwają się tym mocniej, im bliżej stoją.
  *
- * Ikony Google Play tu nie ma: Google pozwala jej używać w marketingu tylko
- * w oficjalnej odznace, a ta stoi w treści hero.
+ * Bez robota Androida i bez ikony Google Play. Zespół marki Android nie
+ * zgodził się na unoszące się głowy robota (zgłoszenie a384508e8b7b,
+ * 19.11.2026): głowa wolno tylko wyłaniać się zza krawędzi, razem ze
+ * znakiem słownym Android (`MarkaAndroid` w Hero). Ikona Google Play
+ * tylko w odznace.
  */
 
 type Plan = 0 | 1 | 2;
 
 type Ikona = {
-  plik: 'android' | 'busikm';
   /** Środek ikony w procentach szerokości i wysokości banera. */
   x: number;
   y: number;
-  /** Szerokość w px na desktopie. Robot ma w pliku 303 px, więc najwyżej
-   *  150 px, żeby na ekranie retina nie był powiększany ponad oryginał. */
+  /** Szerokość w px na desktopie. */
   w: number;
   plan: Plan;
   obrot: number;
@@ -37,19 +37,19 @@ const PLANY: Record<Plan, { blur: number; krycie: number; ruch: number }> = {
   2: { blur: 0, krycie: 1, ruch: 32 },
 };
 
+// Lewy i prawy środek banera zostają wolne: tam stoją głowa robota
+// i znak słowny Android (`MarkaAndroid` w Hero).
 const IKONY: Ikona[] = [
-  { plik: 'android', x: 8, y: 54, w: 150, plan: 2, obrot: -11, faza: 0, telefon: { x: 92, y: 7, w: 96 } },
-  { plik: 'busikm', x: 88, y: 24, w: 116, plan: 2, obrot: 9, faza: 1.4 },
-  { plik: 'android', x: 90, y: 66, w: 112, plan: 1, obrot: 13, faza: 2.2 },
-  { plik: 'busikm', x: 14, y: 17, w: 78, plan: 1, obrot: -7, faza: 0.7, telefon: { x: 72, y: 4, w: 44 } },
-  { plik: 'android', x: 21, y: 84, w: 92, plan: 1, obrot: 9, faza: 3.1 },
-  { plik: 'busikm', x: 77, y: 88, w: 52, plan: 0, obrot: -13, faza: 1.9 },
-  { plik: 'android', x: 72, y: 7, w: 64, plan: 0, obrot: -5, faza: 2.7, telefon: { x: 55, y: 9, w: 34 } },
-  { plik: 'busikm', x: 3, y: 30, w: 46, plan: 0, obrot: 11, faza: 0.3 },
-  { plik: 'android', x: 31, y: 5, w: 58, plan: 0, obrot: 4, faza: 3.6 },
-  { plik: 'busikm', x: 97, y: 46, w: 58, plan: 0, obrot: -8, faza: 2.4 },
-  { plik: 'android', x: 96, y: 90, w: 70, plan: 0, obrot: -14, faza: 1.1 },
-  { plik: 'android', x: 2, y: 86, w: 60, plan: 0, obrot: 15, faza: 2.9 },
+  { x: 22, y: 93, w: 96, plan: 2, obrot: -11, faza: 0, telefon: { x: 90, y: 7, w: 64 } },
+  { x: 87, y: 20, w: 112, plan: 2, obrot: 9, faza: 1.4 },
+  { x: 88, y: 84, w: 88, plan: 1, obrot: 13, faza: 2.2 },
+  { x: 15, y: 16, w: 78, plan: 1, obrot: -7, faza: 0.7, telefon: { x: 70, y: 4, w: 44 } },
+  { x: 76, y: 92, w: 50, plan: 0, obrot: -13, faza: 1.9 },
+  { x: 72, y: 7, w: 50, plan: 0, obrot: -5, faza: 2.7, telefon: { x: 55, y: 9, w: 30 } },
+  { x: 5, y: 9, w: 44, plan: 0, obrot: 11, faza: 0.3 },
+  { x: 31, y: 5, w: 46, plan: 0, obrot: 4, faza: 3.6 },
+  { x: 97, y: 94, w: 52, plan: 0, obrot: -14, faza: 1.1 },
+  { x: 3, y: 95, w: 46, plan: 0, obrot: 15, faza: 2.9 },
 ];
 
 export function IkonyStartu() {
@@ -77,7 +77,6 @@ export function IkonyStartu() {
     <div ref={pole} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {IKONY.map((ik, i) => {
         const p = PLANY[ik.plan];
-        const android = ik.plik === 'android';
         const styl = {
           '--x': `${ik.x}%`,
           '--y': `${ik.y}%`,
@@ -106,25 +105,14 @@ export function IkonyStartu() {
                 filter: p.blur ? `blur(${p.blur}px)` : undefined,
               }}
             >
-              {android ? (
-                <Image
-                  src="/marki/android-robot-3d.png"
-                  alt=""
-                  width={303}
-                  height={183}
-                  priority={ik.plan === 2}
-                  className="h-auto w-full drop-shadow-[0_18px_28px_rgba(4,22,90,0.45)]"
-                />
-              ) : (
-                <Image
-                  src="/aplikacja/busikm-kierowca-512.png"
-                  alt=""
-                  width={512}
-                  height={512}
-                  priority={ik.plan === 2}
-                  className="h-auto w-full rounded-[23%] shadow-[0_18px_36px_rgba(4,22,90,0.45),inset_0_0_0_1px_rgba(255,255,255,0.25)] ring-1 ring-white/30"
-                />
-              )}
+              <Image
+                src="/aplikacja/busikm-kierowca-512.png"
+                alt=""
+                width={512}
+                height={512}
+                priority={ik.plan === 2}
+                className="h-auto w-full rounded-[23%] shadow-[0_18px_36px_rgba(4,22,90,0.45),inset_0_0_0_1px_rgba(255,255,255,0.25)] ring-1 ring-white/30"
+              />
             </div>
           </div>
         );

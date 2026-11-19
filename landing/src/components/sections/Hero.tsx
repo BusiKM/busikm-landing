@@ -5,7 +5,7 @@ import { MockupSlot } from '@/components/ui/MockupSlot';
 import { Makieta } from '@/components/ui/Makieta';
 import { PulpitMockup } from '@/components/mockups/PulpitMockup';
 import { appLinks } from '@/content/navigation';
-import { linkGooglePlay } from '@/content/sklepy';
+import { linkGooglePlay, markaAndroid } from '@/content/sklepy';
 import { IkonyStartu } from '@/components/sections/IkonyStartu';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -38,8 +38,8 @@ const TEKSTY: Tlumaczenia<{
     nowosc: 'Nowość',
     dlaKogo: 'Dla kierowców Twojej firmy',
     start1: 'BusiKM Kierowca',
-    start2: 'już na Androida',
-    startLead: 'Zlecenie, trasa, paragon i przerwa w jednym telefonie. Kierowca pobiera aplikację z Google Play i loguje się kodem zaproszenia od Ciebie, a Ty masz wszystko w panelu firmy.',
+    start2: 'już na system Android',
+    startLead: 'Zlecenie, trasa, paragon i przerwa w jednym telefonie. Kierowca pobiera aplikację w Google Play i loguje się kodem zaproszenia od Ciebie, a Ty masz wszystko w panelu firmy.',
     iphone: 'Wersja na iPhone wkrótce.',
   },
   en: {
@@ -55,10 +55,43 @@ const TEKSTY: Tlumaczenia<{
     dlaKogo: 'For your company’s drivers',
     start1: 'BusiKM Kierowca',
     start2: 'is now on Android',
-    startLead: 'Orders, route, receipts and breaks on one phone. Your driver gets the app from Google Play and signs in with the invitation code you send, and you see it all in your company panel.',
+    startLead: 'Orders, route, receipts and breaks on one phone. Your driver gets the app on Google Play and signs in with the invitation code you send, and you see it all in your company panel.',
     iphone: 'iPhone version coming soon.',
   },
 };
+
+/**
+ * Głowa robota Androida i znak słowny Android według wytycznych marki
+ * (partnermarketinghub.withgoogle.com, Android Bot Head Placement):
+ * podstawa głowy równo z krawędzią banera, głowa cała, bez przycięcia,
+ * znak słowny po przeciwnej stronie, oba z odstępem od tekstu. Pliki
+ * z Partner Marketing Hub są poufne do akceptacji Google: włącza je
+ * przełącznik `markaAndroid` (src/content/sklepy.ts). Tylko desktop: na telefonie baner jest za wąski
+ * na zachowanie odstępów.
+ */
+function MarkaAndroid() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+      {/* Plik 640 × 390, obrócony o 90°: podstawa przy lewej krawędzi. */}
+      <div className="absolute top-[64%] left-0 h-[200px] w-[122px] -translate-y-1/2">
+        <Image
+          src="/marki/android-glowa.png"
+          alt=""
+          width={640}
+          height={390}
+          className="absolute top-1/2 left-1/2 w-[200px] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90"
+        />
+      </div>
+      <Image
+        src="/marki/android-znak.svg"
+        alt=""
+        width={1714}
+        height={400}
+        className="absolute top-[64%] right-12 w-[130px] -translate-y-1/2"
+      />
+    </div>
+  );
+}
 
 /**
  * 6.1 – hero. Na czas startu BusiKM Kierowca w Google Play to hero
@@ -97,7 +130,8 @@ export function Hero() {
         {t.start1}{' '}
         <span className="block text-blue-mist">
           {t.start2}
-          {/* Pierwsze „Android” w materiale dostaje ™ (wytyczne marki Android). */}
+          {/* Pierwsze „Android” w materiale dostaje ™. Nazwy nie odmieniamy
+              („na system Android”, nie „na Androida”), uwaga zespołu marki. */}
           <span className="align-[0.9em] text-[0.32em] font-semibold">™</span>.
         </span>
       </h1>
@@ -110,9 +144,11 @@ export function Hero() {
       </p>
 
       <div data-reveal className="flex flex-col gap-3 lg:mt-2 lg:items-center lg:gap-4">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
           {/* Oficjalna odznaka. Plik ma przezroczysty margines (192 z 250 px),
-              więc 73 px pliku daje 56 px odznaki, równo z przyciskiem. */}
+              więc 73 px pliku daje 56 px odznaki, równo z przyciskiem.
+              Wolne pole wokół odznaki: co najmniej 1/4 jej wysokości, czyli
+              14 px (wytyczne Google Play). Odstęp 24 px ma zapas. */}
           <a
             href={linkGooglePlay('hero')}
             target="_blank"
@@ -159,6 +195,7 @@ export function Hero() {
           className="absolute inset-x-0 top-0 h-[640px] bg-[radial-gradient(ellipse_45%_60%_at_50%_18%,rgba(185,206,255,0.35),transparent_70%)]"
         />
         <IkonyStartu />
+        {markaAndroid && <MarkaAndroid />}
         <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
           {tresc}
         </Container>

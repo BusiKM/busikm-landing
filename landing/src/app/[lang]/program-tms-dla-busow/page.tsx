@@ -53,8 +53,8 @@ function tresc(jezyk: Jezyk): TrescFrazy {
           akapity: [
             <>
               The driver works in the <Link href="/co-robi/aplikacja-kierowcy">BusiKM Kierowca
-              app</Link> on Android (iPhone coming soon): orders, navigation in Google Maps or
-              Waze, costs from a receipt photo, breaks logged even without signal.
+              app</Link> on Android (iPhone coming soon): orders, navigation in the driver’s own
+              navigation app, costs from a receipt photo, breaks logged even without signal.
             </>,
             <>
               The route records from the driver’s phone, so you see{' '}
@@ -251,8 +251,8 @@ function tresc(jezyk: Jezyk): TrescFrazy {
         akapity: [
           <>
             Kierowca pracuje w aplikacji{' '}
-            <Link href="/co-robi/aplikacja-kierowcy">BusiKM Kierowca</Link> na Androida
-            (wkrótce na iPhone): zlecenia, nawigacja w Google Maps albo Waze, koszt ze zdjęcia
+            <Link href="/co-robi/aplikacja-kierowcy">BusiKM Kierowca</Link> na system Android
+            (wkrótce na iPhone): zlecenia, nawigacja w aplikacji, której kierowca używa, koszt ze zdjęcia
             paragonu, przerwy zapisane nawet bez zasięgu.
           </>,
           <>

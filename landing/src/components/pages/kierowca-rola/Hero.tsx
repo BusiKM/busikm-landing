@@ -28,7 +28,7 @@ const TEKSTY: Tlumaczenia<{
     proba: 'Zapisz się na start',
     demo: 'Zobacz demo',
     label: 'Dwa telefony pod kątem (tryb nocny)',
-    note: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: „Czas pracy” przy przewozie międzynarodowym, z bieżącym stanem, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
+    note: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” z listą aplikacji nawigacyjnych. Prawy: „Czas pracy” przy przewozie międzynarodowym, z bieżącym stanem, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
     nadtytul: 'App for van drivers',
@@ -42,7 +42,7 @@ const TEKSTY: Tlumaczenia<{
     proba: 'Sign up for launch',
     demo: 'See the demo',
     label: 'Two phones at an angle (dark mode)',
-    note: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: “Working time” for international transport, with the current state, the day bar and the “Break” and “Rest” buttons.',
+    note: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker listing navigation apps. Right: “Working time” for international transport, with the current state, the day bar and the “Break” and “Rest” buttons.',
   },
 };
 

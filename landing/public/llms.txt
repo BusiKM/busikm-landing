@@ -58,7 +58,7 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
    Zmiana trasy w trakcie jazdy trafia do kierowcy od razu.
 3. **Księgowa** (przeglądarka): komplet za miesiąc jednym przyciskiem.
    Księgowa z zewnątrz dostaje własny dostęp z zaproszenia mailem.
-4. **Kierowca** (telefon, aplikacja BusiKM Kierowca na Androida, wkrótce na iPhone):
+4. **Kierowca** (telefon, aplikacja BusiKM Kierowca na system Android, wkrótce na iPhone):
    zlecenia, nawigacja, przerwy, paragony i czat z biurem w jednym miejscu.
 
 ## Co robi BusiKM
@@ -137,8 +137,8 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
 ### Aplikacja BusiKM Kierowca
 - Android 7.0 lub nowszy (Google Play), wersja na iPhone wkrótce. Po polsku,
   z trybem nocnym.
-- Nawigacja jednym dotknięciem w Google Maps albo Waze.
-  Działa z Android Auto.
+- Nawigacja jednym dotknięciem w aplikacji, której kierowca używa na co dzień.
+  Trasa pojawia się też na ekranie w kabinie.
 - „Zacznij dzień” ze zdjęciem licznika: stan odczytuje się sam.
 - Działa bez zasięgu: tunel, góry, terminal promowy. Wszystko dośle, gdy
   złapie sygnał, a kierowca widzi, co jeszcze czeka na wysłanie.
@@ -294,8 +294,8 @@ in one click in formats for Comarch Optima, Insert GT, Symfonia or CSV.
 
 Four roles: owner, dispatcher and accountant in the browser, the driver in
 the BusiKM Kierowca phone app (Android 7.0 or later on Google Play, iPhone
-coming soon, in Polish). Navigation opens in Google Maps or Waze and works
-with Android Auto. The app works without signal and sends everything once it is back.
+coming soon, in Polish). Navigation opens in the driver's own navigation app,
+also on the in-cab screen. The app works without signal and sends everything once it is back.
 Days in each country are counted from the route.
 
 It is not a replacement for a tachograph: the tachograph records, BusiKM

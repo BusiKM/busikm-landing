@@ -8,9 +8,9 @@ type Grupa = { nazwa: string; pozycje: readonly string[] };
  * Każda pozycja potwierdzona w kodzie aplikacji albo na podstronach:
  * KSeF, JPK_V7M, JPK_FA i VAT-REF w eksportach dla księgowej, kurs z API NBP
  * w backendzie, eksport FK do Comarch Optima, Insert GT i Symfonia oraz CSV
- * i Excel, nawigacja zewnętrzna w aplikacji kierowcy (Google Maps,
- * Waze i Android Auto przez te aplikacje; Apple Maps i CarPlay wrócą
- * z wersją na iPhone), dane kontrahenta z GUS i VIES.
+ * i Excel, nawigacja zewnętrzna w aplikacji kierowcy (bez nazw aplikacji map:
+ * Google wymaga osobnej akceptacji marek Mapy Google, Waze i Android Auto,
+ * 19.11.2026), dane kontrahenta z GUS i VIES.
  *
  * Same nazwy, bez logotypów – znaki towarowe dopiero po decyzji, czy
  * i w jakiej formie wolno ich używać.
@@ -28,7 +28,7 @@ const TEKSTY: Tlumaczenia<{
       { nazwa: 'Programy księgowe (plan Firma)', pozycje: ['Comarch Optima', 'Insert GT', 'Symfonia', 'CSV i Excel'] },
       {
         nazwa: 'Nawigacja w kabinie',
-        pozycje: ['Google Maps', 'Waze', 'Android Auto'],
+        pozycje: ['Aplikacja nawigacyjna kierowcy', 'Ekran w kabinie'],
       },
       { nazwa: 'Dane kontrahentów', pozycje: ['GUS', 'VIES'] },
     ],
@@ -41,7 +41,7 @@ const TEKSTY: Tlumaczenia<{
       { nazwa: 'Accounting software (Business plan)', pozycje: ['Comarch Optima', 'Insert GT', 'Symfonia', 'CSV and Excel'] },
       {
         nazwa: 'Navigation in the cab',
-        pozycje: ['Google Maps', 'Waze', 'Android Auto'],
+        pozycje: ['The driver’s navigation app', 'The in-cab screen'],
       },
       { nazwa: 'Client data', pozycje: ['GUS', 'VIES'] },
     ],

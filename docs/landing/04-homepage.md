@@ -64,7 +64,9 @@ niebieski przycisk „Zobacz demo”.
 >   pierwszym „Android” wymagają wytyczne marki Android,
 > - podtytuł mówi wprost, że kierowca loguje się kodem zaproszenia od firmy, więc sama
 >   aplikacja nie wystarczy do założenia konta,
-> - główny przycisk to oficjalna polska odznaka Google Play (`/sklepy/google-play-pl.png`,
+> - główny przycisk to oficjalna odznaka Google Play w języku strony (`odznakaGooglePlay`:
+>   `/sklepy/google-play-pl.png` „POBIERZ Z”, `/sklepy/google-play-en.png` „GET IT ON”,
+>   oba pliki bez zmian z play.google.com/intl/en_us/badges;
 >   link z `linkGooglePlay('hero')`), obok biały „Zobacz demo”; „Zapisz się na start” zszedł
 >   z hero (zostaje w nawigacji i niżej na stronie),
 > - pod przyciskami „Wersja na iPhone wkrótce.” i nota o demo, bez dat.

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Smartphone } from 'lucide-react';
-import { linkGooglePlay, type MiejsceSklepu } from '@/content/sklepy';
+import { linkGooglePlay, odznakaGooglePlay, type MiejsceSklepu } from '@/content/sklepy';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
@@ -8,7 +8,7 @@ import { biezacyJezyk } from '@/i18n/serwer';
  * Gdzie pobrać BusiKM Kierowca. Jeden wzór na wszystkich ciemnych sekcjach
  * o aplikacji: oficjalna odznaka Google Play i obok „Wkrótce na iPhone”.
  *
- * Odznaka Google Play to plik od Google (`public/sklepy/google-play-pl.png`),
+ * Odznaka Google Play to plik od Google w języku strony (`odznakaGooglePlay`),
  * bez zmian kolorów i proporcji. Wytyczne: co najmniej 28 px wysokości,
  * wolne miejsce wokół równe 1/4 wysokości, tu odstęp `gap-3` przy 48 px.
  * App Store ma tylko tekst i ikonę, bo odznaki Apple nie wolno używać dla
@@ -44,7 +44,7 @@ export function StoreBadges({ miejsce }: { miejsce: MiejsceSklepu }) {
         >
           {/* Plik ma 646 × 250, z ramką odznaki w środku. */}
           <Image
-            src="/sklepy/google-play-pl.png"
+            src={odznakaGooglePlay[biezacyJezyk()]}
             alt=""
             width={646}
             height={250}

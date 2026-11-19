@@ -10,6 +10,8 @@
  * od swojej firmy, a firma zakłada konto w panelu webowym.
  */
 
+import type { Tlumaczenia } from '@/i18n/jezyki';
+
 const GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.busikm.driver';
 
 /** Skąd przyszło kliknięcie. Widać to w Play Console w źródłach instalacji. */
@@ -34,3 +36,15 @@ export function linkGooglePlay(miejsce: MiejsceSklepu): string {
  * Lokalny podgląd: `NEXT_PUBLIC_MARKA_ANDROID=1` w `.env.local`.
  */
 export const markaAndroid = process.env.NEXT_PUBLIC_MARKA_ANDROID === '1';
+
+/**
+ * Oficjalna odznaka Google Play w języku strony. Oba pliki pochodzą
+ * bez zmian z play.google.com/intl/en_us/badges (`pl_badge_web_generic.png`
+ * i `en_badge_web_generic.png`) i mają ten sam kadr 646 × 250, więc
+ * rozmiary i marginesy w komponentach są wspólne. Wersja angielska mówi
+ * „GET IT ON Google Play”, takie jest oficjalne brzmienie Google.
+ */
+export const odznakaGooglePlay: Tlumaczenia<string> = {
+  pl: '/sklepy/google-play-pl.png',
+  en: '/sklepy/google-play-en.png',
+};

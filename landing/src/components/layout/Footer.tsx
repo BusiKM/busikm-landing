@@ -3,7 +3,7 @@ import Link from '@/i18n/Link';
 import { Container } from '@/components/ui/Container';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { firma } from '@/content/firma';
-import { linkGooglePlay, markaAndroid } from '@/content/sklepy';
+import { linkGooglePlay, markaAndroid, odznakaGooglePlay } from '@/content/sklepy';
 import { Logo } from '@/components/layout/Logo';
 import { nawigacja } from '@/content/navigation';
 import { PrzyciskCookie } from '@/components/analytics/PrzyciskCookie';
@@ -128,7 +128,7 @@ export function Footer() {
                 className="-my-[7px] block w-fit transition-opacity hover:opacity-85"
               >
                 <Image
-                  src="/sklepy/google-play-pl.png"
+                  src={odznakaGooglePlay[jezyk]}
                   alt=""
                   width={646}
                   height={250}

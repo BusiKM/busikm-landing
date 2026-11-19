@@ -5,7 +5,7 @@ import { MockupSlot } from '@/components/ui/MockupSlot';
 import { Makieta } from '@/components/ui/Makieta';
 import { PulpitMockup } from '@/components/mockups/PulpitMockup';
 import { appLinks } from '@/content/navigation';
-import { linkGooglePlay, markaAndroid } from '@/content/sklepy';
+import { linkGooglePlay, markaAndroid, odznakaGooglePlay } from '@/content/sklepy';
 import { IkonyStartu } from '@/components/sections/IkonyStartu';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -190,7 +190,7 @@ export function Hero() {
             className="-my-[8.5px] block w-fit transition-transform hover:scale-[1.03]"
           >
             <Image
-              src="/sklepy/google-play-pl.png"
+              src={odznakaGooglePlay[biezacyJezyk()]}
               alt=""
               width={646}
               height={250}

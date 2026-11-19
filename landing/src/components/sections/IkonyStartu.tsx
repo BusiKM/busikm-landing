@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { markaAndroid } from '@/content/sklepy';
 
 /**
  * Rozsypane ikony BusiKM Kierowca za hero startu aplikacji. Trzy plany jak
@@ -28,7 +29,7 @@ type Ikona = {
   /** Przesunięcie fazy unoszenia, żeby ikony nie falowały razem. */
   faza: number;
   /** Pozycja i szerokość na telefonie. Bez tego ikona znika poniżej `lg`. */
-  telefon?: { x: number; y: number; w: number };
+  telefon?: { x: number; y: number; w: number; ustepujeMarce?: boolean };
 };
 
 const PLANY: Record<Plan, { blur: number; krycie: number; ruch: number }> = {
@@ -38,12 +39,13 @@ const PLANY: Record<Plan, { blur: number; krycie: number; ruch: number }> = {
 };
 
 // Lewy i prawy środek banera zostają wolne: tam stoją głowa robota
-// i znak słowny Android (`MarkaAndroid` w Hero).
+// i znak słowny Android (`MarkaAndroid` w Hero). Na telefonie głowa wychodzi
+// z prawej krawędzi u góry, więc dwie ikony z prawego rogu jej ustępują.
 const IKONY: Ikona[] = [
-  { x: 22, y: 93, w: 96, plan: 2, obrot: -11, faza: 0, telefon: { x: 90, y: 7, w: 64 } },
+  { x: 22, y: 93, w: 96, plan: 2, obrot: -11, faza: 0, telefon: { x: 90, y: 7, w: 64, ustepujeMarce: true } },
   { x: 87, y: 20, w: 112, plan: 2, obrot: 9, faza: 1.4 },
   { x: 88, y: 84, w: 88, plan: 1, obrot: 13, faza: 2.2 },
-  { x: 15, y: 16, w: 78, plan: 1, obrot: -7, faza: 0.7, telefon: { x: 70, y: 4, w: 44 } },
+  { x: 15, y: 16, w: 78, plan: 1, obrot: -7, faza: 0.7, telefon: { x: 70, y: 4, w: 44, ustepujeMarce: true } },
   { x: 76, y: 92, w: 50, plan: 0, obrot: -13, faza: 1.9 },
   { x: 72, y: 7, w: 50, plan: 0, obrot: -5, faza: 2.7, telefon: { x: 55, y: 9, w: 30 } },
   { x: 5, y: 9, w: 44, plan: 0, obrot: 11, faza: 0.3 },
@@ -77,6 +79,7 @@ export function IkonyStartu() {
     <div ref={pole} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {IKONY.map((ik, i) => {
         const p = PLANY[ik.plan];
+        const naTelefonie = ik.telefon && !(markaAndroid && ik.telefon.ustepujeMarce);
         const styl = {
           '--x': `${ik.x}%`,
           '--y': `${ik.y}%`,
@@ -92,7 +95,7 @@ export function IkonyStartu() {
           <div
             key={i}
             style={styl}
-            className={`absolute top-(--ty) left-(--tx) w-(--tw) transition-transform duration-700 ease-out lg:top-(--y) lg:left-(--x) lg:block lg:w-(--w) ${ik.telefon ? '' : 'hidden'}`}
+            className={`absolute top-(--ty) left-(--tx) w-(--tw) transition-transform duration-700 ease-out lg:top-(--y) lg:left-(--x) lg:block lg:w-(--w) ${naTelefonie ? '' : 'hidden'}`}
           >
             {/* Rozmycie siedzi na tym samym elemencie co ruch, nie na rodzicu.
                 Na rodzicu przeglądarka rozmywałaby obraz od nowa w każdej

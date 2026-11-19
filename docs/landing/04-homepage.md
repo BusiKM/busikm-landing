@@ -92,8 +92,11 @@ niebieski przycisk „Zobacz demo”.
 >   `android-robot-3d.png` usunięty,
 > - głowa robota wolno tylko przy krawędzi (podstawa równo z krawędzią, cała, bez
 >   przycięcia) i zawsze ze znakiem słownym Android po przeciwnej stronie. W hero: głowa
->   z lewej krawędzi banera, logo „Android” przy prawej, tylko desktop (`MarkaAndroid`
->   w `Hero.tsx`). Pliki z Partner Marketing Hub są poufne do akceptacji Google, a repo jest
+>   z lewej krawędzi banera, logo „Android” przy prawej (`MarkaAndroid` w `Hero.tsx`).
+>   Na telefonie głowa wychodzi z prawej krawędzi na wysokości ikony aplikacji, a logo
+>   „Android” stoi nad ikoną przy lewej; dwie ikony BusiKM z prawego górnego rogu wtedy
+>   znikają (`ustepujeMarce` w `IkonyStartu.tsx`). Logo nie stoi obok ikony aplikacji, żeby
+>   nie wyglądało jak wspólny znak BusiKM i Android. Pliki z Partner Marketing Hub są poufne do akceptacji Google, a repo jest
 >   publiczne, więc ich tu nie ma; włącza je przełącznik `markaAndroid` w
 >   `src/content/sklepy.ts` (lokalnie `NEXT_PUBLIC_MARKA_ANDROID=1`),
 > - nota w stopce: „Android i Google Play są znakami towarowymi Google LLC.”, nota

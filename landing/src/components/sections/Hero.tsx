@@ -66,10 +66,43 @@ const TEKSTY: Tlumaczenia<{
  * podstawa głowy równo z krawędzią banera, głowa cała, bez przycięcia,
  * znak słowny po przeciwnej stronie, oba z odstępem od tekstu. Pliki
  * z Partner Marketing Hub są poufne do akceptacji Google: włącza je
- * przełącznik `markaAndroid` (src/content/sklepy.ts). Tylko desktop: na telefonie baner jest za wąski
- * na zachowanie odstępów.
+ * przełącznik `markaAndroid` (src/content/sklepy.ts).
+ *
+ * Desktop: głowa przy lewej krawędzi, znak słowny przy prawej, obie na
+ * wysokości tekstu. Telefon: baner jest za wąski na boki tekstu, więc
+ * głowa wychodzi z prawej krawędzi na wysokości ikony aplikacji, a znak
+ * słowny stoi nad ikoną przy lewej. Ikony BusiKM z prawego górnego rogu
+ * ustępują im miejsca (`ustepujeMarce` w IkonyStartu). Znak słowny nie
+ * stoi obok ikony aplikacji, żeby nie wyglądał jak wspólne logo.
  */
 function MarkaAndroid() {
+  return (
+    <>
+      <div aria-hidden className="pointer-events-none absolute inset-0 lg:hidden">
+        {/* Środek głowy na środku ikony aplikacji: pt-24 + połowa size-16 = 128 px. */}
+        <div className="absolute top-[128px] right-0 h-[124px] w-[76px] -translate-y-1/2">
+          <Image
+            src="/marki/android-glowa.png"
+            alt=""
+            width={640}
+            height={390}
+            className="absolute top-1/2 left-1/2 w-[124px] max-w-none -translate-x-1/2 -translate-y-1/2 -rotate-90"
+          />
+        </div>
+        <Image
+          src="/marki/android-znak.svg"
+          alt=""
+          width={1714}
+          height={400}
+          className="absolute top-11 left-6 w-[104px]"
+        />
+      </div>
+      <MarkaAndroidDesktop />
+    </>
+  );
+}
+
+function MarkaAndroidDesktop() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
       {/* Plik 640 × 390, obrócony o 90°: podstawa przy lewej krawędzi. */}

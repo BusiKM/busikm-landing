@@ -39,8 +39,10 @@ export const markaAndroid = process.env.NEXT_PUBLIC_MARKA_ANDROID === '1';
 
 /**
  * Oficjalna odznaka Google Play w języku strony. Oba pliki pochodzą
- * bez zmian z play.google.com/intl/en_us/badges (`pl_badge_web_generic.png`
- * i `en_badge_web_generic.png`) i mają ten sam kadr 646 × 250, więc
+ * z play.google.com/intl/en_us/badges (`pl_badge_web_generic.png`
+ * i `en_badge_web_generic.png`). Angielski plik ma od Google większy przezroczysty
+ * margines, więc jest przycięty i przeskalowany tak, żeby czarna ramka miała
+ * tę samą wysokość co polska; sama grafika odznaki jest nietknięta. Oba mają kadr 646 × 250, więc
  * rozmiary i marginesy w komponentach są wspólne. Wersja angielska mówi
  * „GET IT ON Google Play”, takie jest oficjalne brzmienie Google.
  */

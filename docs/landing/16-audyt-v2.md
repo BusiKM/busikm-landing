@@ -24,6 +24,19 @@ Tych punktów nie da się rozstrzygnąć z kodu.
 D6 to sprawa prawna (polityka prywatności i rejestr podprocesorów) —
 poprawiamy dopiero po decyzji.
 
+**D3 rozstrzygnięte (22.11.2026).** Od 21.11.2026 sprzedawcą jest
+jednoosobowa działalność Movgranto Łukasz Głowacz (NIP 5842581572,
+NIP UE PL5842581572, REGON 222064844), czynny podatnik VAT. Ceny na stronie
+są **netto**, do każdej faktury doliczamy 23% VAT: Start 149 zł netto
+(183,27 zł brutto), Firma 299 zł netto (367,77 zł brutto), kolejny pojazd
+29 zł netto (35,67 zł brutto), rocznie 1 490 i 2 990 zł netto. Brutto liczy
+kod z jednej stałej `VAT_PROCENT` w `landing/src/content/cennik.ts`, nigdzie
+nie jest wpisane ręcznie. Dane strukturalne: `valueAddedTaxIncluded: false`,
+`vatID`. Ze stopki, kontaktu i `llms.txt` zniknęły KRS, sąd rejestrowy
+i kapitał zakładowy spółki. Dokumenty usługi w aplikacji (regulamin,
+polityka usługi, umowa powierzenia, retencja, podprocesorzy) zmienia
+backend.
+
 ## 2. Aplikacja kierowcy
 
 | Temat | Strona dziś | Prawda w v2 | Nowe brzmienie |

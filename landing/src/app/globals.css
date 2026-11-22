@@ -258,6 +258,25 @@
     }
   }
 
+  /* --- Menu na telefonie ---------------------------------------------------
+     Przejście między listą główną a podmenu jak w menu Apple: nowa lista
+     rozjaśnia się i lekko opada na miejsce, pozycja po pozycji (opóźnienie
+     ustawia komponent). Bez przesuwania ekranu w bok. */
+  .menu-wchodzi {
+    animation: menu-wejscie 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes menu-wejscie {
+    from {
+      opacity: 0;
+      translate: 0 -8px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
   /* --- Unoszące się ikony w hero startu ------------------------------------
      Wolne, ledwo widoczne kołysanie. Każda ikona startuje z innej fazy
      (ujemne `animation-delay`), więc pole nie faluje jak jeden obiekt. */
@@ -278,6 +297,7 @@
   @media (prefers-reduced-motion: reduce) {
     .ikona-unosi,
     .wchodzi,
+    .menu-wchodzi,
     .cyfra-wjazd,
     .cyfra-wyjazd {
       animation: none;

@@ -71,6 +71,14 @@ niebieski przycisk „Zobacz demo”.
 >   z hero (zostaje w nawigacji i niżej na stronie),
 > - pod przyciskami „Wersja na iPhone wkrótce.” i nota o demo, bez dat.
 >
+> **Po publikacji w App Store** (flaga `NEXT_PUBLIC_IOS_W_SKLEPIE=1`, `src/content/sklepy.ts`):
+> nagłówek „BusiKM Kierowca” / „już w App Store i Google Play.”, w miejscu przycisków dwie
+> oficjalne czarne odznaki tej samej wysokości (App Store pierwsza, `OdznakiSklepow`), bez
+> „Zobacz demo” (jest w pasku nawigacji) i bez robota Androida (`robotWHero`). Pod
+> odznakami: „Konto firmy zakładasz sam, pierwsze 14 dni bez opłat.” Wytyczne Apple
+> dopuszczają jedną odznakę App Store na układ, więc stopka ma zamiast odznak kafel
+> z odnośnikami tekstowymi do obu sklepów (`KafelAplikacji`).
+>
 > **Ikony w tle** (`landing/src/components/sections/IkonyStartu.tsx`): oficjalny robot Androida
 > w 3D od Google (`/marki/android-robot-3d.png`, licencja CC BY 3.0) i ikona BusiKM Kierowca,
 > rozsypane w trzech planach jak w obiektywie: z tyłu małe, rozmyte i przygaszone, z przodu
@@ -639,4 +647,4 @@ w kolejności, w jakiej padają.
 
 ## 23 · Stopka — C
 
-Cztery kolumny wg `03`, pasek dolny z danymi spółki.
+Cztery kolumny wg `03`, pasek dolny z danymi firmy.

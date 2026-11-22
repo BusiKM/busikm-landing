@@ -5,7 +5,8 @@ import { MockupSlot } from '@/components/ui/MockupSlot';
 import { Makieta } from '@/components/ui/Makieta';
 import { PulpitMockup } from '@/components/mockups/PulpitMockup';
 import { appLinks } from '@/content/navigation';
-import { linkGooglePlay, markaAndroid, odznakaGooglePlay } from '@/content/sklepy';
+import { OdznakiSklepow } from '@/components/ui/OdznakiSklepow';
+import { iosWSklepie, linkGooglePlay, odznakaGooglePlay, robotWHero } from '@/content/sklepy';
 import { IkonyStartu } from '@/components/sections/IkonyStartu';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -25,38 +26,53 @@ const TEKSTY: Tlumaczenia<{
   start2: string;
   startLead: string;
   iphone: string;
+  start2Oba: string;
+  startLeadOba: string;
+  notaOba: string;
 }> = {
   pl: {
     androidOpis: 'BusiKM Kierowca w Google Play, aplikacja dla kierowców',
     demo: 'Zobacz demo',
-    nota: 'Demo działa bez konta. Konta otwieramy wkrótce, pierwsze 14 dni bez opłat.',
+    nota: 'Demo działa bez konta. Konto firmy zakładasz sam, pierwsze 14 dni bez opłat.',
     label: 'Ekran właściciela (desktop 1440)',
     opis: 'Pulpit po zalogowaniu: po lewej „Do zrobienia” z tym, co czeka na Twoją decyzję, po prawej „Dziś” - kursy w trasie, załadunki, dostawy i kto jest teraz w drodze.',
-    telefon: 'Aplikacja kierowcy: ekran „Dziś” z kursem Kraków → Antwerpen i przyciskami Nawiguj, Zadzwoń, Czat.',
+    telefon:
+      'Aplikacja kierowcy: ekran „Dziś” z kursem Kraków → Antwerpen i przyciskami Nawiguj, Zadzwoń, Czat.',
     powieksz: 'Powiększ',
     zamknij: 'Zamknij',
     nowosc: 'Nowość',
     dlaKogo: 'Dla kierowców Twojej firmy',
     start1: 'BusiKM Kierowca',
     start2: 'już na system Android',
-    startLead: 'Zlecenie, trasa, paragon i przerwa w jednym telefonie. Kierowca pobiera aplikację w Google Play i loguje się kodem zaproszenia od Ciebie, a Ty masz wszystko w panelu firmy.',
+    startLead:
+      'Zlecenie, trasa, paragon i przerwa w jednym telefonie. Kierowca pobiera aplikację w Google Play i loguje się kodem zaproszenia od Ciebie, a Ty masz wszystko w panelu firmy.',
     iphone: 'Wersja na iPhone wkrótce.',
+    start2Oba: 'już w App Store i Google Play',
+    notaOba: 'Konto firmy zakładasz sam, pierwsze 14 dni bez opłat.',
+    startLeadOba:
+      'Zlecenie, trasa, paragon i przerwa w jednym telefonie. Kierowca pobiera aplikację na iPhone albo telefon z systemem Android i loguje się kodem zaproszenia od Ciebie, a Ty masz wszystko w panelu firmy.',
   },
   en: {
     androidOpis: 'BusiKM Kierowca on Google Play, the app for drivers',
     demo: 'See the demo',
-    nota: 'The demo needs no account. Accounts open soon, with the first 14 days free.',
+    nota: 'The demo needs no account. You set up your company account yourself, with the first 14 days free.',
     label: 'Owner’s screen (desktop 1440)',
     opis: 'Dashboard after signing in: “To do” on the left with what’s waiting for your decision, “Today” on the right - runs on the road, loadings, deliveries and who is driving right now.',
-    telefon: 'Driver app: the “Today” screen with the Kraków → Antwerp run and Navigate, Call and Chat buttons.',
+    telefon:
+      'Driver app: the “Today” screen with the Kraków → Antwerp run and Navigate, Call and Chat buttons.',
     powieksz: 'Enlarge',
     zamknij: 'Close',
     nowosc: 'New',
     dlaKogo: 'For your company’s drivers',
     start1: 'BusiKM Kierowca',
     start2: 'is now on Android',
-    startLead: 'Orders, route, receipts and breaks on one phone. Your driver gets the app on Google Play and signs in with the invitation code you send, and you see it all in your company panel.',
+    startLead:
+      'Orders, route, receipts and breaks on one phone. Your driver gets the app on Google Play and signs in with the invitation code you send, and you see it all in your company panel.',
     iphone: 'iPhone version coming soon.',
+    start2Oba: 'is now on the App Store and Google Play',
+    notaOba: 'You set up your company account yourself, with the first 14 days free.',
+    startLeadOba:
+      'Orders, route, receipts and breaks on one phone. Your driver gets the app on iPhone or Android and signs in with the invitation code you send, and you see it all in your company panel.',
   },
 };
 
@@ -161,52 +177,67 @@ export function Hero() {
         className="max-w-[980px] text-display-m font-bold text-balance text-white lg:text-display"
       >
         {t.start1}{' '}
-        <span className="block text-blue-mist">
-          {t.start2}
-          {/* Pierwsze „Android” w materiale dostaje ™. Nazwy nie odmieniamy
-              („na system Android”, nie „na Androida”), uwaga zespołu marki. */}
-          <span className="align-[0.9em] text-[0.32em] font-semibold">™</span>.
-        </span>
+        {iosWSklepie ? (
+          // Bez ™ i ®: Apple nie pozwala dodawać symboli w nagłówkach,
+          // a poza USA w ogóle ich nie używa.
+          <span className="block text-blue-mist">{t.start2Oba}.</span>
+        ) : (
+          <span className="block text-blue-mist">
+            {t.start2}
+            {/* Pierwsze „Android” w materiale dostaje ™. Nazwy nie odmieniamy
+                („na system Android”, nie „na Androida”), uwaga zespołu marki. */}
+            <span className="align-[0.9em] text-[0.32em] font-semibold">™</span>.
+          </span>
+        )}
       </h1>
 
-      <p
-        data-reveal
-        className="max-w-[700px] text-lead-m text-pretty text-white/85 lg:text-lead"
-      >
-        {t.startLead}
+      <p data-reveal className="max-w-[700px] text-lead-m text-pretty text-white/85 lg:text-lead">
+        {iosWSklepie ? t.startLeadOba : t.startLead}
       </p>
 
       <div data-reveal className="flex flex-col gap-3 lg:mt-2 lg:items-center lg:gap-4">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
-          {/* Oficjalna odznaka. Plik ma przezroczysty margines (192 z 250 px),
-              więc 73 px pliku daje 56 px odznaki, równo z przyciskiem.
-              Wolne pole wokół odznaki: co najmniej 1/4 jej wysokości, czyli
-              14 px (wytyczne Google Play). Odstęp 24 px ma zapas. */}
-          <a
-            href={linkGooglePlay('hero')}
-            target="_blank"
-            rel="noopener"
-            aria-label={t.androidOpis}
-            className="-my-[8.5px] block w-fit transition-transform hover:scale-[1.03]"
-          >
-            <Image
-              src={odznakaGooglePlay[biezacyJezyk()]}
-              alt=""
-              width={646}
-              height={250}
-              priority
-              className="h-[73px] w-auto"
-            />
-          </a>
-          <Button
-            href={appLinks.demo}
-            className="!bg-white !text-blue hover:!bg-blue-soft lg:w-auto"
-          >
-            {t.demo}
-          </Button>
+          {iosWSklepie ? (
+            // Obie oficjalne odznaki, App Store pierwsza, ramka 48 px na
+            // telefonie i 56 px na desktopie, równo z przyciskiem demo.
+            <OdznakiSklepow miejsce="hero" rozmiar="hero" priorytet />
+          ) : (
+            <>
+              {/* Oficjalna odznaka. Plik ma przezroczysty margines (192 z 250 px),
+                więc 73 px pliku daje 56 px odznaki, równo z przyciskiem.
+                Wolne pole wokół odznaki: co najmniej 1/4 jej wysokości, czyli
+                14 px (wytyczne Google Play). Odstęp 24 px ma zapas. */}
+              <a
+                href={linkGooglePlay('hero')}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.androidOpis}
+                className="-my-[8.5px] block w-fit transition-transform hover:scale-[1.03]"
+              >
+                <Image
+                  src={odznakaGooglePlay[biezacyJezyk()]}
+                  alt=""
+                  width={646}
+                  height={250}
+                  priority
+                  className="h-[73px] w-auto"
+                />
+              </a>
+            </>
+          )}
+          {/* Przy dwóch sklepach hero ma tylko odznaki, „Zobacz demo” jest
+              w pasku nawigacji (także na telefonie). */}
+          {!iosWSklepie && (
+            <Button
+              href={appLinks.demo}
+              className="!bg-white !text-blue hover:!bg-blue-soft lg:w-auto"
+            >
+              {t.demo}
+            </Button>
+          )}
         </div>
         <p className="text-[13px] text-white/70 lg:text-center lg:text-caption">
-          {t.iphone} {t.nota}
+          {iosWSklepie ? t.notaOba : `${t.iphone} ${t.nota}`}
         </p>
       </div>
     </>
@@ -228,7 +259,7 @@ export function Hero() {
           className="absolute inset-x-0 top-0 h-[640px] bg-[radial-gradient(ellipse_45%_60%_at_50%_18%,rgba(185,206,255,0.35),transparent_70%)]"
         />
         <IkonyStartu />
-        {markaAndroid && <MarkaAndroid />}
+        {robotWHero && <MarkaAndroid />}
         <Container className="relative flex flex-col gap-6 lg:items-center lg:gap-8 lg:text-center">
           {tresc}
         </Container>

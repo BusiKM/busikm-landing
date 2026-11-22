@@ -1,4 +1,5 @@
 import type { Artykul } from '@/content/pomoc/typy';
+import { iosWSklepie } from '@/content/sklepy';
 
 /**
  * Instrukcje dotyczące kierowców – wersja angielska.
@@ -83,7 +84,7 @@ export const artykulyKierowcyEn: Artykul[] = [
     role: ['kierowca'],
     gdzie: 'The BusiKM Driver app (BusiKM Kierowca)',
     czas: 'Five minutes',
-    zanim: ['The email with the invitation code from your employer', 'An Android phone with Android 7.0 or later (the iPhone version is coming soon)'],
+    zanim: ['The email with the invitation code from your employer', iosWSklepie ? 'An iPhone, or an Android phone with Android 7.0 or later' : 'An Android phone with Android 7.0 or later (the iPhone version is coming soon)'],
     rozdzialy: [
       {
         tytul: 'Getting into the app',
@@ -91,7 +92,7 @@ export const artykulyKierowcyEn: Artykul[] = [
           {
             typ: 'kroki',
             kroki: [
-              { tytul: 'Install the BusiKM Driver app (BusiKM Kierowca). You will find it on Google Play or behind the link in your invitation' },
+              { tytul: iosWSklepie ? 'Install the BusiKM Driver app (BusiKM Kierowca). You will find it on the App Store and Google Play or behind the link in your invitation' : 'Install the BusiKM Driver app (BusiKM Kierowca). You will find it on Google Play or behind the link in your invitation' },
               { tytul: 'Open the app and choose I have an invitation (Mam zaproszenie)' },
               {
                 tytul: 'Enter your email and the invitation code (Kod zaproszenia)',

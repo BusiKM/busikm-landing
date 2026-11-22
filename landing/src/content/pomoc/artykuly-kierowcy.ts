@@ -1,4 +1,5 @@
 import type { Artykul } from '@/content/pomoc/typy';
+import { iosWSklepie } from '@/content/sklepy';
 
 /**
  * Instrukcje dotyczące kierowców – od zaproszenia po zamknięty dzień pracy.
@@ -83,7 +84,7 @@ export const artykulyKierowcy: Artykul[] = [
     role: ['kierowca'],
     gdzie: 'Aplikacja BusiKM Kierowca',
     czas: 'Pięć minut',
-    zanim: ['E-mail z kodem zaproszenia od pracodawcy', 'Telefon z systemem Android 7.0 lub nowszym (wersja na iPhone wkrótce)'],
+    zanim: ['E-mail z kodem zaproszenia od pracodawcy', iosWSklepie ? 'iPhone albo telefon z systemem Android 7.0 lub nowszym' : 'Telefon z systemem Android 7.0 lub nowszym (wersja na iPhone wkrótce)'],
     rozdzialy: [
       {
         tytul: 'Wejście do aplikacji',
@@ -91,7 +92,7 @@ export const artykulyKierowcy: Artykul[] = [
           {
             typ: 'kroki',
             kroki: [
-              { tytul: 'Zainstaluj aplikację BusiKM Kierowca. Znajdziesz ją w Google Play albo pod odnośnikiem w zaproszeniu' },
+              { tytul: iosWSklepie ? 'Zainstaluj aplikację BusiKM Kierowca. Znajdziesz ją w App Store i Google Play albo pod odnośnikiem w zaproszeniu' : 'Zainstaluj aplikację BusiKM Kierowca. Znajdziesz ją w Google Play albo pod odnośnikiem w zaproszeniu' },
               { tytul: 'Otwórz aplikację i wybierz Mam zaproszenie' },
               {
                 tytul: 'Wpisz e-mail i kod zaproszenia',

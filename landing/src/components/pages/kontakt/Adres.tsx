@@ -20,6 +20,7 @@ const TEKSTY: Tlumaczenia<{
   facebook: string;
   przejdzNaFacebooka: string;
   daneFirmy: string;
+  nipUe: string;
 }> = {
   pl: {
     napiszWprost: 'Napisz wprost',
@@ -31,6 +32,7 @@ const TEKSTY: Tlumaczenia<{
     facebook: 'Rolki prawie codziennie i miejsce na Twoje pytania.',
     przejdzNaFacebooka: 'Nasza strona na Facebooku →',
     daneFirmy: 'Dane firmy',
+    nipUe: 'NIP UE',
   },
   en: {
     napiszWprost: 'Write to us directly',
@@ -42,6 +44,7 @@ const TEKSTY: Tlumaczenia<{
     facebook: 'Reels almost every day, in Polish, and a place for your questions.',
     przejdzNaFacebooka: 'Our Facebook page →',
     daneFirmy: 'Company details',
+    nipUe: 'EU VAT ID',
   },
 };
 
@@ -115,7 +118,7 @@ export function Adres() {
           <br />
           NIP {firma.nip}, REGON {firma.regon}
           <br />
-          KRS {firma.krs}
+          {t.nipUe} {firma.nipUe}
         </div>
       </div>
     </div>

@@ -133,7 +133,7 @@ function tresc(jezyk: Jezyk): TrescFrazy {
           naglowek: 'In which plan and what it costs',
           akapity: [
             <>
-              Routes and the mileage log are in both plans, including Start at PLN 149 a month for
+              Routes and the mileage log are in both plans, including Start at PLN 149 net a month for
               up to 3 vehicles. You pay for vehicles, not people: drivers and office staff are
               unlimited. Details on the <Link href="/cennik">pricing page</Link>, and the whole
               system in one place: <Link href="/program-tms-dla-busow">van TMS</Link>.
@@ -303,7 +303,7 @@ function tresc(jezyk: Jezyk): TrescFrazy {
         naglowek: 'W którym planie i ile to kosztuje',
         akapity: [
           <>
-            Trasy i ewidencja przebiegu są w obu planach, także w Start za 149 zł miesięcznie dla
+            Trasy i ewidencja przebiegu są w obu planach, także w Start za 149 zł netto miesięcznie dla
             maksymalnie 3 pojazdów. Płacisz za pojazdy, nie za ludzi: kierowcy i biuro bez limitu.
             Szczegóły w <Link href="/cennik">cenniku</Link>, a cały system w jednym miejscu:{' '}
             <Link href="/program-tms-dla-busow">program TMS dla busów</Link>.

@@ -14,6 +14,16 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
  * nawigacja ma sprzedawać, nie wypisywać nazwy modułów.
  */
 
+/**
+ * Panel firmy: logowanie i rejestracja. Produkcja to app.busikm.pl,
+ * staging ustawia `NEXT_PUBLIC_PANEL_URL=https://staging.busikm.pl`.
+ * Stoi na górze pliku, bo czytają go teksty menu poniżej.
+ */
+export const PANEL_URL = (process.env.NEXT_PUBLIC_PANEL_URL || 'https://app.busikm.pl').replace(
+  /\/$/,
+  '',
+);
+
 export type NavLeaf = {
   href: string;
   label: string;
@@ -55,7 +65,7 @@ type Teksty = {
   pomoc: NavLeaf[];
   rolesNote: string;
   stopka: { firma: string; prawne: string; items: NavLeaf[]; dokumenty: NavLeaf[] };
-  zacznij: { heading: string; cennik: string; rolki: string; demo: NavLeaf; login: NavLeaf };
+  zacznij: { demo: NavLeaf; login: NavLeaf };
 };
 
 const TEKSTY: Tlumaczenia<Teksty> = {
@@ -163,14 +173,24 @@ const TEKSTY: Tlumaczenia<Teksty> = {
         ],
       },
     ],
-    menu: { coRobi: 'Co robi', dlaKogo: 'Dla kogo', cennik: 'Cennik', rolki: 'Rolki', pomoc: 'Pomoc' },
+    menu: {
+      coRobi: 'Co robi',
+      dlaKogo: 'Dla kogo',
+      cennik: 'Cennik',
+      rolki: 'Rolki',
+      pomoc: 'Pomoc',
+    },
     promo: {
       label: 'Zobacz demo',
       benefit: 'Wejdź bez konta i zobacz aplikację na danych przykładowej firmy.',
     },
     pomoc: [
       { href: '/pomoc', label: 'Centrum pomocy', benefit: 'Odpowiedzi na najczęstsze pytania' },
-      { href: '/pomoc/pierwsze-kroki', label: 'Pierwsze kroki', benefit: 'Od konta do pierwszej faktury' },
+      {
+        href: '/pomoc/pierwsze-kroki',
+        label: 'Pierwsze kroki',
+        benefit: 'Od konta do pierwszej faktury',
+      },
       { href: '/kontakt', label: 'Kontakt', benefit: 'Odpisujemy tego samego dnia' },
       { href: '/status', label: 'Status usługi', benefit: 'Czy wszystko działa' },
     ],
@@ -198,15 +218,16 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
     },
     zacznij: {
-      heading: 'Zacznij',
-      cennik: 'Ile zapłacisz przy swojej liczbie pojazdów',
-      rolki: 'Minuta z firmy transportowej, prawie codziennie',
       demo: {
         href: '/demo',
         label: 'Zobacz demo',
-        benefit: 'Bez konta, tylko do odczytu - właściciel, dyspozytor albo księgowa',
+        benefit: 'Bez konta, na danych przykładowej firmy',
       },
-      login: { href: '/zaloguj', label: 'Zapisz się', benefit: 'Konta otwieramy wkrótce' },
+      login: {
+        href: `${PANEL_URL}/login/`,
+        label: 'Zaloguj się',
+        benefit: 'Nowe konto założysz z ekranu logowania',
+      },
     },
   },
   en: {
@@ -313,14 +334,24 @@ const TEKSTY: Tlumaczenia<Teksty> = {
         ],
       },
     ],
-    menu: { coRobi: 'Features', dlaKogo: 'Who it’s for', cennik: 'Pricing', rolki: 'Reels', pomoc: 'Help' },
+    menu: {
+      coRobi: 'Features',
+      dlaKogo: 'Who it’s for',
+      cennik: 'Pricing',
+      rolki: 'Reels',
+      pomoc: 'Help',
+    },
     promo: {
       label: 'See the demo',
       benefit: 'Walk in without an account and see the app on a sample company’s data.',
     },
     pomoc: [
       { href: '/pomoc', label: 'Help centre', benefit: 'Answers to the most common questions' },
-      { href: '/pomoc/pierwsze-kroki', label: 'Getting started', benefit: 'From sign-up to your first invoice' },
+      {
+        href: '/pomoc/pierwsze-kroki',
+        label: 'Getting started',
+        benefit: 'From sign-up to your first invoice',
+      },
       { href: '/kontakt', label: 'Contact', benefit: 'We reply the same day' },
       { href: '/status', label: 'Service status', benefit: 'Is everything working' },
     ],
@@ -348,15 +379,16 @@ const TEKSTY: Tlumaczenia<Teksty> = {
       ],
     },
     zacznij: {
-      heading: 'Get started',
-      cennik: 'What you’ll pay for your number of vehicles',
-      rolki: 'A minute from a transport company, in Polish',
       demo: {
         href: '/demo',
         label: 'See the demo',
-        benefit: 'No account, read-only - owner, dispatcher or accountant',
+        benefit: 'No account, on a sample company’s data',
       },
-      login: { href: '/zaloguj', label: 'Sign up', benefit: 'Accounts open soon' },
+      login: {
+        href: `${PANEL_URL}/login/`,
+        label: 'Log in',
+        benefit: 'New accounts start from the sign-in screen',
+      },
     },
   },
 };
@@ -376,46 +408,22 @@ const TEKSTY: Tlumaczenia<Teksty> = {
 export const DEMO_URL = process.env.NEXT_PUBLIC_DEMO_URL || 'https://staging.busikm.pl/demo/';
 
 /**
- * Adresy aplikacji – w jednym miejscu, bo część nie jest jeszcze docelowa.
+ * Adresy aplikacji – w jednym miejscu.
  *
- * `login` prowadzi na własną stronę, nie do aplikacji. Publicznej
- * rejestracji jeszcze nie ma (BKM-1858, etap 2 backlogu), a wersja testowa
- * na stagingu wpuszcza wyłącznie firmy z grupy testowej – odesłanie tam
- * wszystkich kończyłoby się ekranem logowania, na którym nikt się nie
- * zaloguje. `/zaloguj` mówi, na czym stoimy, zbiera adres i zostawia wyjście
- * osobom, które konto testowe już mają.
+ * `login` prowadzi do logowania w panelu, a stamtąd jest przejście do
+ * rejestracji (BKM-1858). Tak działa „Zaloguj się” w pasku i w menu.
+ * `rejestracja` idzie wprost do zakładania konta: tam, gdzie czytelnik już
+ * zdecydował (cennik, kalkulator, Pierwsze kroki). `/zaloguj` na landingu tylko
+ * przekierowuje do panelu, żeby stare odnośniki i zakładki działały.
  *
- * `trial` prowadzi na cennik z tego samego powodu.
- *
- * `zapis` to drugi przycisk obok „Zobacz demo”, dopóki rejestracja jest
- * zamknięta („Zapisz się na start”). Ta sama strona co `login`, ale osobna
- * nazwa: po otwarciu kont zapis zamieni się w rejestrację, a logowanie
- * zostanie logowaniem.
+ * `trial` prowadzi na cennik: najpierw wybór planu, potem rejestracja.
  */
 export const appLinks = {
   trial: '/cennik',
   demo: DEMO_URL,
-  login: '/zaloguj',
-  zapis: '/zaloguj',
+  login: `${PANEL_URL}/login/`,
+  rejestracja: `${PANEL_URL}/register/`,
 } as const;
-
-
-/**
- * Menu na telefonie – jedna lista sekcji, każda w tym samym rytmie.
- *
- * Wcześniej ten sam panel mieszał trzy wzorce: „Co robi" jako lista
- * z opisami, „Dla kogo" jako pigułki bez opisów, a Cennik, Pomoc i Zaloguj
- * jako rząd samych napisów. Przy okazji **cztery podstrony Pomocy nie miały
- * na telefonie żadnej drogi wejścia** – pozycja prowadziła prosto na
- * `/pomoc`, a Pierwsze kroki, Kontakt i Status usługi były osiągalne
- * wyłącznie ze stopki.
- *
- * Sekcje z rozwijanych menu budują się same, więc nowa podstrona dopisana
- * do `navigation` pojawi się tu bez ruszania nagłówka. Pozycje bez
- * rozwinięcia (dziś Cennik) też się dobierają – brakujący opis dokłada
- * `opisyPozycji`.
- */
-export type SekcjaMenu = { heading: string; items: NavLeaf[] };
 
 /** Nawigacja w danym języku – pasek, menu mobilne i stopka. */
 export function nawigacja(jezyk: Jezyk) {
@@ -442,35 +450,17 @@ export function nawigacja(jezyk: Jezyk) {
     },
   ];
 
-  /** Zdania dla pozycji, które nie mają własnego rozwinięcia w `navigation`. */
-  const opisyPozycji: Record<string, string> = {
-    '/cennik': t.zacznij.cennik,
-    '/rolki': t.zacznij.rolki,
-  };
-
-  const menuMobilne: SekcjaMenu[] = [
-    ...navigation
-      .filter((e): e is Extract<NavEntry, { kind: 'mega' }> => e.kind === 'mega')
-      .map((e) => ({ heading: e.label, items: e.groups.flatMap((g) => g.items) })),
-    {
-      heading: t.zacznij.heading,
-      items: [
-        ...navigation
-          .filter((e): e is Extract<NavEntry, { kind: 'link' }> => e.kind === 'link')
-          .map((e) => ({ href: e.href, label: e.label, benefit: opisyPozycji[e.href] ?? '' })),
-        t.zacznij.demo,
-        t.zacznij.login,
-      ],
-    },
-  ];
-
   return {
     coRobi: t.coRobi,
     dlaKogo: t.dlaKogo,
     navigation,
     /** Nota pod menu „Dla kogo" – role są zbiorem, nie wyborem. */
     rolesNote: t.rolesNote,
-    menuMobilne,
+    /**
+     * Dwa wezwania przypięte do dołu menu na telefonie: demo dla nowych,
+     * logowanie dla tych, którzy już mają konto.
+     */
+    menuStart: { demo: t.zacznij.demo, login: t.zacznij.login },
     /** Kolumny stopki – bez dokumentów prawnych, te mają własny pasek na dole. */
     kolumnyStopki: [
       { heading: t.menu.coRobi, items: t.coRobi.flatMap((g) => g.items) },

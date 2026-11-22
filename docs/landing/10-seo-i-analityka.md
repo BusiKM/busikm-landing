@@ -92,7 +92,7 @@ adresu, którego zabraniamy indeksować.
 
 ## Dane strukturalne
 
-Na każdej stronie: `Organization` (dane firmy z KRS-u), `WebSite`
+Na każdej stronie: `Organization` (dane firmy: nazwa, NIP, NIP UE, REGON), `WebSite`
 i `SoftwareApplication` z cenami z `src/content/cennik.ts`. Na podstronach
 dodatkowo `BreadcrumbList`, a tam gdzie jest akordeon - `FAQPage`.
 

@@ -172,7 +172,7 @@ export const artykulyKonto: Artykul[] = [
             typ: 'lista',
             punkty: [
               'Start - do 3 pojazdów. Cała firma w jednym miejscu: zlecenia, trasy, kierowcy, faktury i koszty, mapa floty na żywo i raporty kosztów. Księgowa ma dostęp do panelu i ewidencji przebiegu.',
-              'Firma - 10 pojazdów w cenie, +29 zł/mies. za każdy kolejny, do 50. Wszystko ze Start, a do tego pliki do programu księgowej: paczka dla biura, dekrety FK, rejestry VAT, JPK_V7M i lista płac. Wybierzesz go przy dowolnej liczbie pojazdów. Większa flota - napisz do nas.',
+              'Firma - 10 pojazdów w cenie, +29 zł netto/mies. za każdy kolejny, do 50. Wszystko ze Start, a do tego pliki do programu księgowej: paczka dla biura, dekrety FK, rejestry VAT, JPK_V7M i lista płac. Wybierzesz go przy dowolnej liczbie pojazdów. Większa flota - napisz do nas.',
             ],
           },
           {
@@ -202,7 +202,7 @@ export const artykulyKonto: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'Fakturę za każdą opłatę dostajesz mailem, ze stawką VAT „zw.” - MOVGRANTO jest zwolniona z VAT, więc cena z cennika jest ceną końcową.',
+              'Fakturę za każdą opłatę dostajesz mailem. Ceny w cenniku są netto, na fakturze doliczamy 23% VAT.',
           },
         ],
       },

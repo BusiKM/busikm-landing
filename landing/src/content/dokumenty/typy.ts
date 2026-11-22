@@ -7,7 +7,7 @@
 export type Blok =
   | { typ: 'akapit'; tresc: string }
   | { typ: 'lista'; wstep?: string; punkty: string[] }
-  /** Termin i jego wyjaśnienie – „Usługodawca – BusiKM sp. z o.o. …". */
+  /** Termin i jego wyjaśnienie – „Usługodawca – Movgranto Łukasz Głowacz …". */
   | { typ: 'definicje'; wstep?: string; pozycje: { termin: string; opis: string }[] }
   | { typ: 'tabela'; naglowki: string[]; wiersze: string[][]; stopka?: string };
 

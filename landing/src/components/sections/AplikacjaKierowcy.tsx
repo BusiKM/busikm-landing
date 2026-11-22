@@ -2,6 +2,7 @@ import { Section, Eyebrow } from '@/components/ui/Section';
 import { MockupSlot } from '@/components/ui/MockupSlot';
 import { TelefonyKierowcy } from '@/components/mockups/TelefonyKierowcy';
 import { StoreBadges } from '@/components/ui/StoreBadges';
+import { iosWSklepie } from '@/content/sklepy';
 import { Dolaczone, type OdnosnikWiecej, type PunktDolaczony } from '@/components/sections/Dolaczone';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
@@ -62,14 +63,18 @@ const TEKSTY: Tlumaczenia<{
   opis: string;
 }> = {
   pl: {
-    eyebrow: 'BusiKM Kierowca na system Android, wkrótce na iPhone',
+    eyebrow: iosWSklepie
+      ? 'BusiKM Kierowca na iPhone i system Android'
+      : 'BusiKM Kierowca na system Android, wkrótce na iPhone',
     naglowek: 'Cały dzień pracy w jednej aplikacji.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku. Nie dzwoni do Ciebie z pytaniem, jak się zalogować.',
     label: 'Aplikacja kierowcy (telefon, tryb nocny)',
     opis: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” z listą aplikacji nawigacyjnych. Prawy: ekran „Czas pracy” przy przewozie międzynarodowym z bieżącym stanem, przypomnieniem o przerwie, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
-    eyebrow: 'BusiKM Kierowca for Android, iPhone coming soon',
+    eyebrow: iosWSklepie
+      ? 'BusiKM Kierowca for iPhone and Android'
+      : 'BusiKM Kierowca for Android, iPhone coming soon',
     naglowek: 'The whole working day in one app.',
     lead: 'The driver gets a code by email, types it into the app, sets a password and they’re in. No calling you to ask how to log in.',
     label: 'Driver app (phone, night mode)',
@@ -136,7 +141,9 @@ export function AplikacjaKierowcy() {
             ))}
           </div>
 
-          <StoreBadges miejsce="sekcja-kierowcy" />
+          {/* Na stronie głównej odznaki stoją już w hero, a Apple dopuszcza
+              jedną odznakę App Store na układ. Tu kafel z odnośnikami. */}
+          <StoreBadges miejsce="sekcja-kierowcy" bezOdznak />
         </div>
 
         {/*

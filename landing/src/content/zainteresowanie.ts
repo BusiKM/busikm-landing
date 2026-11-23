@@ -20,6 +20,7 @@
  */
 
 import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
+import { appLinks } from '@/content/navigation';
 
 export const PLANY = ['start', 'firma'] as const;
 export const OKRESY = ['miesiecznie', 'rocznie'] as const;
@@ -62,12 +63,13 @@ export function nazwaOkresu(okres: OkresId, jezyk: Jezyk = 'pl'): string {
 }
 
 /**
- * Adres, pod który prowadzi „Zapisz się na start" w cenniku. Nazwa została
- * z czasów przycisku „Wypróbuj 14 dni": po otwarciu kont to będzie znowu
- * wejście do okresu próbnego.
+ * Adres przycisku „Wypróbuj 14 dni” w cenniku i kalkulatorze: rejestracja
+ * w panelu. Panel nie czyta planu z adresu (plan wybiera się po okresie
+ * próbnym), więc wybór z cennika nie jedzie dalej. `odczytajWybor` zostaje
+ * dla zapisów, które już są w Firestore i Klaviyo.
  */
-export function linkProbny(wybor: Zainteresowanie): string {
-  return `/zaloguj?plan=${wybor.plan}&okres=${wybor.okres}`;
+export function linkProbny(): string {
+  return appLinks.rejestracja;
 }
 
 /**

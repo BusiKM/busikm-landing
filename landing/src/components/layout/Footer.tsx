@@ -3,7 +3,9 @@ import Link from '@/i18n/Link';
 import { Container } from '@/components/ui/Container';
 import { IkonaFacebook } from '@/components/ui/IkonaFacebook';
 import { firma } from '@/content/firma';
-import { linkGooglePlay, markaAndroid, odznakaGooglePlay } from '@/content/sklepy';
+import { VAT_PROCENT } from '@/content/cennik';
+import { KafelAplikacji } from '@/components/ui/KafelAplikacji';
+import { iosWSklepie, linkGooglePlay, odznakaGooglePlay, robotWHero } from '@/content/sklepy';
 import { Logo } from '@/components/layout/Logo';
 import { nawigacja } from '@/content/navigation';
 import { PrzyciskCookie } from '@/components/analytics/PrzyciskCookie';
@@ -31,54 +33,53 @@ import { biezacyJezyk } from '@/i18n/serwer';
 /**
  * Drobny druk.
  *
- * Trzy zdania, które prostują to, co najłatwiej sobie dopowiedzieć: że cena
- * z cennika to kwota na fakturze, że BusiKM zdejmuje obowiązek tachografu
+ * Trzy zdania, które prostują to, co najłatwiej sobie dopowiedzieć: że do
+ * ceny z cennika dochodzi VAT, że BusiKM zdejmuje obowiązek tachografu
  * i że „w chmurze" znaczy gdziekolwiek. Wszystkie mają pokrycie w treści
  * serwisu – nie dopisuj tu niczego, czego nie ma na stronach.
  */
 const TEKSTY: Tlumaczenia<{
   domu: string;
   drobnyDruk: string[];
-  sad: string;
-  kapital: string;
+  nipUe: string;
   odpowiedz: string;
   pobierz: string;
   iphone: string;
   znaki: string;
+  znakiApple: string;
   robot: string;
 }> = {
   pl: {
     domu: 'BusiKM - strona główna',
     drobnyDruk: [
-      'Ceny w cenniku są końcowe - sprzedawca jest zwolniony z VAT, na fakturze stawka „zw.”.',
+      `Ceny netto, doliczamy ${VAT_PROCENT}% VAT.`,
       'BusiKM nie zastępuje tachografu. Tachograf zapisuje, BusiKM pokazuje.',
       'Serwery i bazy stoją w UE (Frankfurt), kopia zaszyfrowana u drugiego dostawcy.',
     ],
-    sad: firma.sad,
-    kapital: `Kapitał zakładowy ${firma.kapital}`,
+    nipUe: 'NIP UE',
     odpowiedz: 'Odpisujemy tego samego dnia roboczego',
     pobierz: 'BusiKM Kierowca w Google Play',
     iphone: 'Wkrótce na iPhone',
-    znaki:
-      'Android i Google Play są znakami towarowymi Google LLC.',
+    znaki: 'Android i Google Play są znakami towarowymi Google LLC.',
+    znakiApple:
+      'Apple, logo Apple, iPhone, App Store, Apple Maps i CarPlay są znakami towarowymi Apple Inc., zarejestrowanymi w USA i innych krajach.',
     robot:
       'Robot Android został odtworzony lub zmodyfikowany na podstawie projektu utworzonego i udostępnionego przez firmę Google. Jego wykorzystanie jest zgodne z warunkami opisanymi w licencji Creative Commons 3.0 - Uznanie autorstwa.',
   },
   en: {
     domu: 'BusiKM - home',
     drobnyDruk: [
-      'Prices are final - the seller is VAT-exempt, so the invoice shows no VAT.',
+      `Net prices, ${VAT_PROCENT}% VAT is added.`,
       'BusiKM does not replace the tachograph. The tachograph records, BusiKM shows.',
       'Servers and databases are in the EU (Frankfurt), with an encrypted backup at a second provider.',
     ],
-    // Nazwa sądu po polsku w nawiasie – tak brzmi w KRS i tak da się ją sprawdzić.
-    sad: `District Court for Szczecin-Centrum in Szczecin, 13th Commercial Division of the National Court Register (${firma.sad})`,
-    kapital: `Share capital PLN 5,000`,
+    nipUe: 'EU VAT ID',
     odpowiedz: 'We reply the same business day',
     pobierz: 'Get BusiKM Kierowca on Google Play',
     iphone: 'Coming soon for iPhone',
-    znaki:
-      'Android and Google Play are trademarks of Google LLC.',
+    znaki: 'Android and Google Play are trademarks of Google LLC.',
+    znakiApple:
+      'Apple, the Apple logo, iPhone, App Store, Apple Maps and CarPlay are trademarks of Apple Inc., registered in the U.S. and other countries.',
     robot:
       'The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.',
   },
@@ -114,40 +115,45 @@ export function Footer() {
               <IkonaFacebook />
               Facebook
             </a>
-            {/* Ten sam wzór co `StoreBadges`: oficjalna odznaka i iPhone bez daty.
-                Plik ma u góry i u dołu przezroczysty margines (widoczna odznaka
-                to 192 z 250 px), więc 57 px pliku daje 44 px odznaki, równo
-                z przyciskiem Facebooka. Ujemny margines zjada tę pustkę, żeby
-                odstępy w kolumnie zostały równe. */}
-            <div className="flex flex-col gap-2">
-              <a
-                href={linkGooglePlay('stopka')}
-                target="_blank"
-                rel="noopener"
-                aria-label={t.pobierz}
-                className="-my-[7px] block w-fit transition-opacity hover:opacity-85"
-              >
-                <Image
-                  src={odznakaGooglePlay[jezyk]}
-                  alt=""
-                  width={646}
-                  height={250}
-                  className="h-[57px] w-auto"
-                />
-              </a>
-              <span className="text-[13px] text-ink-muted">{t.iphone}</span>
-            </div>
+            {/* Po publikacji w App Store stopka jest bez odznak: Apple dopuszcza
+                jedną odznakę App Store na układ, a stopka jest na każdej
+                stronie. Kafel z odnośnikami tekstowymi do obu sklepów. */}
+            {iosWSklepie ? (
+              <KafelAplikacji miejsce="stopka" />
+            ) : (
+              <>
+                {/* Ten sam wzór co `StoreBadges`: oficjalna odznaka i iPhone bez daty.
+                    Plik ma u góry i u dołu przezroczysty margines (widoczna odznaka
+                    to 192 z 250 px), więc 57 px pliku daje 44 px odznaki, równo
+                    z przyciskiem Facebooka. Ujemny margines zjada tę pustkę, żeby
+                    odstępy w kolumnie zostały równe. */}
+                <div className="flex flex-col gap-2">
+                  <a
+                    href={linkGooglePlay('stopka')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t.pobierz}
+                    className="-my-[7px] block w-fit transition-opacity hover:opacity-85"
+                  >
+                    <Image
+                      src={odznakaGooglePlay[jezyk]}
+                      alt=""
+                      width={646}
+                      height={250}
+                      className="h-[57px] w-auto"
+                    />
+                  </a>
+                  <span className="text-[13px] text-ink-muted">{t.iphone}</span>
+                </div>
+              </>
+            )}
           </div>
 
           {kolumnyNawigacji.map((column) => (
             <div key={column.heading} className="flex flex-col gap-2">
               <div className="mb-2 font-semibold">{column.heading}</div>
               {column.items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-ink-muted hover:text-paper"
-                >
+                <Link key={item.href} href={item.href} className="text-ink-muted hover:text-paper">
                   {item.label}
                 </Link>
               ))}
@@ -155,9 +161,9 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Kto stoi za serwisem. Dane rejestrowe spółki z ograniczoną
-            odpowiedzialnością muszą być dostępne na stronie – art. 206
-            Kodeksu spółek handlowych. */}
+        {/* Kto stoi za serwisem: firma przedsiębiorcy, adres i NIP (art. 5
+            ustawy o świadczeniu usług drogą elektroniczną). Jednoosobowa
+            działalność nie ma KRS, sądu rejestrowego ani kapitału. */}
         <div className="flex flex-col gap-2.5 border-t border-line-dark pt-10 text-[13px] leading-relaxed text-ink-muted lg:text-caption">
           <div className="flex flex-col gap-x-3 gap-y-0.5 lg:flex-row lg:flex-wrap lg:items-baseline">
             <span className="font-semibold text-paper">{firma.nazwa}</span>
@@ -168,13 +174,10 @@ export function Footer() {
 
           <div className="flex flex-wrap gap-x-5 gap-y-1">
             <span>NIP {firma.nip}</span>
+            <span>
+              {t.nipUe} {firma.nipUe}
+            </span>
             <span>REGON {firma.regon}</span>
-            <span>KRS {firma.krs}</span>
-          </div>
-
-          <div className="flex flex-wrap gap-x-5 gap-y-1">
-            <span>{t.sad}</span>
-            <span>{t.kapital}</span>
           </div>
 
           <div className="flex flex-wrap gap-x-5 gap-y-1">
@@ -197,25 +200,26 @@ export function Footer() {
               wymagałyby osobnej akceptacji. Nowa marka Google na stronie =
               nowe zgłoszenie i nota z generatora
               (partnermarketinghub.withgoogle.com/tools/legal-line-generator). */}
+          {/* Nota Apple w brzmieniu z wytycznych (Credit Lines, wersja
+              międzynarodowa): wszystkie znaki Apple ze strony, a przy
+              odznace App Store także logo Apple. Raz na stronie, przy
+              informacjach prawnych. */}
+          {iosWSklepie && <p>{t.znakiApple}</p>}
           <p>
             {t.znaki}
-            {markaAndroid && ` ${t.robot}`}
+            {robotWHero && ` ${t.robot}`}
           </p>
         </div>
 
         <div className="flex flex-col gap-4 border-t border-line-dark pt-6 text-[12px] text-ink-muted lg:flex-row lg:items-baseline lg:justify-between lg:gap-6 lg:text-caption">
-          {/* Bez łamania w środku nazwy („Sp. z” / „o.o.”). */}
+          {/* Bez łamania w środku nazwy. */}
           <span className="whitespace-nowrap">
             © {rok} {firma.nazwa}
           </span>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {dokumenty.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-ink-muted hover:text-paper"
-              >
+              <Link key={item.href} href={item.href} className="text-ink-muted hover:text-paper">
                 {item.label}
               </Link>
             ))}

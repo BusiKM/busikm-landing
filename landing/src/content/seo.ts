@@ -39,16 +39,16 @@ export const opisSerwisu: Tlumaczenia<{ tytul: string; opis: string; opisOg: str
   pl: {
     tytul: 'Program dla firmy transportowej z busami do 3,5 t | BusiKM',
     opis:
-      'Program TMS dla busów 2,5-3,5 t: zlecenia, faktury KSeF, ewidencja przebiegu, czas pracy kierowcy i diety w jednym miejscu. Od 149 zł miesięcznie.',
+      'Program TMS dla busów 2,5-3,5 t: zlecenia, faktury KSeF, ewidencja przebiegu, czas pracy kierowcy i diety w jednym miejscu. Od 149 zł netto miesięcznie.',
     opisOg:
-      'Zlecenia, faktury KSeF, ewidencja przebiegu i czas pracy kierowców w jednym programie. Dla busów 2,5-3,5 t. Demo bez konta, 14 dni bez opłat od otwarcia kont.',
+      'Zlecenia, faktury KSeF, ewidencja przebiegu i czas pracy kierowców w jednym programie. Dla busów 2,5-3,5 t. Demo bez konta, 14 dni bez opłat.',
   },
   en: {
     tytul: 'Software for transport companies running vans | BusiKM',
     opis:
-      'A TMS for 2.5-3.5 t vans: orders, KSeF invoices, mileage log, driver working time and per diems in one place. From PLN 149 a month.',
+      'A TMS for 2.5-3.5 t vans: orders, KSeF invoices, mileage log, driver working time and per diems in one place. From PLN 149 net a month.',
     opisOg:
-      'Orders, KSeF invoices, mileage log and driver working time in one app. For 2.5-3.5 t vans. Demo with no account, 14 days free once accounts open.',
+      'Orders, KSeF invoices, mileage log and driver working time in one app. For 2.5-3.5 t vans. Demo with no account, 14 days free.',
   },
 };
 

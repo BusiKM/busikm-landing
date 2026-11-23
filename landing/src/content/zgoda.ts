@@ -29,6 +29,11 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
  * Zostało otwarcie zapisów i nowości w BusiKM. Zapisy z wersji 1-3 wskazują
  * na swoje brzmienie zapisane w bazie razem z numerem.
  *
+ * Wersja 5 (22.11.2026) zmieniła tylko nadawcę: zgodę daje się Movgranto
+ * Łukasz Głowacz (jednoosobowa działalność), a nie MOVGRANTO Sp. z o.o.
+ * Nazwa idzie z `firma.nazwa`, więc zmiana danych firmy zawsze wymaga
+ * podniesienia numeru tutaj.
+ *
  * ## Podstawa prawna
  *
  * Art. 6 ust. 1 lit. a RODO (zgoda) oraz **art. 398 Prawa komunikacji
@@ -46,7 +51,7 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
  * więc tam zgoda musi być nieobowiązkowa.
  */
 
-export const WERSJA_ZGODY = 4;
+export const WERSJA_ZGODY = 5;
 
 /**
  * Brzmienie w obu językach serwisu.

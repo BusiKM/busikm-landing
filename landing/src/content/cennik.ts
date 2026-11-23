@@ -18,6 +18,54 @@
 import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
 import type { PlanId } from '@/content/zainteresowanie';
 
+/**
+ * Stawka VAT w procentach. Jedna stała dla całej strony: zmiana stawki to
+ * zmiana tej liczby, a kwoty brutto przeliczą się wszędzie same.
+ */
+export const VAT_PROCENT = 23;
+
+/** Kolejny pojazd w planie Firma ponad 10 w cenie, netto miesięcznie. */
+export const CENA_POJAZDU = 29;
+
+/** Pojazdy w cenie planu Firma. */
+export const POJAZDY_W_FIRMIE = 10;
+
+/**
+ * Kwota brutto z kwoty netto, zaokrąglona do grosza.
+ *
+ * Liczone w groszach na liczbach całkowitych, żeby 149 × 1,23 nie wyszło
+ * jako 183,26999… i nie zaokrągliło się w złą stronę.
+ */
+export function brutto(netto: number): number {
+  return Math.round(netto * (100 + VAT_PROCENT)) / 100;
+}
+
+/**
+ * Kwota do pokazania: po polsku „1 490” albo „183,27”, po angielsku „1,490”
+ * albo „183.27”. Tysiące rozdzielone zawsze, także przy czterech cyfrach
+ * (polska norma domyślnie zostawia „1490”). Grosze tylko tam, gdzie są.
+ */
+export function kwota(n: number, jezyk: Jezyk, grosze = false): string {
+  return new Intl.NumberFormat(jezyk === 'pl' ? 'pl-PL' : 'en-GB', {
+    minimumFractionDigits: grosze ? 2 : 0,
+    maximumFractionDigits: grosze ? 2 : 0,
+    useGrouping: 'always',
+  }).format(n);
+}
+
+/** Kwota z walutą: „183,27 zł” albo „PLN 183.27”. */
+export function zWaluta(n: number, jezyk: Jezyk, grosze = false): string {
+  return jezyk === 'pl' ? `${kwota(n, jezyk, grosze)} zł` : `PLN ${kwota(n, jezyk, grosze)}`;
+}
+
+/** Linia pod ceną netto: „183,27 zł brutto (z 23% VAT)”. */
+export function liniaBrutto(netto: number, jezyk: Jezyk): string {
+  const b = zWaluta(brutto(netto), jezyk, true);
+  return jezyk === 'pl'
+    ? `${b} brutto (z ${VAT_PROCENT}% VAT)`
+    : `${b} gross (incl. ${VAT_PROCENT}% VAT)`;
+}
+
 /** Grupa pozycji w karcie planu, z małym nadtytułem. */
 export type GrupaPlanu = {
   tytul: string;
@@ -29,12 +77,12 @@ export type Plan = {
   id: PlanId;
   name: string;
   /**
-   * Kwoty końcowe w złotych, tysiące rozdzielone spacją. MOVGRANTO jest
-   * zwolniona z VAT (art. 113), więc na fakturze stoi stawka „zw.” i nie ma
-   * czego doliczać.
+   * Kwoty netto w złotych. Sprzedawca jest czynnym podatnikiem VAT, więc do
+   * każdej faktury dolicza 23% VAT. Brutto liczy `brutto()`, nigdy nie
+   * wpisujemy go ręcznie.
    */
-  monthly: string;
-  yearly: string;
+  monthly: number;
+  yearly: number;
   /** Parametry planu – w karcie jako małe pigułki pod ceną. */
   specs: readonly string[];
   /** Nagłówek listy funkcji. */
@@ -52,9 +100,14 @@ export type Plan = {
  * 4 busów” to tylko rekomendacja - Firmę można wybrać przy każdej flocie.
  */
 const CENY = [
-  { id: 'start', monthly: '149', yearly: '1 490', highlighted: false },
-  { id: 'firma', monthly: '299', yearly: '2 990', highlighted: true },
+  { id: 'start', monthly: 149, yearly: 1490, highlighted: false },
+  { id: 'firma', monthly: 299, yearly: 2990, highlighted: true },
 ] as const;
+
+/** Cena netto planu za miesiąc albo rok – dla kalkulatora i tabeli. */
+export function cenaPlanu(id: PlanId, okres: 'monthly' | 'yearly'): number {
+  return CENY.find((c) => c.id === id)![okres];
+}
 
 type Tekst = Pick<Plan, 'name' | 'specs' | 'naglowekListy' | 'grupy'>;
 
@@ -101,7 +154,7 @@ const TEKSTY: Tlumaczenia<Record<PlanId, Tekst>> = {
       grupy: [
         {
           tytul: 'Większa flota',
-          pozycje: ['10 pojazdów w abonamencie, kolejne po 29 zł, do 50'],
+          pozycje: ['10 pojazdów w abonamencie, kolejne po 29 zł netto, do 50'],
         },
         {
           tytul: 'Księgowość bez przepisywania',
@@ -159,7 +212,7 @@ const TEKSTY: Tlumaczenia<Record<PlanId, Tekst>> = {
       grupy: [
         {
           tytul: 'Bigger fleet',
-          pozycje: ['10 vehicles included, PLN 29 for each extra one, up to 50'],
+          pozycje: ['10 vehicles included, PLN 29 net for each extra one, up to 50'],
         },
         {
           tytul: 'Accounting without retyping',

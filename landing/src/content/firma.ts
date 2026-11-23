@@ -1,24 +1,24 @@
 /**
- * Dane rejestrowe spółki. Jedno źródło – stopka i strona kontaktu biorą je stąd,
- * żeby nie rozjechały się przy pierwszej zmianie.
+ * Dane sprzedawcy. Jedno źródło – stopka, strona kontaktu, dane strukturalne
+ * i polityka prywatności biorą je stąd, żeby nie rozjechały się przy
+ * pierwszej zmianie.
+ *
+ * Od 21.11.2026 sprzedawcą jest jednoosobowa działalność gospodarcza.
+ * Przedsiębiorca podaje na stronie firmę (imię, nazwisko i dodatek),
+ * adres i NIP. KRS, sąd rejestrowy i kapitał zakładowy dotyczą spółek,
+ * więc ich tu nie ma.
+ *
+ * Sprzedawca jest czynnym podatnikiem VAT, ceny na stronie są netto
+ * z doliczanym 23% VAT (stała w `content/cennik.ts`).
  */
 export const firma = {
-  nazwa: 'MOVGRANTO Sp. z o.o.',
+  nazwa: 'Movgranto Łukasz Głowacz',
   ulica: 'ul. Władysława Łokietka 5/2',
   miasto: '70-254 Szczecin',
-  nip: '5993238990',
-  regon: '382452281',
-  krs: '0000767899',
-  /**
-   * Sąd rejestrowy i kapitał zakładowy.
-   *
-   * Nie są ozdobą: art. 206 § 1 Kodeksu spółek handlowych wymienia je obok
-   * firmy, adresu, numeru KRS i NIP-u jako dane, które spółka z ograniczoną
-   * odpowiedzialnością podaje w pismach, zamówieniach handlowych **i na
-   * swoich stronach internetowych**.
-   */
-  sad: 'Sąd Rejonowy Szczecin-Centrum w Szczecinie, XIII Wydział Gospodarczy KRS',
-  kapital: '5 000 zł',
+  nip: '5842581572',
+  /** Numer VAT UE (VIES). */
+  nipUe: 'PL5842581572',
+  regon: '222064844',
   email: 'kontakt@busikm.pl',
   facebook: 'https://www.facebook.com/busikm',
 } as const;

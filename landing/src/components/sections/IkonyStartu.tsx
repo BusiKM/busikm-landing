@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
-import { markaAndroid } from '@/content/sklepy';
+import { robotWHero } from '@/content/sklepy';
 
 /**
  * Rozsypane ikony BusiKM Kierowca za hero startu aplikacji. Trzy plany jak
@@ -79,7 +79,7 @@ export function IkonyStartu() {
     <div ref={pole} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {IKONY.map((ik, i) => {
         const p = PLANY[ik.plan];
-        const naTelefonie = ik.telefon && !(markaAndroid && ik.telefon.ustepujeMarce);
+        const naTelefonie = ik.telefon && !(robotWHero && ik.telefon.ustepujeMarce);
         const styl = {
           '--x': `${ik.x}%`,
           '--y': `${ik.y}%`,

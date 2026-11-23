@@ -5,7 +5,7 @@ import Link from "@/i18n/Link";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { linkProbny } from "@/content/zainteresowanie";
 import { Licznik } from "@/components/motion/Licznik";
-import { plans } from "@/content/cennik";
+import { liniaBrutto, plans, VAT_PROCENT } from "@/content/cennik";
 import type { Tlumaczenia } from "@/i18n/jezyki";
 import { useJezyk } from "@/i18n/klient";
 
@@ -16,7 +16,7 @@ const TEKSTY: Tlumaczenia<{
   rocznie: string;
   gratis: string;
   okres: { rok: string; miesiac: string };
-  /** Dopisek przy kwocie, przed okresem. Ceny są końcowe – nie ma „netto”. */
+  /** Dopisek przy kwocie, przed okresem: waluta i „netto”. */
   waluta: string;
   wyroznienie: string;
   wezwanie: string;
@@ -37,10 +37,10 @@ const TEKSTY: Tlumaczenia<{
     rocznie: "Rocznie",
     gratis: "2 miesiące gratis",
     okres: { rok: "rok", miesiac: "mies." },
-    waluta: "zł",
+    waluta: "zł netto",
     wyroznienie: "Polecany od 4 busów",
-    wezwanie: "Zapisz się przed startem",
-    notaWezwania: "14 dni bez opłat od otwarcia kont",
+    wezwanie: "Wypróbuj 14 dni",
+    notaWezwania: "Plan wybierasz po okresie próbnym",
     start: [
       "Pierwsza trasa pierwszego dnia.",
       "Dodajesz pojazd ze zdjęcia dowodu rejestracyjnego, zapraszasz kierowcę i kierowca rusza. Bez wdrożenia, szkolenia i spotkania z handlowcem.",
@@ -51,7 +51,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     porownaj: "Porównaj plany",
     stopka:
-      "Ceny końcowe, bez VAT - MOVGRANTO jest zwolniona z VAT, na fakturze stawka „zw.”. Więcej niż 50 pojazdów - napisz. Bez umowy na czas określony. Po rezygnacji konto zostaje do odczytu: pobierzesz faktury, ewidencje i eksporty.",
+      `Ceny netto, do każdej faktury doliczamy ${VAT_PROCENT}% VAT. Więcej niż 50 pojazdów - napisz. Bez umowy na czas określony. Po rezygnacji konto zostaje do odczytu: pobierzesz faktury, ewidencje i eksporty.`,
   },
   en: {
     naglowek: ["You pay for vehicles.", "Not for people."],
@@ -60,10 +60,10 @@ const TEKSTY: Tlumaczenia<{
     rocznie: "Yearly",
     gratis: "2 months free",
     okres: { rok: "year", miesiac: "month" },
-    waluta: "",
+    waluta: "net",
     wyroznienie: "Recommended from 4 vans",
-    wezwanie: "Sign up before launch",
-    notaWezwania: "14 days free once accounts open",
+    wezwanie: "Try 14 days free",
+    notaWezwania: "You choose a plan after the trial",
     start: [
       "Your first route on day one.",
       "Add a van from a photo of its registration certificate, invite a driver and the driver sets off. No setup project, no training, no meeting with a salesperson.",
@@ -74,7 +74,7 @@ const TEKSTY: Tlumaczenia<{
     ],
     porownaj: "Compare plans",
     stopka:
-      "Final prices, no VAT on top - MOVGRANTO is VAT-exempt, so the invoice shows the “zw.” (exempt) rate. More than 50 vehicles - get in touch. No fixed-term contract. After you cancel, your account stays read-only: you can still download invoices, mileage logs and exports.",
+      `Net prices, ${VAT_PROCENT}% VAT is added to every invoice. More than 50 vehicles - get in touch. No fixed-term contract. After you cancel, your account stays read-only: you can still download invoices, mileage logs and exports.`,
   },
 };
 
@@ -205,20 +205,19 @@ export function Cennik({
                       PLN
                     </span>
                   )}
-                  {/* Kwota dolicza się od poprzedniej – patrz `Licznik`.
-                      Liczby w `content/cennik.ts` są tekstem ze spacją
-                      rozdzielającą tysiące, więc tutaj wracają na liczbę,
-                      a separator dokłada z powrotem licznik. */}
+                  {/* Kwota dolicza się od poprzedniej – patrz `Licznik`. */}
                   <Licznik
-                    wartosc={Number(
-                      (yearly ? plan.yearly : plan.monthly).replace(/\s/g, ""),
-                    )}
+                    wartosc={yearly ? plan.yearly : plan.monthly}
                     className="text-[40px] font-bold tracking-[-0.03em] lg:text-5xl"
                   />
                   <span className="text-[15px] text-muted lg:text-body">
-                    {t.waluta ? `${t.waluta} / ${period}` : `/ ${period}`}
+                    {t.waluta} / {period}
                   </span>
                 </div>
+                {/* Brutto liczone z netto w `content/cennik.ts`, bez wpisywania ręcznie. */}
+                <p className="-mt-1.5 text-[14px] text-muted lg:text-[15px]">
+                  {liniaBrutto(yearly ? plan.yearly : plan.monthly, jezyk)}
+                </p>
               </div>
 
               <div className="flex flex-col gap-2.5">
@@ -234,15 +233,11 @@ export function Cennik({
                 </ul>
               </div>
 
-              {/* Przycisk niesie to, co człowiek ma przed oczami: który plan
-                  i który okres rozliczenia. Strona zapisu odczyta to z adresu,
-                  a informacja dojedzie aż do powiadomienia na skrzynkę. */}
+              {/* Rejestracja w panelu. Plan wybiera się po okresie próbnym,
+                  więc przycisk nie niesie planu ani okresu. */}
               <div className="flex flex-col gap-2">
                 <Link
-                  href={linkProbny({
-                    plan: plan.id,
-                    okres: yearly ? "rocznie" : "miesiecznie",
-                  })}
+                  href={linkProbny()}
                   className={`flex h-12 items-center justify-center rounded-btn text-[16px] font-semibold lg:h-13 lg:text-body ${
                     plan.highlighted
                       ? "bg-blue text-white hover:bg-blue-dark hover:text-white"

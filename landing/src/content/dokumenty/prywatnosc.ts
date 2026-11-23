@@ -17,13 +17,20 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
  * przechowywania, prawa, skarga do PUODO, profilowanie) oraz sekcję o cookie.
  * Tabela retencji i lista narzędzi muszą zostać potwierdzone z tym, co system
  * naprawdę robi – dziś opisują stan zakładany.
+ *
+ * ## Historia zmian
+ *
+ * Wersja 9 (22.11.2026): administratorem jest Łukasz Głowacz prowadzący
+ * jednoosobową działalność pod firmą Movgranto Łukasz Głowacz (NIP
+ * 5842581572), zamiast MOVGRANTO Sp. z o.o. Reszta treści bez zmian.
+ * Wersje 1-8: historia w git (`git log -p -- src/content/dokumenty/prywatnosc.ts`).
  */
 const pl: Dokument = {
   href: '/prywatnosc',
   tytul: 'Polityka prywatności strony busikm.pl',
-  obowiazujeOd: '1 września 2026',
-  wersja: 8,
-  ostatniaZmiana: '15 listopada 2026',
+  obowiazujeOd: '22 listopada 2026',
+  wersja: 9,
+  ostatniaZmiana: '22 listopada 2026',
   wSkrocie: [
     'Ta polityka dotyczy wyłącznie strony busikm.pl. Dane w usłudze BusiKM (aplikacja webowa i mobilna) opisuje Polityka prywatności usługi BusiKM.',
     'Danych, które zostawiasz na stronie, nie sprzedajemy nikomu.',
@@ -43,7 +50,7 @@ const pl: Dokument = {
         },
         {
           typ: 'akapit',
-          tresc: `Administratorem danych osobowych jest ${firma.nazwa} z siedzibą w Szczecinie, ${firma.ulica}, ${firma.miasto}, NIP ${firma.nip}, KRS ${firma.krs}.`,
+          tresc: `Administratorem danych osobowych jest Łukasz Głowacz, prowadzący działalność gospodarczą pod firmą ${firma.nazwa}, ${firma.ulica}, ${firma.miasto}, NIP ${firma.nip}, REGON ${firma.regon}.`,
         },
         {
           typ: 'akapit',
@@ -289,9 +296,9 @@ const pl: Dokument = {
 const en: Dokument = {
   href: '/prywatnosc',
   tytul: 'busikm.pl Website Privacy Policy',
-  obowiazujeOd: '1 September 2026',
-  wersja: 8,
-  ostatniaZmiana: '15 November 2026',
+  obowiazujeOd: '22 November 2026',
+  wersja: 9,
+  ostatniaZmiana: '22 November 2026',
   wSkrocie: [
     'This policy covers only the busikm.pl website. Data in the BusiKM service (web and mobile app) is covered by the BusiKM Service Privacy Policy.',
     'We never sell the data you leave on the website to anyone.',
@@ -311,7 +318,7 @@ const en: Dokument = {
         },
         {
           typ: 'akapit',
-          tresc: `The controller of personal data is ${firma.nazwa}, with its registered office in Szczecin, ${firma.ulica}, ${firma.miasto}, Poland, tax identification number (NIP) ${firma.nip}, National Court Register (KRS) number ${firma.krs}.`,
+          tresc: `The controller of personal data is Łukasz Głowacz, running a sole proprietorship under the business name ${firma.nazwa}, ${firma.ulica}, ${firma.miasto}, Poland, tax identification number (NIP) ${firma.nip}, statistical number (REGON) ${firma.regon}.`,
         },
         {
           typ: 'akapit',

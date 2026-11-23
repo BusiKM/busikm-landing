@@ -40,10 +40,12 @@ Deploy: Vercel. **Root Directory projektu w Vercelu musi wskazywać na `landing/
   - `src/components/ui/` — Button, Container, TechCaption
 - **Server Components domyślnie**; `'use client'` tylko tam, gdzie jest stan (nagłówek, cennik, akordeony, formularze)
 - **Responsywność**: mobile-first, przełącznikiem na desktop jest breakpoint `lg:` (projekt powstał z artboardów 390 i 1440)
-- **Assety statyczne**: `landing/public/` — favicony i PWA (`favicon.*`, `apple-touch-icon.png`, `mask-icon.svg`, `site.webmanifest`, `web-app-manifest-*.png`), `logo/logo.svg`, `og-image/og-image.jpg`, `llms.txt`, pitch deck PDF, podpisy e-mail (`podpis-*.html`)
+- **Assety statyczne**: `landing/public/` — favicony i PWA (`favicon.*`, `apple-touch-icon.png`, `mask-icon.svg`, `site.webmanifest`, `web-app-manifest-*.png`), `logo/logo.svg`, `og-image/og-image.jpg`, pitch deck PDF, oficjalne odznaki sklepów w `sklepy/`. `llms.txt` nie leży w `public/`: treść jest w `src/content/llms/llms.txt`, a plik generuje przy buildzie `src/app/llms.txt/route.ts` (zamiany zależne od flagi `NEXT_PUBLIC_IOS_W_SKLEPIE`)
 - **Formularz kontaktowy**: `src/lib/firebase.ts` + `src/lib/wiadomosci.ts` → Firestore (kolekcja `wiadomosci`, reguły w `landing/firestore.rules`), powiadomienie mailem przez `src/app/api/powiadom/route.ts` (Resend). Bez zmiennych Firebase formularz cofa się do `mailto:` i nadal działa. Pełny opis i kroki uruchomienia: `docs/landing/11-formularz-kontaktowy.md`
-- **Demo i lista wczesnego dostępu**: demo działa w aplikacji (`DEMO_URL` w `src/content/navigation.ts`, dziś `staging.busikm.pl/demo/`), a `/demo` tylko je opisuje i prowadzi dalej. Publiczna rejestracja jeszcze nie istnieje: `/zaloguj` zbiera imię i adres do kolekcji `zapisy-konto`, a przyciski na stronie to „Zobacz demo” i „Zapisz się na start”. Treść w `src/content/zapisy.ts`, wspólny formularz w `src/components/pages/zapis/`. Co odwrócić po uruchomieniu: `docs/landing/12-listy-wczesnego-dostepu.md`
-- **Zgody marketingowe**: jedno brzmienie w `src/content/zgoda.ts`, wersjonowane i zapisywane razem z adresem (rozliczalność, art. 7 ust. 1 RODO). Na `/demo` i `/zaloguj` zgoda **wymagana** — usługą jest lista; w `/kontakt` **nieobowiązkowa** — usługą jest odpowiedź. Podstawa: art. 6 ust. 1 lit. a RODO + **art. 398 PKE** (art. 10 uśude uchylony 10.11.2024). Tagi `demo`/`rejestracja`/`formularz` w polu `zrodlo`. Pełny opis i droga do Klaviyo: `docs/landing/13-zgody-i-lista-mailingowa.md`
+- **Demo i lista wczesnego dostępu**: demo działa w aplikacji (`DEMO_URL` w `src/content/navigation.ts`, dziś `staging.busikm.pl/demo/`), a `/demo` tylko je opisuje i prowadzi dalej. Rejestracja jest publiczna w panelu (`PANEL_URL` w `navigation.ts`: produkcja `app.busikm.pl`, staging `NEXT_PUBLIC_PANEL_URL=https://staging.busikm.pl`). „Zaloguj się” prowadzi do `/login/` panelu (stamtąd jest przejście do rejestracji), „Wypróbuj 14 dni” wprost do `/register/`, a `/zaloguj` na landingu tylko przekierowuje. Historia list wczesnego dostępu: `docs/landing/12-listy-wczesnego-dostepu.md`
+- **Sklepy z aplikacją**: jedno źródło linków i odznak w `src/content/sklepy.ts`. Flaga `NEXT_PUBLIC_IOS_W_SKLEPIE=1` włącza App Store (odznaki w hero, kafel w stopce, nota o znakach Apple, iOS w danych strukturalnych); bez niej strona zostaje przy samym Google Play. Na produkcji włączamy ją dopiero po zatwierdzeniu aplikacji przez Apple
+- **Sprzedawca i ceny**: dane firmy (JDG Movgranto Łukasz Głowacz, czynny podatnik VAT) w `src/content/firma.ts`; ceny netto w `src/content/cennik.ts`, brutto liczy `brutto()` ze stałej `VAT_PROCENT`. Nigdy nie wpisuj kwot brutto ręcznie
+- **Zgody marketingowe**: jedno brzmienie w `src/content/zgoda.ts`, wersjonowane i zapisywane razem z adresem (rozliczalność, art. 7 ust. 1 RODO). Na `/demo` zgoda **wymagana** — usługą jest lista; w `/kontakt` **nieobowiązkowa** — usługą jest odpowiedź. Podstawa: art. 6 ust. 1 lit. a RODO + **art. 398 PKE** (art. 10 uśude uchylony 10.11.2024). Tagi `demo`/`rejestracja`/`formularz` w polu `zrodlo`. Pełny opis i droga do Klaviyo: `docs/landing/13-zgody-i-lista-mailingowa.md`
 - **Rolki**: `/rolki` (`src/components/pages/rolki/`) odtwarza filmy z R2 we własnym odtwarzaczu, nie z Facebooka. Katalog `rolki/katalog.json` leży w R2, a nowa rolka nie wymaga wdrożenia: co 15 minut przenosi ją z Facebooka `media-worker/rolki/synchronizuj.mjs` (GitHub Actions, uruchamiane cronem Workera `busikm-media`, bo harmonogram GitHuba gubi terminy). Adres strony na Facebooku: `firma.facebook`. Pełny opis: `docs/landing/17-rolki.md`
 - **SEO i analityka**: `src/content/seo.ts` (adresy, lista tras, wykluczenia z indeksu) → `src/lib/metadata.ts`, `src/app/sitemap.ts`, `src/app/robots.ts`, `src/components/seo/` (dane strukturalne), `src/components/analytics/` (GA4 za zgodą + baner cookie). Pełny opis: `docs/landing/10-seo-i-analityka.md`. **Nowa podstrona musi dostać wpis w `trasy` w `seo.ts`**, inaczej nie trafi do mapy strony. `robots.txt` i `sitemap.xml` są generowane — nie dokładaj ich do `public/`
 
@@ -141,7 +143,7 @@ nich bez końca.
 
 ⚠️ **Strona `/roadmapa` i sekcja `STATUS PRODUKTU` nie zostały jeszcze przeniesione do `landing/`** — zniknęły razem z Astro. Do czasu ich odtworzenia jedynym miejscem ze statystykami postępu jest:
 
-1. **`landing/public/llms.txt`** — sekcja "Stan wdrożenia".
+1. **`landing/src/content/llms/llms.txt`** — sekcja "Stan wdrożenia".
 
 Po odtworzeniu roadmapy w Next.js dojdą dwa kolejne miejsca (strona roadmapy + sekcja statusu na stronie głównej) i **wszystkie trzeba będzie aktualizować razem** — pojedyncza zmiana tylko na roadmapie powoduje rozjazd narracji na stronie głównej.
 
@@ -244,7 +246,7 @@ W hero (lub stat-pasie pod hero) jeśli jest komunikat typu "X faz do MVP" / "Fa
 
 Zaktualizuj synchronicznie:
 
-1. **`landing/public/llms.txt`** — sekcja "Stan wdrożenia": dzisiejsza data, liczby, data MVP, lista zamkniętych sprintów. **To jedyny plik do aktualizacji, dopóki roadmapa nie wróci na stronę.**
+1. **`landing/src/content/llms/llms.txt`** — sekcja "Stan wdrożenia": dzisiejsza data, liczby, data MVP, lista zamkniętych sprintów. **To jedyny plik do aktualizacji, dopóki roadmapa nie wróci na stronę.**
 2. *(po odtworzeniu roadmapy w Next.js)* strona roadmapy:
    - Hero stats: liczba ukończonych ticketów, `N/35` sprintów, ticketów w backlogu, data MVP LIVE (skrócona).
    - Tytuł hero "X sprintów za nami".

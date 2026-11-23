@@ -6,7 +6,7 @@ import { Akordeon } from '@/components/ui/Akordeon';
 import { Button } from '@/components/ui/Button';
 import { HeroRoli } from '@/components/ui/HeroRoli';
 import { Section, Bullets } from '@/components/ui/Section';
-import { DEMO_URL } from '@/content/navigation';
+import { DEMO_URL, appLinks } from '@/content/navigation';
 import { pages } from '@/content/pages';
 import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
 
@@ -46,16 +46,16 @@ const CTA: Tlumaczenia<{ naglowek: string; tresc: string; demo: string; zapis: s
   pl: {
     naglowek: 'Sprawdź na danych przykładowej firmy.',
     tresc:
-      'Demo otwiera się bez zakładania konta, tylko do odczytu. Konta otwieramy wkrótce: zostaw adres, a odezwiemy się, gdy ruszą zapisy.',
+      'Demo otwiera się bez zakładania konta, tylko do odczytu. Własne konto firmy założysz z ekranu logowania, pierwsze 14 dni bez opłat.',
     demo: 'Zobacz demo',
-    zapis: 'Zapisz się na start',
+    zapis: 'Zaloguj się',
   },
   en: {
     naglowek: 'Try it on a sample company’s data.',
     tresc:
-      'The demo opens without an account and is read-only. Accounts open soon: leave your email and we’ll be in touch when sign-ups start.',
+      'The demo opens without an account and is read-only. You can create your own company account from the sign-in screen, with the first 14 days free.',
     demo: 'See the demo',
-    zapis: 'Sign up for launch',
+    zapis: 'Log in',
   },
 };
 
@@ -144,7 +144,7 @@ export function StronaFrazy({
               <Button href={DEMO_URL} fullWidth className="lg:w-auto">
                 {cta.demo}
               </Button>
-              <Button href="/zaloguj" variant="secondaryDark" fullWidth className="lg:w-auto">
+              <Button href={appLinks.login} variant="secondaryDark" fullWidth className="lg:w-auto">
                 {cta.zapis}
               </Button>
             </div>

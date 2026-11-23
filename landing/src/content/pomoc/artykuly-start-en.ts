@@ -13,26 +13,11 @@ export const artykulyStartEn: Artykul[] = [
     slug: 'zakladamy-konto',
     kategoria: 'start',
     tytul: 'How to create an account',
-    lead: 'You start with your tax ID (NIP) and we fetch the rest of the company details from the register. For now we open accounts for people on the list.',
+    lead: 'You start with your tax ID (NIP) and we fetch the rest of the company details from the register.',
     role: ['wlasciciel'],
     czas: 'Five minutes, including confirming your email',
     zanim: ['Your company’s tax ID (NIP)', 'An email address for the confirmation'],
     rozdzialy: [
-      {
-        tytul: 'Where things stand',
-        bloki: [
-          {
-            typ: 'akapit',
-            tresc:
-              'We’re testing BusiKM on real routes with a small group of companies. Join the list on the “Sign in” page and we’ll write when we open an account for you.',
-          },
-          {
-            typ: 'wkrotce',
-            tresc:
-              'You can explore the demo right now, no account needed - use the See the demo button on the website. Sign-up for everyone is coming soon; until then, the website puts you on a list rather than creating an account.',
-          },
-        ],
-      },
       {
         tytul: 'Signing up step by step',
         bloki: [

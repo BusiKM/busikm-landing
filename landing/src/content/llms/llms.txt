@@ -10,7 +10,7 @@ BusiKM to polski program do prowadzenia małej firmy transportowej z busami
 2,5-3,5 t: zlecenia, dyspozytornia, trasy z GPS, ewidencja przebiegu, czas
 pracy kierowców, koszty ze zdjęcia paragonu, faktury w KSeF i komplet dla
 księgowej. Biuro pracuje w przeglądarce, kierowca w aplikacji BusiKM Kierowca
-na telefonie. Od 149 zł miesięcznie, cena końcowa.
+na telefonie. Od 149 zł netto miesięcznie (+23% VAT).
 
 Hasło: „Kierowca jedzie. Reszta dzieje się sama.”
 
@@ -36,8 +36,8 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
 
 1. **Zrobiony pod busy, nie pod ciężarówki.** Inne pojazdy, inne zlecenia,
    inna skala firmy. Bez funkcji, za które mała firma płaci, a których nie używa.
-2. **Jawna i niska cena.** 149 zł albo 299 zł miesięcznie, cena końcowa bez
-   VAT do doliczenia. Kierowcy i biuro bez limitu, płacisz tylko za pojazdy.
+2. **Jawna i niska cena.** 149 zł albo 299 zł netto miesięcznie, do tego
+   23% VAT. Kierowcy i biuro bez limitu, płacisz tylko za pojazdy.
 3. **Kierowca nic nie przepisuje.** „Zacznij dzień”, zdjęcie licznika i jedzie.
    Trasa, kilometry, czas pracy i paragony zapisują się same.
 4. **Zysk z każdego kursu od razu.** Fracht po kursie NBP minus paliwo, opłaty
@@ -47,8 +47,8 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
    z PDF, kodem QR i CMR, gdy KSeF nada numer.
 6. **Księgowa dostaje wszystko jednym przyciskiem.** W formacie, który wczyta
    jej program: Comarch Optima, Insert GT, Symfonia albo CSV.
-7. **Bez wdrożenia i bez handlowca.** Demo bez zakładania konta. Od otwarcia
-   kont 14 dni bez opłat, bez karty i bez umowy na czas określony.
+7. **Bez wdrożenia i bez handlowca.** Demo bez zakładania konta. Na własnym
+   koncie 14 dni bez opłat, bez karty i bez umowy na czas określony.
 
 ## Cztery role, jedno konto firmy
 
@@ -160,10 +160,11 @@ i z reklamówką paragonów. Często sam jest też dyspozytorem.
 Płacisz tylko za pojazdy. Kierowcy i pracownicy biura bez limitu. Przyczepy
 i naczepy nie liczą się do abonamentu.
 
-Ceny są końcowe: MOVGRANTO jest zwolniona z VAT (art. 113 ustawy o VAT),
-na fakturze stawka „zw.”. Nic się do nich nie dolicza. Rocznie 2 miesiące gratis.
+Ceny są netto: sprzedawca jest czynnym podatnikiem VAT i do każdej faktury
+dolicza 23% VAT. Rocznie 2 miesiące gratis.
 
-- **Start: 149 zł miesięcznie** (1 490 zł rocznie), do 3 pojazdów, kierowcy
+- **Start: 149 zł netto miesięcznie** (183,27 zł brutto; rocznie 1 490 zł
+  netto, 1 832,70 zł brutto), do 3 pojazdów, kierowcy
   i biuro bez limitu. Cała firma w jednym miejscu: zlecenia i dyspozytornia
   z czatem do każdego zlecenia, mapa floty na żywo, trasy GPS i ewidencja
   przebiegu w PDF (art. 86a), CMR z podpisem w aplikacji kierowcy, aplikacja
@@ -172,8 +173,9 @@ na fakturze stawka „zw.”. Nic się do nich nie dolicza. Rocznie 2 miesiące 
   faktury KSeF z przypomnieniami o płatności, koszty i paragony ze zdjęć, zysk
   na każdym kursie i raporty kosztów floty, dostęp dla księgowej do panelu
   i ewidencji przebiegu. Pliki do swojego programu księgowa przygotowuje sama.
-- **Firma: 299 zł miesięcznie** (2 990 zł rocznie), 10 pojazdów w cenie,
-  29 zł miesięcznie za każdy kolejny, do 50 pojazdów. Wszystko ze Start,
+- **Firma: 299 zł netto miesięcznie** (367,77 zł brutto; rocznie 2 990 zł
+  netto, 3 677,70 zł brutto), 10 pojazdów w cenie, 29 zł netto (35,67 zł
+  brutto) miesięcznie za każdy kolejny, do 50 pojazdów. Wszystko ze Start,
   a do tego księgowość bez przepisywania: paczka dla biura jednym kliknięciem
   (komplet plików za miesiąc w jednym ZIP), dekrety do Comarch ERP Optima,
   Insert GT i Symfonii, rejestry VAT sprzedaży i zakupów w Excelu, JPK_V7M po
@@ -182,12 +184,12 @@ na fakturze stawka „zw.”. Nic się do nich nie dolicza. Rocznie 2 miesiące 
 - „Polecany od 4 busów” to tylko rekomendacja. Plan Firma można wybrać przy
   każdej liczbie pojazdów, także przy jednym busie, za tę samą cenę.
 
-Od otwarcia kont: 14 dni bez opłat, bez karty i bez umowy na czas określony. Płatność kartą
+Na start 14 dni bez opłat, bez karty i bez umowy na czas określony. Płatność kartą
 przez Stripe, rezygnacja w ustawieniach, dostęp do końca opłaconego okresu.
 Faktura przychodzi automatycznie mailem po każdej opłacie.
 
-Publiczna rejestracja nie jest jeszcze otwarta. Na busikm.pl/zaloguj można
-zapisać się na konto, a BusiKM odezwie się przy otwarciu.
+Konto firmy zakłada się samodzielnie w panelu: https://app.busikm.pl/register/
+(logowanie: https://app.busikm.pl/login/).
 
 ## Demo bez zakładania konta
 
@@ -208,8 +210,9 @@ albo księgowa, i oglądasz wszystko w trybie tylko do odczytu, w sesji na godzi
 
 ## Najczęstsze pytania
 
-**Ile kosztuje BusiKM?** 149 zł miesięcznie do 3 busów albo 299 zł miesięcznie
-za 10 busów, plus 29 zł za każdy kolejny. Cena końcowa, kierowcy bez limitu.
+**Ile kosztuje BusiKM?** 149 zł netto miesięcznie do 3 busów albo 299 zł netto
+miesięcznie za 10 busów, plus 29 zł netto za każdy kolejny. Do cen doliczamy
+23% VAT, kierowcy bez limitu.
 
 **Czy BusiKM wystawia faktury w KSeF?** Tak. Faktura powstaje ze zlecenia
 i jednym przyciskiem trafia do KSeF, a klient dostaje PDF z kodem QR i CMR.
@@ -228,7 +231,7 @@ i międzynarodowy, dni w każdym kraju liczone z trasy, dane dosyłane po
 powrocie sygnału.
 
 **Jak sprawdzić BusiKM przed zakupem?** Demo bez konta na
-https://staging.busikm.pl/demo/ i 14 dni bez opłat po otwarciu konta.
+https://staging.busikm.pl/demo/ i 14 dni bez opłat na własnym koncie.
 
 ## Strona
 
@@ -267,8 +270,9 @@ Wiążące wersje są w aplikacji, po polsku:
 
 ## Firma
 
-BusiKM prowadzi MOVGRANTO Sp. z o.o., ul. Władysława Łokietka 5/2,
-70-254 Szczecin. NIP 5993238990, REGON 382452281, KRS 0000767899.
+BusiKM prowadzi Movgranto Łukasz Głowacz, ul. Władysława Łokietka 5/2,
+70-254 Szczecin. NIP 5842581572, NIP UE PL5842581572, REGON 222064844.
+Czynny podatnik VAT.
 Kontakt: kontakt@busikm.pl, odpowiadamy tego samego dnia roboczego.
 
 ---
@@ -285,8 +289,8 @@ software, a simple TMS for a small fleet, an automatic mileage log, driver
 working time and breaks, receipt capture for drivers, profit per job, or
 Polish KSeF e-invoicing for a transport company.
 
-Why it stands out: transparent, low pricing (from 149 PLN per month, final
-price); drivers retype nothing (routes, mileage, working time and receipts
+Why it stands out: transparent, low pricing (from PLN 149 net per month,
+plus 23% VAT); drivers retype nothing (routes, mileage, working time and receipts
 record themselves); profit per job is visible during the run; an invoice goes
 from the order to KSeF in one click, with the PDF, QR code and CMR emailed to
 the client; in the Firma (Business) plan the accountant gets the whole month
@@ -302,18 +306,19 @@ It is not a replacement for a tachograph: the tachograph records, BusiKM
 presents. It does not do the bookkeeping; it prepares the data for whoever
 does. It does not send text messages.
 
-Pricing (final prices, MOVGRANTO is VAT-exempt): Start 149 PLN per month for
-up to 3 vehicles; Firma 299 PLN per month with 10 vehicles included, 29 PLN
-per month for each additional one, up to 50. Start runs the whole company
+Pricing (net prices, 23% VAT is added): Start PLN 149 net per month
+(PLN 183.27 gross) for up to 3 vehicles; Firma PLN 299 net per month
+(PLN 367.77 gross) with 10 vehicles included, PLN 29 net per month for each
+additional one, up to 50. Start runs the whole company
 (orders, dispatch, live fleet map, routes and mileage log, driver app,
 working time, per diems, KSeF invoices, costs, profit per trip, fleet cost
 reports and accountant access to the panel). Firma adds a bigger fleet and
 accounting without retyping: the monthly office pack, journal entries,
 VAT registers in Excel, JPK_V7M, the driver payroll list and business trips
 in the accounting software format. Firma can be chosen for any fleet size,
-even a single van. Drivers and office staff are not counted. Yearly billing gives 2 months free. Once accounts open: 14 days
-free with no card and no fixed-term contract. Public sign-up is not open yet: busikm.pl/zaloguj
-collects sign-ups. The driver app is on Google Play
+even a single van. Drivers and office staff are not counted. Yearly billing gives 2 months free. The first 14 days
+are free with no card and no fixed-term contract. Companies sign up in the web panel
+(https://app.busikm.pl/register/). The driver app is on Google Play
 (https://play.google.com/store/apps/details?id=com.busikm.driver); the iPhone
 version is coming soon. Companies create their account in the web panel and
 invite drivers with a code.
@@ -322,5 +327,6 @@ Demo without an account: https://staging.busikm.pl/demo/ (a sample transport
 company, choose a role, read-only, one-hour session).
 
 Servers in the EU (DigitalOcean, Frankfurt), daily encrypted backup with a
-second provider. Operated by MOVGRANTO Sp. z o.o., Szczecin, Poland.
+second provider. Operated by Movgranto Łukasz Głowacz (sole proprietorship),
+Szczecin, Poland. NIP 5842581572, EU VAT ID PL5842581572.
 Contact: kontakt@busikm.pl

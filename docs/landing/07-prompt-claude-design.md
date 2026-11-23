@@ -468,7 +468,7 @@ Przyciski: `Wypróbuj 14 dni` · `Zobacz demo`
 Cztery kolumny: **Co robi** (dziewięć pozycji) · **Dla kogo** (cztery role) ·
 **Firma** (Cennik, Demo, Pomoc, Kontakt, Status usługi) ·
 **Prawne** (Regulamin, Polityka prywatności, Powierzenie danych, Podprocesorzy).
-Pasek dolny: nazwa spółki, NIP, adres e-mail, zdanie *„Twoje dane zostają w Europie”*.
+Pasek dolny: nazwa firmy, NIP, adres e-mail, zdanie *„Twoje dane zostają w Europie”*.
 Bez ikon mediów społecznościowych.
 
 ## 7. Ruch przy przewijaniu
@@ -1751,7 +1751,7 @@ nie automat z numerem zgłoszenia.*
 **Prawa kolumna — trzy bloki, jeden pod drugim:**
 1. **Napisz wprost** — `kontakt@busikm.pl` · duże, do skopiowania jednym kliknięciem
 2. **Zanim napiszesz** — Odpowiedź może już być w centrum pomocy · odnośnik `/pomoc`
-3. **Dane firmy** — nazwa spółki, adres, NIP. Drobnym szarym, bez wyróżnień.
+3. **Dane firmy** — nazwa firmy, adres, NIP. Drobnym szarym, bez wyróżnień.
 
 **Bez mapy, bez zdjęć zespołu, bez numeru telefonu.**
 

@@ -37,7 +37,7 @@ const TEKSTY: Tlumaczenia<{
     wejdz: 'Wejdź do demo',
     zasady: 'Bez rejestracji, tylko do odczytu, sesja na godzinę',
     konto: 'Wolisz własne konto?',
-    kontoLink: 'Zapisz się na listę',
+    kontoLink: 'Zaloguj się albo załóż konto',
     kafelki: [
       ['Pulpit właściciela', '„Do zrobienia”, „Dziś” i wynik miesiąca'],
       ['Dyspozytornia', 'kolejka zleceń i mapa floty obok siebie'],
@@ -62,7 +62,7 @@ const TEKSTY: Tlumaczenia<{
     wejdz: 'Enter the demo',
     zasady: 'No sign-up, read-only, one-hour session',
     konto: 'Want your own account?',
-    kontoLink: 'Join the list',
+    kontoLink: 'Log in or create an account',
     kafelki: [
       ['Owner’s dashboard', '“To do”, “Today” and the month’s result'],
       ['Dispatch', 'the order queue and fleet map side by side'],
@@ -86,7 +86,8 @@ const TEKSTY: Tlumaczenia<{
  * `NEXT_PUBLIC_DEMO_URL`): przykładowa firma, wybór roli przy wejściu,
  * tylko do odczytu, sesja na godzinę. Ta strona nie zbiera już adresów –
  * mówi, czego się spodziewać, i prowadzi jednym przyciskiem dalej.
- * Kto chce własne konto, ma odnośnik do listy na `/zaloguj`.
+ * Kto chce własne konto, ma odnośnik do logowania w panelu, skąd jest
+ * przejście do rejestracji.
  */
 export default async function Page({ params }: ParametryJezyka) {
   const jezyk = await jezykZParametrow(params);

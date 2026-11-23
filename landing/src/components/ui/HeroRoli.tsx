@@ -5,12 +5,12 @@ import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
 /**
- * Dopóki rejestracja jest zamknięta, głównym wejściem jest demo, a drugi
- * przycisk zapisuje na listę otwarcia kont – tak samo jak na stronie głównej.
+ * Głównym wejściem jest demo, drugi przycisk prowadzi do logowania
+ * w panelu, a stamtąd do rejestracji – tak samo jak na stronie głównej.
  */
 const PRZYCISKI: Tlumaczenia<{ zapis: string; demo: string }> = {
-  pl: { zapis: 'Zapisz się na start', demo: 'Zobacz demo' },
-  en: { zapis: 'Sign up for launch', demo: 'See the demo' },
+  pl: { zapis: 'Zaloguj się', demo: 'Zobacz demo' },
+  en: { zapis: 'Log in', demo: 'See the demo' },
 };
 
 /**
@@ -83,7 +83,7 @@ export function HeroRoli({
           <Button href={appLinks.demo} fullWidth className="lg:w-auto">
             {t.demo}
           </Button>
-          <Button href={appLinks.zapis} variant="secondary" fullWidth className="lg:w-auto">
+          <Button href={appLinks.login} variant="secondary" fullWidth className="lg:w-auto">
             {t.zapis}
           </Button>
         </div>

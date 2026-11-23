@@ -96,7 +96,14 @@ feat/nazwa  ──PR──▶  develop  ──PR──▶  main  ──▶  Verc
 - **`main`** to produkcja. Vercel wdraża **wyłącznie stąd** — po scaleniu
   strona jest na busikm.pl w kilka minut.
 - **`develop`** to gałąź domyślna w GitHubie, więc nowy PR celuje w nią sam
-  z siebie. Tu ląduje codzienna praca.
+  z siebie. Tu ląduje codzienna praca. Landing nie ma osobnej gałęzi
+  staging: jego stagingiem jest podgląd develop w Vercelu (projekt
+  `busikm-docs` na koncie lukaszglowaczs-projects, adres
+  `busikm-docs-git-develop-lukaszglowaczs-projects.vercel.app`). Środowisko
+  Preview ma `NEXT_PUBLIC_IOS_W_SKLEPIE=1` i
+  `NEXT_PUBLIC_PANEL_URL=https://staging.busikm.pl` (od 23.11.2026).
+  Pozostałe zmienne (Firebase, GA, Klaviyo, Resend) są ustawione tylko
+  w Production. Nowa zmienna zaczyna działać dopiero w kolejnym buildzie.
 - **`feat/*`** — jedna gałąź na jedno zadanie, kasowana po scaleniu.
   Tak samo `fix/*`, `chore/*`, `docs/*`, `refactor/*`.
 

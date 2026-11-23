@@ -10,19 +10,19 @@ type Punkt = readonly [string, string];
 
 const PUNKTY: Tlumaczenia<readonly Punkt[]> = {
   pl: [
-    ['Nawigacja jednym dotknięciem', 'Trasa ze zlecenia otwiera się w Google Maps albo Waze. Nic nie przepisuje'],
+    ['Nawigacja jednym dotknięciem', 'Trasa ze zlecenia otwiera się w nawigacji, której kierowca używa na co dzień. Nic nie przepisuje'],
     ['Paragon jednym przyciskiem', 'Zatankował, pstryknął, jedzie dalej. Kwotę BusiKM odczyta sam'],
     ['Działa bez zasięgu', 'Tunel, góry, terminal promowy. Wszystko dośle, gdy złapie sygnał'],
     ['Widzi, co czeka na wysłanie', 'Żadnego zgadywania, czy dane doszły'],
-    ['Działa z Android Auto', 'Trasa na ekranie w kabinie, BusiKM zapisuje przejazd w tle'],
+    ['Trasa na ekranie w kabinie', 'Nawigacja pokazuje ją na ekranie auta, BusiKM zapisuje przejazd w tle'],
     ['Tryb nocny', 'O trzeciej nad ranem ekran nie razi w oczy'],
   ],
   en: [
-    ['Navigation in one tap', 'The route from the order opens in Google Maps or Waze. Nothing to retype'],
+    ['Navigation in one tap', 'The route from the order opens in the navigation app the driver already uses. Nothing to retype'],
     ['A receipt in one tap', 'Filled up, snapped the receipt, back on the road. BusiKM reads the amount itself'],
     ['Works without signal', 'Tunnel, mountains, ferry terminal. It all goes through once there’s signal again'],
     ['Sees what’s waiting to send', 'No guessing whether the data got through'],
-    ['Works with Android Auto', 'The route on the dashboard screen, while BusiKM logs the trip in the background'],
+    ['The route on the in-cab screen', 'The navigation app shows it on the dashboard screen, while BusiKM logs the trip in the background'],
     ['Night mode', 'At three in the morning the screen doesn’t dazzle'],
   ],
 };
@@ -62,18 +62,18 @@ const TEKSTY: Tlumaczenia<{
   opis: string;
 }> = {
   pl: {
-    eyebrow: 'BusiKM Kierowca na Androida, wkrótce na iPhone',
+    eyebrow: 'BusiKM Kierowca na system Android, wkrótce na iPhone',
     naglowek: 'Cały dzień pracy w jednej aplikacji.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku. Nie dzwoni do Ciebie z pytaniem, jak się zalogować.',
     label: 'Aplikacja kierowcy (telefon, tryb nocny)',
-    opis: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: ekran „Czas pracy” przy przewozie międzynarodowym z bieżącym stanem, przypomnieniem o przerwie, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
+    opis: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” z listą aplikacji nawigacyjnych. Prawy: ekran „Czas pracy” przy przewozie międzynarodowym z bieżącym stanem, przypomnieniem o przerwie, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
     eyebrow: 'BusiKM Kierowca for Android, iPhone coming soon',
     naglowek: 'The whole working day in one app.',
     lead: 'The driver gets a code by email, types it into the app, sets a password and they’re in. No calling you to ask how to log in.',
     label: 'Driver app (phone, night mode)',
-    opis: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: the “Working time” screen for international transport with the current state, a break reminder, the day bar and the “Break” and “Rest” buttons.',
+    opis: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker listing navigation apps. Right: the “Working time” screen for international transport with the current state, a break reminder, the day bar and the “Break” and “Rest” buttons.',
   },
 };
 

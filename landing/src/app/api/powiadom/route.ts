@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { firma } from '@/content/firma';
 import { tematy, LIMITY } from '@/lib/wiadomosci';
 import { zapiszWKlaviyo } from '@/lib/klaviyo';
+import { mailFormularza } from '@/lib/mail-formularza';
 import { czyJezyk } from '@/i18n/jezyki';
 
 /**
@@ -26,14 +27,6 @@ import { czyJezyk } from '@/i18n/jezyki';
  */
 
 export const runtime = 'nodejs';
-
-/** Ucieczka znaków w treści wstawianej do HTML-a maila. */
-function bezpiecznie(tekst: string): string {
-  return tekst.replace(
-    /[&<>"]/g,
-    (z) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[z]!,
-  );
-}
 
 export async function POST(request: Request) {
   const klucz = process.env.RESEND_API_KEY;
@@ -80,30 +73,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, pominiete: 'brak RESEND_API_KEY', klaviyo }, { status: 200 });
   }
 
-  const html = `
-    <div style="font-family:system-ui,-apple-system,sans-serif;color:#0A0A0B;line-height:1.6">
-      <h2 style="margin:0 0 4px;font-size:18px">Nowa wiadomość z busikm.pl</h2>
-      <p style="margin:0 0 20px;color:#6C6C74;font-size:14px">${bezpiecznie(temat)}</p>
-      <table style="border-collapse:collapse;font-size:14px">
-        <tr>
-          <td style="padding:4px 16px 4px 0;color:#6C6C74;vertical-align:top">Od</td>
-          <td><b>${bezpiecznie(imie)}</b></td>
-        </tr>
-        <tr>
-          <td style="padding:4px 16px 4px 0;color:#6C6C74;vertical-align:top">E-mail</td>
-          <td><a href="mailto:${bezpiecznie(email)}" style="color:#0B5FFF">${bezpiecznie(email)}</a></td>
-        </tr>
-        <tr>
-          <td style="padding:4px 16px 4px 0;color:#6C6C74;vertical-align:top">Język</td>
-          <td>${jezyk === 'en' ? 'angielski (EN) - odpowiedz po angielsku' : 'polski'}</td>
-        </tr>
-        <tr>
-          <td style="padding:4px 16px 4px 0;color:#6C6C74;vertical-align:top">Zgoda</td>
-          <td>${zgoda ? `tak - dopisany do listy (${klaviyo.ok ? 'Klaviyo OK' : bezpiecznie('Klaviyo: ' + ('pominiete' in klaviyo ? klaviyo.pominiete : klaviyo.blad))})` : 'nie - sam kontakt, bez listy'}</td>
-        </tr>
-      </table>
-      <div style="margin-top:20px;padding-top:20px;border-top:1px solid #E3E3E6;white-space:pre-wrap;font-size:15px">${bezpiecznie(tresc)}</div>
-    </div>`;
+  const mail = mailFormularza({ imie, email, tresc, temat, jezyk, zgoda, klaviyo });
 
   try {
     const odp = await fetch('https://api.resend.com/emails', {
@@ -115,8 +85,11 @@ export async function POST(request: Request) {
         // Dzięki temu „Odpowiedz" w kliencie pocztowym trafia wprost do
         // osoby, która napisała, a nie do adresu nadawcy technicznego.
         reply_to: email,
-        subject: `BusiKM: ${temat}${jezyk === 'en' ? ' [EN]' : ''} - ${imie}`,
-        html,
+        subject: mail.temat,
+        html: mail.html,
+        // Wersja tekstowa obok HTML-a: część programów pocztowych i filtrów
+        // spamu gorzej ocenia mail bez niej.
+        text: mail.tekst,
       }),
     });
 

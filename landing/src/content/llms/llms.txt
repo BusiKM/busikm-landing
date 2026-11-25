@@ -193,7 +193,7 @@ Konto firmy zakłada się samodzielnie w panelu: https://app.busikm.pl/register/
 
 ## Demo bez zakładania konta
 
-https://staging.busikm.pl/demo/ (opis na busikm.pl/demo). Przykładowa firma
+https://app.busikm.pl/demo/ (opis na busikm.pl/demo). Przykładowa firma
 transportowa z prawdziwymi ekranami. Wybierasz rolę: właściciel, dyspozytor
 albo księgowa, i oglądasz wszystko w trybie tylko do odczytu, w sesji na godzinę.
 
@@ -231,7 +231,7 @@ i międzynarodowy, dni w każdym kraju liczone z trasy, dane dosyłane po
 powrocie sygnału.
 
 **Jak sprawdzić BusiKM przed zakupem?** Demo bez konta na
-https://staging.busikm.pl/demo/ i 14 dni bez opłat na własnym koncie.
+https://app.busikm.pl/demo/ i 14 dni bez opłat na własnym koncie.
 
 ## Strona
 
@@ -323,7 +323,7 @@ are free with no card and no fixed-term contract. Companies sign up in the web p
 version is coming soon. Companies create their account in the web panel and
 invite drivers with a code.
 
-Demo without an account: https://staging.busikm.pl/demo/ (a sample transport
+Demo without an account: https://app.busikm.pl/demo/ (a sample transport
 company, choose a role, read-only, one-hour session).
 
 Servers in the EU (DigitalOcean, Frankfurt), daily encrypted backup with a

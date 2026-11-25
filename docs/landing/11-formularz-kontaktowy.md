@@ -21,6 +21,7 @@ formularza, bo zgłoszenie leży już w bazie.
 | `src/lib/firebase.ts` | połączenie, wykrywanie braku konfiguracji |
 | `src/lib/wiadomosci.ts` | zapis do Firestore + wywołanie powiadomienia |
 | `src/app/api/powiadom/route.ts` | wysyłka maila przez Resend |
+| `src/lib/mail-formularza.ts` | treść maila: układ maili aplikacji, wiadomość klienta na górze, stan zapisu na newsletter jednym zdaniem, wersja tekstowa |
 | `landing/firestore.rules` | reguły bazy — wyłącznie zapis, z walidacją |
 | `src/components/pages/kontakt/Formularz.tsx` | formularz i jego stany |
 

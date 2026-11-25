@@ -3,6 +3,7 @@ import { Inter, IBM_Plex_Mono } from 'next/font/google';
 import { RevealObserver } from '@/components/motion/RevealObserver';
 import { PowrotNaGore } from '@/components/layout/PowrotNaGore';
 import { Analytics } from '@/components/analytics/Analytics';
+import { UtmDoAplikacji } from '@/components/analytics/UtmDoAplikacji';
 import { BanerZgody } from '@/components/analytics/BanerZgody';
 import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -97,6 +98,7 @@ export default async function RootLayout({
           <RevealObserver />
           <BanerZgody />
           <Analytics />
+          <UtmDoAplikacji />
           <MetaPixel />
         </DostawcaJezyka>
       </body>

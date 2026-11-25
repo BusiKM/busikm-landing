@@ -20,6 +20,8 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
  *
  * ## Historia zmian
  *
+ * Wersja 10 (25.11.2026): akapit o oznaczeniu kampanii (utm) przekazywanym do
+ * aplikacji przy wejściu do demo i rejestracji; bez zgody nic nie zapisujemy.
  * Wersja 9 (22.11.2026): administratorem jest Łukasz Głowacz prowadzący
  * jednoosobową działalność pod firmą Movgranto Łukasz Głowacz (NIP
  * 5842581572), zamiast MOVGRANTO Sp. z o.o. Reszta treści bez zmian.
@@ -28,9 +30,9 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
 const pl: Dokument = {
   href: '/prywatnosc',
   tytul: 'Polityka prywatności strony busikm.pl',
-  obowiazujeOd: '22 listopada 2026',
-  wersja: 9,
-  ostatniaZmiana: '22 listopada 2026',
+  obowiazujeOd: '25 listopada 2026',
+  wersja: 10,
+  ostatniaZmiana: '25 listopada 2026',
   wSkrocie: [
     'Ta polityka dotyczy wyłącznie strony busikm.pl. Dane w usłudze BusiKM (aplikacja webowa i mobilna) opisuje Polityka prywatności usługi BusiKM.',
     'Danych, które zostawiasz na stronie, nie sprzedajemy nikomu.',
@@ -238,6 +240,11 @@ const pl: Dokument = {
         {
           typ: 'akapit',
           tresc:
+            'Jeśli wejdziesz na stronę z linku z oznaczeniem kampanii (parametry utm w adresie), przekazujemy to oznaczenie do aplikacji BusiKM w adresie przycisku demo albo rejestracji. Bez Twojej zgody na analitykę nie zapisujemy go w przeglądarce, a po zgodzie trzymamy je w pamięci karty do jej zamknięcia. Oznaczenie nie zawiera danych osobowych.',
+        },
+        {
+          typ: 'akapit',
+          tresc:
             'Zgodę na analitykę i na reklamę wyrażasz osobno w okienku, które pokazuje się przy pierwszej wizycie, a cofasz odnośnikiem „Ustawienia cookie" na dole każdej strony. Do czasu zgody ani licznik odwiedzin, ani piksel Meta w ogóle się nie ładują. Piksel nie zbiera automatycznie kliknięć ani treści strony: wysyłamy tylko odsłony stron oraz informację, że ktoś zapisał się na listę albo wysłał formularz, bez Twojego imienia i adresu e-mail.',
         },
         {
@@ -296,9 +303,9 @@ const pl: Dokument = {
 const en: Dokument = {
   href: '/prywatnosc',
   tytul: 'busikm.pl Website Privacy Policy',
-  obowiazujeOd: '22 November 2026',
-  wersja: 9,
-  ostatniaZmiana: '22 November 2026',
+  obowiazujeOd: '25 November 2026',
+  wersja: 10,
+  ostatniaZmiana: '25 November 2026',
   wSkrocie: [
     'This policy covers only the busikm.pl website. Data in the BusiKM service (web and mobile app) is covered by the BusiKM Service Privacy Policy.',
     'We never sell the data you leave on the website to anyone.',
@@ -498,6 +505,11 @@ const en: Dokument = {
           typ: 'akapit',
           tresc:
             'The strictly necessary cookies also include the “jezyk” cookie. It remembers the language version of the website (Polish or English) that you choose with the EN/PL switch, so that the website opens in the same language on your next visit. We set it only when you choose a language yourself; it expires after one year. We do not ask for consent because it serves solely to provide a function you have requested (Art. 399(3) of the Electronic Communications Law).',
+        },
+        {
+          typ: 'akapit',
+          tresc:
+            'If you come to the website from a link with a campaign tag (utm parameters in the address), we pass that tag on to the BusiKM app in the address of the demo or sign-up button. Without your consent to analytics we do not store it in your browser; with your consent we keep it in the tab’s memory until you close the tab. The tag contains no personal data.',
         },
         {
           typ: 'akapit',

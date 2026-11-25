@@ -399,13 +399,14 @@ const TEKSTY: Tlumaczenia<Teksty> = {
  *
  * Adres pochodzi ze zmiennej `NEXT_PUBLIC_DEMO_URL` (Vercel → Environment
  * Variables), żeby przejście demo ze stagingu na produkcję było zmianą jednej
- * wartości, bez commita. Domyślnie staging – tam demo rusza najpierw.
+ * wartości, bez commita. Domyślnie produkcja (app.busikm.pl). Podgląd
+ * develop może wskazać demo na stagingu tą samą zmienną w Preview.
  *
  * `appLinks.demo` prowadzi prosto do aplikacji (przyciski „Zobacz demo”),
  * a pozycje menu `/demo` – na stronę landingu, która mówi, czego się
  * spodziewać, i ma ten sam przycisk.
  */
-export const DEMO_URL = process.env.NEXT_PUBLIC_DEMO_URL || 'https://staging.busikm.pl/demo/';
+export const DEMO_URL = process.env.NEXT_PUBLIC_DEMO_URL || 'https://app.busikm.pl/demo/';
 
 /**
  * Adresy aplikacji – w jednym miejscu.

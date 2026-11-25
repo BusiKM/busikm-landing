@@ -51,7 +51,10 @@ export function newsletter(zgoda: boolean, klaviyo: WynikKlaviyo): [string, bool
 
 export function mailFormularza(dane: DaneFormularza): MailFormularza {
   const angielski = dane.jezyk === 'en';
-  const temat = `${wielka(dane.temat)}${angielski ? ' [EN]' : ''}: ${dane.imie}`;
+  // Imię idzie do nagłówka Subject - bez znaków nowej linii i innych sterujących,
+  // żeby wpis z formularza nie mógł doklejać nagłówków ani łamać tematu.
+  const imie = dane.imie.replace(/[\u0000-\u001f\u007f]+/g, ' ').trim();
+  const temat = `${wielka(dane.temat)}${angielski ? ' [EN]' : ''}: ${imie}`;
   const jezyk = angielski ? 'angielski, odpowiedz po angielsku' : 'polski';
   const fakty: [string, string][] = [
     ['Temat', wielka(dane.temat)],

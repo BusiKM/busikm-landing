@@ -228,5 +228,5 @@ Cztery kolumny plus pasek dolny.
 | Dane dla księgowej | | | |
 | Dokumenty i terminy | | | |
 
-Pasek dolny: nazwa spółki, NIP, adres e-mail, zdanie *„Twoje dane zostają w Europie”*.
+Pasek dolny: nazwa firmy, NIP, adres e-mail, zdanie *„Twoje dane zostają w Europie”*.
 Bez ikon mediów społecznościowych, dopóki nie ma tam realnych kont.

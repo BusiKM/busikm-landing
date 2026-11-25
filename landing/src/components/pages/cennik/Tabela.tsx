@@ -1,5 +1,6 @@
 import { Section } from '@/components/ui/Section';
-import type { Tlumaczenia } from '@/i18n/jezyki';
+import { brutto, CENA_POJAZDU, cenaPlanu, zWaluta } from '@/content/cennik';
+import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
 
 type Wiersz = readonly [string, string, string];
@@ -19,13 +20,16 @@ const TEKSTY: Tlumaczenia<{
    * księgowej, jest tylko w Firmie - patrz `content/cennik.ts`.
    */
   grupy: readonly Grupa[];
-  ceny: readonly Wiersz[];
+  /** Nazwa wiersza i okres. Kwoty bierze z `content/cennik.ts`. */
+  ceny: readonly (readonly [string, 'monthly' | 'yearly'])[];
+  netto: string;
+  brutto: string;
 }> = {
   pl: {
     naglowek: 'Co jest w którym planie.',
     plany: ['Start', 'Firma'],
     parametry: [
-      ['Pojazdy', '1-3', '1-50, 10 w cenie, +29 zł za kolejny'],
+      ['Pojazdy', '1-3', `1-50, 10 w cenie, +${zWaluta(CENA_POJAZDU, 'pl')} netto za kolejny`],
       ['Kierowcy i biuro', 'bez limitu', 'bez limitu'],
     ],
     grupy: [
@@ -57,15 +61,17 @@ const TEKSTY: Tlumaczenia<{
       },
     ],
     ceny: [
-      ['Miesięcznie', '149 zł', '299 zł'],
-      ['Rocznie', '1 490 zł', '2 990 zł'],
+      ['Miesięcznie', 'monthly'],
+      ['Rocznie', 'yearly'],
     ],
+    netto: 'netto',
+    brutto: 'brutto',
   },
   en: {
     naglowek: 'What’s in each plan.',
     plany: ['Start', 'Business'],
     parametry: [
-      ['Vehicles', '1-3', '1-50, 10 included, +PLN 29 per extra'],
+      ['Vehicles', '1-3', `1-50, 10 included, +${zWaluta(CENA_POJAZDU, 'en')} net per extra`],
       ['Drivers and office', 'unlimited', 'unlimited'],
     ],
     grupy: [
@@ -97,17 +103,32 @@ const TEKSTY: Tlumaczenia<{
       },
     ],
     ceny: [
-      ['Monthly', 'PLN 149', 'PLN 299'],
-      ['Yearly', 'PLN 1,490', 'PLN 2,990'],
+      ['Monthly', 'monthly'],
+      ['Yearly', 'yearly'],
     ],
+    netto: 'net',
+    brutto: 'gross',
   },
 };
 
-const wiersz = 'grid grid-cols-[1fr_64px_64px] items-center gap-3 lg:grid-cols-[1fr_200px_200px]';
+const wiersz = 'grid grid-cols-[1fr_92px_92px] items-center gap-3 lg:grid-cols-[1fr_200px_200px]';
 
 /** Tabela porównawcza – ma się czytać jak tabela, bez ozdobników. */
 export function Tabela() {
-  const t = TEKSTY[biezacyJezyk()];
+  const jezyk: Jezyk = biezacyJezyk();
+  const t = TEKSTY[jezyk];
+
+  /** Komórka ceny: netto pogrubione, pod nim brutto liczone z netto. */
+  const cena = (n: number) => (
+    <span className="flex flex-col text-center lg:text-left">
+      <b>
+        {zWaluta(n, jezyk)} {t.netto}
+      </b>
+      <span className="text-[12px] text-muted lg:text-[14px]">
+        {zWaluta(brutto(n), jezyk, true)} {t.brutto}
+      </span>
+    </span>
+  );
   return (
     <Section>
       <div className="flex flex-col gap-8 lg:gap-14">
@@ -151,7 +172,7 @@ export function Tabela() {
             </div>
           ))}
 
-          {t.ceny.map(([nazwa, start, firma], i) => (
+          {t.ceny.map(([nazwa, okres], i) => (
             <div
               key={nazwa}
               className={`${wiersz} py-3.5 lg:py-4 ${
@@ -159,8 +180,8 @@ export function Tabela() {
               }`}
             >
               <span className="font-medium">{nazwa}</span>
-              <b className="text-center lg:text-left">{start}</b>
-              <b className="text-center lg:text-left">{firma}</b>
+              {cena(cenaPlanu('start', okres))}
+              {cena(cenaPlanu('firma', okres))}
             </div>
           ))}
         </div>

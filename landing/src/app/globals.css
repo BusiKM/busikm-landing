@@ -112,6 +112,47 @@
     scroll-behavior: smooth;
   }
 
+  /* --- Pasek przewijania strony -------------------------------------------
+     Niebieska pigułka w kolorze marki: 45% krycia w spoczynku, mocniej pod
+     kursorem. Przezroczysta obwódka 3 px odsuwa ją od krawędzi, a
+     `background-clip` nie maluje pod nią koloru. Tor jest przezroczysty,
+     więc przyjmuje tło strony (`--color-paper`): Chrome rezerwuje na pasek
+     osobny pas i treść, np. niebieskie hero, pod nim nie przechodzi.
+
+     Tylko pasek całej strony. Przewijane elementy w środku (menu, tabele)
+     zostają przy pasku systemowym.
+
+     Firefox nie zna `::-webkit-scrollbar`, więc dostaje standardowe
+     `scrollbar-color` i `scrollbar-width`: ten sam kolor, bez zaokrągleń.
+     Warunek `@supports` jest konieczny, bo Chrome od wersji 121 przy
+     ustawionym `scrollbar-color` pomija reguły `::-webkit-scrollbar`.
+     Safari na Macu i telefony mają pasek nakładany i zostają bez zmian. */
+  html::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--color-blue) 45%, transparent);
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-radius: 999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--color-blue) 80%, transparent);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-color: color-mix(in srgb, var(--color-blue) 45%, transparent) transparent;
+      scrollbar-width: thin;
+    }
+  }
+
   /* Odnośnik w tekście ciągłym musi być rozpoznawalny nie tylko kolorem –
      WCAG 1.4.1. Kolorem tego się nie da: `--color-blue` #0B5FFF wobec
      `--color-muted` #6C6C74 daje 1,01:1, bo oba mają niemal identyczną
@@ -217,8 +258,46 @@
     }
   }
 
+  /* --- Menu na telefonie ---------------------------------------------------
+     Przejście między listą główną a podmenu jak w menu Apple: nowa lista
+     rozjaśnia się i lekko opada na miejsce, pozycja po pozycji (opóźnienie
+     ustawia komponent). Bez przesuwania ekranu w bok. */
+  .menu-wchodzi {
+    animation: menu-wejscie 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes menu-wejscie {
+    from {
+      opacity: 0;
+      translate: 0 -8px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  /* --- Unoszące się ikony w hero startu ------------------------------------
+     Wolne, ledwo widoczne kołysanie. Każda ikona startuje z innej fazy
+     (ujemne `animation-delay`), więc pole nie faluje jak jeden obiekt. */
+  .ikona-unosi {
+    animation: ikona-unosi 7s ease-in-out infinite;
+  }
+
+  @keyframes ikona-unosi {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -14px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    .ikona-unosi,
     .wchodzi,
+    .menu-wchodzi,
     .cyfra-wjazd,
     .cyfra-wyjazd {
       animation: none;

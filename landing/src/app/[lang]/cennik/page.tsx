@@ -20,7 +20,7 @@ const TEKSTY: Tlumaczenia<{ nadtytul: string; naglowekPytan: string; pytania: Py
     pytania: [
       [
         'Jak dostanę fakturę?',
-        'Automatycznie, na maila, po każdej opłacie. Z NIP-em, który podałeś przy zakładaniu konta, i ze stawką VAT „zw.” - cena z cennika jest ceną końcową.',
+        'Automatycznie, na maila, po każdej opłacie. Z NIP-em, który podałeś przy zakładaniu konta. Ceny w cenniku są netto, na fakturze doliczamy 23% VAT.',
       ],
       [
         'Co po 14 dniach?',
@@ -46,7 +46,7 @@ const TEKSTY: Tlumaczenia<{ nadtytul: string; naglowekPytan: string; pytania: Py
     pytania: [
       [
         'How do I get an invoice?',
-        'Automatically, by email, after every payment. With the tax ID (NIP) you gave when you set up your account, at the “zw.” (VAT-exempt) rate - the price on this page is the final price.',
+        'Automatically, by email, after every payment. With the tax ID (NIP) you gave when you set up your account. Prices on this page are net, and the invoice adds 23% VAT.',
       ],
       [
         'What happens after 14 days?',

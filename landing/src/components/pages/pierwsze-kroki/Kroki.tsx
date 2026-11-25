@@ -43,9 +43,9 @@ const kroki: Tlumaczenia<Krok[]> = {
     {
       tytul: 'Załóż konto',
       tresc:
-        'Zaczynasz od NIP-u - nazwę i adres firmy pobierzemy z rejestru. Potem imię, e-mail i hasło. Konta otwieramy na razie osobom z listy - zapisz się, a damy znać.',
+        'Zaczynasz od NIP-u - nazwę i adres firmy pobierzemy z rejestru. Potem imię, e-mail i hasło.',
       czas: '2 minuty',
-      akcja: { label: 'Zapisz się na listę', href: appLinks.login },
+      akcja: { label: 'Załóż konto', href: appLinks.rejestracja },
     },
     {
       tytul: 'Dodaj pierwszy pojazd',
@@ -87,9 +87,9 @@ const kroki: Tlumaczenia<Krok[]> = {
     {
       tytul: 'Create an account',
       tresc:
-        'You start with your tax ID (NIP) - we fetch the company name and address from the register. Then your name, email and password. For now we open accounts for people on the list - join it and we’ll let you know.',
+        'You start with your tax ID (NIP) - we fetch the company name and address from the register. Then your name, email and password.',
       czas: '2 minutes',
-      akcja: { label: 'Join the list', href: appLinks.login },
+      akcja: { label: 'Create an account', href: appLinks.rejestracja },
     },
     {
       tytul: 'Add your first vehicle',

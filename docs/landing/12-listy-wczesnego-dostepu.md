@@ -1,5 +1,12 @@
 # 12. Listy wczesnego dostępu
 
+> **Stan od 22.11.2026: dokument historyczny.** Rejestracja jest publiczna
+> w panelu (`BKM-1858`). „Zaloguj się” prowadzi do logowania w panelu, skąd
+> jest przejście do zakładania konta, „Wypróbuj 14 dni” wprost do
+> `/register/`, a `/zaloguj` na landingu tylko przekierowuje do panelu
+> (`appLinks` w `src/content/navigation.ts`). Lista `zapisy-konto` nie
+> przyjmuje już nowych adresów. Opis poniżej zostaje jako zapis decyzji.
+
 Ani aplikacja, ani demo nie są jeszcze publiczne. Zamiast przycisków
 prowadzących donikąd — dwie strony, które mówią to wprost i zbierają imię
 z adresem.

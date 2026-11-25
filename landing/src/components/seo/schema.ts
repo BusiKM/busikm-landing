@@ -6,6 +6,7 @@ import { pages } from '@/content/pages';
 import { plans } from '@/content/cennik';
 import type { Rolka } from '@/content/rolki';
 import type { Artykul } from '@/content/pomoc/typy';
+import { iosWSklepie, linkAppStore, linkGooglePlay } from '@/content/sklepy';
 
 /**
  * Budowniki grafu danych strukturalnych (schema.org).
@@ -50,14 +51,13 @@ function organizacja() {
     email: firma.email,
     sameAs: [firma.facebook],
     address: adres(),
-    // Bez `vatID`: MOVGRANTO jest zwolniona z VAT (art. 113) i nie jest
-    // czynnym podatnikiem VAT UE, więc numer w formacie VIES wprowadzałby
-    // w błąd. Zostaje sam NIP.
+    // Sprzedawca jest czynnym podatnikiem VAT i zarejestrowany w VIES,
+    // więc obok NIP-u stoi numer VAT UE.
     taxID: firma.nip,
+    vatID: firma.nipUe,
     identifier: [
       { '@type': 'PropertyValue', name: 'NIP', value: firma.nip },
       { '@type': 'PropertyValue', name: 'REGON', value: firma.regon },
-      { '@type': 'PropertyValue', name: 'KRS', value: firma.krs },
     ],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -114,7 +114,7 @@ const FUNKCJE: Record<Jezyk, string[]> = {
 };
 
 function aplikacja(jezyk: Jezyk) {
-  const ceny = plans[jezyk].map((p) => Number(p.monthly.replace(/\s/g, '')));
+  const ceny = plans[jezyk].map((p) => p.monthly);
 
   return {
     '@type': 'SoftwareApplication',
@@ -123,7 +123,12 @@ function aplikacja(jezyk: Jezyk) {
     applicationCategory: 'BusinessApplication',
     applicationSubCategory:
       jezyk === 'pl' ? 'Zarządzanie flotą i transportem' : 'Fleet and transport management',
-    operatingSystem: 'Web, iOS, Android',
+    operatingSystem: iosWSklepie ? 'Web, Android, iOS' : 'Web, Android',
+    // schema.org: `installUrl` to adres, pod którym aplikację da się
+    // zainstalować. Jeden wpis na sklep, App Store pierwszy.
+    installUrl: iosWSklepie
+      ? [linkAppStore(jezyk), linkGooglePlay('aplikacja')]
+      : linkGooglePlay('aplikacja'),
     url: serwis.url,
     description: opisSerwisu[jezyk].opis,
     inLanguage: KODY[jezyk].lang,
@@ -140,17 +145,17 @@ function aplikacja(jezyk: Jezyk) {
       offers: plans[jezyk].map((p) => ({
         '@type': 'Offer',
         name: p.name,
-        price: p.monthly.replace(/\s/g, ''),
+        price: String(p.monthly),
         priceCurrency: 'PLN',
         url: `${serwis.url}${lokalizuj('/cennik', jezyk)}`,
         availability: 'https://schema.org/InStock',
         priceSpecification: {
           '@type': 'UnitPriceSpecification',
-          price: p.monthly.replace(/\s/g, ''),
+          price: String(p.monthly),
           priceCurrency: 'PLN',
-          // Ceny w cenniku są końcowe: sprzedawca jest zwolniony z VAT
-          // (art. 113), na fakturze stawka „zw.”. Nic się do nich nie dolicza.
-          valueAddedTaxIncluded: true,
+          // Ceny w cenniku są netto: sprzedawca jest czynnym podatnikiem VAT
+          // i dolicza 23% do każdej faktury.
+          valueAddedTaxIncluded: false,
           billingDuration: 1,
           billingIncrement: 1,
           unitCode: 'MON',

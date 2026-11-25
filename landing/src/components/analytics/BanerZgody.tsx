@@ -147,8 +147,11 @@ export function BanerZgody() {
     setSzczegoly(true);
   };
 
+  // Szerokość od tekstu, bez łamania. Przy `flex-1` każdy przycisk miał
+  // połowę karty i „Zgadzam się na wszystko” łamało się w dwie linie
+  // w sztywnych 40 px. `flex-auto` dzieli resztę miejsca po równo.
   const przycisk =
-    'inline-flex h-10 flex-1 items-center justify-center rounded-btn px-4 text-[14px] font-semibold transition-colors';
+    'inline-flex h-11 flex-auto items-center justify-center rounded-btn px-4 text-[14px] font-semibold whitespace-nowrap transition-colors';
   const glowny = `${przycisk} bg-blue text-white hover:bg-blue-dark`;
   const drugi = `${przycisk} border border-line bg-white text-ink hover:border-muted`;
 

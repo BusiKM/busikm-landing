@@ -172,7 +172,7 @@ export const artykulyKontoEn: Artykul[] = [
             typ: 'lista',
             punkty: [
               'Start - up to 3 vehicles. Your whole company in one place: orders, routes, drivers, invoices and costs, the live fleet map and cost reports. Your accountant has access to the panel and mileage logs.',
-              'Business (Firma) - 10 vehicles included, +PLN 29/month for each extra one, up to 50. Everything in Start, plus files for your accountant’s software: the office pack, journal entries, VAT registers, JPK_V7M and the payroll list. Available for any fleet size. Larger fleet - write to us.',
+              'Business (Firma) - 10 vehicles included, +PLN 29 net/month for each extra one, up to 50. Everything in Start, plus files for your accountant’s software: the office pack, journal entries, VAT registers, JPK_V7M and the payroll list. Available for any fleet size. Larger fleet - write to us.',
             ],
           },
           {
@@ -202,7 +202,7 @@ export const artykulyKontoEn: Artykul[] = [
           {
             typ: 'akapit',
             tresc:
-              'You get an invoice by email for every payment, at the “zw.” (VAT-exempt) rate - MOVGRANTO is exempt from VAT, so the price on the pricing page is the final price.',
+              'You get an invoice by email for every payment. Prices on the pricing page are net, and the invoice adds 23% VAT.',
           },
         ],
       },

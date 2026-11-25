@@ -1,15 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, Monitor, User } from 'lucide-react';
 import Link from '@/i18n/Link';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/layout/Logo';
 import { IkonaMenu } from '@/components/layout/IkonaMenu';
 import { PrzelacznikJezyka } from '@/components/layout/PrzelacznikJezyka';
 import { appLinks, nawigacja, type NavEntry } from '@/content/navigation';
-import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
+import type { Tlumaczenia } from '@/i18n/jezyki';
 import { useJezyk } from '@/i18n/klient';
-import { lokalizuj, rozpoznaj } from '@/i18n/trasy';
+import { rozpoznaj } from '@/i18n/trasy';
 
 /**
  * Pasek nawigacji – wg artboardu „BusiKM Nawigacja" (pięć stanów).
@@ -18,8 +19,6 @@ import { lokalizuj, rozpoznaj } from '@/i18n/trasy';
  * 24 px dochodzi cień. Przy otwartym menu pasek staje się kryjący, aktywna
  * pozycja robi się niebieska, a strona pod spodem dostaje przyciemnienie.
  */
-
-const CARET = '▾';
 
 /** Do tej wysokości pasek jest zawsze widoczny – jesteśmy jeszcze przy górze. */
 const PRZY_GORZE = 80;
@@ -37,94 +36,49 @@ const TEKSTY: Tlumaczenia<{
   glowna: string;
   zaloguj: string;
   demo: string;
-  zapiszDemo: string;
   zamknij: string;
   menu: string;
-  pulpit: string;
-  kafle: [string, string, string];
+  wroc: string;
 }> = {
   pl: {
     domu: 'BusiKM - strona główna',
     glowna: 'Główna',
-    zaloguj: 'Zapisz się',
+    zaloguj: 'Zaloguj się',
     demo: 'Zobacz demo',
-    zapiszDemo: 'Wejdź do demo →',
     zamknij: 'Zamknij menu',
     menu: 'Menu',
-    pulpit: 'Pulpit',
-    kafle: ['Przychód', 'Koszty', 'Zysk'],
+    wroc: 'Wróć do menu',
   },
   en: {
     domu: 'BusiKM - home',
     glowna: 'Main',
-    zaloguj: 'Sign up',
+    zaloguj: 'Log in',
     demo: 'See the demo',
-    zapiszDemo: 'Open the demo →',
     zamknij: 'Close menu',
     menu: 'Menu',
-    pulpit: 'Dashboard',
-    kafle: ['Revenue', 'Costs', 'Profit'],
+    wroc: 'Back to menu',
   },
 };
-
-/** Znak logowania – prosta sylwetka, bez wypełnienia. */
-function UserIcon({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      className={className}
-      aria-hidden
-      focusable="false"
-    >
-      <circle cx="10" cy="6.5" r="3.25" />
-      <path d="M3.75 16.75a6.25 6.25 0 0 1 12.5 0" />
-    </svg>
-  );
-}
 
 function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-/** Miniatura pulpitu w kaflu „Zobacz demo" – prosto z projektu. */
-function DemoPreview({ jezyk }: { jezyk: Jezyk }) {
-  const t = TEKSTY[jezyk];
-  return (
-    <div className="flex h-[110px] flex-col gap-2 rounded-btn border border-line bg-white p-3.5 text-[11px]">
-      <div className="text-muted">{t.pulpit}, Trans-Bus Kowalski</div>
-      <div className="grid grid-cols-3 gap-1.5">
-        {[
-          [t.kafle[0], '184 320', false],
-          [t.kafle[1], '121 840', false],
-          [t.kafle[2], '62 480', true],
-        ].map(([label, value, strong]) => (
-          <div
-            key={label as string}
-            className={`rounded-lg border border-line p-1.5 ${strong ? 'bg-mist' : ''}`}
-          >
-            <div className="text-[9px] text-muted">{label}</div>
-            <b>{value}</b>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function Header() {
   const jezyk = useJezyk();
   const t = TEKSTY[jezyk];
-  const { coRobi, dlaKogo, menuMobilne, navigation, rolesNote } = nawigacja(jezyk);
+  const { menuStart, navigation } = nawigacja(jezyk);
   // Ścieżka polska – odnośniki w nawigacji są zapisane po polsku, więc
   // podświetlenie porównuje je z nią, niezależnie od języka adresu.
   const pathname = rozpoznaj(usePathname() ?? '/').sciezkaPl || '/';
   const [scrolled, setScrolled] = useState(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  /**
+   * Gdzie jesteśmy w menu na telefonie: `[]` to lista główna, `['Co robi']`
+   * to grupy działu, `['Co robi', 'W trasie']` to strony grupy.
+   */
+  const [sciezkaMenu, setSciezkaMenu] = useState<string[]>([]);
   const [zjechal, setZjechal] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const ostatnieY = useRef(0);
@@ -185,6 +139,7 @@ export function Header() {
     if ((e.target as Element).closest('a')) {
       setMobileOpen(false);
       setOpenMega(null);
+      setSciezkaMenu([]);
     }
   };
 
@@ -197,6 +152,7 @@ export function Header() {
     setPoprzedniaSciezka(pathname);
     setOpenMega(null);
     setMobileOpen(false);
+    setSciezkaMenu([]);
   }
 
   useEffect(() => {
@@ -204,6 +160,7 @@ export function Header() {
       if (e.key !== 'Escape') return;
       setOpenMega(null);
       setMobileOpen(false);
+      setSciezkaMenu([]);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -234,9 +191,37 @@ export function Header() {
    */
   const schowany = zjechal && !mobileOpen && !openMega;
 
-  const mega = navigation.find(
+  /**
+   * Pozycje bieżącego ekranu menu na telefonie, wszystkie tą samą dużą
+   * czcionką, jak u Apple. Pozycja z `dalej` schodzi poziom niżej, pozycja
+   * z `href` otwiera stronę. Dział z jedną grupą („Dla kogo”, „Pomoc”)
+   * pomija poziom grup i od razu pokazuje strony.
+   */
+  type PozycjaMenu = { klucz: string; label: string; href?: string; dalej?: string };
+  const dzialMenu = navigation.find(
     (e): e is Extract<NavEntry, { kind: 'mega' }> =>
-      e.kind === 'mega' && e.label === openMega,
+      e.kind === 'mega' && e.label === sciezkaMenu[0],
+  );
+  const grupaMenu =
+    dzialMenu &&
+    (dzialMenu.groups.length === 1
+      ? dzialMenu.groups[0]
+      : dzialMenu.groups.find((g) => g.heading === sciezkaMenu[1]));
+  const pozycjeMenu: PozycjaMenu[] = grupaMenu
+    ? grupaMenu.items.map((i) => ({ klucz: i.href, label: i.label, href: i.href }))
+    : dzialMenu
+      ? dzialMenu.groups.map((g) => ({ klucz: g.heading, label: g.heading, dalej: g.heading }))
+      : navigation.map((e) =>
+          e.kind === 'link'
+            ? { klucz: e.href, label: e.label, href: e.href }
+            : { klucz: e.label, label: e.label, dalej: e.label },
+        );
+  /** Mały szary napis nad listą: gdzie jesteśmy. */
+  const tytulMenu =
+    grupaMenu && dzialMenu!.groups.length > 1 ? grupaMenu.heading : dzialMenu?.label;
+
+  const mega = navigation.find(
+    (e): e is Extract<NavEntry, { kind: 'mega' }> => e.kind === 'mega' && e.label === openMega,
   );
 
   return (
@@ -261,12 +246,16 @@ export function Header() {
           `translate: 0 -100%`. Animowanie `transform` nie robiło tu
           niczego – pasek przeskakiwał w jednej klatce. Zmierzone.
         */
-        className={`sticky top-0 z-40 border-b border-line transition-[translate,background-color,box-shadow] duration-300 ease-out ${
+        className={`sticky top-0 z-40 border-b ${mega ? 'border-transparent' : 'border-line'} transition-[translate,background-color,box-shadow] duration-300 ease-out ${
           schowany ? '-translate-y-full' : 'translate-y-0'
         } ${
           mega
-            ? 'bg-white shadow-card'
+            ? 'bg-white'
             : `bg-white/86 backdrop-blur-[20px] backdrop-saturate-[180%] ${scrolled ? 'shadow-card' : ''}`
+        } ${
+          // Otwarte menu na telefonie: pasek bez kreski i cienia, zlewa się
+          // z menu w jedną białą kartę, jak u Apple.
+          mobileOpen ? 'max-lg:border-transparent max-lg:bg-white max-lg:shadow-none' : ''
         }`}
       >
         {/* 56 px na telefonie zamiast 64: pasek jest przyklejony, więc każdy
@@ -275,10 +264,24 @@ export function Header() {
             Wysokość musi zgadzać się z `top-14` panelu menu niżej. */}
         <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-5 lg:h-18 lg:px-12">
           <div className="flex items-center gap-11 lg:gap-6 xl:gap-11">
+            {/* Przy otwartym menu na telefonie w pasku zostaje sam krzyżyk:
+                logo i przełącznik języka znikają, jak w menu Apple.
+                W podmenu po lewej, na wysokości krzyżyka, staje strzałka
+                powrotu do listy głównej. */}
+            {mobileOpen && sciezkaMenu.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setSciezkaMenu((s) => s.slice(0, -1))}
+                aria-label={t.wroc}
+                className="-ml-2.5 flex size-11 cursor-pointer items-center justify-center text-ink lg:hidden"
+              >
+                <ChevronLeft className="size-6" strokeWidth={1.6} aria-hidden />
+              </button>
+            )}
             <Link
               href="/"
               aria-label={t.domu}
-              className="flex items-center gap-2.5 text-[19px] font-bold tracking-[-0.02em] text-ink lg:text-[20px]"
+              className={`${mobileOpen ? 'max-lg:hidden' : ''} flex items-center gap-2.5 text-[19px] font-bold tracking-[-0.02em] text-ink lg:text-[20px]`}
             >
               <Logo decorative className="size-8 flex-none lg:size-9" />
               {/* Sam znak na telefonie. Napis powtarzał to, co ikona już mówi,
@@ -286,7 +289,10 @@ export function Header() {
               <span className="hidden lg:inline">BusiKM</span>
             </Link>
 
-            <nav aria-label={t.glowna} className="hidden items-center gap-5 whitespace-nowrap lg:flex xl:gap-[30px]">
+            <nav
+              aria-label={t.glowna}
+              className="hidden items-center gap-5 whitespace-nowrap lg:flex xl:gap-[30px]"
+            >
               {navigation.map((entry) => {
                 const active = isActive(pathname, entry.href);
 
@@ -297,8 +303,8 @@ export function Header() {
                       href={entry.href}
                       aria-current={active ? 'page' : undefined}
                       onMouseEnter={() => setOpenMega(null)}
-                      className={`text-[15px] font-medium transition-colors hover:text-blue ${
-                        active ? 'text-blue' : 'text-ink'
+                      className={`text-[15px] font-medium transition-colors hover:text-ink ${
+                        active ? 'text-blue' : 'text-ink/75'
                       }`}
                     >
                       {entry.label}
@@ -318,56 +324,60 @@ export function Header() {
                     aria-haspopup="true"
                     onMouseEnter={() => setOpenMega(entry.label)}
                     onFocus={() => setOpenMega(entry.label)}
-                    className={`inline-flex items-center gap-1.5 text-[15px] font-medium transition-colors hover:text-blue ${
-                      open || active ? 'text-blue' : 'text-ink'
+                    className={`cursor-pointer text-[15px] font-medium transition-colors hover:text-ink ${
+                      active ? 'text-blue' : open ? 'text-ink' : 'text-ink/75'
                     }`}
                   >
                     {entry.label}
-                    <span
-                      aria-hidden
-                      className={`text-[12px] transition-transform duration-200 ${
-                        open ? 'rotate-180 text-blue' : 'text-muted'
-                      }`}
-                    >
-                      {CARET}
-                    </span>
                   </button>
                 );
               })}
             </nav>
           </div>
 
-          <div className="flex items-center gap-3.5 whitespace-nowrap lg:gap-4 xl:gap-7">
-            <PrzelacznikJezyka />
+          <div className="flex items-center gap-1.5 whitespace-nowrap lg:gap-4 xl:gap-7">
+            {/* Na telefonie przełącznik języka jest w menu, pod listą.
+                W pasku zostają same ikony, jak u Apple. */}
+            <div className="hidden lg:block">
+              <PrzelacznikJezyka />
+            </div>
 
+            {/* Na telefonie same ikony, jak u Apple: cienki kontur w kolorze
+                tekstu, bez tła. Przy otwartym menu znikają z paska, bo w menu
+                są duże przyciski z opisem. */}
             <a
-              href={lokalizuj(appLinks.login, jezyk)}
-              className="hidden items-center gap-2 text-[15px] font-medium text-ink/65 transition-colors hover:text-ink lg:inline-flex"
+              href={appLinks.login}
+              aria-label={t.zaloguj}
+              className={`${mobileOpen ? 'hidden' : 'flex'} size-10 items-center justify-center rounded-btn text-ink transition-colors hover:text-ink lg:inline-flex lg:size-auto lg:gap-2 lg:text-[15px] lg:font-medium lg:text-ink/65`}
             >
-              <UserIcon className="size-[18px]" />
-              {t.zaloguj}
+              <User
+                className="size-[22px] stroke-[1.5] lg:size-[18px] lg:stroke-[1.8]"
+                aria-hidden
+              />
+              <span className="hidden lg:inline">{t.zaloguj}</span>
             </a>
 
-            {/* Na telefonie tego przycisku nie ma i to jest celowe: pełny
-                pasek widać wyłącznie na górze strony, gdzie w hero stoi już
-                duży „Zobacz demo". Dwa te same wezwania na jednym ekranie
-                zabierały miejsce przy 375 px i nie dodawały niczego.
-
-                Wraca w listwie zwartej po przewinięciu – tam treściowy
-                przycisk jest już poza ekranem i wezwanie ma po co być.
-
-                Na desktopie zostaje: pasek jest szeroki, a przycisk siedzi
-                w prawym rogu, gdzie go się szuka. */}
+            {/* Na desktopie demo na jasnoniebieskim tle (kolor pigułki
+                aktywnej pozycji menu): wyróżnia się wśród reszty paska, ale
+                nie krzyczy. Ikona ekranu mówi, że demo to podgląd panelu. */}
             <Link
               href={appLinks.demo}
-              className="hidden h-10 items-center rounded-btn border border-line bg-white px-3.5 text-[14px] font-medium text-ink transition-colors hover:border-muted hover:text-ink lg:flex lg:px-[18px] lg:text-[15px]"
+              aria-label={t.demo}
+              className={`${mobileOpen ? 'hidden' : 'flex'} size-10 items-center justify-center rounded-btn text-ink transition-colors hover:text-ink lg:flex lg:h-10 lg:w-auto lg:gap-2 lg:bg-blue-soft lg:px-[18px] lg:text-[15px] lg:font-medium lg:text-blue lg:hover:bg-blue/15 lg:hover:text-blue`}
             >
-              {t.demo}
+              <Monitor
+                className="size-[22px] stroke-[1.5] lg:size-[18px] lg:stroke-[1.8]"
+                aria-hidden
+              />
+              <span className="hidden lg:inline">{t.demo}</span>
             </Link>
 
             <button
               type="button"
-              onClick={() => setMobileOpen((v) => !v)}
+              onClick={() => {
+                setMobileOpen((v) => !v);
+                setSciezkaMenu([]);
+              }}
               aria-label={mobileOpen ? t.zamknij : t.menu}
               aria-expanded={mobileOpen}
               className="-mr-2.5 flex size-11 cursor-pointer items-center justify-center lg:hidden"
@@ -377,168 +387,164 @@ export function Header() {
           </div>
         </div>
 
-        {/* Rozwinięte menu */}
+        {/* Rozwinięte menu, jak u Apple: ta sama biała powierzchnia co
+            pasek, bez kreski między nimi. Nad każdą kolumną mały szary
+            nagłówek. Pierwsza kolumna dużymi literami, kolejne małymi.
+            Bez opisów pod pozycjami. Kolumny wchodzą łagodnie, pozycja po
+            pozycji. `key` montuje panel od nowa przy zmianie działu, więc
+            animacja rusza także przy przejściu z jednego działu na drugi. */}
         {mega && (
           <div
+            key={mega.label}
             onClick={zamknijPoKliknieciu}
-            className="absolute inset-x-0 top-full hidden border-b border-line bg-white lg:block"
+            className="absolute inset-x-0 top-full hidden bg-white lg:block"
           >
-            {mega.compact ? (
-              <div className="mx-auto max-w-[1120px] px-12 py-8">
-                <ul className="grid max-w-[560px] grid-cols-2 gap-x-10 gap-y-1.5">
-                  {mega.groups[0].items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="-mx-3.5 block rounded-btn px-3.5 py-3 transition-colors hover:bg-mist"
-                      >
-                        <span className="block text-[15px] font-semibold text-ink">
-                          {item.label}
-                        </span>
-                        <span className="mt-0.5 block text-caption leading-relaxed text-muted">
-                          {item.benefit}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : mega.cards ? (
-              <div className="mx-auto flex max-w-[1120px] flex-col gap-8 px-12 py-10">
-                <div className="grid grid-cols-4 gap-4">
-                  {dlaKogo[0].items.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="flex flex-col gap-3 rounded-card border border-line p-6 transition-colors hover:bg-mist"
+            <div className="mx-auto flex max-w-[1440px] gap-20 px-12 pt-9 pb-14 xl:gap-24">
+              {mega.groups.map((grupa, g) => {
+                const duza = g === 0;
+                return (
+                  <div key={grupa.heading} className="flex min-w-[200px] flex-col">
+                    <div
+                      className="menu-wchodzi mb-3 text-[13px] text-muted"
+                      style={{ animationDelay: `${g * 60}ms` }}
                     >
-                      <span className="text-[12px] font-semibold tracking-[0.1em] text-muted uppercase">
-                        {item.device}
-                      </span>
-                      <span className="text-[20px] font-semibold tracking-[-0.01em] text-ink">
-                        {item.label}
-                      </span>
-                      <span className="text-caption leading-relaxed text-muted">
-                        {item.benefit}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-                <p className="text-[13px] leading-relaxed text-muted">{rolesNote}</p>
-              </div>
-            ) : (
-              <div className="mx-auto grid max-w-[1120px] grid-cols-[1fr_1fr_1fr_300px] gap-10 px-12 pt-10 pb-12">
-                {coRobi.map((group) => (
-                  <div key={group.heading} className="flex flex-col gap-5">
-                    <div className="text-[12px] font-semibold tracking-[0.1em] text-muted uppercase">
-                      {group.heading}
+                      {grupa.heading}
                     </div>
-                    <ul className="flex flex-col gap-1.5">
-                      {group.items.map((item) => (
-                        <li key={item.href}>
+                    <ul className={`flex flex-col ${duza ? 'gap-1' : 'gap-0.5'}`}>
+                      {grupa.items.map((item, i) => (
+                        <li
+                          key={item.href}
+                          className="menu-wchodzi"
+                          style={{ animationDelay: `${g * 60 + (i + 1) * 25}ms` }}
+                        >
                           <Link
                             href={item.href}
-                            className="-mx-3.5 block rounded-btn px-3.5 py-3 transition-colors hover:bg-mist"
+                            aria-current={pathname === item.href ? 'page' : undefined}
+                            className={`block font-semibold no-underline transition-colors hover:text-blue ${
+                              pathname === item.href ? 'text-blue' : 'text-ink'
+                            } ${
+                              duza
+                                ? 'py-1 text-[26px] leading-tight tracking-[-0.02em]'
+                                : 'py-1.5 text-[14px]'
+                            }`}
                           >
-                            <span className="block text-[15px] font-semibold text-ink">
-                              {item.label}
-                            </span>
-                            <span className="mt-0.5 block text-caption leading-relaxed text-muted">
-                              {item.benefit}
-                            </span>
+                            {item.label}
                           </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
-                ))}
-
-                {mega.promo && (
-                  <div className="flex flex-col justify-between gap-6 rounded-card bg-mist p-7">
-                    <div className="flex flex-col gap-2.5">
-                      <div className="text-[20px] font-semibold tracking-[-0.01em] text-ink">
-                        {mega.promo.label}
-                      </div>
-                      <div className="text-caption leading-relaxed text-muted">
-                        {mega.promo.benefit}
-                      </div>
-                    </div>
-                    <DemoPreview jezyk={jezyk} />
-                    <Link
-                      href={mega.promo.href}
-                      className="text-[15px] font-semibold text-blue"
-                    >
-                      {t.zapiszDemo}
-                    </Link>
-                  </div>
-                )}
-              </div>
-            )}
+                );
+              })}
+            </div>
           </div>
         )}
       </header>
 
-      {/* Przyciemnienie strony pod otwartym menu */}
+      {/* Rozmycie strony pod otwartym menu, jak u Apple */}
       {mega && (
         <div
           aria-hidden
           onPointerDown={() => setOpenMega(null)}
-          className="fixed inset-0 top-18 z-30 hidden bg-ink/18 lg:block"
+          className="fixed inset-0 top-18 z-30 hidden bg-ink/10 backdrop-blur-[20px] lg:block"
         />
       )}
 
       {/* Menu na telefonie. Poza <header>, bo backdrop-filter tworzy
-          containing block dla position: fixed. */}
+          containing block dla position: fixed.
+
+          Układ jak u Apple: na pierwszym ekranie tylko kilka dużych pozycji,
+          bez przewijania. Pozycja ze strzałką przesuwa ekran w bok i pokazuje
+          swoją listę, „Menu” wraca. Cennik i Rolki otwierają stronę od razu.
+          Demo i logowanie są przypięte do dołu, w tym samym miejscu na
+          każdym ekranie menu, pod kciukiem. */}
       {mobileOpen && (
         <div
           onClick={zamknijPoKliknieciu}
           className="fixed inset-x-0 top-14 bottom-0 z-40 flex flex-col bg-white lg:hidden"
         >
-          {/* Jedna lista sekcji, każda w tym samym rytmie: nadtytuł, potem
-              wiersze „nazwa + po co to". Wcześniej panel mieszał trzy wzorce,
-              a podstrony Pomocy nie miały tu żadnej drogi wejścia.
-
-              Bez przypiętej stopki z przyciskami. Zasłaniała ostatnie wiersze
-              listy (widać to było na „Ile zostaje"), a te same wezwania stoją
-              teraz w sekcji „Zacznij" – w tym samym rytmie, co reszta. */}
+          {/* `key` zmienia się z ekranem, więc lista montuje się od nowa
+              i każda pozycja wchodzi własną animacją, z małym opóźnieniem
+              względem poprzedniej. */}
           <nav
+            key={sciezkaMenu.join('/') || 'menu'}
             aria-label={t.menu}
-            className="flex flex-1 flex-col gap-8 overflow-y-auto px-5 pt-6 pb-12"
+            className="min-h-0 flex-1 overflow-y-auto px-7 pt-3 pb-6"
           >
-            {menuMobilne.map((sekcja) => (
-              <div key={sekcja.heading} className="flex flex-col gap-2">
-                <h2 className="text-[12px] font-medium tracking-[0.1em] text-muted uppercase">
-                  {sekcja.heading}
-                </h2>
-                <div className="flex flex-col">
-                  {sekcja.items.map((item, i, all) => {
-                    const czynny = pathname === item.href;
-                    return (
+            {tytulMenu && (
+              <h2 className="menu-wchodzi pb-1 text-[15px] font-medium text-muted">{tytulMenu}</h2>
+            )}
+            <ul className="flex flex-col">
+              {pozycjeMenu.map((poz, i) => {
+                const czynny = poz.href
+                  ? sciezkaMenu.length > 0
+                    ? pathname === poz.href
+                    : isActive(pathname, poz.href)
+                  : false;
+                const klasa = `flex w-full items-center justify-between py-2 text-left no-underline text-[28px] leading-tight font-semibold tracking-[-0.02em] ${
+                  czynny ? 'text-blue' : 'text-ink'
+                }`;
+                return (
+                  <li
+                    key={poz.klucz}
+                    className="menu-wchodzi"
+                    style={{ animationDelay: `${(i + 1) * 25}ms` }}
+                  >
+                    {poz.href ? (
                       <Link
-                        key={item.href}
-                        href={item.href}
-                        aria-current={czynny ? 'page' : undefined}
-                        className={`py-3.5 ${i < all.length - 1 ? 'border-b border-line' : ''}`}
+                        href={poz.href}
+                        aria-current={pathname === poz.href ? 'page' : undefined}
+                        className={klasa}
                       >
-                        <b
-                          className={`block text-[16px] leading-snug ${
-                            czynny ? 'text-blue' : 'text-ink'
-                          }`}
-                        >
-                          {item.label}
-                        </b>
-                        {item.benefit && (
-                          <span className="mt-0.5 block text-[13px] leading-relaxed text-muted">
-                            {item.benefit}
-                          </span>
-                        )}
+                        {poz.label}
                       </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setSciezkaMenu((s) => [...s, poz.dalej!])}
+                        className={`${klasa} cursor-pointer`}
+                      >
+                        {poz.label}
+                        <ChevronRight className="size-[22px] flex-none text-muted/60" aria-hidden />
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </nav>
+
+          {/* Na dole, nad wezwaniami, przełącznik języka bez podpisu.
+              Kolory demo te same, co w pasku: jasnoniebieskie tło, niebieski tekst. */}
+          <div className="flex flex-none flex-col gap-2.5 border-t border-line bg-white px-5 pt-4 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+            <PrzelacznikJezyka className="mb-1 self-start" />
+            <Link
+              href={appLinks.demo}
+              className="flex items-center gap-3 rounded-[14px] bg-blue-soft px-4 py-3 text-blue transition-colors hover:bg-blue/15 hover:text-blue"
+            >
+              <span className="flex size-[38px] flex-none items-center justify-center rounded-[10px] bg-white/70">
+                <Monitor className="size-5" strokeWidth={1.8} aria-hidden />
+              </span>
+              <span className="flex flex-col">
+                <b className="text-[16px] font-semibold">{menuStart.demo.label}</b>
+                <span className="text-[12.5px] text-blue/75">{menuStart.demo.benefit}</span>
+              </span>
+              <ArrowRight className="ml-auto size-5 flex-none opacity-70" aria-hidden />
+            </Link>
+            <a
+              href={appLinks.login}
+              className="flex items-center gap-3 rounded-[14px] border border-line px-4 py-3 text-ink transition-colors hover:border-muted hover:text-ink"
+            >
+              <span className="flex size-[38px] flex-none items-center justify-center rounded-[10px] bg-mist">
+                <User className="size-5" strokeWidth={1.8} aria-hidden />
+              </span>
+              <span className="flex flex-col">
+                <b className="text-[16px] font-semibold">{menuStart.login.label}</b>
+                <span className="text-[12.5px] text-muted">{menuStart.login.benefit}</span>
+              </span>
+              <ArrowRight className="ml-auto size-5 flex-none opacity-70" aria-hidden />
+            </a>
+          </div>
         </div>
       )}
     </>

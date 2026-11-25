@@ -1,6 +1,7 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { biezacyJezyk } from '@/i18n/serwer';
+import { iosWSklepie } from '@/content/sklepy';
 
 type Grupa = { nazwa: string; pozycje: readonly string[] };
 
@@ -8,9 +9,10 @@ type Grupa = { nazwa: string; pozycje: readonly string[] };
  * Każda pozycja potwierdzona w kodzie aplikacji albo na podstronach:
  * KSeF, JPK_V7M, JPK_FA i VAT-REF w eksportach dla księgowej, kurs z API NBP
  * w backendzie, eksport FK do Comarch Optima, Insert GT i Symfonia oraz CSV
- * i Excel, nawigacja zewnętrzna w aplikacji kierowcy (Apple Maps, Google
- * Maps, Waze, CarPlay i Android Auto przez te aplikacje), dane kontrahenta
- * z GUS i VIES.
+ * i Excel, nawigacja zewnętrzna w aplikacji kierowcy (bez nazw aplikacji map
+ * Google: osobna akceptacja marek Mapy Google, Waze i Android Auto,
+ * 19.11.2026; Apple Maps i CarPlay razem z wersją na iPhone, `iosWSklepie`,
+ * Apple pierwsze, jak każą wytyczne Apple), dane kontrahenta z GUS i VIES.
  *
  * Same nazwy, bez logotypów – znaki towarowe dopiero po decyzji, czy
  * i w jakiej formie wolno ich używać.
@@ -28,7 +30,9 @@ const TEKSTY: Tlumaczenia<{
       { nazwa: 'Programy księgowe (plan Firma)', pozycje: ['Comarch Optima', 'Insert GT', 'Symfonia', 'CSV i Excel'] },
       {
         nazwa: 'Nawigacja w kabinie',
-        pozycje: ['Apple Maps', 'Google Maps', 'Waze', 'CarPlay', 'Android Auto'],
+        pozycje: iosWSklepie
+          ? ['Apple Maps', 'CarPlay', 'Inne aplikacje nawigacyjne', 'Ekran w kabinie']
+          : ['Aplikacja nawigacyjna kierowcy', 'Ekran w kabinie'],
       },
       { nazwa: 'Dane kontrahentów', pozycje: ['GUS', 'VIES'] },
     ],
@@ -41,7 +45,9 @@ const TEKSTY: Tlumaczenia<{
       { nazwa: 'Accounting software (Business plan)', pozycje: ['Comarch Optima', 'Insert GT', 'Symfonia', 'CSV and Excel'] },
       {
         nazwa: 'Navigation in the cab',
-        pozycje: ['Apple Maps', 'Google Maps', 'Waze', 'CarPlay', 'Android Auto'],
+        pozycje: iosWSklepie
+          ? ['Apple Maps', 'CarPlay', 'Other navigation apps', 'The in-cab screen']
+          : ['The driver’s navigation app', 'The in-cab screen'],
       },
       { nazwa: 'Client data', pozycje: ['GUS', 'VIES'] },
     ],

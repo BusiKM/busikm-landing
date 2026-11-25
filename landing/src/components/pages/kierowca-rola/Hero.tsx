@@ -25,10 +25,10 @@ const TEKSTY: Tlumaczenia<{
       </>
     ),
     lead: 'Jedna aplikacja na cały dzień. Nawigacja jednym dotknięciem, paragon zdjęciem, przerwa z wyprzedzeniem.',
-    proba: 'Zapisz się na start',
+    proba: 'Zaloguj się',
     demo: 'Zobacz demo',
     label: 'Dwa telefony pod kątem (tryb nocny)',
-    note: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” (Apple Maps, Google Maps, Waze). Prawy: „Czas pracy” przy przewozie międzynarodowym, z bieżącym stanem, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
+    note: 'Lewy: ekran „Dziś” z kursem Kraków → Antwerpen i wyborem „Czym nawigujesz?” z listą aplikacji nawigacyjnych. Prawy: „Czas pracy” przy przewozie międzynarodowym, z bieżącym stanem, pasem dnia i przyciskami „Przerwa” i „Odpoczynek”.',
   },
   en: {
     nadtytul: 'App for van drivers',
@@ -39,10 +39,10 @@ const TEKSTY: Tlumaczenia<{
       </>
     ),
     lead: 'One app for the whole day. Navigation in one tap, receipts by photo, breaks flagged in advance.',
-    proba: 'Sign up for launch',
+    proba: 'Log in',
     demo: 'See the demo',
     label: 'Two phones at an angle (dark mode)',
-    note: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker (Apple Maps, Google Maps, Waze). Right: “Working time” for international transport, with the current state, the day bar and the “Break” and “Rest” buttons.',
+    note: 'Left: the “Today” screen with the Kraków → Antwerp job and the “What do you navigate with?” picker listing navigation apps. Right: “Working time” for international transport, with the current state, the day bar and the “Break” and “Rest” buttons.',
   },
 };
 
@@ -70,7 +70,7 @@ export function Hero() {
           <Button href={appLinks.demo} fullWidth className="lg:w-auto">
             {t.demo}
           </Button>
-          <Button href={appLinks.zapis} variant="secondaryDark" fullWidth className="lg:w-auto">
+          <Button href={appLinks.login} variant="secondaryDark" fullWidth className="lg:w-auto">
             {t.proba}
           </Button>
         </div>

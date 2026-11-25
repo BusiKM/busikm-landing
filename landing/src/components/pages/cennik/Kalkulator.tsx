@@ -4,16 +4,27 @@ import { useState } from 'react';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { linkProbny, nazwaPlanu, type PlanId } from '@/content/zainteresowanie';
+import {
+  CENA_POJAZDU,
+  POJAZDY_W_FIRMIE,
+  cenaPlanu,
+  kwota,
+  liniaBrutto,
+  zWaluta,
+} from '@/content/cennik';
 import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
 import { useJezyk } from '@/i18n/klient';
 
 const MAX = 25;
 
-/** Start do trzech pojazdów, dalej Firma; powyżej dziesięciu +29 zł/mies. za każdy kolejny, do 50. */
+/**
+ * Start do trzech pojazdów, dalej Firma; powyżej dziesięciu dopłata za każdy
+ * kolejny, do 50. Kwoty netto z `content/cennik.ts`.
+ */
 function wylicz(pojazdy: number) {
   const plan: PlanId = pojazdy <= 3 ? 'start' : 'firma';
-  const ponad = Math.max(0, pojazdy - 10);
-  const cena = pojazdy <= 3 ? 149 : 299 + ponad * 29;
+  const ponad = plan === 'firma' ? Math.max(0, pojazdy - POJAZDY_W_FIRMIE) : 0;
+  const cena = cenaPlanu(plan, 'monthly') + ponad * CENA_POJAZDU;
   return { plan, cena, ponad };
 }
 
@@ -23,7 +34,6 @@ const TEKSTY: Tlumaczenia<{
   koniecStart: string;
   koniecFirma: string;
   zaplacisz: string;
-  kwota: (n: number) => string;
   dopisek: (ponad: number) => string;
   puenta: string;
   wezwanie: string;
@@ -39,11 +49,11 @@ const TEKSTY: Tlumaczenia<{
     koniecStart: '3 (koniec Start)',
     koniecFirma: '10 (w cenie Firma)',
     zaplacisz: 'Zapłacisz miesięcznie',
-    kwota: (n) => `${n} zł`,
-    dopisek: (ponad) => `299 + ${ponad} × 29 zł`,
+    dopisek: (ponad) =>
+      `${kwota(cenaPlanu('firma', 'monthly'), 'pl')} + ${ponad} × ${zWaluta(CENA_POJAZDU, 'pl')} netto`,
     puenta: 'Tyle samo, ilu byś nie miał kierowców.',
-    wezwanie: 'Zapisz się na start',
-    drobne: 'Od otwarcia kont pierwsze 14 dni bez opłat. Rezygnujesz jednym kliknięciem.',
+    wezwanie: 'Wypróbuj 14 dni',
+    drobne: 'Pierwsze 14 dni bez opłat. Rezygnujesz jednym kliknięciem.',
   },
   en: {
     pytanie: 'How many vehicles do you have?',
@@ -51,11 +61,11 @@ const TEKSTY: Tlumaczenia<{
     koniecStart: '3 (Start ends)',
     koniecFirma: '10 (included in Business)',
     zaplacisz: 'You pay per month',
-    kwota: (n) => `PLN ${n}`,
-    dopisek: (ponad) => `PLN 299 + ${ponad} × PLN 29`,
+    dopisek: (ponad) =>
+      `${zWaluta(cenaPlanu('firma', 'monthly'), 'en')} + ${ponad} × ${zWaluta(CENA_POJAZDU, 'en')} net`,
     puenta: 'The same, however many drivers you have.',
-    wezwanie: 'Sign up for launch',
-    drobne: 'Once accounts open, the first 14 days are free. Cancel in one click.',
+    wezwanie: 'Try 14 days free',
+    drobne: 'The first 14 days are free. Cancel in one click.',
   },
 };
 
@@ -119,17 +129,26 @@ export function Kalkulator() {
 
         <div className="flex flex-col gap-5 rounded-panel border border-line-dark bg-surface p-7 lg:gap-6 lg:p-14">
           <div className="text-[13px] text-ink-muted lg:text-caption">{t.zaplacisz}</div>
-          <div className="text-[64px] leading-none font-bold tracking-[-0.04em] lg:text-[96px]">
-            {t.kwota(cena)}
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            {jezyk === 'en' && (
+              <span className="text-[20px] font-medium text-ink-muted lg:text-[24px]">PLN</span>
+            )}
+            <span className="text-[64px] leading-none font-bold tracking-[-0.04em] lg:text-[96px]">
+              {kwota(cena, jezyk)}
+            </span>
+            <span className="text-[20px] font-medium text-ink-muted lg:text-[24px]">
+              {jezyk === 'pl' ? 'zł netto' : 'net'}
+            </span>
           </div>
+          <p className="-mt-1 text-[16px] text-paper lg:text-lead-m">{liniaBrutto(cena, jezyk)}</p>
           <p className="text-[16px] leading-relaxed text-ink-muted lg:text-body">
             {jezyk === 'pl' ? (
               <>
-                cena końcowa bez VAT, plan <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b>
+                plan <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b>
               </>
             ) : (
               <>
-                final price before VAT, <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b> plan
+                <b className="text-paper">{nazwaPlanu(plan, jezyk)}</b> plan
               </>
             )}
             {dopisek && <>, {dopisek}</>}
@@ -137,9 +156,7 @@ export function Kalkulator() {
           <p className="text-lead-m font-semibold text-balance lg:text-lead">{t.puenta}</p>
 
           <div className="mt-2 flex flex-col gap-2.5">
-            {/* Kalkulator wie, do którego planu doszedł suwak – niech ta
-                wiedza jedzie dalej. Okres miesięczny, bo taką kwotę pokazuje. */}
-            <Button href={linkProbny({ plan, okres: 'miesiecznie' })} fullWidth>
+            <Button href={linkProbny()} fullWidth>
               {t.wezwanie}
             </Button>
             <p className="text-[13px] text-ink-muted lg:text-caption">{t.drobne}</p>

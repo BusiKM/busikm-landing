@@ -60,7 +60,7 @@ export function CoWidzisz() {
 
         <div data-reveal className="flex flex-col gap-5 lg:mt-2 lg:gap-6">
           <Eyebrow dark>{t.aplikacja}</Eyebrow>
-          <StoreBadges />
+          <StoreBadges miejsce="rola-kierowcy" />
         </div>
       </div>
     </Section>

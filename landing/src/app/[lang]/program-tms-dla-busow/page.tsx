@@ -2,10 +2,11 @@ import Link from '@/i18n/Link';
 import { MockupSlot } from '@/components/ui/MockupSlot';
 import { MapaFloty } from '@/components/mockups/MapaFloty';
 import { StronaFrazy, type TrescFrazy } from '@/components/pages/frazy/StronaFrazy';
-import { plans } from '@/content/cennik';
+import { brutto, CENA_POJAZDU, plans, VAT_PROCENT, zWaluta } from '@/content/cennik';
 import { metadataPodstrony } from '@/lib/metadata';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
 import type { Jezyk, Tlumaczenia } from '@/i18n/jezyki';
+import { iosWSklepie } from '@/content/sklepy';
 
 export const generateMetadata = metadataPodstrony('program-tms-dla-busow');
 
@@ -53,8 +54,8 @@ function tresc(jezyk: Jezyk): TrescFrazy {
           akapity: [
             <>
               The driver works in the <Link href="/co-robi/aplikacja-kierowcy">BusiKM Kierowca
-              app</Link> on iPhone or Android: orders, navigation in Apple Maps, Google Maps or
-              Waze, costs from a receipt photo, breaks logged even without signal.
+              app</Link> {iosWSklepie ? 'on iPhone and Android' : 'on Android (iPhone coming soon)'}: orders, navigation in the driver’s own
+              navigation app, costs from a receipt photo, breaks logged even without signal.
             </>,
             <>
               The route records from the driver’s phone, so you see{' '}
@@ -130,16 +131,19 @@ function tresc(jezyk: Jezyk): TrescFrazy {
           ],
         },
         {
-          naglowek: 'Pricing: from PLN 149 a month',
+          naglowek: 'Pricing: from PLN 149 net a month',
           akapity: [
             <>
-              {start.name}: PLN {start.monthly} a month for up to 3 vehicles. {firma.name}: PLN{' '}
-              {firma.monthly} a month with 10 vehicles included, PLN 29 a month for each additional
-              one, up to 50. Paying yearly, two months are free: PLN {start.yearly} or PLN{' '}
-              {firma.yearly}.
+              {start.name}: {zWaluta(start.monthly, 'en')} net a month (
+              {zWaluta(brutto(start.monthly), 'en', true)} gross) for up to 3 vehicles.{' '}
+              {firma.name}: {zWaluta(firma.monthly, 'en')} net a month (
+              {zWaluta(brutto(firma.monthly), 'en', true)} gross) with 10 vehicles included,{' '}
+              {zWaluta(CENA_POJAZDU, 'en')} net a month for each additional one, up to 50. Paying
+              yearly, two months are free: {zWaluta(start.yearly, 'en')} or{' '}
+              {zWaluta(firma.yearly, 'en')} net.
             </>,
             <>
-              These are final prices: MOVGRANTO is VAT-exempt, so there’s nothing to add. Start runs
+              Prices are net, {VAT_PROCENT}% VAT is added to every invoice. Start runs
               the whole company, including the live fleet map, profit per trip and fleet cost
               reports. The Business plan adds a bigger fleet and files for your accountant’s
               software: the monthly office pack, journal entries, VAT registers, JPK_V7M and the
@@ -223,7 +227,7 @@ function tresc(jezyk: Jezyk): TrescFrazy {
           ],
           [
             'Can I try it before I pay?',
-            'Yes. The demo works now, without an account. When accounts open, the first 14 days are free.',
+            'Yes. The demo works now, without an account. With your own account, the first 14 days are free.',
           ],
         ],
       },
@@ -251,8 +255,8 @@ function tresc(jezyk: Jezyk): TrescFrazy {
         akapity: [
           <>
             Kierowca pracuje w aplikacji{' '}
-            <Link href="/co-robi/aplikacja-kierowcy">BusiKM Kierowca</Link> na iPhone albo
-            Androida: zlecenia, nawigacja w Apple Maps, Google Maps albo Waze, koszt ze zdjęcia
+            <Link href="/co-robi/aplikacja-kierowcy">BusiKM Kierowca</Link>{' '}
+            {iosWSklepie ? 'na iPhone i system Android' : 'na system Android (wkrótce na iPhone)'}: zlecenia, nawigacja w aplikacji, której kierowca używa, koszt ze zdjęcia
             paragonu, przerwy zapisane nawet bez zasięgu.
           </>,
           <>
@@ -329,16 +333,19 @@ function tresc(jezyk: Jezyk): TrescFrazy {
         ],
       },
       {
-        naglowek: 'Cennik: od 149 zł miesięcznie',
+        naglowek: 'Cennik: od 149 zł netto miesięcznie',
         akapity: [
           <>
-            {start.name}: {start.monthly} zł miesięcznie, do 3 pojazdów. {firma.name}:{' '}
-            {firma.monthly} zł miesięcznie, 10 pojazdów w cenie, 29 zł miesięcznie za każdy
-            kolejny, do 50. Przy płatności rocznej dwa miesiące gratis: {start.yearly} zł albo{' '}
-            {firma.yearly} zł.
+            {start.name}: {zWaluta(start.monthly, 'pl')} netto miesięcznie (
+            {zWaluta(brutto(start.monthly), 'pl', true)} brutto), do 3 pojazdów. {firma.name}:{' '}
+            {zWaluta(firma.monthly, 'pl')} netto miesięcznie (
+            {zWaluta(brutto(firma.monthly), 'pl', true)} brutto), 10 pojazdów w cenie,{' '}
+            {zWaluta(CENA_POJAZDU, 'pl')} netto miesięcznie za każdy kolejny, do 50. Przy płatności
+            rocznej dwa miesiące gratis: {zWaluta(start.yearly, 'pl')} albo{' '}
+            {zWaluta(firma.yearly, 'pl')} netto.
           </>,
           <>
-            To ceny końcowe: MOVGRANTO jest zwolniona z VAT, więc nie ma czego doliczać. Start
+            Ceny są netto, do każdej faktury doliczamy {VAT_PROCENT}% VAT. Start
             prowadzi całą firmę, łącznie z mapą floty na żywo, zyskiem na kursie i raportami
             kosztów floty. Plan Firma dokłada większą flotę i pliki do programu księgowej: paczkę
             dla biura, dekrety, rejestry VAT, JPK_V7M i listę płac. Wybierzesz go przy dowolnej
@@ -422,7 +429,7 @@ function tresc(jezyk: Jezyk): TrescFrazy {
         ],
         [
           'Czy mogę sprawdzić, zanim zapłacę?',
-          'Tak. Demo działa już teraz, bez zakładania konta. Gdy otworzymy konta, pierwsze 14 dni jest bez opłat.',
+          'Tak. Demo działa już teraz, bez zakładania konta. Na własnym koncie pierwsze 14 dni jest bez opłat.',
         ],
       ],
     },

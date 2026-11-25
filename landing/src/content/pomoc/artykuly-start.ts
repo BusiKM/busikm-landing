@@ -7,35 +7,19 @@ import type { Artykul } from '@/content/pomoc/typy';
  * bez pojazdu nie policzysz kilometrów, bez kierowcy nie ma czego przydzielać.
  * Dlatego artykuły idą w tej samej kolejności, co realna konfiguracja.
  *
- * Publiczna rejestracja jeszcze nie jest otwarta (strona `/zaloguj` zbiera
- * zapisy), więc artykuł o koncie opisuje, jak rejestracja wygląda, i mówi
- * wprost, że dziś konta dostają osoby z listy.
+ * Rejestracja jest otwarta w panelu (BKM-1858): „Zaloguj się” na stronie
+ * prowadzi do logowania, a stamtąd do zakładania konta.
  */
 export const artykulyStart: Artykul[] = [
   {
     slug: 'zakladamy-konto',
     kategoria: 'start',
     tytul: 'Jak założyć konto',
-    lead: 'Zaczynasz od NIP-u, resztę danych firmy pobieramy z rejestru. Na razie konta otwieramy osobom z listy.',
+    lead: 'Zaczynasz od NIP-u, resztę danych firmy pobieramy z rejestru.',
     role: ['wlasciciel'],
     czas: 'Pięć minut, razem z potwierdzeniem maila',
     zanim: ['NIP firmy', 'Adres e-mail, na który przyjdzie potwierdzenie'],
     rozdzialy: [
-      {
-        tytul: 'Na czym stoimy',
-        bloki: [
-          {
-            typ: 'akapit',
-            tresc:
-              'BusiKM sprawdzamy na prawdziwych trasach, w małej grupie firm. Zapisz się na listę na stronie „Zaloguj się” - napiszemy, gdy otworzymy konto dla Ciebie.',
-          },
-          {
-            typ: 'wkrotce',
-            tresc:
-              'Demo obejrzysz już teraz, bez konta - przycisk Zobacz demo na stronie. Rejestracja dla wszystkich ruszy wkrótce; do tego czasu na stronie zapisujesz się na listę, a nie zakładasz konto.',
-          },
-        ],
-      },
       {
         tytul: 'Rejestracja krok po kroku',
         bloki: [

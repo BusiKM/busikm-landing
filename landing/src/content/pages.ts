@@ -1,4 +1,5 @@
 import type { Tlumaczenia } from '@/i18n/jezyki';
+import { iosWSklepie } from '@/content/sklepy';
 
 /**
  * Szkielety podstron – tytuły, nagłówki i zapowiedzi treści.
@@ -57,16 +58,19 @@ const strony = {
   },
 
   'co-robi/aplikacja-kierowcy': {
-    eyebrow: 'BusiKM Kierowca na iPhone i Androida',
+    eyebrow: iosWSklepie
+      ? 'BusiKM Kierowca na iPhone i system Android'
+      : 'BusiKM Kierowca na system Android, wkrótce na iPhone',
     heading: 'Cały dzień pracy w jednej aplikacji.\nBez wpisywania czegokolwiek w trasie.',
     lead: 'Kierowca dostaje kod mailem, wpisuje go w aplikacji, ustawia hasło i jest w środku.',
     title: 'Aplikacja kierowcy',
     seoTitle: 'Aplikacja dla kierowcy busa - trasa i koszty | BusiKM',
     description:
-      'Aplikacja dla kierowców: zlecenia, nawigacja w Apple Maps, Google Maps albo Waze, koszt ze zdjęcia i przerwy zapisane bez zasięgu. iPhone i Android.',
+      'Aplikacja dla kierowców: zlecenia, nawigacja jednym dotknięciem, koszt ze zdjęcia i przerwy zapisane bez zasięgu. ' +
+      (iosWSklepie ? 'Na iPhone i system Android.' : 'Android, wkrótce iPhone.'),
     outline: [
       'Wchodzi kodem z zaproszenia i ustawia hasło',
-      'Nawigacja jednym dotknięciem - Apple Maps, Google Maps albo Waze',
+      'Nawigacja jednym dotknięciem',
       'Zdjęcie licznika i „Zacznij dzień”',
       'Koszt dodaje jednym przyciskiem, w trasie',
       'Przerwa i powrót jednym tapnięciem',
@@ -250,7 +254,7 @@ const strony = {
     title: 'Program TMS dla busów',
     seoTitle: 'Program TMS dla busów 2,5-3,5 t',
     description:
-      'Program dla firmy transportowej z busami 2,5-3,5 t: zlecenia, GPS z telefonu, czas pracy, faktury KSeF, diety i ewidencja przebiegu. Od 149 zł.',
+      'Program dla firmy transportowej z busami 2,5-3,5 t: zlecenia, GPS z telefonu, czas pracy, faktury KSeF, diety i ewidencja przebiegu. Od 149 zł netto.',
   },
 
   'dla-kogo': {
@@ -299,7 +303,7 @@ const strony = {
     title: 'BusiKM dla kierowcy',
     seoTitle: 'BusiKM dla kierowcy - aplikacja na telefon',
     description:
-      'Zdjęcie licznika, „Zacznij dzień” i w drogę. Przerwy i koszty w tej samej aplikacji, nawigacja w Apple Maps, Google Maps albo Waze.',
+      'Zdjęcie licznika, „Zacznij dzień” i w drogę. Przerwy i koszty w tej samej aplikacji, nawigacja jednym dotknięciem.',
   },
 
   cennik: {
@@ -307,11 +311,11 @@ const strony = {
     heading: 'Płacisz za pojazdy.\nNie za ludzi.',
     lead: 'Kierowcy i pracownicy biura bez limitu. Przyczepy i naczepy nie liczą się do abonamentu.',
     title: 'Cennik',
-    seoTitle: 'Cennik programu TMS dla busów od 149 zł',
+    seoTitle: 'Cennik programu TMS dla busów od 149 zł netto',
     description:
-      'Start 149 zł prowadzi całą firmę, Firma 299 zł dokłada flotę do 50 aut i pliki dla księgowej. Ceny końcowe bez VAT, kierowcy i biuro bez limitu.',
+      'Start 149 zł netto prowadzi całą firmę, Firma 299 zł netto dokłada flotę do 50 aut i pliki dla księgowej. Do cen doliczamy 23% VAT, kierowcy i biuro bez limitu.',
     opisOg:
-      'Start 149 zł: cała firma w jednym miejscu. Firma 299 zł: większa flota i księgowość bez przepisywania. Kierowcy i biuro bez limitu.',
+      'Start 149 zł netto: cała firma w jednym miejscu. Firma 299 zł netto: większa flota i księgowość bez przepisywania. Kierowcy i biuro bez limitu.',
   },
 
   demo: {
@@ -417,16 +421,19 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
   },
 
   'co-robi/aplikacja-kierowcy': {
-    eyebrow: 'BusiKM Driver for iPhone and Android',
+    eyebrow: iosWSklepie
+      ? 'BusiKM Kierowca for iPhone and Android'
+      : 'BusiKM Kierowca for Android, iPhone coming soon',
     heading: 'A whole working day in one app.\nNothing to type on the road.',
     lead: 'The driver gets a code by email, enters it in the app, sets a password and is in.',
     title: 'Driver app',
     seoTitle: 'Van driver app - routes and expenses | BusiKM',
     description:
-      'App for van drivers: orders, navigation in Apple Maps, Google Maps or Waze, costs from a photo, and breaks saved without signal. iPhone and Android.',
+      'App for van drivers: orders, one-tap navigation, costs from a photo, and breaks saved without signal. ' +
+      (iosWSklepie ? 'For iPhone and Android.' : 'Android now, iPhone coming soon.'),
     outline: [
       'Signs in with an invitation code and sets a password',
-      'Navigation in one tap - Apple Maps, Google Maps or Waze',
+      'Navigation in one tap',
       'An odometer photo and “Start the day”',
       'Adds a cost with one button, on the road',
       'Break and back in one tap',
@@ -610,7 +617,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     title: 'Van TMS',
     seoTitle: 'TMS software for 2.5-3.5 t vans',
     description:
-      'Software for transport companies running 2.5-3.5 t vans: orders, GPS from the phone, working time, KSeF invoices, per diems and mileage log. From PLN 149.',
+      'Software for transport companies running 2.5-3.5 t vans: orders, GPS from the phone, working time, KSeF invoices, per diems and mileage log. From PLN 149 net.',
   },
 
   'dla-kogo': {
@@ -660,7 +667,7 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     title: 'BusiKM for drivers',
     seoTitle: 'BusiKM for drivers - the van driver app',
     description:
-      'An odometer photo, “Start the day” and off you go. Breaks and costs in the same app, navigation in Apple Maps, Google Maps or Waze.',
+      'An odometer photo, “Start the day” and off you go. Breaks and costs in the same app, navigation in one tap.',
   },
 
   cennik: {
@@ -668,11 +675,11 @@ const stronyEn: Record<keyof typeof strony, PageSpec> = {
     heading: 'You pay for vehicles.\nNot for people.',
     lead: 'Unlimited drivers and office staff. Trailers and semi-trailers don’t count towards the subscription.',
     title: 'Pricing',
-    seoTitle: 'Van TMS pricing from PLN 149 a month',
+    seoTitle: 'Van TMS pricing from PLN 149 net a month',
     description:
-      'Start PLN 149 runs the whole company, Business PLN 299 adds up to 50 vehicles and files for your accountant. Final prices, no VAT on top, unlimited drivers.',
+      'Start PLN 149 net runs the whole company, Business PLN 299 net adds up to 50 vehicles and files for your accountant. Plus 23% VAT, unlimited drivers.',
     opisOg:
-      'Start PLN 149: your whole company in one place. Business PLN 299: a bigger fleet and accounting without retyping. Unlimited drivers and office staff.',
+      'Start PLN 149 net: your whole company in one place. Business PLN 299 net: a bigger fleet and accounting without retyping. Unlimited drivers and office staff.',
   },
 
   demo: {

@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { odczytajZgode } from "./zgoda";
-import { appLinks } from "@/content/navigation";
+import { odczytajZgode, subskrybujZgode } from './zgoda';
+import { appLinks } from '@/content/navigation';
 import {
   dokleUtm,
   odczytajZapamietane,
   utmZAdresu,
+  wyczyscZapamietane,
   zapamietajPierwszyDotyk,
-} from "@/lib/utm";
+} from '@/lib/utm';
 
 const CELE = [appLinks.demo, appLinks.rejestracja];
 
@@ -20,19 +21,24 @@ const CELE = [appLinks.demo, appLinks.rejestracja];
  * Jeden nasłuch na dokumencie, tak jak `demo_open` w `Analytics`: adres zmienia
  * się w chwili kliknięcia, więc HTML z serwera i dane strukturalne zostają bez
  * UTM. UTM z adresu bieżącej strony idzie zawsze (nic nie zapisujemy). Pamięć
- * karty i referrer działają dopiero po zgodzie na analitykę.
+ * karty i referrer działają dopiero po zgodzie na analitykę, a brak albo
+ * cofnięcie zgody usuwa zapamiętany pierwszy dotyk.
  */
 export function UtmDoAplikacji() {
   useEffect(() => {
-    const zgoda = () => odczytajZgode() === "tak";
+    const zgoda = () => odczytajZgode() === 'tak';
     if (zgoda())
       zapamietajPierwszyDotyk(
         utmZAdresu(window.location.search),
         document.referrer,
       );
+    else wyczyscZapamietane();
+    const odsubskrybuj = subskrybujZgode(() => {
+      if (!zgoda()) wyczyscZapamietane();
+    });
 
     const naKlik = (e: MouseEvent) => {
-      const a = (e.target as Element | null)?.closest?.("a[href]");
+      const a = (e.target as Element | null)?.closest?.('a[href]');
       if (!(a instanceof HTMLAnchorElement)) return;
       if (!CELE.some((cel) => a.href.startsWith(cel))) return;
       const biezace = utmZAdresu(window.location.search);
@@ -42,11 +48,12 @@ export function UtmDoAplikacji() {
           : odczytajZapamietane();
       a.href = dokleUtm(a.href, utm);
     };
-    document.addEventListener("click", naKlik, { capture: true });
-    document.addEventListener("auxclick", naKlik, { capture: true });
+    document.addEventListener('click', naKlik, { capture: true });
+    document.addEventListener('auxclick', naKlik, { capture: true });
     return () => {
-      document.removeEventListener("click", naKlik, { capture: true });
-      document.removeEventListener("auxclick", naKlik, { capture: true });
+      odsubskrybuj();
+      document.removeEventListener('click', naKlik, { capture: true });
+      document.removeEventListener('auxclick', naKlik, { capture: true });
     };
   }, []);
   return null;

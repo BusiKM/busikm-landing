@@ -10,22 +10,22 @@
  */
 
 export const UTM_KEYS = [
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_content",
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
 ] as const;
 
 export type Utm = Partial<Record<(typeof UTM_KEYS)[number], string>>;
 
-export const KLUCZ_UTM = "busikm.utm";
+export const KLUCZ_UTM = 'busikm.utm';
 
 const WZOR = /^[a-z0-9_-]+$/;
 
 export function oczyscUtm(wartosc: unknown): string {
-  if (typeof wartosc !== "string") return "";
+  if (typeof wartosc !== 'string') return '';
   const etykieta = wartosc.trim().toLowerCase().slice(0, 64);
-  return WZOR.test(etykieta) ? etykieta : "";
+  return WZOR.test(etykieta) ? etykieta : '';
 }
 
 export function utmZAdresu(search: string): Utm {
@@ -39,8 +39,8 @@ export function utmZAdresu(search: string): Utm {
 }
 
 const SERWISY: ReadonlyArray<[RegExp, string]> = [
-  [/(^|\.)facebook\.com$/, "facebook"],
-  [/(^|\.)instagram\.com$/, "instagram"],
+  [/(^|\.)facebook\.com$/, 'facebook'],
+  [/(^|\.)instagram\.com$/, 'instagram'],
 ];
 
 /** Wejście bez UTM z Facebooka albo Instagrama: `utm_source` serwisu i `utm_medium=referral`. */
@@ -52,7 +52,7 @@ export function utmZReferrera(referrer: string): Utm {
     return {};
   }
   const serwis = SERWISY.find(([wzor]) => wzor.test(host));
-  return serwis ? { utm_source: serwis[1], utm_medium: "referral" } : {};
+  return serwis ? { utm_source: serwis[1], utm_medium: 'referral' } : {};
 }
 
 function pusty(utm: Utm): boolean {
@@ -72,6 +72,15 @@ export function odczytajZapamietane(): Utm {
       : {};
   } catch {
     return {};
+  }
+}
+
+/** Usuwa zapamiętany pierwszy dotyk, np. po cofnięciu zgody na analitykę. */
+export function wyczyscZapamietane(): void {
+  try {
+    window.sessionStorage.removeItem(KLUCZ_UTM);
+  } catch {
+    // Zablokowany storage: nic nie było zapisane.
   }
 }
 

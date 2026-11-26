@@ -10,7 +10,7 @@ import { ArkuszMaterialu, PrzyciskArkusza } from './ArkuszMaterialu';
 /**
  * Strona z materiałem do serii „5 kroków” (rolki na Facebooku).
  *
- * Góra w kolorze okładki rolki (#0b5fff), z numerem kroku, żeby widz z rolki
+ * Góra w kolorze okładki rolki (#0b5fff), z prostą dolną krawędzią i numerem kroku, żeby widz z rolki
  * od razu rozpoznał, że trafił we właściwe miejsce. Przycisk PDF jest
  * w pierwszym ekranie telefonu, bez przewijania. Niżej pięć punktów ściągi,
  * ramka „kiedy nie dotyczy”, stan przepisów i jedno zdanie o BusiKM z wejściem
@@ -38,7 +38,7 @@ export function StronaMaterialu({ material, tresc }: { material: Material; tresc
     <>
       <Header />
       <main className="bg-paper pb-20 [font-feature-settings:'calt'_0] lg:pb-28">
-        <section className="rounded-b-[28px] bg-[radial-gradient(120%_80%_at_30%_20%,#3a7eff_0%,#0b5fff_45%,#0a4fe0_100%)] px-5 pt-8 pb-7 text-white lg:rounded-b-panel lg:px-12 lg:pt-16 lg:pb-16">
+        <section className="bg-[radial-gradient(120%_80%_at_30%_20%,#3a7eff_0%,#0b5fff_45%,#0a4fe0_100%)] px-5 pt-8 pb-7 text-white lg:px-12 lg:pt-16 lg:pb-16">
           <div className="mx-auto flex max-w-[760px] flex-col">
             <div className="inline-flex items-center gap-2.5 font-mono text-[11.5px] tracking-[0.14em] text-white/78 uppercase">
               <span className="flex size-7.5 items-center justify-center rounded-[9px] bg-white font-sans text-[17px] font-extrabold tracking-normal text-blue shadow-[0_6px_16px_rgba(0,0,0,0.18)]">

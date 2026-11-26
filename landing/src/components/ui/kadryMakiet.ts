@@ -1,3 +1,5 @@
+import { nazwaPlikuMakiety } from '@/content/podpisyMakiet';
+
 /**
  * Kadr lupy na telefonie: która część pliku makiety ma wypełnić ekran.
  *
@@ -49,8 +51,7 @@ const WYJATKI: Record<string, Kadr> = {
  * (wycinki i dokumenty nie mają pustego tła).
  */
 export function kadrMakiety(src: string): Kadr | null {
-  // Adres w trybie deweloperskim ma `?v=`, a wersja angielska końcówkę `-en`.
-  const plik = (src.split('?')[0].split('/').pop() ?? '').replace(/-en(\.png)$/, '$1');
+  const plik = nazwaPlikuMakiety(src);
   if (WYJATKI[plik]) return WYJATKI[plik];
   if (plik.endsWith('-phone.png')) return JEDEN_TELEFON;
   if (plik.endsWith('-desktop.png')) return EKRAN_LAPTOPA;

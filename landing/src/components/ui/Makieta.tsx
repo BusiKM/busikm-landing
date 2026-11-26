@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Lock } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { kadrMakiety, type Kadr } from '@/components/ui/kadryMakiet';
 import { useJezyk } from '@/i18n/klient';
+import { nazwaPlikuMakiety, podpisMakiety } from '@/content/podpisyMakiet';
 
 /** Szerokość toru, który pokazuje miejsce przewinięcia w lupie na telefonie. */
 const TOR = 120;
@@ -19,9 +20,9 @@ function policzSuwak(p: HTMLDivElement): Suwak {
   return { szer, lewo: ((TOR - szer) * p.scrollLeft) / zakres };
 }
 
-/** Kadr poziomy otwiera się na środku: boki są ucięte i przewija się je palcem. */
-function naSrodek(p: HTMLDivElement, ustaw: (s: Suwak) => void) {
-  p.scrollLeft = (p.scrollWidth - p.clientWidth) / 2;
+/** Kadr poziomy otwiera się od lewej krawędzi (menu i początek treści), w prawo przewija się palcem. */
+function naPoczatek(p: HTMLDivElement, ustaw: (s: Suwak) => void) {
+  p.scrollLeft = 0;
   ustaw(policzSuwak(p));
 }
 
@@ -34,10 +35,11 @@ function naSrodek(p: HTMLDivElement, ustaw: (s: Suwak) => void) {
  * Zamyka się kliknięciem w dowolne miejsce, klawiszem Esc albo krzyżykiem.
  *
  * Na telefonie (poniżej `lg`) lupa pokazuje kadr z `kadryMakiet.ts`, bez
- * pustego tła pliku. Kadr pionowy (telefon) wypełnia prawie cały ekran.
- * Kadr poziomy (ekran laptopa, dwa telefony, szerokie wycinki) dostaje
- * wysokość, przy której da się go czytać, otwiera się na środku, a boki
- * przewija się palcem. Na komputerze lupa jest taka jak wcześniej.
+ * pustego tła pliku, a nad nim podpis z `podpisyMakiet.ts`. Kadr pionowy
+ * (telefon) wypełnia prawie cały ekran. Kadr poziomy (ekran laptopa w oknie
+ * przeglądarki, dwa telefony, szerokie wycinki) dostaje wysokość, przy
+ * której da się go czytać, otwiera się od lewej, a dalej przewija się
+ * palcem. Na komputerze lupa jest taka jak wcześniej.
  */
 export function Makieta({
   src,
@@ -73,18 +75,23 @@ export function Makieta({
   // i jego proporcje poznaje dopiero po wczytaniu.
   const [calyPlik, setCalyPlik] = useState<Kadr | null>(null);
   const kadr = kadrMakiety(src) ?? calyPlik;
-  const przesun = useJezyk() === 'pl' ? 'Przesuń w bok' : 'Swipe sideways';
+  const jezyk = useJezyk();
+  const przesun = jezyk === 'pl' ? 'Przesuń w bok' : 'Swipe sideways';
+  const podpis = podpisMakiety(src, jezyk);
+  const plik = nazwaPlikuMakiety(src);
+  const ekranPanelu = plik.endsWith('-desktop.png');
+  const karta = !plik.endsWith('-phone.png');
 
   const odswiezSuwak = () => {
     if (pas.current) setSuwak(policzSuwak(pas.current));
   };
   // Pas przewijania powstaje dopiero po pierwszym otwarciu (albo po wczytaniu
-  // pliku bez kadru), więc środkuje go sam przy wejściu do dokumentu. Kolejne
-  // otwarcia środkuje `otworz`. Stała funkcja, bo nowa przy każdym renderze
-  // wołałaby się przy każdym przesunięciu palcem i wracała na środek.
+  // pliku bez kadru), więc ustawia się sam przy wejściu do dokumentu. Kolejne
+  // otwarcia ustawia `otworz`. Stała funkcja, bo nowa przy każdym renderze
+  // wołałaby się przy każdym przesunięciu palcem i wracała na początek.
   const podepnijPas = useCallback((p: HTMLDivElement | null) => {
     pas.current = p;
-    if (p) naSrodek(p, setSuwak);
+    if (p) naPoczatek(p, setSuwak);
   }, []);
 
   // Obrót telefonu zmienia wysokość kadru, a z nią zakres przewijania.
@@ -100,7 +107,7 @@ export function Makieta({
   const otworz = () => {
     setOtwierany(true);
     okno.current?.showModal();
-    if (pas.current) naSrodek(pas.current, setSuwak);
+    if (pas.current) naPoczatek(pas.current, setSuwak);
   };
 
   return (
@@ -139,8 +146,14 @@ export function Makieta({
         onClick={() => okno.current?.close()}
         className="m-auto cursor-zoom-out max-h-[94vh] max-w-[96vw] overflow-visible bg-transparent p-0 backdrop:bg-ink/80 backdrop:backdrop-blur-sm max-lg:m-0 max-lg:h-dvh max-lg:max-h-none max-lg:w-screen max-lg:max-w-none"
       >
-        {/* Telefon: sam kadr, pionowy prawie na cały ekran, poziomy z przewijaniem. */}
-        <div className="flex h-full w-full flex-col justify-center lg:hidden">
+        {/* Telefon: podpis, pod nim sam kadr. Pionowy prawie na cały ekran, poziomy z przewijaniem od lewej. */}
+        <div className="relative flex h-full w-full flex-col justify-center pt-[76px] pb-4 lg:hidden">
+          <div className="absolute top-[18px] right-16 left-4 text-paper">
+            <p className="font-mono text-[10.5px] tracking-[0.08em] text-paper/55 uppercase">{podpis.nad}</p>
+            {podpis.tytul && (
+              <p className="mt-1 text-[16px] leading-tight font-semibold tracking-[-0.01em]">{podpis.tytul}</p>
+            )}
+          </div>
           {otwierany && !kadr && (
             // eslint-disable-next-line @next/next/no-img-element -- tylko odczyt proporcji pliku bez kadru
             <img
@@ -154,31 +167,43 @@ export function Makieta({
             />
           )}
           {otwierany && kadr && kadr.w / kadr.h < 0.8 && (
-            <div className="flex min-h-0 flex-1 items-center justify-center px-2 pt-[60px] pb-5">
+            <div className="flex min-h-0 flex-1 items-center justify-center px-2">
               <Kadrowany
                 src={src}
                 alt={alt}
                 kadr={kadr}
-                style={{ width: `min(100vw - 16px, (100dvh - 80px) * ${(kadr.w / kadr.h).toFixed(4)})` }}
+                style={{ width: `min(100vw - 16px, (100dvh - 100px) * ${(kadr.w / kadr.h).toFixed(4)})` }}
               />
             </div>
           )}
           {otwierany && kadr && kadr.w / kadr.h >= 0.8 && (
             <>
-              <div
-                ref={podepnijPas}
-                onScroll={odswiezSuwak}
-                className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-              >
-                <Kadrowany
-                  src={src}
-                  alt={alt}
-                  kadr={kadr}
-                  className="mx-auto"
-                  style={{
-                    width: `min((100dvh - 170px) * ${(kadr.w / kadr.h).toFixed(4)}, 230vw)`,
-                  }}
-                />
+              <div className="relative">
+                <div
+                  ref={podepnijPas}
+                  onScroll={odswiezSuwak}
+                  className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  <div className="mx-auto w-max px-4">
+                    {/* Ekran panelu i wycinek to karta z zaokrąglonym rogiem: widać, gdzie się zaczyna.
+                        Telefony mają przezroczyste tło, więc karty nie dostają. */}
+                    <div className={karta ? 'overflow-hidden rounded-[14px] shadow-[0_24px_60px_rgba(0,0,0,0.5)] ring-1 ring-paper/10' : ''}>
+                      {ekranPanelu && <PasekOkna />}
+                      <Kadrowany
+                        src={src}
+                        alt={alt}
+                        kadr={kadr}
+                        style={{
+                          width: `min((100dvh - ${ekranPanelu ? 230 : 200}px) * ${(kadr.w / kadr.h).toFixed(4)}, 230vw)`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Przyciemnienie z prawej mówi, że dalej jest ciąg dalszy. Znika na końcu. */}
+                {suwak && suwak.lewo + suwak.szer < TOR - 0.5 && (
+                  <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-linear-to-r from-ink/0 to-ink/85" />
+                )}
               </div>
               {suwak && (
                 <div className="mt-5 flex flex-col items-center gap-2.5 text-[13px] font-medium text-paper">
@@ -224,6 +249,21 @@ export function Makieta({
         </div>
       </dialog>
     </>
+  );
+}
+
+/** Jasny pasek okna przeglądarki nad ekranem panelu, w miejsce ramki laptopa. */
+function PasekOkna() {
+  return (
+    <div className="flex h-[30px] items-center gap-1.5 border-b border-line bg-mist px-3">
+      <span className="size-[9px] rounded-full bg-line-strong" />
+      <span className="size-[9px] rounded-full bg-line-strong" />
+      <span className="size-[9px] rounded-full bg-line-strong" />
+      <span className="ml-3.5 flex h-[18px] items-center gap-[5px] rounded-md border border-line bg-white px-2.5 text-[10px] text-muted">
+        <Lock className="size-[9px]" strokeWidth={2.4} aria-hidden />
+        app.busikm.pl
+      </span>
+    </div>
   );
 }
 

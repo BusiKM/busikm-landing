@@ -9,7 +9,7 @@ import { IkonaMenu } from '@/components/layout/IkonaMenu';
 import { PasekAppStore } from '@/components/layout/PasekAppStore';
 import { PrzelacznikJezyka } from '@/components/layout/PrzelacznikJezyka';
 import { appLinks, nawigacja, type NavEntry } from '@/content/navigation';
-import { iosWSklepie } from '@/content/sklepy';
+import { pasekAppStore } from '@/content/sklepy';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { useJezyk } from '@/i18n/klient';
 import { rozpoznaj } from '@/i18n/trasy';
@@ -241,7 +241,7 @@ export function Header() {
 
   return (
     <>
-      {!iosWSklepie && <PasekAppStore ref={pasekRef} />}
+      {pasekAppStore && <PasekAppStore ref={pasekRef} />}
       <header
         ref={headerRef}
         onMouseLeave={() => setOpenMega(null)}

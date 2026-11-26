@@ -63,6 +63,16 @@ export function linkAppStore(jezyk: Jezyk): string {
 export const iosWSklepie = process.env.NEXT_PUBLIC_IOS_W_SKLEPIE === '1';
 
 /**
+ * Pasek nad nawigacją (`PasekAppStore`): BusiKM Kierowca jest chwilowo
+ * niedostępna w App Store w Polsce. Nie zależy od `iosWSklepie`, bo flaga
+ * jest już włączona na produkcji, a Apple nie udostępnia jeszcze aplikacji
+ * w Polsce (czeka na potwierdzenie danych przedsiębiorcy wymaganych przez
+ * DSA). Gdy aplikację będzie można pobrać z polskiego App Store, ustawić
+ * `false` i wydać.
+ */
+export const pasekAppStore = true;
+
+/**
  * Głowa robota i znak słowny Android w hero (`MarkaAndroid`) oraz nota
  * o licencji robota w stopce. Pliki z Partner Marketing Hub są poufne do
  * akceptacji zespołu marki Android (zgłoszenie a384508e8b7b), a repozytorium

@@ -332,13 +332,14 @@ export function Header() {
           mobileOpen ? 'max-lg:border-transparent max-lg:bg-white max-lg:shadow-none' : ''
         }`}
       >
-        {/* 56 px na telefonie i na komputerze (od 27.11.2026 także na
-            komputerze, wcześniej 72): pasek jest przyklejony, więc każdy
-            piksel jego wysokości zabiera treści miejsce na każdym ekranie.
-            Przycisk menu ma dalej 44 px, czyli tyle, ile trzeba na palec.
-            Wysokość musi zgadzać się z 3.5rem w `top` panelu menu i rozmycia
-            pod menu niżej oraz z `lg:top-24` spisów treści. */}
-        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-5 lg:px-12">
+        {/* 44 px na telefonie, 56 px na komputerze (od 27.11.2026, wcześniej
+            56 i 72): pasek jest przyklejony, więc każdy piksel jego wysokości
+            zabiera treści miejsce na każdym ekranie. Na telefonie niżej się
+            nie da: przycisk menu ma 44 px, czyli tyle, ile trzeba na palec.
+            Wysokości muszą zgadzać się z 2.75rem w `top` panelu menu na
+            telefonie, z 3.5rem w `top` rozmycia pod menu na komputerze
+            i z `lg:top-24` spisów treści. */}
+        <div className="mx-auto flex h-11 max-w-[1440px] items-center justify-between px-5 lg:h-14 lg:px-12">
           <div className="flex items-center gap-11 lg:gap-6 xl:gap-11">
             {/* Przy otwartym menu na telefonie w pasku zostaje sam krzyżyk:
                 logo i przełącznik języka znikają, jak w menu Apple.
@@ -555,7 +556,7 @@ export function Header() {
       {mobileOpen && (
         <div
           onClick={zamknijPoKliknieciu}
-          style={{ top: `calc(3.5rem + ${nadPaskiem}px)` }}
+          style={{ top: `calc(2.75rem + ${nadPaskiem}px)` }}
           className="fixed inset-x-0 bottom-0 z-40 flex flex-col bg-white lg:hidden"
         >
           {/* `key` zmienia się z ekranem, więc lista montuje się od nowa

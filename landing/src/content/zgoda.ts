@@ -84,4 +84,32 @@ export const KANAL_ZGODY = 'email';
  * okienko. Reszta zostaje w kolekcji wiadomości i służy wyłącznie do
  * odpowiedzi.
  */
-export type Zrodlo = 'demo' | 'rejestracja' | 'formularz';
+export type Zrodlo = 'demo' | 'rejestracja' | 'formularz' | ZrodloPrzepisow;
+
+/**
+ * Strona z materiałem (ściągą PDF), na której ktoś zapisał się na maile
+ * o zmianach przepisów. Ten sam tag trafia do Firestore i do Klaviyo.
+ */
+export type ZrodloPrzepisow = 'itd';
+
+/**
+ * Zgoda na maile o zmianach przepisów (lista „Przepisy” w Klaviyo).
+ *
+ * Osobne brzmienie, bo zgoda z `/demo` mówi o otwarciu zapisów i nowościach
+ * w BusiKM, a nie o przepisach. Wysyłka czegoś, na co nikt się nie zgodził,
+ * byłaby niezgodna z art. 398 PKE, nawet do adresu, który już jest na innej
+ * liście. Numeracja własna, zasady te same co wyżej: zmiana treści = nowa
+ * wersja.
+ *
+ * Zgoda jest tu **nieobowiązkowa**. Usługą jest ściąga PDF i ta nie może od
+ * zgody zależeć (art. 7 ust. 4 RODO): pobiera się bez maila, a mail z linkiem
+ * do PDF też idzie bez zgody, bo o niego człowiek poprosił sam.
+ *
+ * Strony z materiałami są tylko po polsku, więc brzmienie jest jedno.
+ */
+export const WERSJA_ZGODY_PRZEPISY = 1;
+
+export const TRESC_ZGODY_PRZEPISY =
+  `Zgadzam się na otrzymywanie od ${firma.nazwa} e-maili o zmianach przepisów dla firm ` +
+  'z busami (tachograf, KSeF) i o nowościach w BusiKM. Zgodę wycofam odnośnikiem ' +
+  `w każdej wiadomości albo pisząc na ${firma.email}.`;

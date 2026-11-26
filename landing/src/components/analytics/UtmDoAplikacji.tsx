@@ -10,6 +10,7 @@ import {
   utmZAdresu,
   wyczyscZapamietane,
   zapamietajPierwszyDotyk,
+  zDomyslnaKampania,
 } from '@/lib/utm';
 
 const CELE = [appLinks.demo, appLinks.rejestracja];
@@ -22,7 +23,9 @@ const CELE = [appLinks.demo, appLinks.rejestracja];
  * się w chwili kliknięcia, więc HTML z serwera i dane strukturalne zostają bez
  * UTM. UTM z adresu bieżącej strony idzie zawsze (nic nie zapisujemy). Pamięć
  * karty i referrer działają dopiero po zgodzie na analitykę, a brak albo
- * cofnięcie zgody usuwa zapamiętany pierwszy dotyk.
+ * cofnięcie zgody usuwa zapamiętany pierwszy dotyk. Na stronach serii
+ * „5 kroków” brak kampanii uzupełnia `zDomyslnaKampania` (bez zapisu
+ * czegokolwiek w przeglądarce).
  */
 export function UtmDoAplikacji() {
   useEffect(() => {
@@ -46,7 +49,7 @@ export function UtmDoAplikacji() {
         Object.keys(biezace).length > 0 || !zgoda()
           ? biezace
           : odczytajZapamietane();
-      a.href = dokleUtm(a.href, utm);
+      a.href = dokleUtm(a.href, zDomyslnaKampania(utm, window.location.pathname));
     };
     document.addEventListener('click', naKlik, { capture: true });
     document.addEventListener('auxclick', naKlik, { capture: true });

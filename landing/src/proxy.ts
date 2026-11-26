@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { CIASTKO_JEZYKA, czyJezyk, type Jezyk } from '@/i18n/jezyki';
-import { lokalizuj, plZEn, znanaSciezkaPl } from '@/i18n/trasy';
+import { lokalizuj, plZEn, tylkoPl, znanaSciezkaPl } from '@/i18n/trasy';
 
 /**
  * Wybór języka i przepisanie adresu publicznego na wewnętrzny.
@@ -69,7 +69,9 @@ export function proxy(req: NextRequest) {
   }
 
   const robot = ROBOT.test(req.headers.get('user-agent') ?? '');
-  if (!robot && sciezkaPl !== null) {
+  // Strona tylko po polsku zostaje po polsku dla każdego: nie ma dokąd
+  // przekierować, a widz z rolki ma ją zobaczyć, nie stronę główną.
+  if (!robot && sciezkaPl !== null && !(jezykAdresu === 'pl' && tylkoPl(sciezkaPl))) {
     const zCiastka = req.cookies.get(CIASTKO_JEZYKA)?.value;
     const preferowany = czyJezyk(zCiastka) ? zCiastka : wykryj(req);
     if (preferowany !== jezykAdresu) {

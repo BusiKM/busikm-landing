@@ -332,11 +332,13 @@ export function Header() {
           mobileOpen ? 'max-lg:border-transparent max-lg:bg-white max-lg:shadow-none' : ''
         }`}
       >
-        {/* 56 px na telefonie zamiast 64: pasek jest przyklejony, więc każdy
+        {/* 56 px na telefonie i na komputerze (od 27.11.2026 także na
+            komputerze, wcześniej 72): pasek jest przyklejony, więc każdy
             piksel jego wysokości zabiera treści miejsce na każdym ekranie.
             Przycisk menu ma dalej 44 px, czyli tyle, ile trzeba na palec.
-            Wysokość musi zgadzać się z 3.5rem w `top` panelu menu niżej. */}
-        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-5 lg:h-18 lg:px-12">
+            Wysokość musi zgadzać się z 3.5rem w `top` panelu menu i rozmycia
+            pod menu niżej oraz z `lg:top-24` spisów treści. */}
+        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-5 lg:px-12">
           <div className="flex items-center gap-11 lg:gap-6 xl:gap-11">
             {/* Przy otwartym menu na telefonie w pasku zostaje sam krzyżyk:
                 logo i przełącznik języka znikają, jak w menu Apple.
@@ -536,7 +538,7 @@ export function Header() {
       <div
         aria-hidden
         onPointerDown={zamknijMenu}
-        style={{ top: `calc(4.5rem + ${nadPaskiem}px)` }}
+        style={{ top: `calc(3.5rem + ${nadPaskiem}px)` }}
         className={`menu-tlo fixed inset-0 z-30 hidden bg-ink/10 backdrop-blur-[20px] lg:block ${
           openMega ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}

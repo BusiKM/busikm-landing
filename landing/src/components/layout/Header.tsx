@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight, Monitor, User } from 'lucide-react';
 import Link from '@/i18n/Link';
 import { usePathname } from 'next/navigation';
@@ -32,6 +32,15 @@ const PRZY_GORZE = 80;
  * mniej niż jeden „klik" kółka i mniej niż przypadkowy ruch kciuka.
  */
 const PROG_KIERUNKU = 8;
+
+/** Czas rozsuwania i zwijania panelu menu, ten sam co w `.menu-panel` w CSS. */
+const CZAS_PANELU = 420;
+
+/**
+ * Ile kursor musi postać na dziale, zanim menu się otworzy. Mniej niż
+ * mrugnięcie, ale przelot nad paskiem w drodze do strony już go nie otwiera.
+ */
+const ZWLOKA_MENU = 120;
 
 const TEKSTY: Tlumaczenia<{
   domu: string;
@@ -75,6 +84,17 @@ export function Header() {
   const pathname = rozpoznaj(usePathname() ?? '/').sciezkaPl || '/';
   const [scrolled, setScrolled] = useState(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
+  /**
+   * Dział, którego treść stoi w panelu menu na komputerze. Zostaje jeszcze
+   * przez chwilę po zamknięciu (`openMega === null`), żeby panel zdążył
+   * się zwinąć z treścią w środku, zamiast zniknąć w jednej klatce.
+   */
+  const [pokazanyMega, setPokazanyMega] = useState<string | null>(null);
+  if (openMega && openMega !== pokazanyMega) setPokazanyMega(openMega);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const tresciPaneluRef = useRef<HTMLDivElement>(null);
+  /** Opóźnienie otwarcia: przelot kursorem nad paskiem nie otwiera menu. */
+  const zwlokaMenu = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const [mobileOpen, setMobileOpen] = useState(false);
   /**
    * Gdzie jesteśmy w menu na telefonie: `[]` to lista główna, `['Co robi']`
@@ -198,6 +218,44 @@ export function Header() {
   }, [openMega]);
 
   /**
+   * Wysokość panelu menu, jak u Apple: panel rozsuwa się w dół od paska,
+   * przy zmianie działu płynnie zmienia wysokość, a przy zamknięciu się
+   * zwija. Wysokość ustawiamy wprost na elemencie, bo przejście CSS potrzebuje
+   * dwóch liczb w pikselach (z `auto` nie animuje). Odczyt `offsetHeight`
+   * przed zmianą utrwala wartość startową, inaczej przeglądarka połączyłaby
+   * obie zmiany w jedną klatkę i panel by przeskoczył.
+   *
+   * Po zamknięciu treść zostaje w panelu do końca zwijania, potem znika.
+   */
+  useLayoutEffect(() => {
+    const panel = panelRef.current;
+    const tresc = tresciPaneluRef.current;
+    if (!panel || !tresc) return;
+    void panel.offsetHeight;
+    panel.style.height = openMega ? `${tresc.offsetHeight}px` : '0px';
+    if (openMega) return;
+    const koniec = setTimeout(() => setPokazanyMega(null), CZAS_PANELU);
+    return () => clearTimeout(koniec);
+  }, [openMega, pokazanyMega]);
+
+  useEffect(() => () => clearTimeout(zwlokaMenu.current), []);
+
+  /** Najechanie na dział: przy zamkniętym menu po chwili, przy otwartym od razu. */
+  const najedzNaDzial = (label: string) => {
+    clearTimeout(zwlokaMenu.current);
+    if (openMega) {
+      setOpenMega(label);
+      return;
+    }
+    zwlokaMenu.current = setTimeout(() => setOpenMega(label), ZWLOKA_MENU);
+  };
+
+  const zamknijMenu = () => {
+    clearTimeout(zwlokaMenu.current);
+    setOpenMega(null);
+  };
+
+  /**
    * Otwarte menu zatrzymuje pasek na miejscu.
    *
    * Panel na telefonie zaczyna się tuż pod paskiem i jest do niego
@@ -236,7 +294,7 @@ export function Header() {
     grupaMenu && dzialMenu!.groups.length > 1 ? grupaMenu.heading : dzialMenu?.label;
 
   const mega = navigation.find(
-    (e): e is Extract<NavEntry, { kind: 'mega' }> => e.kind === 'mega' && e.label === openMega,
+    (e): e is Extract<NavEntry, { kind: 'mega' }> => e.kind === 'mega' && e.label === pokazanyMega,
   );
 
   return (
@@ -244,7 +302,7 @@ export function Header() {
       {pasekAppStore && <PasekAppStore ref={pasekRef} />}
       <header
         ref={headerRef}
-        onMouseLeave={() => setOpenMega(null)}
+        onMouseLeave={zamknijMenu}
         /*
           Wejście klawiaturą wyciąga schowany pasek z powrotem – inaczej
           ogniskowanie trafiałoby w odnośniki stojące poza ekranem.
@@ -274,11 +332,14 @@ export function Header() {
           mobileOpen ? 'max-lg:border-transparent max-lg:bg-white max-lg:shadow-none' : ''
         }`}
       >
-        {/* 56 px na telefonie zamiast 64: pasek jest przyklejony, więc każdy
-            piksel jego wysokości zabiera treści miejsce na każdym ekranie.
-            Przycisk menu ma dalej 44 px, czyli tyle, ile trzeba na palec.
-            Wysokość musi zgadzać się z 3.5rem w `top` panelu menu niżej. */}
-        <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-5 lg:h-18 lg:px-12">
+        {/* 44 px na telefonie, 56 px na komputerze (od 27.11.2026, wcześniej
+            56 i 72): pasek jest przyklejony, więc każdy piksel jego wysokości
+            zabiera treści miejsce na każdym ekranie. Na telefonie niżej się
+            nie da: przycisk menu ma 44 px, czyli tyle, ile trzeba na palec.
+            Wysokości muszą zgadzać się z 2.75rem w `top` panelu menu na
+            telefonie, z 3.5rem w `top` rozmycia pod menu na komputerze
+            i z `lg:top-24` spisów treści. */}
+        <div className="mx-auto flex h-11 max-w-[1440px] items-center justify-between px-5 lg:h-14 lg:px-12">
           <div className="flex items-center gap-11 lg:gap-6 xl:gap-11">
             {/* Przy otwartym menu na telefonie w pasku zostaje sam krzyżyk:
                 logo i przełącznik języka znikają, jak w menu Apple.
@@ -318,7 +379,7 @@ export function Header() {
                       key={entry.href}
                       href={entry.href}
                       aria-current={active ? 'page' : undefined}
-                      onMouseEnter={() => setOpenMega(null)}
+                      onMouseEnter={zamknijMenu}
                       className={`text-[15px] font-medium transition-colors hover:text-ink ${
                         active ? 'text-blue' : 'text-ink/75'
                       }`}
@@ -338,7 +399,10 @@ export function Header() {
                     type="button"
                     aria-expanded={open}
                     aria-haspopup="true"
-                    onMouseEnter={() => setOpenMega(entry.label)}
+                    onMouseEnter={() => najedzNaDzial(entry.label)}
+                    onMouseLeave={() => {
+                      if (!openMega) clearTimeout(zwlokaMenu.current);
+                    }}
                     onFocus={() => setOpenMega(entry.label)}
                     className={`cursor-pointer text-[15px] font-medium transition-colors hover:text-ink ${
                       active ? 'text-blue' : open ? 'text-ink' : 'text-ink/75'
@@ -406,16 +470,30 @@ export function Header() {
         {/* Rozwinięte menu, jak u Apple: ta sama biała powierzchnia co
             pasek, bez kreski między nimi. Nad każdą kolumną mały szary
             nagłówek. Pierwsza kolumna dużymi literami, kolejne małymi.
-            Bez opisów pod pozycjami. Kolumny wchodzą łagodnie, pozycja po
-            pozycji. `key` montuje panel od nowa przy zmianie działu, więc
-            animacja rusza także przy przejściu z jednego działu na drugi. */}
+            Bez opisów pod pozycjami. Panel rozsuwa się i zwija płynnie
+            (wysokość ustawia efekt wyżej), kolumny wchodzą łagodnie, pozycja
+            po pozycji. `key` montuje treść od nowa przy zmianie działu, więc
+            animacja rusza także przy przejściu z jednego działu na drugi.
+            Przy zamykaniu pozycje gasną (`menu-gasnie`), a `inert` zabiera
+            zwijający się panel klawiaturze i czytnikom. */}
         {mega && (
           <div
-            key={mega.label}
+            ref={(el) => {
+              // Nowy panel startuje od zera, efekt wyżej rozsuwa go do treści.
+              panelRef.current = el;
+              if (el && !el.style.height) el.style.height = '0px';
+            }}
             onClick={zamknijPoKliknieciu}
-            className="absolute inset-x-0 top-full hidden bg-white lg:block"
+            inert={!openMega}
+            className="menu-panel absolute inset-x-0 top-full hidden overflow-hidden bg-white lg:block"
           >
-            <div className="mx-auto flex max-w-[1440px] gap-20 px-12 pt-9 pb-14 xl:gap-24">
+            <div
+              key={mega.label}
+              ref={tresciPaneluRef}
+              className={`mx-auto flex max-w-[1440px] gap-20 px-12 pt-9 pb-14 xl:gap-24 ${
+                openMega ? '' : 'menu-gasnie'
+              }`}
+            >
               {mega.groups.map((grupa, g) => {
                 const duza = g === 0;
                 return (
@@ -458,14 +536,14 @@ export function Header() {
       </header>
 
       {/* Rozmycie strony pod otwartym menu, jak u Apple */}
-      {mega && (
-        <div
-          aria-hidden
-          onPointerDown={() => setOpenMega(null)}
-          style={{ top: `calc(4.5rem + ${nadPaskiem}px)` }}
-          className="fixed inset-0 z-30 hidden bg-ink/10 backdrop-blur-[20px] lg:block"
-        />
-      )}
+      <div
+        aria-hidden
+        onPointerDown={zamknijMenu}
+        style={{ top: `calc(3.5rem + ${nadPaskiem}px)` }}
+        className={`menu-tlo fixed inset-0 z-30 hidden bg-ink/10 backdrop-blur-[20px] lg:block ${
+          openMega ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      />
 
       {/* Menu na telefonie. Poza <header>, bo backdrop-filter tworzy
           containing block dla position: fixed.
@@ -478,7 +556,7 @@ export function Header() {
       {mobileOpen && (
         <div
           onClick={zamknijPoKliknieciu}
-          style={{ top: `calc(3.5rem + ${nadPaskiem}px)` }}
+          style={{ top: `calc(2.75rem + ${nadPaskiem}px)` }}
           className="fixed inset-x-0 bottom-0 z-40 flex flex-col bg-white lg:hidden"
         >
           {/* `key` zmienia się z ekranem, więc lista montuje się od nowa

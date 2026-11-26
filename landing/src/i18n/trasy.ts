@@ -63,7 +63,7 @@ const STRONY: Record<string, string> = {
  * - przełącznik języka i `hreflang` wskazują angielską stronę główną albo
  *   nic, a mapa strony ma tylko adres polski.
  */
-export const TYLKO_PL: ReadonlySet<string> = new Set(['/itd']);
+export const TYLKO_PL: ReadonlySet<string> = new Set(['/itd', '/ksef']);
 
 /** Czy strona istnieje tylko po polsku. */
 export function tylkoPl(sciezka: string): boolean {

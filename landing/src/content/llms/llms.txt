@@ -254,6 +254,7 @@ https://app.busikm.pl/demo/ i 14 dni bez opłat na własnym koncie.
 - Pomoc: https://busikm.pl/pomoc
 - Poradnik: KSeF dla przewoźnika od 1 stycznia 2027: https://busikm.pl/pomoc/ksef-dla-przewoznika-2027
 - Poradnik: tachograf w busie 2,5-3,5 t od 1 lipca 2026: https://busikm.pl/pomoc/tachograf-w-busie-od-lipca-2026
+- Checklista PDF przed kontrolą tachografu w busie 2,5-3,5 t (pięć punktów, mail nieobowiązkowy): https://busikm.pl/itd
 - Kontakt: https://busikm.pl/kontakt
 - Facebook: https://www.facebook.com/busikm
 - Polityka prywatności strony: https://busikm.pl/prywatnosc

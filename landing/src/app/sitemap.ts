@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { serwis, trasy, dataZmiany } from '@/content/seo';
 import { jezyki, KODY } from '@/i18n/jezyki';
-import { lokalizuj } from '@/i18n/trasy';
+import { lokalizuj, tylkoPl } from '@/i18n/trasy';
 
 /**
  * Mapa strony pod adresem `/sitemap.xml`.
@@ -18,6 +18,17 @@ import { lokalizuj } from '@/i18n/trasy';
 export default function sitemap(): MetadataRoute.Sitemap {
   return trasy.flatMap((trasa) => {
     const pl = trasa.sciezka || '/';
+    // Strona tylko po polsku: jeden wpis, bez wersji językowych.
+    if (tylkoPl(pl)) {
+      return [
+        {
+          url: `${serwis.url}${trasa.sciezka}`,
+          lastModified: dataZmiany(trasa),
+          changeFrequency: trasa.czestotliwosc,
+          priority: trasa.priorytet,
+        },
+      ];
+    }
     const languages = Object.fromEntries(
       jezyki.map((j) => [KODY[j].lang, `${serwis.url}${lokalizuj(pl, j)}`.replace(/\/$/, '')]),
     );

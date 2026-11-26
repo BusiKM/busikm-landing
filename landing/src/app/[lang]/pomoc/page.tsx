@@ -23,6 +23,11 @@ const SCIAGI: readonly { href: string; tytul: string; opis: string }[] = [
     tytul: 'Kontrola tachografu w busie: checklista',
     opis: 'Pięć rzeczy do sprawdzenia przed kontrolą ITD, PDF do wydruku',
   },
+  {
+    href: '/ksef',
+    tytul: 'KSeF od 1 stycznia 2027: ściąga',
+    opis: 'Co się zmienia dla małej firmy z busami, PDF do wydruku',
+  },
 ];
 
 const TEKSTY: Tlumaczenia<{ naglowek: React.ReactNode; lead: string; przycisk: string }> = {

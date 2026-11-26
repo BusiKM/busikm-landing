@@ -10,7 +10,7 @@ import { mailMaterialu } from '@/lib/mail-materialu';
 /**
  * Mail z linkiem do ściągi PDF i (za zgodą) zapis na listę „Przepisy”.
  *
- * Wołane z okienka przed pobraniem na `/itd`. Pobranie PDF nie czeka na tę
+ * Wołane z okienka przed pobraniem na `/itd` i `/ksef`. Pobranie PDF nie czeka na tę
  * trasę: plik ściąga się od razu po kliknięciu, a mail idzie w tle.
  *
  * Trasa jest publiczna, więc:
@@ -22,7 +22,7 @@ import { mailMaterialu } from '@/lib/mail-materialu';
  *   skryptowe zalewanie wystarcza.
  *
  * Bez `RESEND_API_KEY` mail nie idzie i trasa mówi to wprost; strona pokazuje
- * wtedy, że checklista się pobrała, ale maila nie będzie.
+ * wtedy, że ściąga się pobrała, ale maila nie będzie.
  */
 
 export const runtime = 'nodejs';

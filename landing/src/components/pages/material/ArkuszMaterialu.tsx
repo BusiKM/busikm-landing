@@ -144,8 +144,8 @@ export function ArkuszMaterialu({ material }: { material: Material }) {
               </h2>
               <p className="text-[15px] leading-relaxed text-muted">
                 {zapis
-                  ? 'Napiszemy, gdy zmienią się przepisy o tachografie albo KSeF, a czasem o nowościach w BusiKM. Na start dostaniesz link do checklisty.'
-                  : 'Będziesz ją mieć pod ręką przed kontrolą, a nie tylko w pobranych plikach telefonu.'}
+                  ? `Napiszemy, gdy zmienią się przepisy o tachografie albo KSeF, a czasem o nowościach w BusiKM. Na start dostaniesz link do ${material.nazwa.dopelniacz}.`
+                  : material.podReka}
               </p>
             </div>
 

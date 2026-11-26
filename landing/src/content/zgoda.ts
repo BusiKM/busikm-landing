@@ -90,7 +90,7 @@ export type Zrodlo = 'demo' | 'rejestracja' | 'formularz' | ZrodloPrzepisow;
  * Strona z materiałem (ściągą PDF), na której ktoś zapisał się na maile
  * o zmianach przepisów. Ten sam tag trafia do Firestore i do Klaviyo.
  */
-export type ZrodloPrzepisow = 'itd';
+export type ZrodloPrzepisow = 'itd' | 'ksef';
 
 /**
  * Zgoda na maile o zmianach przepisów (lista „Przepisy” w Klaviyo).

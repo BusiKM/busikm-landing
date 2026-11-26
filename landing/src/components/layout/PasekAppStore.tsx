@@ -9,9 +9,9 @@ import { linkGooglePlay } from '@/content/sklepy';
  * Ciemny pasek nad nawigacją: BusiKM Kierowca jeszcze nie jest w App Store.
  *
  * Stoi nad przyklejonym nagłówkiem, więc przy przewijaniu odjeżdża razem
- * z treścią, a nawigacja zostaje. Pokazuje go `Header`, dopóki nie jest
- * włączone `iosWSklepie`. Po publikacji w App Store pasek znika sam, razem
- * z włączeniem odznaki Apple, bez zmiany kodu.
+ * z treścią, a nawigacja zostaje. Pokazuje go `Header`, dopóki
+ * `pasekAppStore` w `content/sklepy.ts` jest włączone. Gdy aplikację będzie
+ * można pobrać z polskiego App Store, przełącznik idzie na `false`.
  *
  * Na komputerze pełne zdanie, na telefonie krótsze, żeby pasek zmieścił się
  * w dwóch liniach. Twarde spacje (` `) trzymają „App Store” i „Google

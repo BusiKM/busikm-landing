@@ -28,7 +28,13 @@ const APP_STORE: Tlumaczenia<string> = {
 };
 
 /** Skąd przyszło kliknięcie. Widać to w Play Console w źródłach instalacji. */
-export type MiejsceSklepu = 'hero' | 'aplikacja' | 'sekcja-kierowcy' | 'rola-kierowcy' | 'stopka';
+export type MiejsceSklepu =
+  | 'hero'
+  | 'aplikacja'
+  | 'sekcja-kierowcy'
+  | 'rola-kierowcy'
+  | 'stopka'
+  | 'pasek';
 
 /**
  * Link do Google Play z oznaczeniem źródła. `referrer` to zakodowane
@@ -55,6 +61,16 @@ export function linkAppStore(jezyk: Jezyk): string {
  * `NEXT_PUBLIC_IOS_W_SKLEPIE=1` w zmiennych Vercela.
  */
 export const iosWSklepie = process.env.NEXT_PUBLIC_IOS_W_SKLEPIE === '1';
+
+/**
+ * Pasek nad nawigacją (`PasekAppStore`): BusiKM Kierowca jest chwilowo
+ * niedostępna w App Store w Polsce. Nie zależy od `iosWSklepie`, bo flaga
+ * jest już włączona na produkcji, a Apple nie udostępnia jeszcze aplikacji
+ * w Polsce (czeka na potwierdzenie danych przedsiębiorcy wymaganych przez
+ * DSA). Gdy aplikację będzie można pobrać z polskiego App Store, ustawić
+ * `false` i wydać.
+ */
+export const pasekAppStore = true;
 
 /**
  * Głowa robota i znak słowny Android w hero (`MarkaAndroid`) oraz nota

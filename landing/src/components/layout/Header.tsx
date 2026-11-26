@@ -6,8 +6,10 @@ import Link from '@/i18n/Link';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/layout/Logo';
 import { IkonaMenu } from '@/components/layout/IkonaMenu';
+import { PasekAppStore } from '@/components/layout/PasekAppStore';
 import { PrzelacznikJezyka } from '@/components/layout/PrzelacznikJezyka';
 import { appLinks, nawigacja, type NavEntry } from '@/content/navigation';
+import { pasekAppStore } from '@/content/sklepy';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import { useJezyk } from '@/i18n/klient';
 import { rozpoznaj } from '@/i18n/trasy';
@@ -82,6 +84,14 @@ export function Header() {
   const [zjechal, setZjechal] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const ostatnieY = useRef(0);
+  /**
+   * Ile pikseli paska o App Store widać jeszcze nad nawigacją. Panel menu
+   * na telefonie i rozmycie pod menu na komputerze są `fixed` i zaczynają
+   * się pod nawigacją, więc przy górze strony schodzą o tyle niżej.
+   * Po przewinięciu paska za krawędź ekranu wynosi 0.
+   */
+  const pasekRef = useRef<HTMLDivElement>(null);
+  const [nadPaskiem, setNadPaskiem] = useState(0);
 
   /**
    * Pasek chowa się przy przewijaniu w dół i wraca przy przewijaniu w górę.
@@ -100,6 +110,8 @@ export function Header() {
       frame = 0;
       const y = window.scrollY;
       setScrolled(y > 24);
+      const dolPaska = pasekRef.current?.getBoundingClientRect().bottom ?? 0;
+      setNadPaskiem(Math.max(0, Math.round(dolPaska)));
 
       if (y <= PRZY_GORZE) {
         ostatnieY.current = y;
@@ -120,9 +132,12 @@ export function Header() {
 
     measure();
     window.addEventListener('scroll', onScroll, { passive: true });
+    // Pasek o App Store zmienia wysokość, gdy tekst zawija się inaczej.
+    window.addEventListener('resize', onScroll);
     return () => {
       if (frame) cancelAnimationFrame(frame);
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
   }, []);
 
@@ -226,6 +241,7 @@ export function Header() {
 
   return (
     <>
+      {pasekAppStore && <PasekAppStore ref={pasekRef} />}
       <header
         ref={headerRef}
         onMouseLeave={() => setOpenMega(null)}
@@ -261,7 +277,7 @@ export function Header() {
         {/* 56 px na telefonie zamiast 64: pasek jest przyklejony, więc każdy
             piksel jego wysokości zabiera treści miejsce na każdym ekranie.
             Przycisk menu ma dalej 44 px, czyli tyle, ile trzeba na palec.
-            Wysokość musi zgadzać się z `top-14` panelu menu niżej. */}
+            Wysokość musi zgadzać się z 3.5rem w `top` panelu menu niżej. */}
         <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-5 lg:h-18 lg:px-12">
           <div className="flex items-center gap-11 lg:gap-6 xl:gap-11">
             {/* Przy otwartym menu na telefonie w pasku zostaje sam krzyżyk:
@@ -446,7 +462,8 @@ export function Header() {
         <div
           aria-hidden
           onPointerDown={() => setOpenMega(null)}
-          className="fixed inset-0 top-18 z-30 hidden bg-ink/10 backdrop-blur-[20px] lg:block"
+          style={{ top: `calc(4.5rem + ${nadPaskiem}px)` }}
+          className="fixed inset-0 z-30 hidden bg-ink/10 backdrop-blur-[20px] lg:block"
         />
       )}
 
@@ -461,7 +478,8 @@ export function Header() {
       {mobileOpen && (
         <div
           onClick={zamknijPoKliknieciu}
-          className="fixed inset-x-0 top-14 bottom-0 z-40 flex flex-col bg-white lg:hidden"
+          style={{ top: `calc(3.5rem + ${nadPaskiem}px)` }}
+          className="fixed inset-x-0 bottom-0 z-40 flex flex-col bg-white lg:hidden"
         >
           {/* `key` zmienia się z ekranem, więc lista montuje się od nowa
               i każda pozycja wchodzi własną animacją, z małym opóźnieniem

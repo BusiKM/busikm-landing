@@ -256,6 +256,7 @@ https://app.busikm.pl/demo/ i 14 dni bez opłat na własnym koncie.
 - Poradnik: tachograf w busie 2,5-3,5 t od 1 lipca 2026: https://busikm.pl/pomoc/tachograf-w-busie-od-lipca-2026
 - Checklista PDF przed kontrolą tachografu w busie 2,5-3,5 t (pięć punktów, mail nieobowiązkowy): https://busikm.pl/itd
 - Ściąga PDF: KSeF od 1 stycznia 2027 dla firmy z busami (koniec wyjątku do 10 000 zł brutto miesięcznie, faktury dla klientów z zagranicy, certyfikat i uprawnienia): https://busikm.pl/ksef
+- Kalkulator „Ile zostaje z kursu?”: fracht w EUR albo PLN po kursie NBP minus paliwo, opłaty drogowe, diety i inne koszty, wynik także w zł/km, bez konta: https://busikm.pl/kalkulator
 - Kontakt: https://busikm.pl/kontakt
 - Facebook: https://www.facebook.com/busikm
 - Polityka prywatności strony: https://busikm.pl/prywatnosc

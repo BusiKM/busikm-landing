@@ -129,6 +129,7 @@ export const trasy: Trasa[] = [
   // Strony serii „5 kroków” (rolki na Facebooku), tylko po polsku.
   { sciezka: '/itd', priorytet: 0.6, czestotliwosc: 'monthly', zmieniono: '2026-11-30' },
   { sciezka: '/ksef', priorytet: 0.6, czestotliwosc: 'monthly', zmieniono: '2026-11-30' },
+  { sciezka: '/kalkulator', priorytet: 0.6, czestotliwosc: 'monthly', zmieniono: '2026-11-30' },
 
   { sciezka: '/kontakt', priorytet: 0.5, czestotliwosc: 'yearly' },
 

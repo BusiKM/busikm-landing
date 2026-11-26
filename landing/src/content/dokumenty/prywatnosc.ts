@@ -20,7 +20,7 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
  *
  * ## Historia zmian
  *
- * Wersja 10 (25.11.2026): akapit o oznaczeniu kampanii (utm) przekazywanym do
+ * Wersja 10 (26.11.2026): akapit o oznaczeniu kampanii (utm) przekazywanym do
  * aplikacji przy wejściu do demo i rejestracji; bez zgody nic nie zapisujemy.
  * Wersja 9 (22.11.2026): administratorem jest Łukasz Głowacz prowadzący
  * jednoosobową działalność pod firmą Movgranto Łukasz Głowacz (NIP
@@ -30,9 +30,9 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
 const pl: Dokument = {
   href: '/prywatnosc',
   tytul: 'Polityka prywatności strony busikm.pl',
-  obowiazujeOd: '25 listopada 2026',
+  obowiazujeOd: '26 listopada 2026',
   wersja: 10,
-  ostatniaZmiana: '25 listopada 2026',
+  ostatniaZmiana: '26 listopada 2026',
   wSkrocie: [
     'Ta polityka dotyczy wyłącznie strony busikm.pl. Dane w usłudze BusiKM (aplikacja webowa i mobilna) opisuje Polityka prywatności usługi BusiKM.',
     'Danych, które zostawiasz na stronie, nie sprzedajemy nikomu.',
@@ -303,9 +303,9 @@ const pl: Dokument = {
 const en: Dokument = {
   href: '/prywatnosc',
   tytul: 'busikm.pl Website Privacy Policy',
-  obowiazujeOd: '25 November 2026',
+  obowiazujeOd: '26 November 2026',
   wersja: 10,
-  ostatniaZmiana: '25 November 2026',
+  ostatniaZmiana: '26 November 2026',
   wSkrocie: [
     'This policy covers only the busikm.pl website. Data in the BusiKM service (web and mobile app) is covered by the BusiKM Service Privacy Policy.',
     'We never sell the data you leave on the website to anyone.',

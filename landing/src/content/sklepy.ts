@@ -28,7 +28,13 @@ const APP_STORE: Tlumaczenia<string> = {
 };
 
 /** Skąd przyszło kliknięcie. Widać to w Play Console w źródłach instalacji. */
-export type MiejsceSklepu = 'hero' | 'aplikacja' | 'sekcja-kierowcy' | 'rola-kierowcy' | 'stopka';
+export type MiejsceSklepu =
+  | 'hero'
+  | 'aplikacja'
+  | 'sekcja-kierowcy'
+  | 'rola-kierowcy'
+  | 'stopka'
+  | 'pasek';
 
 /**
  * Link do Google Play z oznaczeniem źródła. `referrer` to zakodowane

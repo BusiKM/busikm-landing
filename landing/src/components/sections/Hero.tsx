@@ -250,7 +250,7 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative overflow-hidden bg-paper">
-      <div className="relative bg-blue px-6 pt-24 lg:px-12 lg:pt-40">
+      <div className="relative bg-blue px-6 pt-24 lg:px-12 lg:pt-28">
         <div aria-hidden className={`absolute inset-0 ${winieta}`} />
         {/* Światło zza ikony aplikacji: jaśniejszy środek u góry, jak scena
             pod reflektorem. */}

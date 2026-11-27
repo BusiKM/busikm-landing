@@ -4,6 +4,8 @@ rules_version = '2';
 //   wiadomosci      formularz kontaktowy
 //   zapisy-demo     lista wczesnego dostępu do demo
 //   zapisy-konto    lista oczekujących na otwarcie zapisów do aplikacji
+//   zapisy-przepisy maile o zmianach przepisów (strony /itd i /ksef, lista
+//                   „Przepisy” w Klaviyo), tylko adres i dowód zgody
 //
 // Klucze klienta Firebase są publiczne z założenia, więc to te reguły, a nie
 // klucze, decydują o bezpieczeństwie. Wolno wyłącznie utworzyć dokument i tylko
@@ -49,6 +51,11 @@ service cloud.firestore {
     match /zapisy-konto/{id} {
       allow read, update, delete: if false;
       allow create: if poprawnyZapis(request.resource.data);
+    }
+
+    match /zapisy-przepisy/{id} {
+      allow read, update, delete: if false;
+      allow create: if poprawnyZapisPrzepisow(request.resource.data);
     }
 
     // Wszystko inne zablokowane.
@@ -113,6 +120,25 @@ service cloud.firestore {
       && dowodZgody(d)
       && wyborZCennika(d)
       && poprawnyJezyk(d)
+      && d.createdAt == request.time
+      && (!('source' in d) || d.source == 'busikm-landing');
+  }
+
+  // Zapis na maile o zmianach przepisów ze strony z materiałem. Bez imienia,
+  // bo okienko o nie nie pyta. Dokument powstaje wyłącznie przy zgodzie: kto
+  // chce tylko PDF albo mail z linkiem, nie zostawia u nas śladu w bazie.
+  // `ksef` jest na liście od razu, żeby reguły wdrożyć raz dla obu stron.
+  function poprawnyZapisPrzepisow(d) {
+    return d.keys().hasOnly(['email', 'zrodlo', 'zgoda',
+                             'trescZgody', 'wersjaZgody', 'kanalZgody',
+                             'jezyk', 'createdAt', 'source'])
+      && d.keys().hasAll(['email', 'zrodlo', 'zgoda',
+                          'trescZgody', 'wersjaZgody', 'kanalZgody', 'createdAt'])
+      && d.email is string && d.email.size() <= 160 && d.email.matches('.+@.+[.].+')
+      && d.zrodlo in ['itd', 'ksef']
+      && d.zgoda == true
+      && dowodZgody(d)
+      && (!('jezyk' in d) || d.jezyk == 'pl')
       && d.createdAt == request.time
       && (!('source' in d) || d.source == 'busikm-landing');
   }

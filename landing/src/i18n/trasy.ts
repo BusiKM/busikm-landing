@@ -54,6 +54,22 @@ const STRONY: Record<string, string> = {
   '/prywatnosc': '/privacy',
 };
 
+/**
+ * Strony wyłącznie po polsku: materiały do serii „5 kroków” na Facebooku
+ * (polskie przepisy, polski widz). Nie mają wersji angielskiej, więc:
+ * - proxy nie przenosi ich na angielski, nawet gdy telefon jest po angielsku
+ *   (przeglądarka w aplikacji Facebooka bierze język systemu),
+ * - `/en/itd` prowadzi na angielską stronę główną,
+ * - przełącznik języka i `hreflang` wskazują angielską stronę główną albo
+ *   nic, a mapa strony ma tylko adres polski.
+ */
+export const TYLKO_PL: ReadonlySet<string> = new Set(['/itd', '/ksef', '/kalkulator']);
+
+/** Czy strona istnieje tylko po polsku. */
+export function tylkoPl(sciezka: string): boolean {
+  return TYLKO_PL.has(normalizuj(sciezka));
+}
+
 /** Slugi artykułów pomocy: polski → angielski. */
 export const SLUGI_ARTYKULOW: Record<string, string> = {
   'zakladamy-konto': 'creating-an-account',
@@ -100,7 +116,7 @@ function normalizuj(sciezka: string): string {
 
 /** Czy to znana ścieżka polska (wewnętrzna). */
 export function znanaSciezkaPl(sciezka: string): boolean {
-  return normalizuj(sciezka) in PL_NA_EN;
+  return normalizuj(sciezka) in PL_NA_EN || tylkoPl(sciezka);
 }
 
 /** Ścieżka polska dla angielskiej (bez `/en`), albo `null`, gdy jej nie ma. */
@@ -123,7 +139,8 @@ export function lokalizuj(href: string, jezyk: Jezyk): string {
   const reszta = m?.[2] ?? '';
 
   const en = PL_NA_EN[sciezka];
-  if (en === undefined) return href;
+  // Strona bez wersji angielskiej: angielski czytelnik trafia na stronę główną.
+  if (en === undefined) return TYLKO_PL.has(sciezka) ? '/en' : href;
   return `/en${en}${reszta}`;
 }
 

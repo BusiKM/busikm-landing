@@ -20,6 +20,9 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
  *
  * ## Historia zmian
  *
+ * Wersja 11 (27.11.2026): ściągi PDF z serii „5 kroków” (najpierw /itd). Mail
+ * z linkiem do ściągi na żądanie (Resend, adres bez zapisu w bazie) i osobna
+ * lista maili o zmianach przepisów w Klaviyo, tylko za zgodą.
  * Wersja 10 (26.11.2026): akapit o oznaczeniu kampanii (utm) przekazywanym do
  * aplikacji przy wejściu do demo i rejestracji; bez zgody nic nie zapisujemy.
  * Wersja 9 (22.11.2026): administratorem jest Łukasz Głowacz prowadzący
@@ -30,15 +33,16 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
 const pl: Dokument = {
   href: '/prywatnosc',
   tytul: 'Polityka prywatności strony busikm.pl',
-  obowiazujeOd: '26 listopada 2026',
-  wersja: 10,
-  ostatniaZmiana: '26 listopada 2026',
+  obowiazujeOd: '27 listopada 2026',
+  wersja: 11,
+  ostatniaZmiana: '27 listopada 2026',
   wSkrocie: [
     'Ta polityka dotyczy wyłącznie strony busikm.pl. Dane w usłudze BusiKM (aplikacja webowa i mobilna) opisuje Polityka prywatności usługi BusiKM.',
     'Danych, które zostawiasz na stronie, nie sprzedajemy nikomu.',
     'Przez formularze zbieramy tylko to, co sam wpiszesz: zwykle imię, adres e-mail i treść wiadomości.',
     'Na stronie używamy plików cookie potrzebnych do jej działania. Analityczne i reklamowe (piksel Meta) włączamy dopiero za Twoją zgodą, osobno dla każdego celu.',
     'Zapisując się na listę, zgadzasz się na wiadomości o BusiKM. Zgodę wycofasz odnośnikiem w każdej z nich. Zapisujemy jej treść i datę, żeby dało się wykazać, pod czym się podpisałeś. Listę prowadzimy w Klaviyo, amerykańskim narzędziu do wysyłki wiadomości.',
+    'Ściągi PDF pobierzesz bez podawania adresu. Jeśli go podasz, wyślemy na niego jeden mail z linkiem, a maile o zmianach przepisów dostaniesz tylko po zaznaczeniu osobnej zgody.',
     'Masz prawo wglądu, poprawienia, usunięcia i przeniesienia swoich danych. Napisz, a zrobimy to.',
   ],
   paragrafy: [
@@ -48,7 +52,7 @@ const pl: Dokument = {
       bloki: [
         {
           typ: 'akapit',
-          tresc: `Ta polityka dotyczy wyłącznie strony busikm.pl: formularza kontaktowego, zapisów na listy wczesnego dostępu, statystyki odwiedzin, reklamy i plików cookie strony. Przetwarzanie danych w usłudze BusiKM (aplikacja webowa i mobilna), w tym danych kont, kierowców, tras i dokumentów, opisuje Polityka prywatności usługi BusiKM: ${dokumentyUslugi.prywatnosc}.`,
+          tresc: `Ta polityka dotyczy wyłącznie strony busikm.pl: formularza kontaktowego, zapisów na listy wczesnego dostępu, wysyłki ściąg PDF i zapisów na maile o zmianach przepisów, statystyki odwiedzin, reklamy i plików cookie strony. Przetwarzanie danych w usłudze BusiKM (aplikacja webowa i mobilna), w tym danych kont, kierowców, tras i dokumentów, opisuje Polityka prywatności usługi BusiKM: ${dokumentyUslugi.prywatnosc}.`,
         },
         {
           typ: 'akapit',
@@ -91,6 +95,18 @@ const pl: Dokument = {
               'do cofnięcia zgody',
             ],
             [
+              'Wysłanie ściągi PDF (np. checklisty przed kontrolą tachografu) na adres, który podasz',
+              'adres e-mail, nazwa ściągi; adres IP przez 10 minut w pamięci serwera, żeby ograniczyć nadużycia',
+              'art. 6 ust. 1 lit. b RODO - wysłanie tego, o co prosisz; dla adresu IP art. 6 ust. 1 lit. f RODO - ochrona przed nadużyciami',
+              'adresu nie zapisujemy w naszej bazie, mail wychodzi jednorazowo; ślad wysyłki zostaje w dzienniku dostawcy poczty (Resend) przez okres wynikający z jego warunków',
+            ],
+            [
+              'Maile o zmianach przepisów dla firm z busami (tachograf, KSeF) i o nowościach w BusiKM',
+              'adres e-mail, źródło zapisu (strona ściągi, np. busikm.pl/itd)',
+              'art. 6 ust. 1 lit. a RODO - Twoja zgoda, wraz z art. 398 Prawa komunikacji elektronicznej',
+              'do cofnięcia zgody',
+            ],
+            [
               'Wykazanie, że zgoda została wyrażona',
               'treść i wersja zgody, kanał, data i godzina zaznaczenia',
               'art. 6 ust. 1 lit. c RODO - obowiązek rozliczalności z art. 7 ust. 1 RODO',
@@ -120,7 +136,7 @@ const pl: Dokument = {
         {
           typ: 'akapit',
           tresc:
-            'Podanie danych w formularzach na stronie jest dobrowolne. Bez adresu e-mail nie odpowiemy na wiadomość ani nie zapiszemy Cię na listę wczesnego dostępu, a na listę zapisujemy tylko ze zgodą na wiadomości o BusiKM.',
+            'Podanie danych w formularzach na stronie jest dobrowolne. Bez adresu e-mail nie odpowiemy na wiadomość ani nie zapiszemy Cię na listę wczesnego dostępu, a na listę zapisujemy tylko ze zgodą na wiadomości o BusiKM. Ściągę PDF pobierzesz bez podawania adresu.',
         },
       ],
     },
@@ -132,8 +148,8 @@ const pl: Dokument = {
           typ: 'lista',
           wstep: 'Dane mogą trafić do:',
           punkty: [
-            'dostawców obsługujących formularze na stronie: Google Ireland Limited (Firebase, baza Cloud Firestore, w której zapisujemy wiadomości z formularza kontaktowego i zapisy na listy wczesnego dostępu, region europejski) i Resend (dostarczenie powiadomienia na naszą skrzynkę, region irlandzki). Dotyczy to wyłącznie danych, które sam wpiszesz w formularzu kontaktowym albo zapisując się na listę wczesnego dostępu;',
-            'Klaviyo, Inc. (125 Summer Street, Boston, MA 02111, Stany Zjednoczone), w którym prowadzimy listę adresową i z którego wysyłamy wiadomości o BusiKM, w tym o otwarciu zapisów i nowościach w BusiKM. Trafiają tam imię, adres e-mail, treść, wersja i język zgody, źródło zapisu, a przy zapisie z cennika także wybrany plan i okres rozliczenia. Dotyczy to wyłącznie osób, które zgodziły się na wiadomości o BusiKM: przy zapisie na listę wczesnego dostępu albo zaznaczając zgodę w formularzu kontaktowym. Klaviyo przetwarza te dane w naszym imieniu;',
+            'dostawców obsługujących formularze na stronie: Google Ireland Limited (Firebase, baza Cloud Firestore, w której zapisujemy wiadomości z formularza kontaktowego i zapisy na listy wczesnego dostępu i na maile o zmianach przepisów, region europejski) i Resend (dostarczenie powiadomienia na naszą skrzynkę i maila ze ściągą, o który prosisz, region irlandzki). Dotyczy to wyłącznie danych, które sam wpiszesz w formularzu kontaktowym, zapisując się na listę albo prosząc o ściągę;',
+            'Klaviyo, Inc. (125 Summer Street, Boston, MA 02111, Stany Zjednoczone), w którym prowadzimy listę adresową i z którego wysyłamy wiadomości o BusiKM, w tym o otwarciu zapisów i nowościach w BusiKM. Trafiają tam imię, adres e-mail, treść, wersja i język zgody, źródło zapisu, a przy zapisie z cennika także wybrany plan i okres rozliczenia. Dotyczy to wyłącznie osób, które zgodziły się na wiadomości o BusiKM: przy zapisie na listę wczesnego dostępu albo zaznaczając zgodę w formularzu kontaktowym. W Klaviyo prowadzimy też osobną listę maili o zmianach przepisów: trafiają na nią adres e-mail, treść, wersja i język zgody oraz źródło zapisu, wyłącznie gdy zaznaczysz tę zgodę na stronie ściągi. Klaviyo przetwarza te dane w naszym imieniu;',
             'Meta Platforms Ireland Limited (Merrion Road, Dublin 4, Irlandia) - wyłącznie jeżeli zgodzisz się na reklamę. W zakresie zbierania danych pikselem i przekazania ich do Mety jesteśmy z Metą współadministratorami; dalej Meta przetwarza dane jako odrębny administrator, na zasadach swojej polityki prywatności (facebook.com/privacy/policy);',
             'biura rachunkowego i doradców, w zakresie niezbędnym do rozliczeń;',
             'organów publicznych, jeżeli obowiązek wynika z przepisów.',
@@ -142,7 +158,7 @@ const pl: Dokument = {
         {
           typ: 'akapit',
           tresc:
-            'Z każdym dostawcą, który przetwarza dane w naszym imieniu, mamy zawartą umowę powierzenia. Nie sprzedajemy danych. Do Mety trafiają tylko dane z piksela i tylko po Twojej zgodzie na reklamę, a do Klaviyo tylko adresy osób, które zgodziły się na wiadomości o BusiKM.',
+            'Z każdym dostawcą, który przetwarza dane w naszym imieniu, mamy zawartą umowę powierzenia. Nie sprzedajemy danych. Do Mety trafiają tylko dane z piksela i tylko po Twojej zgodzie na reklamę, a do Klaviyo tylko adresy osób, które zgodziły się na wiadomości o BusiKM albo na maile o zmianach przepisów.',
         },
         {
           typ: 'akapit',
@@ -157,12 +173,12 @@ const pl: Dokument = {
         {
           typ: 'akapit',
           tresc:
-            'Wiadomości z formularza kontaktowego i zapisy na listy wczesnego dostępu zapisujemy w bazie Firestore w regionie europejskim, a powiadomienia o nich wychodzą z serwerów w Irlandii. Zgodnie z warunkami przetwarzania danych Firebase Google może przetwarzać dane także w innych krajach, w których on lub jego podwykonawcy mają infrastrukturę. Przekazanie do Google LLC w Stanach Zjednoczonych opiera się na decyzji Komisji Europejskiej w sprawie Ram ochrony danych UE-USA (EU-US Data Privacy Framework), w których Google uczestniczy, a gdy nie mają one zastosowania, na standardowych klauzulach umownych.',
+            'Wiadomości z formularza kontaktowego i zapisy na listy zapisujemy w bazie Firestore w regionie europejskim, a powiadomienia o nich wychodzą z serwerów w Irlandii. Zgodnie z warunkami przetwarzania danych Firebase Google może przetwarzać dane także w innych krajach, w których on lub jego podwykonawcy mają infrastrukturę. Przekazanie do Google LLC w Stanach Zjednoczonych opiera się na decyzji Komisji Europejskiej w sprawie Ram ochrony danych UE-USA (EU-US Data Privacy Framework), w których Google uczestniczy, a gdy nie mają one zastosowania, na standardowych klauzulach umownych.',
         },
         {
           typ: 'akapit',
           tresc:
-            'Jeżeli zgodzisz się na wiadomości o BusiKM, Twoje dane z listy adresowej przetwarza Klaviyo, Inc., firma z siedzibą w Stanach Zjednoczonych, także poza Europejskim Obszarem Gospodarczym. Transfer opiera się na decyzji Komisji Europejskiej w sprawie Ram ochrony danych UE-USA, w których Klaviyo uczestniczy, a gdy nie mają one zastosowania, na standardowych klauzulach umownych zawartych w umowie powierzenia z Klaviyo.',
+            'Jeżeli zgodzisz się na wiadomości o BusiKM albo na maile o zmianach przepisów, Twoje dane z listy adresowej przetwarza Klaviyo, Inc., firma z siedzibą w Stanach Zjednoczonych, także poza Europejskim Obszarem Gospodarczym. Transfer opiera się na decyzji Komisji Europejskiej w sprawie Ram ochrony danych UE-USA, w których Klaviyo uczestniczy, a gdy nie mają one zastosowania, na standardowych klauzulach umownych zawartych w umowie powierzenia z Klaviyo.',
         },
         {
           typ: 'akapit',
@@ -303,15 +319,16 @@ const pl: Dokument = {
 const en: Dokument = {
   href: '/prywatnosc',
   tytul: 'busikm.pl Website Privacy Policy',
-  obowiazujeOd: '26 November 2026',
-  wersja: 10,
-  ostatniaZmiana: '26 November 2026',
+  obowiazujeOd: '27 November 2026',
+  wersja: 11,
+  ostatniaZmiana: '27 November 2026',
   wSkrocie: [
     'This policy covers only the busikm.pl website. Data in the BusiKM service (web and mobile app) is covered by the BusiKM Service Privacy Policy.',
     'We never sell the data you leave on the website to anyone.',
     'Through the forms we collect only what you enter yourself: usually your first name, e-mail address and message.',
     'On the website we use the cookies it needs to work. We switch on analytics and advertising cookies (the Meta pixel) only with your consent, separately for each purpose.',
     'By joining the list, you agree to receive messages about BusiKM. You can withdraw consent using the link in any of them. We record its wording and date so that we can show what you agreed to. We keep the list in Klaviyo, a US-based e-mail marketing tool.',
+    'You can download our PDF guides without giving an address. If you give one, we send a single e-mail with the link, and you get e-mails about regulation changes only if you tick a separate consent box.',
     'You have the right to access, correct, erase and port your data. Write to us and we will do it.',
   ],
   paragrafy: [
@@ -321,7 +338,7 @@ const en: Dokument = {
       bloki: [
         {
           typ: 'akapit',
-          tresc: `This policy covers only the busikm.pl website: the contact form, early access list sign-ups, visit statistics, advertising and the website's cookies. Data processing in the BusiKM service (web and mobile app), including account, driver, route and document data, is described in the BusiKM Service Privacy Policy (in Polish): ${dokumentyUslugi.prywatnosc}.`,
+          tresc: `This policy covers only the busikm.pl website: the contact form, early access list sign-ups, sending PDF guides and sign-ups for e-mails about regulation changes, visit statistics, advertising and the website's cookies. Data processing in the BusiKM service (web and mobile app), including account, driver, route and document data, is described in the BusiKM Service Privacy Policy (in Polish): ${dokumentyUslugi.prywatnosc}.`,
         },
         {
           typ: 'akapit',
@@ -364,6 +381,18 @@ const en: Dokument = {
               'until consent is withdrawn',
             ],
             [
+              'Sending a PDF guide (e.g. the checklist before a tachograph inspection) to the address you give',
+              'e-mail address, name of the guide; IP address for 10 minutes in server memory, to limit abuse',
+              'Art. 6(1)(b) GDPR - sending what you ask for; for the IP address Art. 6(1)(f) GDPR - protection against abuse',
+              "we do not store the address in our database, the e-mail is sent once; a record of the sending remains in the mail provider's (Resend) log for the period set by its terms",
+            ],
+            [
+              'E-mails about regulation changes for van fleet companies (tachograph, KSeF) and news about BusiKM',
+              'e-mail address, sign-up source (guide page, e.g. busikm.pl/itd)',
+              'Art. 6(1)(a) GDPR - your consent, together with Art. 398 of the Electronic Communications Law (Prawo komunikacji elektronicznej, PKE)',
+              'until consent is withdrawn',
+            ],
+            [
               'Demonstrating that consent was given',
               'wording and version of the consent, channel, date and time it was ticked',
               'Art. 6(1)(c) GDPR - the accountability obligation under Art. 7(1) GDPR',
@@ -393,7 +422,7 @@ const en: Dokument = {
         {
           typ: 'akapit',
           tresc:
-            'Providing data in the website forms is voluntary. Without an e-mail address we cannot reply to your message or add you to the early access list, and we add people to the list only with their consent to messages about BusiKM.',
+            'Providing data in the website forms is voluntary. Without an e-mail address we cannot reply to your message or add you to the early access list, and we add people to the list only with their consent to messages about BusiKM. You can download a PDF guide without giving any address.',
         },
       ],
     },
@@ -405,8 +434,8 @@ const en: Dokument = {
           typ: 'lista',
           wstep: 'Data may be disclosed to:',
           punkty: [
-            'providers operating the forms on the website: Google Ireland Limited (Firebase, the Cloud Firestore database in which we store contact form messages and early access sign-ups, European region) and Resend (delivering the notification to our mailbox, Irish region). This applies only to data that you enter yourself in the contact form or when joining an early access list;',
-            'Klaviyo, Inc. (125 Summer Street, Boston, MA 02111, United States), where we keep our mailing list and from which we send messages about BusiKM, including news of sign-ups opening and of BusiKM. It receives your first name, e-mail address, the wording, version and language of your consent, the sign-up source and, when signing up from the pricing page, the chosen plan and billing period. This applies only to people who have consented to messages about BusiKM, either when joining an early access list or by ticking the consent box in the contact form. Klaviyo processes this data on our behalf;',
+            'providers operating the forms on the website: Google Ireland Limited (Firebase, the Cloud Firestore database in which we store contact form messages and early access and regulation-change sign-ups, European region) and Resend (delivering the notification to our mailbox and the guide e-mail you ask for, Irish region). This applies only to data that you enter yourself in the contact form, when joining a list or when asking for a guide;',
+            'Klaviyo, Inc. (125 Summer Street, Boston, MA 02111, United States), where we keep our mailing list and from which we send messages about BusiKM, including news of sign-ups opening and of BusiKM. It receives your first name, e-mail address, the wording, version and language of your consent, the sign-up source and, when signing up from the pricing page, the chosen plan and billing period. This applies only to people who have consented to messages about BusiKM, either when joining an early access list or by ticking the consent box in the contact form. We also keep a separate list for e-mails about regulation changes in Klaviyo: it receives your e-mail address, the wording, version and language of your consent and the sign-up source, only if you tick that consent on a guide page. Klaviyo processes this data on our behalf;',
             'Meta Platforms Ireland Limited (Merrion Road, Dublin 4, Ireland) - only if you consent to advertising. We and Meta are joint controllers for collecting data with the pixel and transmitting it to Meta; after that, Meta processes the data as a separate controller under its own privacy policy (facebook.com/privacy/policy);',
             'our accounting office and advisers, to the extent necessary for billing and accounting;',
             'public authorities, where required by law.',
@@ -415,7 +444,7 @@ const en: Dokument = {
         {
           typ: 'akapit',
           tresc:
-            'We have a data processing agreement in place with every provider that processes data on our behalf. We do not sell data. Only pixel data goes to Meta, and only after you consent to advertising. Only the addresses of people who have consented to messages about BusiKM go to Klaviyo.',
+            'We have a data processing agreement in place with every provider that processes data on our behalf. We do not sell data. Only pixel data goes to Meta, and only after you consent to advertising. Only the addresses of people who have consented to messages about BusiKM or to e-mails about regulation changes go to Klaviyo.',
         },
         {
           typ: 'akapit',
@@ -430,12 +459,12 @@ const en: Dokument = {
         {
           typ: 'akapit',
           tresc:
-            'We store contact form messages and early access sign-ups in a Firestore database in a European region, and notifications about them are sent from servers in Ireland. Under the Firebase data processing terms, Google may also process data in other countries where it or its subprocessors maintain facilities. Transfers to Google LLC in the United States rely on the European Commission decision on the EU-US Data Privacy Framework, in which Google participates, and, where it does not apply, on standard contractual clauses.',
+            'We store contact form messages and list sign-ups in a Firestore database in a European region, and notifications about them are sent from servers in Ireland. Under the Firebase data processing terms, Google may also process data in other countries where it or its subprocessors maintain facilities. Transfers to Google LLC in the United States rely on the European Commission decision on the EU-US Data Privacy Framework, in which Google participates, and, where it does not apply, on standard contractual clauses.',
         },
         {
           typ: 'akapit',
           tresc:
-            'If you consent to messages about BusiKM, your mailing list data is processed by Klaviyo, Inc., a company based in the United States, including outside the European Economic Area. The transfer relies on the European Commission decision on the EU-US Data Privacy Framework, in which Klaviyo participates, and, where it does not apply, on standard contractual clauses included in our data processing agreement with Klaviyo.',
+            'If you consent to messages about BusiKM or to e-mails about regulation changes, your mailing list data is processed by Klaviyo, Inc., a company based in the United States, including outside the European Economic Area. The transfer relies on the European Commission decision on the EU-US Data Privacy Framework, in which Klaviyo participates, and, where it does not apply, on standard contractual clauses included in our data processing agreement with Klaviyo.',
         },
         {
           typ: 'akapit',

@@ -27,6 +27,13 @@ const GRANAT = '#0a3d62';
 const LOGO = 'https://app.busikm.pl/email/busikm-logo.png';
 const P = 'margin:0 0 16px;';
 
+/**
+ * Niewidoczne znaki po preheaderze, jak w kopercie maili aplikacji
+ * (`apps/common/email.py`). Bez nich podgląd w skrzynce dociąga po
+ * preheaderze początek treści („BusiKM Dzień dobry…”).
+ */
+export const WYPELNIENIE_PODGLADU = '&#847;&zwnj;&nbsp;'.repeat(90);
+
 /** Ucieczka znaków w treści wstawianej do HTML-a maila. */
 export function bezpiecznie(tekst: string): string {
   return tekst.replace(
@@ -89,7 +96,7 @@ export function mailFormularza(dane: DaneFormularza): MailFormularza {
   <title>${bezpiecznie(temat)}</title>
 </head>
 <body style="margin:0;padding:0;background:#ffffff;color:#1a1a1a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;">
-  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${bezpiecznie(podglad)}</div>
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${bezpiecznie(podglad)}${WYPELNIENIE_PODGLADU}</div>
   <div style="max-width:600px;margin:0 auto;padding:32px 24px;background:#ffffff;color:#1a1a1a;">
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;">
       <tr>

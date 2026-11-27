@@ -96,6 +96,29 @@ export function zapamietajPierwszyDotyk(biezace: Utm, referrer: string): void {
   }
 }
 
+/**
+ * Strony serii „5 kroków” (wejścia z rolek na Facebooku). Gdy w adresie nie
+ * ma `utm_campaign`, link do demo dostaje kampanię `wyroznione` i stronę
+ * w `utm_content`. Bez tego wejście z rolki bez parametrów (link w opisie
+ * strony, przepisany ręcznie) byłoby w zestawieniu anonimowe.
+ */
+export const UTM_STRON: Readonly<Record<string, string>> = {
+  '/itd': 'itd',
+  '/ksef': 'ksef',
+  '/kalkulator': 'kalkulator',
+};
+
+/** UTM linku do aplikacji z domyślną kampanią strony serii, jeśli jej brak. */
+export function zDomyslnaKampania(utm: Utm, sciezka: string): Utm {
+  const tresc = UTM_STRON[sciezka.replace(/\/+$/, '')];
+  if (!tresc || utm.utm_campaign) return utm;
+  return {
+    ...utm,
+    utm_campaign: 'wyroznione',
+    utm_content: utm.utm_content ?? tresc,
+  };
+}
+
 /** Dokleja UTM do adresu, nie ruszając parametrów, które już w nim są. */
 export function dokleUtm(href: string, utm: Utm): string {
   if (pusty(utm)) return href;

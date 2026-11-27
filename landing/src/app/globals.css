@@ -266,6 +266,23 @@
     animation: menu-wejscie 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
+  /* Panel menu na komputerze: rozsuwanie, zmiana wysokości między działami
+     i zwijanie, jak u Apple. Czas musi zgadzać się z `CZAS_PANELU`
+     w Header.tsx. Rozmycie strony pod menu narasta i gaśnie razem z nim. */
+  .menu-panel {
+    transition: height 420ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .menu-tlo {
+    transition: opacity 320ms ease;
+  }
+
+  .menu-gasnie .menu-wchodzi {
+    animation: none;
+    opacity: 0;
+    transition: opacity 140ms ease;
+  }
+
   @keyframes menu-wejscie {
     from {
       opacity: 0;
@@ -301,6 +318,12 @@
     .cyfra-wjazd,
     .cyfra-wyjazd {
       animation: none;
+    }
+
+    .menu-panel,
+    .menu-tlo,
+    .menu-gasnie .menu-wchodzi {
+      transition: none;
     }
 
     html {

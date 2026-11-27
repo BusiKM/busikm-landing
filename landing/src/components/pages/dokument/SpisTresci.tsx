@@ -88,7 +88,7 @@ export function SpisTresci({ paragrafy }: { paragrafy: Paragraf[] }) {
         <div className="px-2 pb-3">{pozycje}</div>
       </details>
 
-      <nav aria-label={t.spis} className="hidden lg:sticky lg:top-28 lg:block">
+      <nav aria-label={t.spis} className="hidden lg:sticky lg:top-24 lg:block">
         <div className="mb-4 text-[12px] font-medium tracking-[0.1em] text-muted uppercase">
           {t.spis}
         </div>

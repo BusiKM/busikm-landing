@@ -6,7 +6,7 @@ import { serwis, nieindeksowane, opisSerwisu } from '@/content/seo';
 import { pages } from '@/content/pages';
 import { KODY, type Jezyk } from '@/i18n/jezyki';
 import { jezykZParametrow, type ParametryJezyka } from '@/i18n/serwer';
-import { lokalizuj } from '@/i18n/trasy';
+import { lokalizuj, tylkoPl } from '@/i18n/trasy';
 
 /**
  * Budowanie metadanych stron.
@@ -94,6 +94,9 @@ export function obrazPodgladu(jezyk: Jezyk) {
  */
 function adresy(sciezkaPl: string, jezyk: Jezyk): Metadata['alternates'] {
   const pl = sciezkaPl || '/';
+  // Strona tylko po polsku nie ma odpowiednika: `hreflang` wskazywałby
+  // angielską stronę główną jako tłumaczenie, a to inna treść.
+  if (tylkoPl(pl)) return { canonical: pl, languages: { [KODY.pl.lang]: pl, 'x-default': pl } };
   return {
     canonical: lokalizuj(pl, jezyk),
     languages: {
@@ -142,15 +145,25 @@ export function metadataTresci({
   tytul,
   opis,
   jezyk,
+  obraz,
 }: {
   /** Pełna ścieżka polska z wiodącym ukośnikiem, np. `/pomoc/nowe-zlecenie`. */
   sciezka: string;
   tytul: string;
   opis: string;
   jezyk: Jezyk;
+  /**
+   * Własny obraz podglądu z `public/` (np. okładka kroku serii na Facebooku).
+   * Wymiary czytamy z pliku jak przy obrazie serwisu, brak pliku zatrzymuje
+   * budowanie.
+   */
+  obraz?: string;
 }): Metadata {
   const pelnyTytul = tytul.includes(serwis.nazwa) ? tytul : `${tytul} | ${serwis.nazwa}`;
   const wIndeksie = !nieindeksowane.includes(sciezka);
+  const wlasny = obraz ? wymiaryObrazu(obraz) : null;
+  if (obraz && !wlasny) throw new Error(`Nie udało się odczytać wymiarów obrazu podglądu: public${obraz}`);
+  const podglad = obraz && wlasny ? { url: obraz, ...wlasny, alt: tytul } : obrazPodgladu(jezyk);
 
   return {
     title: pelnyTytul,
@@ -164,13 +177,13 @@ export function metadataTresci({
       url: lokalizuj(sciezka, jezyk),
       title: pelnyTytul,
       description: opis,
-      images: [obrazPodgladu(jezyk)],
+      images: [podglad],
     },
     twitter: {
       card: 'summary_large_image',
       title: pelnyTytul,
       description: opis,
-      images: [serwis.ogImage],
+      images: [podglad.url],
     },
   };
 }

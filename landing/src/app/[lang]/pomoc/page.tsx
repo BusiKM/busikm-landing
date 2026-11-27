@@ -8,7 +8,7 @@ import { Szukaj } from '@/components/pages/pomoc/Szukaj';
 import { grupyWyszukiwarki } from '@/content/pomoc';
 import type { Tlumaczenia } from '@/i18n/jezyki';
 import Link from '@/i18n/Link';
-import { ChevronRight, FileDown } from 'lucide-react';
+import { Calculator, ChevronRight, FileDown, type LucideIcon } from 'lucide-react';
 
 export const generateMetadata = metadataPodstrony('pomoc');
 
@@ -17,16 +17,24 @@ export const generateMetadata = metadataPodstrony('pomoc');
  * polskie przepisy i strony istnieją tylko w tym języku. Stopka nie ma
  * działu poradników, więc wejście stoi tutaj.
  */
-const SCIAGI: readonly { href: string; tytul: string; opis: string }[] = [
+const SCIAGI: readonly { href: string; tytul: string; opis: string; ikona: LucideIcon }[] = [
   {
     href: '/itd',
     tytul: 'Kontrola tachografu w busie: checklista',
     opis: 'Pięć rzeczy do sprawdzenia przed kontrolą ITD, PDF do wydruku',
+    ikona: FileDown,
   },
   {
     href: '/ksef',
     tytul: 'KSeF od 1 stycznia 2027: ściąga',
     opis: 'Co się zmienia dla małej firmy z busami, PDF do wydruku',
+    ikona: FileDown,
+  },
+  {
+    href: '/kalkulator',
+    tytul: 'Ile zostaje z kursu? Kalkulator',
+    opis: 'Fracht po kursie NBP minus koszty trasy, także w zł/km',
+    ikona: Calculator,
   },
 ];
 
@@ -83,7 +91,7 @@ export default async function Page({ params }: ParametryJezyka) {
                     className="group flex items-start gap-3.5 rounded-[16px] border border-line bg-white p-4 text-ink transition-colors hover:border-blue hover:text-ink lg:p-5"
                   >
                     <span className="flex size-10 flex-none items-center justify-center rounded-[11px] bg-blue-soft text-blue">
-                      <FileDown className="size-5" aria-hidden />
+                      <s.ikona className="size-5" aria-hidden />
                     </span>
                     <span className="flex flex-col gap-1">
                       <b className="text-[16px] leading-snug">{s.tytul}</b>

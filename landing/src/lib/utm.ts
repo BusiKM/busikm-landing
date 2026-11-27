@@ -105,6 +105,7 @@ export function zapamietajPierwszyDotyk(biezace: Utm, referrer: string): void {
 export const UTM_STRON: Readonly<Record<string, string>> = {
   '/itd': 'itd',
   '/ksef': 'ksef',
+  '/kalkulator': 'kalkulator',
 };
 
 /** UTM linku do aplikacji z domyślną kampanią strony serii, jeśli jej brak. */

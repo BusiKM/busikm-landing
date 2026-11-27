@@ -20,7 +20,7 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
  *
  * ## Historia zmian
  *
- * Wersja 11 (30.11.2026): ściągi PDF z serii „5 kroków” (najpierw /itd). Mail
+ * Wersja 11 (27.11.2026): ściągi PDF z serii „5 kroków” (najpierw /itd). Mail
  * z linkiem do ściągi na żądanie (Resend, adres bez zapisu w bazie) i osobna
  * lista maili o zmianach przepisów w Klaviyo, tylko za zgodą.
  * Wersja 10 (26.11.2026): akapit o oznaczeniu kampanii (utm) przekazywanym do
@@ -33,9 +33,9 @@ import { dokumentyUslugi } from '@/content/dokumenty/uslugi';
 const pl: Dokument = {
   href: '/prywatnosc',
   tytul: 'Polityka prywatności strony busikm.pl',
-  obowiazujeOd: '30 listopada 2026',
+  obowiazujeOd: '27 listopada 2026',
   wersja: 11,
-  ostatniaZmiana: '30 listopada 2026',
+  ostatniaZmiana: '27 listopada 2026',
   wSkrocie: [
     'Ta polityka dotyczy wyłącznie strony busikm.pl. Dane w usłudze BusiKM (aplikacja webowa i mobilna) opisuje Polityka prywatności usługi BusiKM.',
     'Danych, które zostawiasz na stronie, nie sprzedajemy nikomu.',
@@ -319,9 +319,9 @@ const pl: Dokument = {
 const en: Dokument = {
   href: '/prywatnosc',
   tytul: 'busikm.pl Website Privacy Policy',
-  obowiazujeOd: '30 November 2026',
+  obowiazujeOd: '27 November 2026',
   wersja: 11,
-  ostatniaZmiana: '30 November 2026',
+  ostatniaZmiana: '27 November 2026',
   wSkrocie: [
     'This policy covers only the busikm.pl website. Data in the BusiKM service (web and mobile app) is covered by the BusiKM Service Privacy Policy.',
     'We never sell the data you leave on the website to anyone.',
